@@ -1,8 +1,8 @@
 User-agent: *
 Disallow: 
-Disallow: /cgi-bin/
 Disallow: /javascripts/
 Disallow: /stylesheets/
+Disallow: /params.json
 Disallow: /README.md
 Disallow: /TODO
 Sitemap: http://arcan1s.github.io/sitemap.xml
