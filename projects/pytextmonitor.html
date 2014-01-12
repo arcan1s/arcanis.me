@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>py-text-monitor</title>
+
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="shortcut icon" href="/resources/icon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>py-text-monitor</h1>
+        <p class="view">Minimalistic Plasmoid script that looks like widgets in Awesome WM.</p>
+        <p class="view"><a href="#information">General information</a><br>
+                        <a href="#installation">Installation guide</a><br>
+                        <a href="#configuration">Configuration</a><br>
+                        <a href="#screenshots">Screenshots</a><br>
+                        <a href="#links">Links</a></p>
+      </header>
+      <section>
+
+<h2><a name="information" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Information</h2>
+<p align="justify">A minimalistic Plasmoid script written on <code>Python2</code>. It looks like widgets in <a href="http://awesome.naquadah.org/">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
+
+<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<ul>
+  <li>Evgeniy Alekseev</li>
+</ul>
+
+<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<ul>
+  <li>GPL</li>
+</ul>
+
+<h2><a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<ul>
+  <li><p align="justify">Download an <a href="https://github.com/arcan1s/pytextmonitor/releases">archive</a> with latest version of source files.</p></li>
+  <li><p align="justify">Extract it and install the DataEngine:</p>
+<pre><code>cd /where/your/applet/is/installed
+mkdir build && cd build
+cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
+make
+make install</code></pre>
+<p align="justify">For global isntallation type:</p>
+<pre><code>cd /where/your/applet/is/installed
+mkdir build && cd build
+cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
+make
+make install</code></pre></li>
+  <li><p align="justify">Install the Plasmoid:</p>
+<pre><code>plasmapkg -i py-text-monitor-1.5.0.plasmoid</code></pre>
+<p align="justify">For global isntallation type:</p>
+<pre><code>plasmapkg -g -i py-text-monitor-1.5.0.plasmoid</code></li>
+</ul>
+
+<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+<p align="justify">I want note that all were tested on latest version of dependencies.</p>
+<ul>
+  <li>kdebase-workspace</li>
+  <li>kdebindings-python2</li>
+  <li>automoc4 <i>(make)</i></li>
+  <li>cmake <i>(make)</i></li>
+  <li>kdebase-runtime <i>(make)</i></li>
+  <li>lm_sensors <i>(optional, for definition temperature device)</i></li>
+  <li>net-tools <i>(optional, for definition network device)</i></li>
+  <li>sysstat <i>(optional, for notification)</i></li>
+  <li>hddtemp <i>(optional, for HDD temperature monitor)</i></li>
+  <li>one of supported music player - <a href="http://amarok.kde.org/">amarok</a>, <a href="http://www.musicpd.org/">mtd</a> or <a href="http://qmmp.ylsoftware.com/">qmmp</a> <i>(optional, for music player monitor)</i>
+  <li>proprietary video driver <i>(optional, for GPU monitor)</i></li></li>
+</ul>
+
+<h2><a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
+
+<h3><a name="deconf" class="anchor" href="#deconf"><span class="octicon octicon-link"></span></a>DataEngine configuration</h3>
+<p align="justify">You may edit DataEngine configuration. It is <code>/usr/share/config/extsysmon.conf</code> or <code>$HOME/.kde4/share/config/extsysmon.conf</code> depending on the type of installation. Uncomment needed line and edit it.</p>
+
+<h4><a name="deoptions" class="anchor" href="#deoptions"><span class="octicon octicon-link"></span></a>DataEngine options</h4>
+<table>
+  <tr>
+    <th>GPUDEV</th>
+    <td><p align="justify">Set GPU device. May be <code>nvidia</code> (for nVidia), <code>ati</code> (for ATI Radeon), <code>ignore</code> or <code>auto</code>. Default is <code>auto</code>.</p></td>
+  </tr>
+  <tr>
+    <th>HDDDEV</th>
+    <td><p align="justify">Set block device for <code>hddtemp</code> comma separated or use <code>all</code>. Default is <code>all</code>.</p></td>
+  </tr>
+  <tr>
+    <th>MPDADDRESS</th>
+    <td><p align="justify">MPD host address. Default is <code>localhost</code>.</td>
+  </tr>
+  <tr>
+    <th>MPDPORT</th>
+    <td><p align="justify">MPD host port. Default is <code>6600</code>.</td>
+  </tr>
+</table>
+
+<h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Widget configuration</h3>
+<p align="justify">For edited output you must open Settings window and setup output format in lines. Label order will changed if you change slider position. HTML tags in label work normally.<br>
+<b>NOTE</b> you do not may set to show <code>$cpu</code> in swap label for example. <b><code>$cpu</code> will work only in cpu label.</b></p>
+<p align="justify">Available flags are in the table below.</p>
+<table>
+  <tr>
+    <th rowspan="4">Time label</th>
+    <td><code>$time</code></td>
+    <td><p align="justify">Time in default format. For example, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$isotime</code></td>
+    <td><p align="justify">Time in ISO format.</p></td>
+  </tr>
+  <tr>
+    <td><code>$shorttime</code></td>
+    <td><p align="justify">Time in short locale format.</p></td>
+  </tr>
+  <tr>
+    <td><code>$longtime</code></td>
+    <td><p align="justify">Time in long locale format.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="1">Uptime label</th>
+    <td><code>$uptime</code></td>
+    <td><p align="justify">System uptime, <code>---d--h--m</code>.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="2">CPU label</th>
+    <td><code>$cpu</code></td>
+    <td><p align="justify">Total load CPU, %, <code>-----</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$ccpu</code></td>
+    <td><p align="justify">Load CPU for each core, %, <code>-----</code>.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="2">CPU clock label</th>
+    <td><code>$cpucl</code></td>
+    <td><p align="justify">Average CPU clock, MHz, <code>----</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$ccpucl</code></td>
+    <td><p align="justify">CPU clock for each core, MHz, <code>----</code>.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="1">Temperature label</th>
+    <td><code>$temp</code></td>
+    <td><p align="justify">Average temperature in system, &deg;C, <code>----</code>. Temperature device must be specified.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="1">GPU label</th>
+    <td><code>$gpu</code></td>
+    <td><p align="justify">GPU usage, %, <code>-----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="1">GPU temperature label</th>
+    <td><code>$gputemp</code></td>
+    <td><p align="justify">GPU temperature, &deg;C, <code>----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="2">Memory label</th>
+    <td><code>$mem</code></td>
+    <td><p align="justify">Memory usage, %, <code>-----</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$memmb</code></td>
+    <td><p align="justify">Memory usage, MB, <code>-----</code>.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="2">Swap label</th>
+    <td><code>$swap</code></td>
+    <td><p align="justify">Swap usage, %, <code>-----</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$swapmb</code></td>
+    <td><p align="justify">Swap usage, MB, <code>-----</code>.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="1">HDD usage label</th>
+    <td><code>@@/@@</code></td>
+    <td><p align="justify">mount point (<code>/</code> in example) usage, %, <code>-----</code>. Separator for mount points list is <code>;</code>, for example <code>@@/;/home;/mnt/global@@</code></p></td>
+  </tr>
+  <tr>
+    <th rowspan="1">HDD temperature label</th>
+    <td><code>@@/dev/sda@@</code></td>
+    <td><p align="justify">HDD (<code>/dev/sda</code> in example) temperature, &deg;C, <code>----</code>. <code>hddtemp</code> must be installed.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="3">Network label</th>
+    <td><code>$net</code></td>
+    <td><p align="justify">Download and upload speed, KB/s, <code>----/----</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>@@eth0@@</code></td>
+    <td><p align="justify">Do not use automatic device definition, show only specified device (<code>eth0</code> in example).</p></td>
+  </tr>
+  <tr>
+    <td><code>$netdev</code></td>
+    <td><p align="justify">Current network device.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="2">Battery label</th>
+    <td><code>$bat</code></td>
+    <td><p align="justify">Battery charge, %, <code>---</code>. Battery device may be set below. File (<code>/sys/class/power_supply/BAT0/capacity</code> by default) must contain only battery charge in percent.</p></td>
+  </tr>
+  <tr>
+    <td><code>$ac</code></td>
+    <td><p align="justify">Status of AC device. Returns <code>(*)</code> if AC device is online or <code>( )</code> if offline. AC device may be set below. File (<code>/sys/class/power_supply/AC/online</code> by default) must contain <code>1</code> if AC is online.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="2">Music player label</th>
+    <td><code>$artist</code></td>
+    <td><p align="justify">Current song artist. One of supported music players must be installed.</p></td>
+  </tr>
+  <tr>
+    <td><code>$title</code></td>
+    <td><p align="justify">Current song title. One of supported music players must be installed.</p></td>
+  </tr>
+</table>
+
+
+<h2><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
+<p align="justify">Widget:<br>
+<a href="/resources/screenshots/pytextmonitor_widget.png"><img src="/resources/preview/pytextmonitor_widget_prev.jpg"></a><br>
+Configuration window::<br>
+<a href="/resources/screenshots/pytextmonitor_config.png"><img src="/resources/preview/pytextmonitor_config_prev.jpg"></a></p>
+
+<h2><a name="links" class="anchor" href="#links"><span class="octicon octicon-link"></span></a>Links</h2>
+<ul>
+  <li><a href="https://github.com/arcan1s/pytextmonitor">GitHub repo</a></li>
+  <li><a href="https://github.com/arcan1s/pytextmonitor/releases">Latest release</a></li>
+  <li>Plasmoid page on <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a></li>
+  <li>DataEngine page on <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773">kde-look.org</a></li>
+  <li>Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-pytextmonitor">AUR package</a></li>
+</ul>
+
+      </section>
+      <footer>
+        <p class="view"><a href="javascript:history.back()">Back</a><br>
+                        <a href="/index.html">Back to Homepage</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/javascripts/scale.fix.js"></script>
+
+  </body>
+</html>
