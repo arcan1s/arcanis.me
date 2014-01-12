@@ -5,3 +5,4 @@ Disallow: /javascripts/
 Disallow: /stylesheets/
 Disallow: /README.md
 Disallow: /TODO
+Sitemap: http://arcan1s.github.io/sitemap.xml
