@@ -143,7 +143,7 @@ Parameters:
       </section>
       <footer>
         <p class="view"><a href="javascript:history.back()">Back</a><br>
-                        <a href="/index.html">Back to Homepage</a></p>
+                        <a href="/">Back to Homepage</a></p>
         <span class='st_vkontakte'></span>
         <span class='st_facebook'></span>
         <span class='st_twitter'></span>
