@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
+Disallow: /javascripts/
+Disallow: /stylesheets/
+Disallow: /README.md
+Disallow: /TODO
