@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>git-etc</title>
+
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="shortcut icon" href="/resources/icon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>git-etc</h1>
+        <p align="justify">Simple daemon for monitoring changes in files</p>
+      </header>
+      <section>
+
+<h2><a name="information" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Information</h2>
+<p align="justify">Simple daemon that automatically creates git repository in the given directory and creates commit at the specified time interval.</p>
+<pre><code>$ git-etc --help
+Simple daemon written on BASH for monitoring changes in files
+
+Usage: git-etc [ -c | --config /etc/git-etc.conf ] [ -h | --help ] [ -v | --version ]
+
+Parametrs:
+  -c  --config      - path to configuration file
+  -h  --help        - show this help and exit
+  -v  --version     - show version and exit
+
+See "man 1 git-etc" for more details</code></pre>
+<pre><code>$ ctrlconf --help
+GUI for git-etc daemon
+
+Usage: ctrlconf [ --default ] [ -h | --help ] [ -v | --version ]
+
+Additional parametrs:
+      --default     - create default configuration file
+  -h  --help        - show this help and exit
+  -v  --version     - show version and exit
+
+See "man 1 ctrlconf" for more details</code></pre>
+
+<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<ul>
+  <li>Evgeniy Alekseev</li>
+</ul>
+
+<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<ul>
+  <li>GPLv3</li>
+</ul>
+
+<h2><a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<ul>
+  <li><p align="justify">Download an <a href="https://github.com/arcan1s/git-etc/releases">archive</a> with latest version of source files.</p></li>
+  <li><p align="justify">Extract it and install the application:</p>
+<pre><code>./install.sh "/path/to/root/package"</code></pre>
+<p align="justify">If you want install it to <code>/</code> you must run it as root, e.g.:</p>
+<pre><code>sudo ./install.sh "/path/to/root/package"</code></pre>
+<p align="justify">If no path is specified it will be installed to <code>/</code> by default.</p></li>
+</ul>
+
+<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+<p align="justify">I want note that all were tested on latest version of dependencies.</p>
+<ul>
+  <li>Bash (including awk, grep, sed)</li>
+  <li>git</li>
+  <li>python2 <i>(make)</i></li>
+  <li>systemd <i>(optional, service file)</i></li>
+  <li>python2-pyqt4 <i>(optional, GUI)</i></li>
+  <li>xterm <i>(optional, GUI)</i></li>
+</ul>
+
+<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
+<p align="justify">If you want to start the daemon into <code>/etc</code> just run</p>
+<pre><code>systemctl start git-etc</code></pre>
+<p align="justify">If you want to enable daemon autoload run</p>
+<pre><code>systemctl enable git-etc</code></pre>
+<p align="justify">But you may change path to configuration file or change parameters. To do it just copy (recommended) the source configuration file to new path</p>
+<pre><code>cp /etc/git-etc.conf /new/path/to/file/git-etc.conf</code></pre>
+<p align="justify">and edit it. Then copy the source service file to <code>/etc</code>:</p>
+<pre><code>cp /usr/lib/systemd/system/git-etc.service /etc/systemd/system/git-etc-my-profile.service</code></pre>
+<p align="justify">Replace following string in the file:</p>
+<pre><code>ExecStart=/usr/bin/git-etc -c /etc/git-etc.conf</code></pre>
+<p align="justify">to</p>
+<pre><code>ExecStart=/usr/bin/git-etc -c /new/path/to/file/git-etc.conf</code></pre>
+
+<h2><a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
+<p align="justify">All settings are stored in <code>/etc/git-etc.conf</code>. After edit them you must restart daemon</p>
+<pre><code>systemctl restart git-etc</code></pre>
+
+<h3><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
+<table>
+  <tr>
+    <th>DIRECTORY</th>
+    <td><p align="justify">Full path to working directory with observed files. Default is <code>/etc</code>.</p></td>
+  </tr>
+  <tr>
+    <th>TIMESLEEP</th>
+    <td><p align="justify">Time interval between updates. It must be integer and >= 1. Default is <code>12</code>.</p></td>
+  </tr>
+  <tr>
+    <th>IGNORELIST</th>
+    <td><p align="justify">List of files that will not be observed. Separator is ";;". May be empty.</td>
+  </tr>
+  <tr>
+    <th>FORALL</th>
+    <td><p align="justify"><code>1</code> will enable access for normal user. Default is <code>1</code>.</td>
+  </tr>
+</table>
+
+<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
+<p align="justify">Control Config (<code>ctrlconf</code>) is GUI for <code>git-etc</code> daemon written on <code>Python2/PyQt4</code>. This application allows you to view a list of commits and changes in files recorded in commit messages. Also, this application allows you to roll back to a specific commit all files (<code>git reset --hard</code>) or individual files (<code>git diff && git apply</code>). And you may merge old and new configuration files (used two branches repository - master and experimental). The application may need root privileges. Make sure that <code>sudo</code> package is installed.</p>
+
+<h3><a name="gui_configuration" class="anchor" href="#gui_configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
+<p align="justify">Just run the application and open the settings window from menu!</p>
+
+<h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
+<p align="justify">(Screenshots in Russian, but GUI has English translation.)</p>
+<p align="justify">Main window:<br>
+<a href="http://s42.radikal.ru/i095/1302/d1/c84813c8e569.png"><img src="http://s42.radikal.ru/i095/1302/d1/c84813c8e569t.jpg"></a><br>
+About window:<br>
+<a href="http://i066.radikal.ru/1302/30/a384c0fe84f8.png"><img src="http://i066.radikal.ru/1302/30/a384c0fe84f8t.jpg"></a><br>
+Commit changes window:<br>
+<a href="http://s005.radikal.ru/i210/1302/7d/0b0a7009ef14.png"><img src="http://s005.radikal.ru/i210/1302/7d/0b0a7009ef14t.jpg"></a><br>
+Merging window:<br>
+<a href="http://s59.radikal.ru/i163/1302/22/b4814c47aa29.png"><img src="http://s59.radikal.ru/i163/1302/22/b4814c47aa29t.jpg"></a><br>
+Roll back window:<br>
+<a href="http://s017.radikal.ru/i408/1302/88/fb42c8bd8659.png"><img src="http://s017.radikal.ru/i408/1302/88/fb42c8bd8659t.jpg"></a></p>
+
+<h2><a name="links" class="anchor" href="#links"><span class="octicon octicon-link"></span></a>Links</h2>
+<ul>
+  <li><a href="https://github.com/arcan1s/git-etc">GitHub repo</a></li>
+  <li><a href="https://github.com/arcan1s/git-etc/releases">Latest release</a></li>
+  <li>Archlinux <a href="https://aur.archlinux.org/packages/git-etc">AUR package</a></li>
+</ul>
+
+      </section>
+      <footer>
+        <p class="view"><a href="javascript:history.back()">Back</a><br>
+                        <a href="/index.html">Back to Homepage</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/javascripts/scale.fix.js"></script>
+
+  </body>
+</html>
