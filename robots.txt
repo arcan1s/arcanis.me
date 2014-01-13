@@ -2,6 +2,7 @@ User-agent: *
 Disallow: 
 Disallow: /javascripts/
 Disallow: /stylesheets/
+Disallow: /templates/
 Disallow: /params.json
 Disallow: /README.md
 Disallow: /TODO
