@@ -12,6 +12,9 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!-- comment block -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!-- share it -->
     <script type="text/javascript">var switchTo5x=false;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">stLight.options({publisher: "70dd9cde-7276-47af-8de7-9c43883daf2b", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
@@ -140,7 +143,47 @@ Parameters:
   <li><a href="https://github.com/arcan1s/queued/releases">Latest release</a></li>
 </ul>
 
+<!-- comment block http://ivanzuzak.info/ -->
+<script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date-en-US.js"></script>
+<script type="text/javascript">
+  $("#post p").each( function(index) {
+    if (index > 0 && $.trim($(this).text()).length > 0) {
+      $(this).attr("id", "par" + index.toString());
+      var html = $(this).html();
+      $(this).html(html + " <a href='#par" + index.toString() + "'>#</a>");
+    }
+  });
+</script>
+<div id="comments">
+  <h2>Comments</h2>
+  <div id="header">
+    Want to leave a comment? Visit <a href="https://github.com/arcan1s/arcan1s.github.io/issues/4"> this post's issue page on GitHub</a> (you'll need a GitHub account).
+  </div>
+</div>
+<script type="text/javascript">
+  function loadComments(data) {
+    for (var i=0; i<data.length; i++) {
+      var cuser = data[i].user.login;
+      var cuserlink = "https://www.github.com/" + data[i].user.login;
+      var clink = "https://github.com/arcan1s/arcan1s.github.io/issues/4#issuecomment-" + data[i].url.substring(data[i].url.lastIndexOf("/")+1);
+      var cbody = data[i].body_html;
+      var cavatarlink = data[i].user.avatar_url;
+      var cdate = Date.parse(data[i].created_at).toString("yyyy-MM-dd HH:mm:ss");
+
+      $("#comments").append("<div class='comment'><div class='commentheader'><div class='commentgravatar'>" + '<img src="' + cavatarlink + '" alt="" width="20" height="20">' + "</div><a class='commentuser' href=\""+ cuserlink + "\">" + cuser + "</a><a class='commentdate' href=\"" + clink + "\">" + cdate + "</a></div><div class='commentbody'>" + cbody + "</div></div>");
+    }
+  }
+  $.ajax("https://api.github.com/repos/arcan1s/arcan1s.github.io/issues/4/comments?per_page=100", {
+    headers: {Accept: "application/vnd.github.full+json"},
+    dataType: "json",
+    success: function(msg){
+      loadComments(msg);
+   }
+  });
+</script>
+<!-- end of comment block -->
       </section>
+
       <footer>
         <p class="view"><a href="javascript:history.back()">Back</a><br>
                         <a href="/">Back to Homepage</a></p>

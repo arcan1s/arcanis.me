@@ -12,6 +12,9 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!-- comment block -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!-- share it -->
     <script type="text/javascript">var switchTo5x=false;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">stLight.options({publisher: "70dd9cde-7276-47af-8de7-9c43883daf2b", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
@@ -154,6 +157,16 @@ Roll back window:<br>
 </ul>
 
 <!-- comment block http://ivanzuzak.info/ -->
+<script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date-en-US.js"></script>
+<script type="text/javascript">
+  $("#post p").each( function(index) {
+    if (index > 0 && $.trim($(this).text()).length > 0) {
+      $(this).attr("id", "par" + index.toString());
+      var html = $(this).html();
+      $(this).html(html + " <a href='#par" + index.toString() + "'>#</a>");
+    }
+  });
+</script>
 <div id="comments">
   <h2>Comments</h2>
   <div id="header">
@@ -164,7 +177,7 @@ Roll back window:<br>
   function loadComments(data) {
     for (var i=0; i<data.length; i++) {
       var cuser = data[i].user.login;
-      var cuserlink = "https://github.com/" + data[i].user.login;
+      var cuserlink = "https://www.github.com/" + data[i].user.login;
       var clink = "https://github.com/arcan1s/arcan1s.github.io/issues/1#issuecomment-" + data[i].url.substring(data[i].url.lastIndexOf("/")+1);
       var cbody = data[i].body_html;
       var cavatarlink = data[i].user.avatar_url;
