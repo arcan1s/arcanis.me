@@ -13,21 +13,24 @@
   <loc>http://arcan1s.github.io/blog/</loc>
 </url>
 <url>
-  <loc>http://arcan1s.github.io/pages/projects</loc>
-</url>
-<url>
   <loc>http://arcan1s.github.io/pages/about</loc>
 </url>
 <url>
-  <loc>http://arcan1s.github.io/projects/git-etc</loc>
+  <loc>http://arcan1s.github.io/pages/authors</loc>
 </url>
 <url>
-  <loc>http://arcan1s.github.io/projects/queued</loc>
+  <loc>http://arcan1s.github.io/pages/projects</loc>
+</url>
+<url>
+  <loc>http://arcan1s.github.io/projects/git-etc</loc>
 </url>
 <url>
   <loc>http://arcan1s.github.io/projects/oblikuestrategies</loc>
 </url>
 <url>
   <loc>http://arcan1s.github.io/projects/pytextmonitor</loc>
+</url>
+<url>
+  <loc>http://arcan1s.github.io/projects/queued</loc>
 </url>
 </urlset>
