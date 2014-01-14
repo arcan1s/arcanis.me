@@ -115,6 +115,20 @@ pre {
   overflow-x: auto;
 }
 
+@external .codeblock;
+div.codeblock {
+  padding:8px 15px;
+  height:200px;
+  border:1px solid #e5e5e5;
+  font-family: "Liberation Mono", Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  color:#333;
+  font-size:12px;
+  background: #f8f8f8;  
+  overflow:auto;
+  display:block;
+  white-space:pre;
+}
+
 table {
   width:100%;
   border-collapse:collapse;

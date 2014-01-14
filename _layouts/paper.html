@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>About zshrc</title>
+    <title>{{ page.title }}</title>
     <meta name="author" content="Evgeniy Alekseev" />
     <meta name="description" content="arcanis' homepage" />
     <link rel="license" type="text/html" href="/LICENSE" />
 
-    <link rel="stylesheet" href="../stylesheets/styles.css">
-    <link rel="stylesheet" href="../stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="shortcut icon" href="/resources/icon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -25,68 +25,19 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>About zshrc</h1>
-        <p align="justify">13 Jan 22:02 2014<br>
-        <i>Last edit: 13 Jan 22:02 2014</i></p>
-        <p align="justify"><a href="google_tag1">#tag1</a> 
-        <a href="google_tag2">#tag2</a> 
-        <a href="google_tag3">#tag3</a></p>
+        <h1>{{ page.title }}</h1>
+        <p align="justify">{{ page.date | date_to_string }}<br>
+        <i>Last edit: {{ page.last | date_to_string }}</i></p>
+        <p align="justify">Tags: {% for tag in page.tags %}
+        <a href="https://www.google.ru/search?q={{ tag }}+site:arcan1s.github.io">{{ tag }}</a>
+        {% endfor %}</p>
       </header>
       <section>
 
-<h2><a name="title" class="anchor" href="#title"><span class="octicon octicon-link"></span></a>About zshrc</h2>
-<p align="justify">It is first paper in my blog (I think I need something here for tests =)). There are many similar articles, and I'll not be an exception. I just want to show my <code>.zshrc</code> and explain what it does and why it is needed. Also any comments or additions are welcome. It is a translated paper from Russian (<a href="http://archlinux.org.ru/forum/topic/12752/">original</a>).</p>
+<a name="" class="anchor" href="#"><span class="octicon octicon-link"></span></a>
+<p align="justify">{{ page.description }}</p>
 
-<h3><a name="prepare" class="anchor" href="#prepare"><span class="octicon octicon-link"></span></a>Prepare</h2>
-<p align="justify">First install recommended minima:</p>
-<pre><code>pacman -Sy pkgfile zsh zsh-completions zsh-syntax-highlighting</code></pre>
-<p align="justify"><a href="https://www.archlinux.org/packages/pkgfile/">pkgfile</a> is a very useful utility. Alo this command will install shell, additional completion and syntax highlighting.</p>
-<div class="codeblock"><pre>pacman -Sy pkgfile zsh zsh-completions zsh-syntax-highlighting
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-f
-
-f
-f
-f
-f
-f
-f
-f
-f
-f
-
-f
-f
-f
-f
-
-f
-f</pre></div>
+{{ content }}
 
 <!-- comment block -->
 <script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date-en-US.js"></script>
@@ -102,7 +53,7 @@ f</pre></div>
 <div id="comments">
   <h2>Comments</h2>
   <div id="header">
-    Want to leave a comment? Visit <a href="https://github.com/arcan1s/arcan1s.github.io/issues/$PAPER_NUM" target="_blank"> this post's issue page on GitHub</a> (you'll need a GitHub account).
+    Want to leave a comment? Visit <a href="https://github.com/arcan1s/arcan1s.github.io/issues/{{page.commentIssueId}}" target="_blank"> this post's issue page on GitHub</a> (you'll need a GitHub account).
   </div>
 </div>
 <script type="text/javascript">
@@ -110,7 +61,7 @@ f</pre></div>
     for (var i=0; i<data.length; i++) {
       var cuser = data[i].user.login;
       var cuserlink = "https://www.github.com/" + data[i].user.login;
-      var clink = "https://github.com/arcan1s/arcan1s.github.io/issues/$PAPER_NUM#issuecomment-" + data[i].url.substring(data[i].url.lastIndexOf("/")+1);
+      var clink = "https://github.com/arcan1s/arcan1s.github.io/issues/{{page.commentIssueId}}#issuecomment-" + data[i].url.substring(data[i].url.lastIndexOf("/")+1);
       var cbody = data[i].body_html;
       var cavatarlink = data[i].user.avatar_url;
       var cdate = Date.parse(data[i].created_at).toString("yyyy-MM-dd HH:mm:ss");
@@ -118,7 +69,7 @@ f</pre></div>
       $("#comments").append("<div class='comment'><div class='commentheader'><div class='commentgravatar'>" + '<img src="' + cavatarlink + '" alt="" width="20" height="20">' + "</div><a class='commentuser' href=\""+ cuserlink + "\">" + cuser + "</a><a class='commentdate' href=\"" + clink + "\">" + cdate + "</a></div><div class='commentbody'>" + cbody + "</div></div>");
     }
   }
-  $.ajax("https://api.github.com/repos/arcan1s/arcan1s.github.io/issues/$PAPER_NUM/comments?per_page=100", {
+  $.ajax("https://api.github.com/repos/arcan1s/arcan1s.github.io/issues/{{page.commentIssueId}}/comments?per_page=100", {
     headers: {Accept: "application/vnd.github.full+json"},
     dataType: "json",
     success: function(msg){
