@@ -1,74 +1,57 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>py-text-monitor</title>
-    <meta name="author" content="Evgeniy Alekseev" />
-    <meta name="description" content="arcanis' homepage" />
-    <link rel="license" type="text/html" href="/LICENSE" />
-
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
-    <link rel="shortcut icon" href="/resources/icon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!-- comment block -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!-- sharethis -->
-    <script type="text/javascript">var switchTo5x=false;</script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">stLight.options({publisher: "70dd9cde-7276-47af-8de7-9c43883daf2b", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>py-text-monitor</h1>
-        <p class="view">Minimalistic Plasmoid script that looks like widgets in Awesome WM.</p>
-        <p class="view"><a href="#information">General information</a><br>
-                        <a href="#installation">Installation guide</a><br>
-                        <a href="#configuration">Configuration</a><br>
-                        <a href="#screenshots">Screenshots</a><br>
-                        <a href="#links">Links</a></p>
-      </header>
-      <section>
-
-<h2><a name="information" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Information</h2>
+---
+layout: project
+title: py-text-monitor
+short: pytextmonitor
+commentIssueId: 3
+description: Minimalistic Plasmoid script that looks like widgets in Awesome WM
+hasgui: true
+developers:
+    - Evgeniy Alelseev
+license: GPL
+links:
+    - Plasmoid page on <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a>
+    - DataEngine page on <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773">kde-look.org</a>
+    - Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-pytextmonitor">AUR package</a>
+---
+<!-- info block -->
+<h2><a name="info" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Information</h2>
 <p align="justify">A minimalistic Plasmoid script written on <code>Python2</code>. It looks like widgets in <a href="http://awesome.naquadah.org/">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
 
 <h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
-  <li>Evgeniy Alekseev</li>
+  {% for devel in page.developers %}
+    <li>{{ devel }}</li>
+  {% endfor %}
 </ul>
 
 <h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
 <ul>
-  <li>GPL</li>
+  <li>{{ page.license }}</li>
 </ul>
+<!-- end of info block -->
 
-<h2><a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+<!-- install block -->
+<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
   <li><p align="justify">Download an <a href="https://github.com/arcan1s/pytextmonitor/releases">archive</a> with latest version of source files.</p></li>
   <li><p align="justify">Extract it and install the DataEngine:</p>
-<pre><code>cd /where/your/applet/is/installed
+<pre>cd /where/your/applet/is/installed
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
 make
-make install</code></pre>
+make install</pre>
 <p align="justify">For global isntallation type:</p>
-<pre><code>cd /where/your/applet/is/installed
+<pre>cd /where/your/applet/is/installed
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
 make
-make install</code></pre></li>
+make install</pre></li>
   <li><p align="justify">Install the Plasmoid:</p>
-<pre><code>plasmapkg -i py-text-monitor-1.5.0.plasmoid</code></pre>
+<pre>plasmapkg -i py-text-monitor-1.5.0.plasmoid</pre>
 <p align="justify">For global isntallation type:</p>
-<pre><code>plasmapkg -g -i py-text-monitor-1.5.0.plasmoid</code></li>
+<pre>plasmapkg -g -i py-text-monitor-1.5.0.plasmoid</pre></li>
 </ul>
 
 <h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
@@ -86,8 +69,15 @@ make install</code></pre></li>
   <li>one of supported music player - <a href="http://amarok.kde.org/">amarok</a>, <a href="http://www.musicpd.org/">mtd</a> or <a href="http://qmmp.ylsoftware.com/">qmmp</a> <i>(optional, for music player monitor)</i>
   <li>proprietary video driver <i>(optional, for GPU monitor)</i></li></li>
 </ul>
+<!-- end of install block -->
 
-<h2><a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
+<!-- howto block -->
+<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
+<p align="justify">Open your Plasma widgetes and select <code>Py Text Monitor</code>.</p>
+<!-- end of howto block -->
+
+<!-- config block -->
+<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
 
 <h3><a name="deconf" class="anchor" href="#deconf"><span class="octicon octicon-link"></span></a>DataEngine configuration</h3>
 <p align="justify">You may edit DataEngine configuration. It is <code>/usr/share/config/extsysmon.conf</code> or <code>$HOME/.kde4/share/config/extsysmon.conf</code> depending on the type of installation. Uncomment needed line and edit it.</p>
@@ -232,75 +222,13 @@ make install</code></pre></li>
     <td><p align="justify">Current song title. One of supported music players must be installed.</p></td>
   </tr>
 </table>
+<!-- end of config block -->
+
+<!-- gui block -->
+<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
 
 <h2><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
 <p align="justify">Widget (clickable):<br>
 <a href="/resources/screenshots/pytextmonitor_widget.png"><img src="/resources/preview/pytextmonitor_widget_prev.jpg"></a><br>
 Configuration window::<br>
 <a href="/resources/screenshots/pytextmonitor_config.png"><img src="/resources/preview/pytextmonitor_config_prev.jpg"></a></p>
-
-<h2><a name="links" class="anchor" href="#links"><span class="octicon octicon-link"></span></a>Links</h2>
-<ul>
-  <li><a href="https://github.com/arcan1s/pytextmonitor">GitHub repo</a></li>
-  <li><a href="https://github.com/arcan1s/pytextmonitor/releases">Latest release</a></li>
-  <li>Plasmoid page on <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a></li>
-  <li>DataEngine page on <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773">kde-look.org</a></li>
-  <li>Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-pytextmonitor">AUR package</a></li>
-</ul>
-
-<!-- comment block -->
-<script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date-en-US.js"></script>
-<script type="text/javascript">
-  $("#post p").each( function(index) {
-    if (index > 0 && $.trim($(this).text()).length > 0) {
-      $(this).attr("id", "par" + index.toString());
-      var html = $(this).html();
-      $(this).html(html + " <a href='#par" + index.toString() + "'>#</a>");
-    }
-  });
-</script>
-<div id="comments">
-  <h2>Comments</h2>
-  <div id="header">
-    Want to leave a comment? Visit <a href="https://github.com/arcan1s/arcan1s.github.io/issues/3" target="_blank"> this post's issue page on GitHub</a> (you'll need a GitHub account).
-  </div>
-</div>
-<script type="text/javascript">
-  function loadComments(data) {
-    for (var i=0; i<data.length; i++) {
-      var cuser = data[i].user.login;
-      var cuserlink = "https://www.github.com/" + data[i].user.login;
-      var clink = "https://github.com/arcan1s/arcan1s.github.io/issues/3#issuecomment-" + data[i].url.substring(data[i].url.lastIndexOf("/")+1);
-      var cbody = data[i].body_html;
-      var cavatarlink = data[i].user.avatar_url;
-      var cdate = Date.parse(data[i].created_at).toString("yyyy-MM-dd HH:mm:ss");
-
-      $("#comments").append("<div class='comment'><div class='commentheader'><div class='commentgravatar'>" + '<img src="' + cavatarlink + '" alt="" width="20" height="20">' + "</div><a class='commentuser' href=\""+ cuserlink + "\">" + cuser + "</a><a class='commentdate' href=\"" + clink + "\">" + cdate + "</a></div><div class='commentbody'>" + cbody + "</div></div>");
-    }
-  }
-  $.ajax("https://api.github.com/repos/arcan1s/arcan1s.github.io/issues/3/comments?per_page=100", {
-    headers: {Accept: "application/vnd.github.full+json"},
-    dataType: "json",
-    success: function(msg){
-      loadComments(msg);
-   }
-  });
-</script>
-<!-- end of comment block -->
-
-      </section>
-      <footer>
-        <p class="view"><a href="javascript:history.back()">Back</a><br>
-                        <a href="/">Back to Homepage</a></p>
-        <p><span class='st_vkontakte'></span>
-           <span class='st_facebook'></span>
-           <span class='st_twitter'></span>
-           <span class='st_googleplus'></span>
-           <span class='st_livejournal'></span><br>
-           <small>Hosted on GitHub Pages. <a href="/authors">Authors</a></small></p>
-      </footer>
-    </div>
-    <script src="/javascripts/scale.fix.js"></script>
-
-  </body>
-</html>

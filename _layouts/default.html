@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>{{ page.title }}</title>
+    <meta name="author" content="Evgeniy Alekseev" />
+    <meta name="description" content="arcanis' homepage" />
+    <link rel="license" type="text/html" href="/LICENSE" />
+
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="shortcut icon" href="/resources/icon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    {% if page.comment == true %}
+      {% include header_comment.html %}
+    {% endif %}
+    {% if page.share == true %}
+      {% include header_sharethis.html %}
+    {% endif %}
+  </head>
+
+{{ content }}
+
+{% if page.comment == true %}
+  {% include footer_comment.html %}
+{% endif %}
+
+      </section>
+      <footer>
+        {% if page.back == 1 %}
+          {% include footer_back.html %}
+        {% elsif page.back == 2 %}
+          {% include footer_fullback.html %}
+        {% endif %}
+        <p>
+        {% if page.share == true %}
+          {% include footer_sharethis.html %}
+        {% endif %}
+           <small>Hosted on GitHub Pages. <a href="/authors">Authors</a></small></p>
+      </footer>
+    </div>
+    <script src="/javascripts/scale.fix.js"></script>
+
+  </body>
+</html>

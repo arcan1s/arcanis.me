@@ -1,133 +1,33 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>$PROJECT_NAME</title>
-    <meta name="author" content="Evgeniy Alekseev" />
-    <meta name="description" content="arcanis' homepage" />
-    <link rel="license" type="text/html" href="/LICENSE" />
-
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
-    <link rel="shortcut icon" href="/resources/icon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!-- comment block -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!-- sharethis -->
-    <script type="text/javascript">var switchTo5x=false;</script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">stLight.options({publisher: "70dd9cde-7276-47af-8de7-9c43883daf2b", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-  </head>
+---
+comment: true
+share: true
+back: 2
+layout: default
+---
   <body>
     <div class="wrapper">
       <header>
-        <h1>$PROJECT_NAME</h1>
-        <p class="view">$SHORT_DESC</p>
-        <p class="view"><a href="#information">General information</a><br>
-                        <a href="#installation">Installation guide</a><br>
-                        <a href="#configuration">Configuration</a><br>
-                        <a href="#screenshots">Screenshots</a><br>
+        <h1>{{ page.title }}</h1>
+        <p class="view">{{ page.description }}</p>
+        <p class="view"><a href="#info">General information</a><br>
+                        <a href="#install">Installation guide</a><br>
+                        <a href="#howto">How to use</a><br>
+                        <a href="#config">Configuration</a><br>
+                        {% if page.hasgui == true %}
+                          <a href="#gui">GUI</a><br>
+                          <a href="#screenshots">Screenshots</a><br>
+                        {% endif %}
                         <a href="#links">Links</a></p>
       </header>
       <section>
 
-<h2><a name="information" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Information</h2>
-
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
-<ul>
-  <li>Evgeniy Alekseev</li>
-</ul>
-
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
-<ul>
-  <li>GPL</li>
-</ul>
-
-<h2><a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
-
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
-<ul>
-  <li><p align="justify">Download an <a href="https://github.com/arcan1s/$PROJECT_NAME/releases">archive</a> with latest version of source files.</p></li>
-  <li><p align="justify">Extract it and install:</p>
-<pre><code>example command</code></pre></li>
-</ul>
-
-<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
-<p align="justify">I want note that all were tested on latest version of dependencies.</p>
-<ul>
-  <li>$DEPS</li>
-  <li>$MAKEDEPS <i>(make)</i></li>
-  <li>#OPTDEPS <i>(optional, for ...)</i></li>
-</ul>
-
-<h2><a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
-
-<h2><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
-<p align="justify"><a href="/resources/screenshots/$IMG.png"><img src="/resources/preview/$IMG.jpg"></a></p>
+{{ content }}
 
 <h2><a name="links" class="anchor" href="#links"><span class="octicon octicon-link"></span></a>Links</h2>
 <ul>
-  <li><a href="https://github.com/arcan1s/$PROJECT_NAME">GitHub repo</a></li>
-  <li><a href="https://github.com/arcan1s/$PROJECT_NAME/releases">Latest release</a></li>
+  <li><a href="https://github.com/arcan1s/{{ page.short }}">GitHub repo</a></li>
+  <li><a href="https://github.com/arcan1s/{{ page.short }}/releases">Latest release</a></li>
+  {% for link in page.links %}
+    <li>{{ link }}</li>
+  {% endfor %}
 </ul>
-
-<!-- comment block -->
-<script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date-en-US.js"></script>
-<script type="text/javascript">
-  $("#post p").each( function(index) {
-    if (index > 0 && $.trim($(this).text()).length > 0) {
-      $(this).attr("id", "par" + index.toString());
-      var html = $(this).html();
-      $(this).html(html + " <a href='#par" + index.toString() + "'>#</a>");
-    }
-  });
-</script>
-<div id="comments">
-  <h2>Comments</h2>
-  <div id="header">
-    Want to leave a comment? Visit <a href="https://github.com/arcan1s/arcan1s.github.io/issues/$PROJECT_NUM" target="_blank"> this post's issue page on GitHub</a> (you'll need a GitHub account).
-  </div>
-</div>
-<script type="text/javascript">
-  function loadComments(data) {
-    for (var i=0; i<data.length; i++) {
-      var cuser = data[i].user.login;
-      var cuserlink = "https://www.github.com/" + data[i].user.login;
-      var clink = "https://github.com/arcan1s/arcan1s.github.io/issues/$PROJECT_NUM#issuecomment-" + data[i].url.substring(data[i].url.lastIndexOf("/")+1);
-      var cbody = data[i].body_html;
-      var cavatarlink = data[i].user.avatar_url;
-      var cdate = Date.parse(data[i].created_at).toString("yyyy-MM-dd HH:mm:ss");
-
-      $("#comments").append("<div class='comment'><div class='commentheader'><div class='commentgravatar'>" + '<img src="' + cavatarlink + '" alt="" width="20" height="20">' + "</div><a class='commentuser' href=\""+ cuserlink + "\">" + cuser + "</a><a class='commentdate' href=\"" + clink + "\">" + cdate + "</a></div><div class='commentbody'>" + cbody + "</div></div>");
-    }
-  }
-  $.ajax("https://api.github.com/repos/arcan1s/arcan1s.github.io/issues/$PROJECT_NUM/comments?per_page=100", {
-    headers: {Accept: "application/vnd.github.full+json"},
-    dataType: "json",
-    success: function(msg){
-      loadComments(msg);
-   }
-  });
-</script>
-<!-- end of comment block -->
-
-      </section>
-      <footer>
-        <p class="view"><a href="javascript:history.back()">Back</a><br>
-                        <a href="/">Back to Homepage</a></p>
-        <p><span class='st_vkontakte'></span>
-           <span class='st_facebook'></span>
-           <span class='st_twitter'></span>
-           <span class='st_googleplus'></span>
-           <span class='st_livejournal'></span><br>
-           <small>Hosted on GitHub Pages. <a href="/authors">Authors</a></small></p>
-      </footer>
-    </div>
-    <script src="/javascripts/scale.fix.js"></script>
-
-  </body>
-</html>

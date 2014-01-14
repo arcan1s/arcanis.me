@@ -1,44 +1,19 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>queued</title>
-    <meta name="author" content="Evgeniy Alekseev" />
-    <meta name="description" content="arcanis' homepage" />
-    <link rel="license" type="text/html" href="/LICENSE" />
-
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
-    <link rel="shortcut icon" href="/resources/icon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!-- comment block -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!-- sharethis -->
-    <script type="text/javascript">var switchTo5x=false;</script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">stLight.options({publisher: "70dd9cde-7276-47af-8de7-9c43883daf2b", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>queued</h1>
-        <p class="view">Daemon for starting jobs to queue of calculations</p>
-        <p class="view"><a href="#information">General information</a><br>
-                        <a href="#installation">Installation guide</a><br>
-                        <a href="#howto">How to use</a><br>
-                        <a href="#adding">Adding a job</a><br>
-                        <a href="#configuration">Configuration</a><br>
-                        <a href="#links">Links</a></p>
-      </header>
-      <section>
-
-<h2><a name="information" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Information</h2>
+---
+layout: project
+title: queued
+short: queued
+commentIssueId: 4
+description: Daemon for starting jobs to queue of calculations
+hasgui: false
+developers:
+    - Evgeniy Alelseev
+license: GPLv3
+links:
+---
+<!-- info block -->
+<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
 <p align="justify">Daemon for starting jobs to queue of calculations. It was written as proof-of-concept.</p>
-<pre><code>$ queued --help
+<pre>$ queued --help
 Simple daemon written on BASH for starting jobs to queue of calculations
 
 Usage: queued [ -c /etc/queued.conf ] [ -v | --version ] [ -h | --help ]
@@ -46,35 +21,39 @@ Parametrs:
   -c               PATH     - path to configuration file. Default is '/etc/queued.conf'
 
   -v   --version            - show version and exit
-  -h   --help               - show this help and exit</code></pre>
-<pre><code>$ add_queued --help
+  -h   --help               - show this help and exit</pre>
+<pre>$ add_queued --help
 add_queued [ -c /etc/queued.conf ] [ -p NUM ] [ -u USER ] [ -h | --help ] /path/to/script
 
 Parameters:
     -c               PATH     - path to configuration file. Default is '/etc/queued.conf'
     -p               NUM      - job priority
     -u               USER     - username
-    -h   --help               - show this help and exit</code></pre>
+    -h   --help               - show this help and exit</pre>
 
 <h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
-  <li>Evgeniy Alekseev</li>
+  {% for devel in page.developers %}
+    <li>{{ devel }}</li>
+  {% endfor %}
 </ul>
 
 <h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
 <ul>
-  <li>GPLv3</li>
+  <li>{{ page.license }}</li>
 </ul>
+<!-- end of info block -->
 
-<h2><a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+<!-- install block -->
+<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
   <li><p align="justify">Download an <a href="https://github.com/arcan1s/queued/releases">archive</a> with latest version of source files.</p></li>
   <li><p align="justify">Extract it and install the application:</p>
-<pre><code>./install.sh "/path/to/root/package"</code></pre>
+<pre>./install.sh "/path/to/root/package"</pre>
 <p align="justify">If you want install it to <code>/</code> you must run it as root, e.g.:</p>
-<pre><code>sudo ./install.sh "/path/to/root/package"</code></pre>
+<pre>sudo ./install.sh "/path/to/root/package"</pre>
 <p align="justify">If no path is specified it will be installed to <code>/</code> by default.</p></li>
 </ul>
 
@@ -84,20 +63,22 @@ Parameters:
   <li>Bash (including awk, grep, sed)</li>
   <li>systemd <i>(optional, service file)</i></li>
 </ul>
+<!-- end of install block -->
 
+<!-- howto block -->
 <h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
 <p align="justify">If you want to start the daemon just run</p>
-<pre><code>systemctl start queued</code></pre>
+<pre>systemctl start queued</pre>
 <p align="justify">If you want to enable daemon autoload run</p>
-<pre><code>systemctl enable queued</code></pre>
+<pre>systemctl enable queued</pre>
 <p align="justify">But you may change path to configuration file or change parameters. To do it just copy (recommended) the source configuration file to new path</p>
-<pre><code>cp /etc/queued.conf /path/to/new/queued.conf</code></pre>
+<pre>cp /etc/queued.conf /path/to/new/queued.conf</pre>
 <p align="justify">and edit it. Then copy the source service file to <code>/etc</code>:</p>
-<pre><code>cp /usr/lib/systemd/system/queued.service /etc/systemd/system/queued-my-profile.service</code></pre>
+<pre>cp /usr/lib/systemd/system/queued.service /etc/systemd/system/queued-my-profile.service</pre>
 <p align="justify">Replace following string in the file:</p>
-<pre><code>ExecStart=/usr/bin/queued</code></pre>
+<pre>ExecStart=/usr/bin/queued</pre>
 <p align="justify">to</p>
-<pre><code>ExecStart=/usr/bin/queued -c /path/to/new/queued.conf</code></pre>
+<pre>ExecStart=/usr/bin/queued -c /path/to/new/queued.conf</pre>
 
 <h3><a name="adding" class="anchor" href="#adding"><span class="octicon octicon-link"></span></a>Adding a job</h3>
 <ol>
@@ -110,8 +91,10 @@ Parameters:
 
 <h2><a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
 <p align="justify">All settings are stored in <code>/etc/queued.conf</code>. After edit them you must restart daemon</p>
-<pre><code>systemctl restart queued</code></pre>
+<pre>systemctl restart queued</pre>
+<!-- end of howto block -->
 
+<!-- config block -->
 <h3><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
 <table>
   <tr>
@@ -139,66 +122,7 @@ Parameters:
     <td><p align="justify">Default user. Default is <code>root</code>. This user will own created files.</td>
   </tr>
 </table>
+<!-- end of config block -->
 
-<h2><a name="links" class="anchor" href="#links"><span class="octicon octicon-link"></span></a>Links</h2>
-<ul>
-  <li><a href="https://github.com/arcan1s/queued">GitHub repo</a></li>
-  <li><a href="https://github.com/arcan1s/queued/releases">Latest release</a></li>
-</ul>
-
-<!-- comment block -->
-<script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date-en-US.js"></script>
-<script type="text/javascript">
-  $("#post p").each( function(index) {
-    if (index > 0 && $.trim($(this).text()).length > 0) {
-      $(this).attr("id", "par" + index.toString());
-      var html = $(this).html();
-      $(this).html(html + " <a href='#par" + index.toString() + "'>#</a>");
-    }
-  });
-</script>
-<div id="comments">
-  <h2>Comments</h2>
-  <div id="header">
-    Want to leave a comment? Visit <a href="https://github.com/arcan1s/arcan1s.github.io/issues/4" target="_blank"> this post's issue page on GitHub</a> (you'll need a GitHub account).
-  </div>
-</div>
-<script type="text/javascript">
-  function loadComments(data) {
-    for (var i=0; i<data.length; i++) {
-      var cuser = data[i].user.login;
-      var cuserlink = "https://www.github.com/" + data[i].user.login;
-      var clink = "https://github.com/arcan1s/arcan1s.github.io/issues/4#issuecomment-" + data[i].url.substring(data[i].url.lastIndexOf("/")+1);
-      var cbody = data[i].body_html;
-      var cavatarlink = data[i].user.avatar_url;
-      var cdate = Date.parse(data[i].created_at).toString("yyyy-MM-dd HH:mm:ss");
-
-      $("#comments").append("<div class='comment'><div class='commentheader'><div class='commentgravatar'>" + '<img src="' + cavatarlink + '" alt="" width="20" height="20">' + "</div><a class='commentuser' href=\""+ cuserlink + "\">" + cuser + "</a><a class='commentdate' href=\"" + clink + "\">" + cdate + "</a></div><div class='commentbody'>" + cbody + "</div></div>");
-    }
-  }
-  $.ajax("https://api.github.com/repos/arcan1s/arcan1s.github.io/issues/4/comments?per_page=100", {
-    headers: {Accept: "application/vnd.github.full+json"},
-    dataType: "json",
-    success: function(msg){
-      loadComments(msg);
-   }
-  });
-</script>
-<!-- end of comment block -->
-
-      </section>
-      <footer>
-        <p class="view"><a href="javascript:history.back()">Back</a><br>
-                        <a href="/">Back to Homepage</a></p>
-        <p><span class='st_vkontakte'></span>
-           <span class='st_facebook'></span>
-           <span class='st_twitter'></span>
-           <span class='st_googleplus'></span>
-           <span class='st_livejournal'></span><br>
-           <small>Hosted on GitHub Pages. <a href="/authors">Authors</a></small></p>
-      </footer>
-    </div>
-    <script src="/javascripts/scale.fix.js"></script>
-
-  </body>
-</html>
+<!-- gui block -->
+<!-- end of gui block -->
