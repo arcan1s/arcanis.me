@@ -22,11 +22,9 @@ posts:
 
     {% for post in site.posts %}
       <h1><a name="{{ post.title }}" class="anchor" href="#{{ post.title }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a></h1>
-      <p align="justify">{{ post.date | date_to_string}}</p>
+      <p align="justify"><i>{{ post.date | date_to_string}}</i></p>
       <p align="justify">{{ post.description }}</p>
-      <p align="justify">Tags: {% for tag in post.tags %}
-      <a href="https://www.google.ru/search?q={{ tag }}+site:arcan1s.github.io">{{ tag }}</a>
-      {% endfor %}</p>
+      <p align="justify"><b>Tags</b>: {{ post.tags }}</p>
     {% endfor %}
 
     <script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date-en-US.js"></script>
