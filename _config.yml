@@ -1,7 +1,7 @@
 exclude:       ['.gitignore','Gemfile','Gemfile.lock','README.md','TODO']
 permalink:     pretty
-paginate:      10
-paginate_path: 'blog/:num'
+paginate:      1
+paginate_path: '/blog/:num'
 markdown:      rdiscount
 baseurl:       /
 lsi:           false
