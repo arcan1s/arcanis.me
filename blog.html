@@ -4,14 +4,6 @@ title: arcanis' blog
 comment: false
 share: false
 back: 1
-posts:
-    - title: About zshrc
-      date: 14 January 2014
-      last: 14 January 2014
-      tags:
-          - zshrc
-          - configuration
-          - linux
 ---
   <body>
     <div class="wrapper">
@@ -26,5 +18,34 @@ posts:
       <p align="justify">{{ post.description }}</p>
       <p align="justify"><b>Tags</b>: {{ post.tags }}</p>
     {% endfor %}
+
+    {% if paginator.total_pages > 1 %}
+      <nav><ol>
+        {% if paginator.previous_page > 1 %}
+          {% capture page_url %}page{{ page }}{% endcapture%}
+        {% endif %}
+        {% if paginator.previous_page %}
+          <li><a href="/{{ page_url }}" title="Go to previous page">&laquo;</a></li>
+        {% endif %}
+        <li>
+        {% for page in (1..paginator.total_pages) %}
+          <li>
+            {% if page > 1 %}
+              {% capture page_url %}page{{ page }}{% endcapture%}
+            {% endif %}
+            {% if page == paginator.page %}
+              {{ page }}
+            {% else %}
+              <a href="/{{ page_url }}">{{ page }}</a>
+            {% endif %}
+          </li>
+        {% endfor %}
+        {% if paginator.next_page %}
+          <li>
+            <a href="/page{{ paginator.next_page }}" title="Go to next page">&raquo;</a>
+          </li>
+        {% endif %}
+      </ol></nav>
+    {% endif %}
 
     <script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date-en-US.js"></script>
