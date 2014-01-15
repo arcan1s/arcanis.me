@@ -1,0 +1,32 @@
+---
+projects:
+    - git-etc
+    - oblikuestrategies
+    - pytextmonitor
+    - queued
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.baseurl }}/</loc>
+  </url>
+  <url>
+    <loc>{{ site.baseurl }}/about/</loc>
+  </url>
+  <url>
+    <loc>{{ site.baseurl }}/authors/</loc>
+  </url>
+  <url>
+    <loc>{{ site.baseurl }}/blog/</loc>
+  </url>
+{% for post in site.posts %}
+  <url>
+    <loc>{{ site.baseurl }}{{ post.url }}</loc>
+  </url>
+{% endfor %}
+{% for proj in page.projects %}
+  <url>
+    <loc>{{ site.baseurl }}/projects/{{ proj }}/</loc>
+  </url>
+{% endfor %}
+</urlset>
