@@ -17,7 +17,7 @@ back: 1
       <h1><a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a></h1>
       <p align="justify"><i>{{ post.date | date_to_string}}</i></p>
       <p align="justify">{{ post.description }}</p>
-      <p align="justify"><b>Tags</b>: {{ post.tags }}</p>
+      <p align="justify"><b>Тэги</b>: {{ post.tags }}</p>
     {% endfor %}
 
     {% if paginator.total_pages > 1 %}
