@@ -1,1 +1,5 @@
-<p class="view"><a href="/">Back to Homepage</a></p>
+{% if page.category == "ru" %}
+  <p class="view"><a href="/ru">Домашняя страница</a></p>
+{% else %}
+  <p class="view"><a href="/">Back to Homepage</a></p>
+{% endif %}

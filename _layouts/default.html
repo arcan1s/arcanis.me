@@ -39,9 +39,13 @@
         {% if page.share == true %}
           {% include footer_sharethis.html %}
         {% endif %}
-           <small>Hosted on GitHub Pages. <a href="/authors">Authors</a></small></p>
-        <p><a href="{{ page.url }}"><img src="/resources/en.png"></a>
-        <a href="/ru{{ page.url }}"><img src="/resources/ru.png"></a></p>
+        {% if page.category == "ru" %}
+          <small>Расположено на GitHub Pages. <a href="/ru/authors">Авторы</a></small></p>
+          <p><a href="{{ page.url | replace: '/ru/', '/' }}"><img src="/resources/en.png"></a></p>
+        {% else %}
+          <small>Hosted on GitHub Pages. <a href="/authors">Authors</a></small></p>
+          <p><a href="/ru{{ page.url }}"><img src="/resources/ru.png"></a></p>
+        {% endif %}
       </footer>
     </div>
     <script src="/resources/js/scale.fix.js"></script>
