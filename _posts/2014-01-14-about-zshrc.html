@@ -10,7 +10,7 @@ commentIssueId: 5
 <h3><a name="prepare" class="anchor" href="#prepare"><span class="octicon octicon-link"></span></a>Prepare</h2>
 <p align="justify">First install recommended minima:</p>
 <pre>pacman -Sy pkgfile zsh zsh-completions zsh-syntax-highlighting</pre>
-<p align="justify"><a href="https://www.archlinux.org/packages/pkgfile/">pkgfile</a> is a very useful utility. Alo this command will install shell, additional completion and syntax highlighting.</p>
+<p align="justify"><a href="https://www.archlinux.org/packages/pkgfile/">pkgfile</a> is a very useful utility. Also this command will install shell, additional completion and syntax highlighting.</p>
 
 <h3><a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Shell configuration</h2>
 <p align="justify">All options are avaible <a href="http://zsh.sourceforge.net/Doc/Release/Options.html">here</a>.</p>
@@ -69,7 +69,7 @@ autoload zcalc</pre>
 <pre># append history
 setopt APPEND_HISTORY</pre>
 <p align="justify">Do not save dups to history file:</p>
-<pre># ignore dups in history
+<pre># ignore spaces in history
 setopt HIST_IGNORE_ALL_DUPS</pre>
 <p align="justify">...and additional spaces:</p>
 <pre># ignore dups in history
@@ -82,7 +82,7 @@ setopt HIST_REDUCE_BLANKS</pre>
 source /usr/share/doc/pkgfile/command-not-found.zsh</pre>
 
 <h3><a name="highlighting" class="anchor" href="#highlighting"><span class="octicon octicon-link"></span></a>Syntax highlighting</h2>
-<div class="codeblock"># highlighting
+<pre># highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 # brackets
@@ -125,12 +125,12 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
 # pattern example
 #ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 # root example
-#ZSH_HIGHLIGHT_STYLES[root]='bg=red'</div>
+#ZSH_HIGHLIGHT_STYLES[root]='bg=red'</pre>
 <p align="justify">In first line highlighting is turned on. Next main, brackets and pattern highlighting are turned on. Patterns are set below (<code>rm -rf *</code> in the example). Also <code>root</code> and <code>cursor</code> highlighting may be turned on. Colors syntax is understandable, <code>fg</code> is font color, <code>bg</code> is background color.</p>
 
 <h3><a name="prompt" class="anchor" href="#prompt"><span class="octicon octicon-link"></span></a>$PROMPT and $RPROMPT</h2>
 <p align="justify">The general idea is the use single <code>.zshrc</code> for root and normal user:</p>
-<div class="codeblock"># PROMPT && RPROMPT
+<pre># PROMPT && RPROMPT
 if [[ $EUID == 0 ]]; then
 # [root@host dir]#
   PROMPT="%{$fg_bold[white]%}[%{$reset_color%}\
@@ -147,9 +147,9 @@ else
 %{$fg_no_bold[green]%}%m %{$reset_color%}\
 %{$fg_bold[yellow]%}%1/%{$reset_color%}\
 %{$fg_bold[white]%}]$ %{$reset_color%}"
-fi</div>
+fi</pre>
 
-<p align="justify"><code>fg</code> is font color, <code>bg</code> is background color. <code>\_bold</code> and <code>\_no_bold</code> regulate the tint. Commands should be in <code>%{ ... %}</code> so they do not appear. Avaible colors are:</p>
+<p align="justify"><code>fg</code> is font color, <code>bg</code> is background color. <code>_bold</code> and <code>_no_bold</code> regulate the tint. Commands should be in <code>%{ ... %}</code> so they do not appear. Avaible colors are:</p>
 <pre>black
 red
 green
@@ -160,7 +160,7 @@ cyan
 white</pre>
 
 <p align="justify">Avaible variables are:</p>
-<div class="codeblock">%n  - the username
+<pre>%n  - the username
 %m  - the computer's hostname (truncated to the first period)
 %M  - the computer's hostname
 %l  - the current tty
@@ -171,10 +171,10 @@ white</pre>
 %D  - system date(YY-MM-DD)
 %d  - the current working directory
 %~  - the same as %d but if in $HOME, this will be replaced by ~
-%1/ - the same as %d but only last directory</div>
+%1/ - the same as %d but only last directory</pre>
 
 <p align="justify">RPROMPT (<code>acpi</code> package is necessary):</p>
-<div class="codeblock">precmd () {
+<pre>precmd () {
   # battery charge
   function batcharge {
     bat_perc=`acpi | awk {'print $4;'} | sed -e "s/\s//" -e "s/%.*//"`
@@ -195,7 +195,7 @@ white</pre>
 $(batcharge)\
 "%{$fg_bold[white]%}[%{$reset_color%}"\
 $returncode\
-"%{$fg_bold[white]%}]%{$reset_color%}"</div>
+"%{$fg_bold[white]%}]%{$reset_color%}"</pre>
 <p align="justify">My RPROMPT shows current time, battery change and last returned code. <code>precmd()</code> is necessary for automatic updating. The construct <code>$(if.true.false)</code> is conditional statement in <code>zsh</code>.</p>
 
 <h3><a name="aliases" class="anchor" href="#aliases"><span class="octicon octicon-link"></span></a>Aliases</h2>
@@ -208,7 +208,7 @@ $returncode\
 }</pre>
 
 <p align="justify">Here is the first group of aliases:</p>
-<div class="codeblock">## alias
+<pre>## alias
 # colored grep
 alias grep='grep --colour=auto'
 # change top to htop
@@ -224,7 +224,7 @@ alias du='show_which du && du -k --total --human-readable'
 alias less='vimpager'
 alias zless='vimpager'
 # more interactive rm
-alias rm='show_which rm && rm -I'</div>
+alias rm='show_which rm && rm -I'</pre>
 
 <p align="justify">Here are ls aliases (see <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?ls">man ls</a>):</p>
 <pre>alias ls='show_which ls && ls --color=auto'
@@ -246,7 +246,7 @@ autoload -U pick-web-browser
 alias -s {html,htm}=opera</pre>
 
 <p align="justify">Here are "sudo" aliases:</p>
-<div class="codeblock"># sudo alias
+<pre># sudo alias
 if [[ $EUID == 0 ]]; then
   alias fat32mnt='show_which fat32mnt && mount -t vfat -o codepage=866,iocharset=utf8,umask=000'
   alias synctime='show_which synctime && { ntpd -qg; hwclock -w; date; }'
@@ -264,7 +264,7 @@ else
   alias rmmod='show_which rmmod && sudo rmmod'
   alias staging-i686-build='show_which staging-i686-build && sudo staging-i686-build'
   alias staging-x86_64-build='show_which staging-x86_64-build && sudo staging-x86_64-build'
-fi</div>
+fi</pre>
 
 <p align="justify">Here are global aliases. If they are enable the command <code>cat foo g bar</code> will be equivalent the command <code>cat foo | grep bar</code>:</p>
 <pre># global alias
@@ -277,7 +277,7 @@ alias -g dn="&> /dev/null &"</pre>
 <h3><a name="functions" class="anchor" href="#functions"><span class="octicon octicon-link"></span></a>Functions</h2>
 <p align="justify">Here is a special function for <code>xrandr</code>:</p>
 
-<div class="codeblock"># function to contorl xrandr
+<pre># function to contorl xrandr
 # EXAMPLE: projctl 1024x768
 projctl () {
   if [ $1 ] ; then
@@ -296,10 +296,10 @@ projctl () {
     echo "Using default resolution"
     xrandr --output VGA1 --mode 1366x768 --output LVDS1 --mode 1366x768
   fi
-}</div>
+}</pre>
 
 <p align="justify">Unfortunately I can not remember <code>tar</code> flags thus I use special functions:</p>
-<div class="codeblock"># function to extract archives
+<pre># function to extract archives
 # EXAMPLE: unpack file
 unpack () {
   if [[ -f $1 ]]; then
@@ -347,10 +347,10 @@ pack () {
   else
     echo "'$1' is not a valid file"
   fi
-}</div>
+}</pre>
 
 <p align="justify">Here is a special function for <code>su</code>:</p>
-<div class="codeblock">su () {
+<pre>su () {
   checksu=0
   for flags in $*; do
     if [[ $flags == "-" ]]; then
@@ -363,19 +363,19 @@ pack () {
   else
     /usr/bin/su $*
   fi
-}</div>
+}</pre>
 
 <p align="justify">Functions with automatic rehash after installing/removing packages are:</p>
-<div class="codeblock">pacman () {
-  /usr/bin/sudo /usr/bin/pacman $* && echo "$*" | grep -q "S\\|R\\|U" && rehash
+<pre>pacman () {
+  /usr/bin/sudo /usr/bin/pacman $* && echo "$*" | grep -q "S\|R\|U" && rehash
 }
 yaourt () {
-  /usr/bin/yaourt $* && echo "$*" | grep -q "S\\|R\\|U" && rehash
+  /usr/bin/yaourt $* && echo "$*" | grep -q "S\|R\|U" && rehash
 }
 # for testing repo
 yatest () {
-  /usr/bin/yaourt --config /etc/pactest.conf $* && echo "$*" | grep -q "S\\|R\\|U" && rehash
-}</div>
+  /usr/bin/yaourt --config /etc/pactest.conf $* && echo "$*" | grep -q "S\|R\|U" && rehash
+}</pre>
 <p align="justify">But autocomplete for <code>yaourt -Ss</code> <a href="https://github.com/zsh-users/zsh-completions/pull/205">will require</a> root privileges.</p>
 
 <h3><a name="variables" class="anchor" href="#variables"><span class="octicon octicon-link"></span></a>Variables</h2>
