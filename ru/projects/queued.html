@@ -1,0 +1,128 @@
+---
+layout: project
+title: queued
+short: queued
+commentIssueId: 4
+description: Daemon for starting jobs to queue of calculations
+hasgui: false
+developers:
+    - Evgeniy Alelseev
+license: GPLv3
+links:
+---
+<!-- info block -->
+<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
+<p align="justify">Daemon for starting jobs to queue of calculations. It was written as proof-of-concept.</p>
+<pre>$ queued --help
+Simple daemon written on BASH for starting jobs to queue of calculations
+
+Usage: queued [ -c /etc/queued.conf ] [ -v | --version ] [ -h | --help ]
+Parametrs:
+  -c               PATH     - path to configuration file. Default is '/etc/queued.conf'
+
+  -v   --version            - show version and exit
+  -h   --help               - show this help and exit</pre>
+<pre>$ add_queued --help
+add_queued [ -c /etc/queued.conf ] [ -p NUM ] [ -u USER ] [ -h | --help ] /path/to/script
+
+Parameters:
+    -c               PATH     - path to configuration file. Default is '/etc/queued.conf'
+    -p               NUM      - job priority
+    -u               USER     - username
+    -h   --help               - show this help and exit</pre>
+
+<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<ul>
+  {% for devel in page.developers %}
+    <li>{{ devel }}</li>
+  {% endfor %}
+</ul>
+
+<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<ul>
+  <li>{{ page.license }}</li>
+</ul>
+<!-- end of info block -->
+
+<!-- install block -->
+<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<ul>
+  <li><p align="justify">Download an <a href="https://github.com/arcan1s/queued/releases">archive</a> with latest version of source files.</p></li>
+  <li><p align="justify">Extract it and install the application:</p>
+<pre>./install.sh "/path/to/root/package"</pre>
+<p align="justify">If you want install it to <code>/</code> you must run it as root, e.g.:</p>
+<pre>sudo ./install.sh "/path/to/root/package"</pre>
+<p align="justify">If no path is specified it will be installed to <code>/</code> by default.</p></li>
+</ul>
+
+<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+<p align="justify">I want note that all were tested on latest version of dependencies.</p>
+<ul>
+  <li>Bash (including awk, grep, sed)</li>
+  <li>systemd <i>(optional, service file)</i></li>
+</ul>
+<!-- end of install block -->
+
+<!-- howto block -->
+<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
+<p align="justify">If you want to start the daemon just run</p>
+<pre>systemctl start queued</pre>
+<p align="justify">If you want to enable daemon autoload run</p>
+<pre>systemctl enable queued</pre>
+<p align="justify">But you may change path to configuration file or change parameters. To do it just copy (recommended) the source configuration file to new path</p>
+<pre>cp /etc/queued.conf /path/to/new/queued.conf</pre>
+<p align="justify">and edit it. Then copy the source service file to <code>/etc</code>:</p>
+<pre>cp /usr/lib/systemd/system/queued.service /etc/systemd/system/queued-my-profile.service</pre>
+<p align="justify">Replace following string in the file:</p>
+<pre>ExecStart=/usr/bin/queued</pre>
+<p align="justify">to</p>
+<pre>ExecStart=/usr/bin/queued -c /path/to/new/queued.conf</pre>
+
+<h3><a name="adding" class="anchor" href="#adding"><span class="octicon octicon-link"></span></a>Adding a job</h3>
+<ol>
+  <li>Create shell script with the command (e.g. it have a name <code>script.sh</code>)</li>
+  <li>Create priority file (<code>script.sh.pr</code>) with the job priority if it is needed</li>
+  <li>Create user file (<code>script.sh.user</code>) with the job username if it is needed</li>
+  <li>Copy files to <code>$WORKDIR</code></li>
+</ol>
+<p align="justify">Also you may use <code>add_queued</code>.</p>
+
+<h2><a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
+<p align="justify">All settings are stored in <code>/etc/queued.conf</code>. After edit them you must restart daemon</p>
+<pre>systemctl restart queued</pre>
+<!-- end of howto block -->
+
+<!-- config block -->
+<h3><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
+<table>
+  <tr>
+    <th>WORKDIR</th>
+    <td><p align="justify">Full path to directory with source jobs. Default is <code>/var/lib/queued/work</code>. This directory must contain source scripts <code>script-name</code>, a priority file (it is not necessary) <code>script-name.pr</code> and a file with username (it is not necessary too) <code>script-name.user</code>.</p></td>
+  </tr>
+  <tr>
+    <th>JOBDIR</th>
+    <td><p align="justify">Full path to directory with running jobs. Default is <code>/var/lib/queued/job</code>. All job files will be moved here.</p></td>
+  </tr>
+  <tr>
+    <th>QUEUEFILE</th>
+    <td><p align="justify">Full path to file with queue list. Default is <code>/var/lib/queued/queue</code>.</td>
+  </tr>
+  <tr>
+    <th>PRIORITY</th>
+    <td><p align="justify">Default priority. Default is <code>0</code>. The higher the value, the higher the priority of the task.</td>
+  </tr>
+  <tr>
+    <th>SLEEPTIME</th>
+    <td><p align="justify">Time interval in minutes. Default is <code>5</code>.</td>
+  </tr>
+  <tr>
+    <th>STARTASUSER</th>
+    <td><p align="justify">Default user. Default is <code>root</code>. This user will own created files.</td>
+  </tr>
+</table>
+<!-- end of config block -->
+
+<!-- gui block -->
+<!-- end of gui block -->
