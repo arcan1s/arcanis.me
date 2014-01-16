@@ -11,13 +11,25 @@ projects:
     <loc>http://arcan1s.github.io/</loc>
   </url>
   <url>
+    <loc>http://arcan1s.github.io/ru/</loc>
+  </url>
+  <url>
     <loc>http://arcan1s.github.io/about/</loc>
+  </url>
+  <url>
+    <loc>http://arcan1s.github.io/ru/about/</loc>
   </url>
   <url>
     <loc>http://arcan1s.github.io/authors/</loc>
   </url>
   <url>
+    <loc>http://arcan1s.github.io/ru/authors/</loc>
+  </url>
+  <url>
     <loc>http://arcan1s.github.io/blog/</loc>
+  </url>
+  <url>
+    <loc>http://arcan1s.github.io/ru/blog/</loc>
   </url>
 {% for post in site.posts %}
   <url>
@@ -27,6 +39,9 @@ projects:
 {% for proj in page.projects %}
   <url>
     <loc>http://arcan1s.github.io/projects/{{ proj }}/</loc>
+  </url>
+  <url>
+    <loc>http://arcan1s.github.io/projects/ru/{{ proj }}/</loc>
   </url>
 {% endfor %}
 </urlset>
