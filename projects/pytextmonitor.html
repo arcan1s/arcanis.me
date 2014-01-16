@@ -37,21 +37,21 @@ links:
 <ul>
   <li><p align="justify">Download an <a href="https://github.com/arcan1s/pytextmonitor/releases">archive</a> with latest version of source files.</p></li>
   <li><p align="justify">Extract it and install the DataEngine:</p>
-<pre>cd /where/your/applet/is/installed
+<pre>cd /where/is/applet/
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
 make
 make install</pre>
 <p align="justify">For global isntallation type:</p>
-<pre>cd /where/your/applet/is/installed
+<pre>cd /where/is/applet/
 mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
+cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` -DCMAKE_BUILD_TYPE=Release ../
 make
-make install</pre></li>
+sudo make install</pre></li>
   <li><p align="justify">Install the Plasmoid:</p>
 <pre>plasmapkg -i py-text-monitor-1.5.0.plasmoid</pre>
 <p align="justify">For global isntallation type:</p>
-<pre>plasmapkg -g -i py-text-monitor-1.5.0.plasmoid</pre></li>
+<pre>sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid</pre></li>
 </ul>
 
 <h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
@@ -183,7 +183,7 @@ make install</pre></li>
   <tr>
     <th rowspan="1">HDD usage label</th>
     <td><code>@@/@@</code></td>
-    <td><p align="justify">mount point (<code>/</code> in example) usage, %, <code>-----</code>. Separator for mount points list is <code>;</code>, for example <code>@@/;/home;/mnt/global@@</code></p></td>
+    <td><p align="justify">Mount point (<code>/</code> in example) usage, %, <code>-----</code>. Separator for mount points list is <code>;</code>, for example <code>@@/;/home;/mnt/global@@</code></p></td>
   </tr>
   <tr>
     <th rowspan="1">HDD temperature label</th>
@@ -230,5 +230,5 @@ make install</pre></li>
 <h2><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
 <p align="justify">Widget (clickable):<br>
 <a href="/resources/screenshots/pytextmonitor_widget.png"><img src="/resources/preview/pytextmonitor_widget_prev.jpg"></a><br>
-Configuration window::<br>
+Configuration window:<br>
 <a href="/resources/screenshots/pytextmonitor_config.png"><img src="/resources/preview/pytextmonitor_config_prev.jpg"></a></p>

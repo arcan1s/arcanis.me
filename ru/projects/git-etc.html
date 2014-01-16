@@ -4,17 +4,17 @@ layout: project
 title: git-etc
 short: git-etc
 commentIssueId: 1
-description: Simple daemon for monitoring changes in files
+description: Простой демон для контроля изменений в файлах
 hasgui: true
 developers:
     - Evgeniy Alelseev
 license: GPLv3
 links:
-    - Archlinux <a href="https://aur.archlinux.org/packages/git-etc">AUR package</a>
+    - Пакет в <a href="https://aur.archlinux.org/packages/git-etc">AUR</a>
 ---
 <!-- info block -->
-<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
-<p align="justify">Simple daemon that automatically creates git repository in the given directory and creates commit at the specified time interval.</p>
+<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
+<p align="justify">Простой демон, который создает git репозиторий в указанной директории и создает коммит в указанный промежуток времени.</p>
 <pre>$ git-etc --help
 Simple daemon written on BASH for monitoring changes in files
 
@@ -38,103 +38,102 @@ Additional parametrs:
 
 See "man 1 ctrlconf" for more details</pre>
 
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h2>
+<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Установка</h2>
 
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p align="justify">Download an <a href="https://github.com/arcan1s/git-etc/releases">archive</a> with latest version of source files.</p></li>
-  <li><p align="justify">Extract it and install the application:</p>
-<pre>./install.sh "/path/to/root/package"</pre>
-<p align="justify">If you want install it to <code>/</code> you must run it as root, e.g.:</p>
-<pre>sudo ./install.sh "/path/to/root/package"</pre>
-<p align="justify">If no path is specified it will be installed to <code>/</code> by default.</p></li>
+  <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/git-etc/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p align="justify">Извлеките из него файлы и установите приложение:</p>
+<pre>./install.sh "/путь/к/корню/"</pre>
+<p align="justify">Если Вы хотите установить в <code>/</code>, Вы должны запустить это, как root:</p>
+<pre>sudo ./install.sh</pre>
+<p align="justify">Если путь не указан, пакет будет установлен в <code>/</code>.</p></li>
 </ul>
 
 <h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
-<p align="justify">I want note that all were tested on latest version of dependencies.</p>
+<p align="justify">Все было протестировано на последних версиях зависимостей.</p>
 <ul>
-  <li>Bash (including awk, grep, sed)</li>
+  <li>Bash (включая awk, grep, sed)</li>
   <li>git</li>
   <li>python2 <i>(make)</i></li>
-  <li>systemd <i>(optional, service file)</i></li>
-  <li>python2-pyqt4 <i>(optional, GUI)</i></li>
-  <li>xterm <i>(optional, GUI)</i></li>
+  <li>systemd <i>(опционально, service-файл)</i></li>
+  <li>python2-pyqt4 <i>(опционально, GUI)</i></li>
+  <li>xterm <i>(опционально, GUI)</i></li>
 </ul>
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
-<p align="justify">If you want to start the daemon into <code>/etc</code> just run</p>
+<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
+<p align="justify">Если Вы хотите запустить демон в <code>/etc</code>, просто запустите</p>
 <pre>systemctl start git-etc</pre>
-<p align="justify">If you want to enable daemon autoload run</p>
+<p align="justify">Если Вы хотите включить автозагрузку демона, запутите</p>
 <pre>systemctl enable git-etc</pre>
-<p align="justify">But you may change path to configuration file or change parameters. To do it just copy (recommended) the source configuration file to new path</p>
-<pre>cp /etc/git-etc.conf /new/path/to/file/git-etc.conf</pre>
-<p align="justify">and edit it. Then copy the source service file to <code>/etc</code>:</p>
+<p align="justify">Но Вы можете изменить путь к конфигурационному файлу или изменить параметры. Для этого, скопируйте (рекомендуется) исходный конфигурационный файл</p>
+<pre>cp /etc/git-etc.conf /новый/путь/к/git-etc.conf</pre>
+<p align="justify">и отредактируйте его. Затем скопируйте исходный service-файл в <code>/etc</code>:</p>
 <pre>cp /usr/lib/systemd/system/git-etc.service /etc/systemd/system/git-etc-my-profile.service</pre>
-<p align="justify">Replace following string in the file:</p>
+<p align="justify">Замените следующую строку в этом файле:</p>
 <pre>ExecStart=/usr/bin/git-etc -c /etc/git-etc.conf</pre>
-<p align="justify">to</p>
-<pre>ExecStart=/usr/bin/git-etc -c /new/path/to/file/git-etc.conf</pre>
+<p align="justify">на</p>
+<pre>ExecStart=/usr/bin/git-etc -c /новый/путь/к/git-etc.conf</pre>
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
-<p align="justify">All settings are stored in <code>/etc/git-etc.conf</code>. After edit them you must restart daemon</p>
+<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
+<p align="justify">Все настройки хранятся в <code>/etc/git-etc.conf</code>. После редактирования, Вы должны перезапустить демон</p>
 <pre>systemctl restart git-etc</pre>
 
 <h3><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
 <table>
   <tr>
     <th>DIRECTORY</th>
-    <td><p align="justify">Full path to working directory with observed files. Default is <code>/etc</code>.</p></td>
+    <td><p align="justify">Полный путь к рабочей директории с наблюдаемыми файлами. По умолчанию <code>/etc</code>.</p></td>
   </tr>
   <tr>
     <th>TIMESLEEP</th>
-    <td><p align="justify">Time interval between updates. It must be integer and >= 1. Default is <code>12</code>.</p></td>
+    <td><p align="justify">Промежуток времени между обновлениями, часы. Должно быть целым и >= 1. По умолчанию <code>12</code>.</p></td>
   </tr>
   <tr>
     <th>IGNORELIST</th>
-    <td><p align="justify">List of files that will not be observed. Separator is ";;". May be empty.</td>
+    <td><p align="justify">Список файлов, которые не будут наблюдаться. Разделитель ";;". Может быть пустым.</td>
   </tr>
   <tr>
     <th>FORALL</th>
-    <td><p align="justify"><code>1</code> will enable access for normal user. Default is <code>1</code>.</td>
+    <td><p align="justify"><code>1</code> включит доступ для обычного пользователя. По умолчанию <code>1</code>.</td>
   </tr>
 </table>
 <!-- end of config block -->
 
 <!-- gui block -->
-<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
-<p align="justify">Control Config (<code>ctrlconf</code>) is GUI for <code>git-etc</code> daemon written on <code>Python2/PyQt4</code>. This application allows you to view a list of commits and changes in files recorded in commit messages. Also, this application allows you to roll back to a specific commit all files (<code>git reset --hard</code>) or individual files (<code>git diff && git apply</code>). And you may merge old and new configuration files (used two branches repository - master and experimental). The application may need root privileges. Make sure that <code>sudo</code> package is installed.</p>
+<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
+<p align="justify">Control Config (<code>ctrlconf</code>) - графический интерфейс для <code>git-etc</code>, написанный на <code>Python2/PyQt4</code>. Данное приложение позволяет Вам увидеть список коммитов и изменения в файлах в данных коммитах. Также данное приложение позволит Вам откатиться на указанный коммит (все файлы, посредством <code>git reset --hard</code>, или только указанный, посредством <code>git diff && git apply</code>). Также Вы можете объединить старый и новый конфигурационные файлы (используются две ветки репозитория master и experimental). Приложение может потребовать привелегии root, убедитесь, что пакет <code>sudo</code> установлен.</p>
 
-<h3><a name="gui_configuration" class="anchor" href="#gui_configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
-<p align="justify">Just run the application and open the settings window from menu!</p>
+<h3><a name="gui_configuration" class="anchor" href="#gui_configuration"><span class="octicon octicon-link"></span></a>Настройка</h3>
+<p align="justify">Запустите приложение и откройте окно настроек из меню.</p>
 
-<h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
-<p align="justify">(Screenshots in Russian, but GUI has English translation.)</p>
-<p align="justify">Main window:<br>
+<h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
+<p align="justify">Основное окно:<br>
 <a href="/resources/screenshots/git-etc_mainwindow.png"><img src="/resources/preview/git-etc_mainwindow_prev.jpg"></a><br>
-About window:<br>
+Окно "О программе":<br>
 <a href="/resources/screenshots/git-etc_aboutwindow.png"><img src="/resources/preview/git-etc_aboutwindow_prev.jpg"></a><br>
-Commit changes window:<br>
+Окно с просмотром изменений при коммите:<br>
 <a href="/resources/screenshots/git-etc_commitwindow.png"><img src="/resources/preview/git-etc_commitwindow_prev.jpg"></a><br>
-Merging window:<br>
+Окно объединения:<br>
 <a href="/resources/screenshots/git-etc_mergingwindow.png"><img src="/resources/preview/git-etc_mergingwindow_prev.jpg"></a><br>
-Roll back window:<br>
+Окно отката:<br>
 <a href="/resources/screenshots/git-etc_rollbackwindow.png"><img src="/resources/preview/git-etc_rollbackwindow_prev.jpg"></a></p>
 <!-- end of gui block -->

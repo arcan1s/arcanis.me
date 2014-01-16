@@ -51,9 +51,9 @@ Parameters:
 <ul>
   <li><p align="justify">Download an <a href="https://github.com/arcan1s/queued/releases">archive</a> with latest version of source files.</p></li>
   <li><p align="justify">Extract it and install the application:</p>
-<pre>./install.sh "/path/to/root/package"</pre>
+<pre>./install.sh "/path/to/root/"</pre>
 <p align="justify">If you want install it to <code>/</code> you must run it as root, e.g.:</p>
-<pre>sudo ./install.sh "/path/to/root/package"</pre>
+<pre>sudo ./install.sh</pre>
 <p align="justify">If no path is specified it will be installed to <code>/</code> by default.</p></li>
 </ul>
 
@@ -82,10 +82,10 @@ Parameters:
 
 <h3><a name="adding" class="anchor" href="#adding"><span class="octicon octicon-link"></span></a>Adding a job</h3>
 <ol>
-  <li>Create shell script with the command (e.g. it have a name <code>script.sh</code>)</li>
-  <li>Create priority file (<code>script.sh.pr</code>) with the job priority if it is needed</li>
-  <li>Create user file (<code>script.sh.user</code>) with the job username if it is needed</li>
-  <li>Copy files to <code>$WORKDIR</code></li>
+  <li>Create shell script with the command (e.g. it have a name <code>script.sh</code>).</li>
+  <li>Create priority file (<code>script.sh.pr</code>) with the job priority if it is needed.</li>
+  <li>Create user file (<code>script.sh.user</code>) with the job username if it is needed.</li>
+  <li>Copy files to <code>$WORKDIR</code>.</li>
 </ol>
 <p align="justify">Also you may use <code>add_queued</code>.</p>
 

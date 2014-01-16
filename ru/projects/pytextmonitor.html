@@ -4,232 +4,232 @@ layout: project
 title: py-text-monitor
 short: pytextmonitor
 commentIssueId: 3
-description: Minimalistic Plasmoid script that looks like widgets in Awesome WM
+description: Минималистичный плазмоид, который выглядит, как виджеты в Awesome WM
 hasgui: true
 developers:
     - Evgeniy Alelseev
 license: GPL
 links:
-    - Plasmoid page on <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a>
-    - DataEngine page on <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773">kde-look.org</a>
-    - Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-pytextmonitor">AUR package</a>
+    - Страница плазмоида на <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a>
+    - Страница DataEngine на <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773">kde-look.org</a>
+    - Пакет в <a href="https://aur.archlinux.org/packages/kdeplasma-applets-pytextmonitor">AUR</a>
 ---
 <!-- info block -->
-<h2><a name="info" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Information</h2>
-<p align="justify">A minimalistic Plasmoid script written on <code>Python2</code>. It looks like widgets in <a href="http://awesome.naquadah.org/">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
+<h2><a name="info" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Информация</h2>
+<p align="justify">Минималистичный пламоид, написанный на <code>Python2</code>. Он выглядит, как виджеты в <a href="http://awesome.naquadah.org/">Awesome WM</a>. Мой плазмоид хорошо и легко настраивается и не засоряет Ваш KDE. Также данный пакет имеет дополнительный <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines">DataEngine</a>, который написан на <code>CPP</code> (старые версии были написаны на <code>Python2</code>).</p>
 
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h2>
+<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Установка</h2>
 
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p align="justify">Download an <a href="https://github.com/arcan1s/pytextmonitor/releases">archive</a> with latest version of source files.</p></li>
-  <li><p align="justify">Extract it and install the DataEngine:</p>
-<pre>cd /where/your/applet/is/installed
+  <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/pytextmonitor/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p align="justify">Извлеките из него файлы и установите DataEngine:</p>
+<pre>cd /путь/к/извлеченным/файлам/
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
 make
 make install</pre>
-<p align="justify">For global isntallation type:</p>
-<pre>cd /where/your/applet/is/installed
+<p align="justify">Для глобальной установки наберите:</p>
+<pre>cd /путь/к/извлеченным/файлам/
 mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
+cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` -DCMAKE_BUILD_TYPE=Release ../
 make
-make install</pre></li>
-  <li><p align="justify">Install the Plasmoid:</p>
+sudo make install</pre></li>
+  <li><p align="justify">Установите плазмоид:</p>
 <pre>plasmapkg -i py-text-monitor-1.5.0.plasmoid</pre>
-<p align="justify">For global isntallation type:</p>
-<pre>plasmapkg -g -i py-text-monitor-1.5.0.plasmoid</pre></li>
+<p align="justify">Для глобальной установки наберите:</p>
+<pre>sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid</pre></li>
 </ul>
 
-<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
-<p align="justify">I want note that all were tested on latest version of dependencies.</p>
+<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
+<p align="justify">Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>kdebase-workspace</li>
   <li>kdebindings-python2</li>
   <li>automoc4 <i>(make)</i></li>
   <li>cmake <i>(make)</i></li>
   <li>kdebase-runtime <i>(make)</i></li>
-  <li>lm_sensors <i>(optional, for definition temperature device)</i></li>
-  <li>net-tools <i>(optional, for definition network device)</i></li>
-  <li>sysstat <i>(optional, for notification)</i></li>
-  <li>hddtemp <i>(optional, for HDD temperature monitor)</i></li>
-  <li>one of supported music player - <a href="http://amarok.kde.org/">amarok</a>, <a href="http://www.musicpd.org/">mtd</a> or <a href="http://qmmp.ylsoftware.com/">qmmp</a> <i>(optional, for music player monitor)</i>
-  <li>proprietary video driver <i>(optional, for GPU monitor)</i></li></li>
+  <li>lm_sensors <i>(опционально, для определения температурного устройства)</i></li>
+  <li>net-tools <i>(опционально, для определения интернет устройства)</i></li>
+  <li>sysstat <i>(опционально, для уведомлений)</i></li>
+  <li>hddtemp <i>(опционально, для контроля за температурой HDD)</i></li>
+  <li>один из поддерживаемых музыкальных плееров - <a href="http://amarok.kde.org/">amarok</a>, <a href="http://www.musicpd.org/">mtd</a> или <a href="http://qmmp.ylsoftware.com/">qmmp</a> <i>(опционально, для контроля за музыкальным плеером)</i>
+  <li>проприетарный видеодрайвер <i>(опционально, для контроля за GPU)</i></li></li>
 </ul>
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
-<p align="justify">Open your Plasma widgetes and select <code>Py Text Monitor</code>.</p>
+<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
+<p align="justify">Откройте список виджетов Plasma и выберете <code>Py Text Monitor</code>.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
+<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
 
-<h3><a name="deconf" class="anchor" href="#deconf"><span class="octicon octicon-link"></span></a>DataEngine configuration</h3>
-<p align="justify">You may edit DataEngine configuration. It is <code>/usr/share/config/extsysmon.conf</code> or <code>$HOME/.kde4/share/config/extsysmon.conf</code> depending on the type of installation. Uncomment needed line and edit it.</p>
+<h3><a name="deconf" class="anchor" href="#deconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h3>
+<p align="justify">Вы можете отредактировать настройки DataEngine, которые хранятся в <code>/usr/share/config/extsysmon.conf</code> или <code>$HOME/.kde4/share/config/extsysmon.conf</code> в зависимости от типа установки. Раскомментируйте необходимые строчки и отредактируйте их.</p>
 
-<h4><a name="deoptions" class="anchor" href="#deoptions"><span class="octicon octicon-link"></span></a>DataEngine options</h4>
+<h4><a name="deoptions" class="anchor" href="#deoptions"><span class="octicon octicon-link"></span></a>Опции DataEngine</h4>
 <table>
   <tr>
     <th>GPUDEV</th>
-    <td><p align="justify">Set GPU device. May be <code>nvidia</code> (for nVidia), <code>ati</code> (for ATI Radeon), <code>ignore</code> or <code>auto</code>. Default is <code>auto</code>.</p></td>
+    <td><p align="justify">Устанавливает тип GPU. Может быть <code>nvidia</code> (для nVidia), <code>ati</code> (для ATI Radeon), <code>ignore</code> или <code>auto</code>. По умолчанию <code>auto</code>.</p></td>
   </tr>
   <tr>
     <th>HDDDEV</th>
-    <td><p align="justify">Set block device for <code>hddtemp</code> comma separated or use <code>all</code>. Default is <code>all</code>.</p></td>
+    <td><p align="justify">Устанавливает блочное устройство для <code>hddtemp</code> через запятую или <code>all</code> для всех возможных. По умолчанию <code>all</code>.</p></td>
   </tr>
   <tr>
     <th>MPDADDRESS</th>
-    <td><p align="justify">MPD host address. Default is <code>localhost</code>.</td>
+    <td><p align="justify">Адрес MPD хоста. По умолчанию <code>localhost</code>.</td>
   </tr>
   <tr>
     <th>MPDPORT</th>
-    <td><p align="justify">MPD host port. Default is <code>6600</code>.</td>
+    <td><p align="justify">Адрес MPD хоста. По умолчанию <code>6600</code>.</td>
   </tr>
 </table>
 
-<h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Widget configuration</h3>
-<p align="justify">For edited output you must open Settings window and setup output format in lines. Label order will changed if you change slider position. HTML tags in label work normally.<br>
-<b>NOTE</b> you do not may set to show <code>$cpu</code> in swap label for example. <b><code>$cpu</code> will work only in cpu label.</b></p>
-<p align="justify">Available flags are in the table below.</p>
+<h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Настройка виджета</h3>
+<p align="justify">Для настройки внешнего вида Вы должны открыть окно настроек и установить требуемый формат. Порядок меток изменится, если Вы измените положение слайдера. В метках работают HTML тэги.<br>
+<b>ЗАМЕЧАНИЕ</b> Вы не можете, например, заставить его показывать Вам <code>$cpu</code> в метка swap. <b><code>$cpu</code> будет работать только в метке cpu.</b></p>
+<p align="justify">Доступные флаги в таблице ниже.</p>
 <table>
   <tr>
-    <th rowspan="4">Time label</th>
+    <th rowspan="4">Время</th>
     <td><code>$time</code></td>
-    <td><p align="justify">Time in default format. For example, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
+    <td><p align="justify">Время в стандартном формате. Например, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
   </tr>
   <tr>
     <td><code>$isotime</code></td>
-    <td><p align="justify">Time in ISO format.</p></td>
+    <td><p align="justify">Время в формате ISO.</p></td>
   </tr>
   <tr>
     <td><code>$shorttime</code></td>
-    <td><p align="justify">Time in short locale format.</p></td>
+    <td><p align="justify">Время в коротком формате локали.</p></td>
   </tr>
   <tr>
     <td><code>$longtime</code></td>
-    <td><p align="justify">Time in long locale format.</p></td>
+    <td><p align="justify">Время в длинном формате локали.</p></td>
   </tr>
   <tr>
-    <th rowspan="1">Uptime label</th>
+    <th rowspan="1">Аптайм</th>
     <td><code>$uptime</code></td>
-    <td><p align="justify">System uptime, <code>---d--h--m</code>.</p></td>
+    <td><p align="justify">Системный аптайм, <code>---d--h--m</code>.</p></td>
   </tr>
   <tr>
-    <th rowspan="2">CPU label</th>
+    <th rowspan="2">CPU</th>
     <td><code>$cpu</code></td>
-    <td><p align="justify">Total load CPU, %, <code>-----</code>.</p></td>
+    <td><p align="justify">Полная загрузка CPU, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$ccpu</code></td>
-    <td><p align="justify">Load CPU for each core, %, <code>-----</code>.</p></td>
+    <td><p align="justify">Загрузка CPU для каждого ядра, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
-    <th rowspan="2">CPU clock label</th>
+    <th rowspan="2">Частота CPU</th>
     <td><code>$cpucl</code></td>
-    <td><p align="justify">Average CPU clock, MHz, <code>----</code>.</p></td>
+    <td><p align="justify">Средняя частота CPU, МГц, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$ccpucl</code></td>
-    <td><p align="justify">CPU clock for each core, MHz, <code>----</code>.</p></td>
+    <td><p align="justify">Частота CPU для каждого ядра, МГц, <code>----</code>.</p></td>
   </tr>
   <tr>
-    <th rowspan="1">Temperature label</th>
+    <th rowspan="1">Температура</th>
     <td><code>$temp</code></td>
-    <td><p align="justify">Average temperature in system, &deg;C, <code>----</code>. Temperature device must be specified.</p></td>
+    <td><p align="justify">Средняя температура в системе, &deg;C, <code>----</code>. Устройство должно быть указано.</p></td>
   </tr>
   <tr>
-    <th rowspan="1">GPU label</th>
+    <th rowspan="1">GPU</th>
     <td><code>$gpu</code></td>
-    <td><p align="justify">GPU usage, %, <code>-----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</p></td>
+    <td><p align="justify">Использование GPU, %, <code>-----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</p></td>
   </tr>
   <tr>
-    <th rowspan="1">GPU temperature label</th>
+    <th rowspan="1">Температура GPU</th>
     <td><code>$gputemp</code></td>
-    <td><p align="justify">GPU temperature, &deg;C, <code>----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</p></td>
+    <td><p align="justify">Температура GPU, &deg;C, <code>----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</p></td>
   </tr>
   <tr>
-    <th rowspan="2">Memory label</th>
+    <th rowspan="2">Память</th>
     <td><code>$mem</code></td>
-    <td><p align="justify">Memory usage, %, <code>-----</code>.</p></td>
+    <td><p align="justify">Использование памяти, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$memmb</code></td>
-    <td><p align="justify">Memory usage, MB, <code>-----</code>.</p></td>
+    <td><p align="justify">Использование памяти, MB, <code>-----</code>.</p></td>
   </tr>
   <tr>
-    <th rowspan="2">Swap label</th>
+    <th rowspan="2">Swap</th>
     <td><code>$swap</code></td>
-    <td><p align="justify">Swap usage, %, <code>-----</code>.</p></td>
+    <td><p align="justify">Использование swap, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$swapmb</code></td>
-    <td><p align="justify">Swap usage, MB, <code>-----</code>.</p></td>
+    <td><p align="justify">Использование swap, MB, <code>-----</code>.</p></td>
   </tr>
   <tr>
-    <th rowspan="1">HDD usage label</th>
+    <th rowspan="1">HDD</th>
     <td><code>@@/@@</code></td>
-    <td><p align="justify">mount point (<code>/</code> in example) usage, %, <code>-----</code>. Separator for mount points list is <code>;</code>, for example <code>@@/;/home;/mnt/global@@</code></p></td>
+    <td><p align="justify">Занятость точки монтирования (<code>/</code> в примере), %, <code>-----</code>. Разделитель <code>;</code>, например <code>@@/;/home;/mnt/global@@</code></p></td>
   </tr>
   <tr>
-    <th rowspan="1">HDD temperature label</th>
+    <th rowspan="1">Температура HDD</th>
     <td><code>@@/dev/sda@@</code></td>
-    <td><p align="justify">HDD (<code>/dev/sda</code> in example) temperature, &deg;C, <code>----</code>. <code>hddtemp</code> must be installed.</p></td>
+    <td><p align="justify">Температура HDD (<code>/dev/sda</code> в примере), &deg;C, <code>----</code>. <code>hddtemp</code> должен быть установлен.</p></td>
   </tr>
   <tr>
-    <th rowspan="3">Network label</th>
+    <th rowspan="3">Сеть</th>
     <td><code>$net</code></td>
-    <td><p align="justify">Download and upload speed, KB/s, <code>----/----</code>.</p></td>
+    <td><p align="justify">Скорость загрузки и отдачи, KB/s, <code>----/----</code>.</p></td>
   </tr>
   <tr>
     <td><code>@@eth0@@</code></td>
-    <td><p align="justify">Do not use automatic device definition, show only specified device (<code>eth0</code> in example).</p></td>
+    <td><p align="justify">Не использовать автоматическое определение устройства, показывать только данные по указанному устройству (<code>eth0</code> в примере).</p></td>
   </tr>
   <tr>
     <td><code>$netdev</code></td>
-    <td><p align="justify">Current network device.</p></td>
+    <td><p align="justify">Текущее устройство.</p></td>
   </tr>
   <tr>
-    <th rowspan="2">Battery label</th>
+    <th rowspan="2">Батарея</th>
     <td><code>$bat</code></td>
-    <td><p align="justify">Battery charge, %, <code>---</code>. Battery device may be set below. File (<code>/sys/class/power_supply/BAT0/capacity</code> by default) must contain only battery charge in percent.</p></td>
+    <td><p align="justify">Заряд батареи, %, <code>---</code>. Устройство может быть указано ниже. Файл (<code>/sys/class/power_supply/BAT0/capacity</code> по умолчанию) должен содержать только заряд батареи в %.</p></td>
   </tr>
   <tr>
     <td><code>$ac</code></td>
-    <td><p align="justify">Status of AC device. Returns <code>(*)</code> if AC device is online or <code>( )</code> if offline. AC device may be set below. File (<code>/sys/class/power_supply/AC/online</code> by default) must contain <code>1</code> if AC is online.</p></td>
+    <td><p align="justify">Статус зарядного устройства. Возвращает <code>(*)</code>, если устройство подключено, или <code>( )</code>, если нет. Устройство может быть указано ниже. Файл (<code>/sys/class/power_supply/AC/online</code> по умолчанию) должен содержать <code>1</code>, если устройство подключено.</p></td>
   </tr>
   <tr>
-    <th rowspan="2">Music player label</th>
+    <th rowspan="2">Музыкальный плеер</th>
     <td><code>$artist</code></td>
-    <td><p align="justify">Current song artist. One of supported music players must be installed.</p></td>
+    <td><p align="justify">Исполнитель текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
   </tr>
   <tr>
     <td><code>$title</code></td>
-    <td><p align="justify">Current song title. One of supported music players must be installed.</p></td>
+    <td><p align="justify">Название текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
   </tr>
 </table>
 <!-- end of config block -->
 
 <!-- gui block -->
-<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
+<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
 
-<h2><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
-<p align="justify">Widget (clickable):<br>
+<h2><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h2>
+<p align="justify">Виджет (кликабельно):<br>
 <a href="/resources/screenshots/pytextmonitor_widget.png"><img src="/resources/preview/pytextmonitor_widget_prev.jpg"></a><br>
-Configuration window::<br>
+Окно настроек:<br>
 <a href="/resources/screenshots/pytextmonitor_config.png"><img src="/resources/preview/pytextmonitor_config_prev.jpg"></a></p>

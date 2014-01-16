@@ -1,7 +1,7 @@
 ---
 category: ru
 layout: default
-title: arcanis' blog
+title: Блог
 comment: false
 share: false
 back: 1
@@ -22,9 +22,9 @@ back: 1
 
     {% if paginator.total_pages > 1 %}
       {% if paginator.previous_page %}
-        <a href="/ru{{ paginator.previous_page_path }}">&laquo; Prev</a>
+        <a href="/ru{{ paginator.previous_page_path }}">&laquo; Предыдущая</a>
       {% else %}
-        <span>&laquo; Prev</span>
+        <span>&laquo; Предыдущая</span>
       {% endif %}
 
       {% for page in (1..paginator.total_pages) %}
@@ -38,9 +38,9 @@ back: 1
       {% endfor %}
 
       {% if paginator.next_page %}
-        <a href="/ru{{ paginator.next_page_path }}">Next &raquo;</a>
+        <a href="/ru{{ paginator.next_page_path }}">Следующая &raquo;</a>
       {% else %}
-        <span>Next &raquo;</span>
+        <span>Следующая &raquo;</span>
       {% endif %}
     {% endif %}
 

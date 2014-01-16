@@ -57,9 +57,9 @@ See "man 1 ctrlconf" for more details</pre>
 <ul>
   <li><p align="justify">Download an <a href="https://github.com/arcan1s/git-etc/releases">archive</a> with latest version of source files.</p></li>
   <li><p align="justify">Extract it and install the application:</p>
-<pre>./install.sh "/path/to/root/package"</pre>
+<pre>./install.sh "/path/to/root"</pre>
 <p align="justify">If you want install it to <code>/</code> you must run it as root, e.g.:</p>
-<pre>sudo ./install.sh "/path/to/root/package"</pre>
+<pre>sudo ./install.sh</pre>
 <p align="justify">If no path is specified it will be installed to <code>/</code> by default.</p></li>
 </ul>
 
@@ -104,7 +104,7 @@ See "man 1 ctrlconf" for more details</pre>
   </tr>
   <tr>
     <th>TIMESLEEP</th>
-    <td><p align="justify">Time interval between updates. It must be integer and >= 1. Default is <code>12</code>.</p></td>
+    <td><p align="justify">Time interval between updates, hours. It must be integer and >= 1. Default is <code>12</code>.</p></td>
   </tr>
   <tr>
     <th>IGNORELIST</th>

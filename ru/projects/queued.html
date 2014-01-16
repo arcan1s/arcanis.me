@@ -4,7 +4,7 @@ layout: project
 title: queued
 short: queued
 commentIssueId: 4
-description: Daemon for starting jobs to queue of calculations
+description: Демон для запуска задач в очередь вычислений
 hasgui: false
 developers:
     - Evgeniy Alelseev
@@ -12,8 +12,8 @@ license: GPLv3
 links:
 ---
 <!-- info block -->
-<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
-<p align="justify">Daemon for starting jobs to queue of calculations. It was written as proof-of-concept.</p>
+<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
+<p align="justify">Демон для запуска задач в очередь вычислений. Был создан, как proof-of-concept.</p>
 <pre>$ queued --help
 Simple daemon written on BASH for starting jobs to queue of calculations
 
@@ -32,95 +32,95 @@ Parameters:
     -u               USER     - username
     -h   --help               - show this help and exit</pre>
 
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h2>
+<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Установка</h2>
 
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p align="justify">Download an <a href="https://github.com/arcan1s/queued/releases">archive</a> with latest version of source files.</p></li>
-  <li><p align="justify">Extract it and install the application:</p>
-<pre>./install.sh "/path/to/root/package"</pre>
-<p align="justify">If you want install it to <code>/</code> you must run it as root, e.g.:</p>
-<pre>sudo ./install.sh "/path/to/root/package"</pre>
-<p align="justify">If no path is specified it will be installed to <code>/</code> by default.</p></li>
+  <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/queued/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p align="justify">Извлеките из него файлы и установите приложение:</p>
+<pre>./install.sh "/путь/к/корню/"</pre>
+<p align="justify">Если Вы хотите установить в <code>/</code>, Вы должны запустить это, как root:</p>
+<pre>sudo ./install.sh</pre>
+<p align="justify">Если путь не указан, пакет будет установлен в <code>/</code>.</p></li>
 </ul>
 
-<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
-<p align="justify">I want note that all were tested on latest version of dependencies.</p>
+<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
+<p align="justify">Все было протестировано на последних версиях зависимостей.</p>
 <ul>
-  <li>Bash (including awk, grep, sed)</li>
-  <li>systemd <i>(optional, service file)</i></li>
+  <li>Bash (включая awk, grep, sed)</li>
+  <li>systemd <i>(опционально, service-файл)</i></li>
 </ul>
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
-<p align="justify">If you want to start the daemon just run</p>
+<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
+<p align="justify">Если Вы хотите запустить демон, просто запустите</p>
 <pre>systemctl start queued</pre>
-<p align="justify">If you want to enable daemon autoload run</p>
+<p align="justify">Если Вы хотите включить автозагрузку демона, запутите</p>
 <pre>systemctl enable queued</pre>
-<p align="justify">But you may change path to configuration file or change parameters. To do it just copy (recommended) the source configuration file to new path</p>
-<pre>cp /etc/queued.conf /path/to/new/queued.conf</pre>
-<p align="justify">and edit it. Then copy the source service file to <code>/etc</code>:</p>
+<p align="justify">Но Вы можете изменить путь к конфигурационному файлу или изменить параметры. Для этого, скопируйте (рекомендуется) исходный конфигурационный файл</p>
+<pre>cp /etc/queued.conf /новый/путь/к/queued.conf</pre>
+<p align="justify">и отредактируйте его. Затем скопируйте исходный service-файл в <code>/etc</code>:</p>
 <pre>cp /usr/lib/systemd/system/queued.service /etc/systemd/system/queued-my-profile.service</pre>
-<p align="justify">Replace following string in the file:</p>
+<p align="justify">Замените следующую строку в этом файле:</p>
 <pre>ExecStart=/usr/bin/queued</pre>
-<p align="justify">to</p>
+<p align="justify">на</p>
 <pre>ExecStart=/usr/bin/queued -c /path/to/new/queued.conf</pre>
 
-<h3><a name="adding" class="anchor" href="#adding"><span class="octicon octicon-link"></span></a>Adding a job</h3>
+<h3><a name="adding" class="anchor" href="#adding"><span class="octicon octicon-link"></span></a>Добавление задачи</h3>
 <ol>
-  <li>Create shell script with the command (e.g. it have a name <code>script.sh</code>)</li>
-  <li>Create priority file (<code>script.sh.pr</code>) with the job priority if it is needed</li>
-  <li>Create user file (<code>script.sh.user</code>) with the job username if it is needed</li>
-  <li>Copy files to <code>$WORKDIR</code></li>
+  <li>Создайте скрипт с командой (например, с именем <code>script.sh</code>).</li>
+  <li>Создайте файл с приоритетом (<code>script.sh.pr</code>) для данной задачи, если это необходимо.</li>
+  <li>Создайте файл с именем пользователя (<code>script.sh.user</code>) для данной задачи, если это необходимо</li>
+  <li>Скопируйте файлы в <code>$WORKDIR</code></li>
 </ol>
-<p align="justify">Also you may use <code>add_queued</code>.</p>
+<p align="justify">Также Вы можете воспользоваться <code>add_queued</code>.</p>
 
-<h2><a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
-<p align="justify">All settings are stored in <code>/etc/queued.conf</code>. After edit them you must restart daemon</p>
+<h2><a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Настройка</h2>
+<p align="justify">Все настройки хранятся в <code>/etc/queued.conf</code>. После редактирования, Вы должны перезапустить демон</p>
 <pre>systemctl restart queued</pre>
 <!-- end of howto block -->
 
 <!-- config block -->
-<h3><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
+<h3><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Опции</h3>
 <table>
   <tr>
     <th>WORKDIR</th>
-    <td><p align="justify">Full path to directory with source jobs. Default is <code>/var/lib/queued/work</code>. This directory must contain source scripts <code>script-name</code>, a priority file (it is not necessary) <code>script-name.pr</code> and a file with username (it is not necessary too) <code>script-name.user</code>.</p></td>
+    <td><p align="justify">Полный путь к директории с исходными файлами задач. По умолчанию <code>/var/lib/queued/work</code>. Эта директория должна содержать исходные скрипты <code>script-name</code>, файл с приоритетом (если необходимо) <code>script-name.pr</code> и файл с именем пользователя (если необходимо) <code>script-name.user</code>.</p></td>
   </tr>
   <tr>
     <th>JOBDIR</th>
-    <td><p align="justify">Full path to directory with running jobs. Default is <code>/var/lib/queued/job</code>. All job files will be moved here.</p></td>
+    <td><p align="justify">Полный путь к директории с запущенными задачами. По умолчанию <code>/var/lib/queued/job</code>. Все файлы будут перемещены сюда.</p></td>
   </tr>
   <tr>
     <th>QUEUEFILE</th>
-    <td><p align="justify">Full path to file with queue list. Default is <code>/var/lib/queued/queue</code>.</td>
+    <td><p align="justify">Полный путь к файлу с очередью вычислений. По умолчанию <code>/var/lib/queued/queue</code>.</td>
   </tr>
   <tr>
     <th>PRIORITY</th>
-    <td><p align="justify">Default priority. Default is <code>0</code>. The higher the value, the higher the priority of the task.</td>
+    <td><p align="justify">Стандартный приоритет. По умолчанию <code>0</code>. Чем выше значение, тем выше приоритет задачи.</td>
   </tr>
   <tr>
     <th>SLEEPTIME</th>
-    <td><p align="justify">Time interval in minutes. Default is <code>5</code>.</td>
+    <td><p align="justify">Интервал обновлений в минутах. По умолчанию <code>5</code>.</td>
   </tr>
   <tr>
     <th>STARTASUSER</th>
-    <td><p align="justify">Default user. Default is <code>root</code>. This user will own created files.</td>
+    <td><p align="justify">Стандартное имя пользователя. По умолчанию <code>root</code>. Именно данному пользователю будут принадлежать все созданные файлы.</td>
   </tr>
 </table>
 <!-- end of config block -->

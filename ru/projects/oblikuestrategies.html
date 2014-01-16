@@ -4,58 +4,58 @@ layout: project
 title: Oblikue strategies
 short: oblikuestrategies
 commentIssueId: 2
-description: Plasmoid that displays a random draw Oblique Strategies
+description: Плазмоид, который показывает случайные карты из Oblique Strategies
 hasgui: true
 developers:
     - Evgeniy Alelseev
 license: GPL
 links:
-    - Page on <a href="http://kde-look.org/content/show.php/oblikue-strategies?content=160503">kde-look.org</a>
-    - Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-oblikuestrategies">AUR package</a>
+    - Страница на <a href="http://kde-look.org/content/show.php/oblikue-strategies?content=160503">kde-look.org</a>
+    - Пакет в <a href="https://aur.archlinux.org/packages/kdeplasma-applets-oblikuestrategies">AUR</a>
 ---
 <!-- info block -->
-<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
-<p align="justify">Plasmoid written on <code>CPP</code> that displays a random draw from Brian Eno and Peter Schmidt's <a href="http://en.wikipedia.org/wiki/Oblique_strategies">Oblique Strategies</a>. It is <a href="http://gnome-look.org/content/show.php/Oblique+Strategies?content=78405">GNOME applet</a> fork with some of special features.</p>
+<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
+<p align="justify">Плазмоид, написанный на <code>CPP</code> который показывает случайные карты из Brian Eno и Peter Schmidt's <a href="http://en.wikipedia.org/wiki/Oblique_strategies">Oblique Strategies</a>. Это форк <a href="http://gnome-look.org/content/show.php/Oblique+Strategies?content=78405">апплета для GNOME</a> с некоторыми дополнительными фичами.</p>
 
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h2>
+<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Установка</h2>
 
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p align="justify">Download an <a href="https://github.com/arcan1s/oblikuestrategies/releases">archive</a> with latest version of source files.</p></li>
-  <li><p align="justify">Extract it and install the application. For global isntallation type:</p>
-<pre>cd /where/your/applet/is/installed
+  <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/oblikuestrategies/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p align="justify">Извлеките из него файлы и установите приложение. Для глобальной установки наберите:</p>
+<pre>cd /путь/куда/распакован/архив
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` -DCMAKE_BUILD_TYPE=Release ../
 make
 sudo make install</pre>
-<p align="justify">For local isntallation type:</p>
+<p align="justify">Для локальной:</p>
 <pre>cd /where/your/applet/is/installed
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
 make
 make install</pre></li>
-  <li><p align="justify">Restart plasma to load the applet:</p>
+  <li><p align="justify">Перезапустите plasma, чтобы загрузить апплет:</p>
 <pre>kquitapp plasma-desktop && sleep 2 && plasma-desktop</pre>
-<p align="justify">Also you might need to run <code>kbuildsycoca4</code> in order to get the <code>*.desktop</code> file recognized:</p>
+<p align="justify">Также Вам может потребоваться запустить <code>kbuildsycoca4</code>, чтобы распознать <code>*.desktop</code> файл:</p>
 <pre>kbuildsycoca4 &> /dev/null</pre></li>
 </ul>
 
-<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
-<p align="justify">I want note that all were tested on latest version of dependencies.</p>
+<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
+<p align="justify">Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>kdebase-workspace</li>
   <li>automoc4 <i>(make)</i></li>
@@ -64,21 +64,21 @@ make install</pre></li>
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
-<p align="justify">Open your Plasma widgetes and select <code>Oblikue strategies</code>.</p>
+<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
+<p align="justify">Откройте список виджетов Plasma и выберете <code>Oblikue strategies</code>.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
-<p align="justify">Right click on widget.</p>
+<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
+<p align="justify">Клик правой кнопкой по виджету.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
-<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
+<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
 
-<h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
-<p align="justify">Widget:<br>
+<h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
+<p align="justify">Виджет:<br>
 <a href="/resources/screenshots/oblikuestrategies_widget.png"><img src="/resources/preview/oblikuestrategies_widget_prev.jpg"></a><br>
-Configuration window:<br>
+Окно настроек:<br>
 <a href="/resources/screenshots/oblikuestrategies_config.png"><img src="/resources/preview/oblikuestrategies_config_prev.jpg"></a></p>
 <!-- end of gui block -->
