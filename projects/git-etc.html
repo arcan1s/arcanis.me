@@ -14,7 +14,8 @@ links:
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
 <p align="justify">Simple daemon that automatically creates git repository in the given directory and creates commit at the specified time interval.</p>
-<pre>$ git-etc --help
+{% highlight bash %}
+$ git-etc --help
 Simple daemon written on BASH for monitoring changes in files
 
 Usage: git-etc [ -c | --config /etc/git-etc.conf ] [ -h | --help ] [ -v | --version ]
@@ -24,8 +25,10 @@ Parametrs:
   -h  --help        - show this help and exit
   -v  --version     - show version and exit
 
-See "man 1 git-etc" for more details</pre>
-<pre>$ ctrlconf --help
+See "man 1 git-etc" for more details
+{% endhighlight %}
+{% highlight bash %}
+$ ctrlconf --help
 GUI for git-etc daemon
 
 Usage: ctrlconf [ --default ] [ -h | --help ] [ -v | --version ]
@@ -35,7 +38,8 @@ Additional parametrs:
   -h  --help        - show this help and exit
   -v  --version     - show version and exit
 
-See "man 1 ctrlconf" for more details</pre>
+See "man 1 ctrlconf" for more details
+{% endhighlight %}
 
 <h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
@@ -57,9 +61,13 @@ See "man 1 ctrlconf" for more details</pre>
 <ul>
   <li><p align="justify">Download an <a href="https://github.com/arcan1s/git-etc/releases">archive</a> with latest version of source files.</p></li>
   <li><p align="justify">Extract it and install the application:</p>
-<pre>./install.sh "/path/to/root"</pre>
+{% highlight bash %}
+./install.sh "/path/to/root"
+{% endhighlight %}
 <p align="justify">If you want install it to <code>/</code> you must run it as root, e.g.:</p>
-<pre>sudo ./install.sh</pre>
+{% highlight bash %}
+sudo ./install.sh
+{% endhighlight %}
 <p align="justify">If no path is specified it will be installed to <code>/</code> by default.</p></li>
 </ul>
 
@@ -78,23 +86,37 @@ See "man 1 ctrlconf" for more details</pre>
 <!-- howto block -->
 <h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
 <p align="justify">If you want to start the daemon into <code>/etc</code> just run</p>
-<pre>systemctl start git-etc</pre>
+{% highlight bash %}
+systemctl start git-etc
+{% endhighlight %}
 <p align="justify">If you want to enable daemon autoload run</p>
-<pre>systemctl enable git-etc</pre>
+{% highlight bash %}
+systemctl enable git-etc
+{% endhighlight %}
 <p align="justify">But you may change path to configuration file or change parameters. To do it just copy (recommended) the source configuration file to new path</p>
-<pre>cp /etc/git-etc.conf /new/path/to/file/git-etc.conf</pre>
+{% highlight bash %}
+cp /etc/git-etc.conf /new/path/to/file/git-etc.conf
+{% endhighlight %}
 <p align="justify">and edit it. Then copy the source service file to <code>/etc</code>:</p>
-<pre>cp /usr/lib/systemd/system/git-etc.service /etc/systemd/system/git-etc-my-profile.service</pre>
+{% highlight bash %}
+cp /usr/lib/systemd/system/git-etc.service /etc/systemd/system/git-etc-my-profile.service
+{% endhighlight %}
 <p align="justify">Replace following string in the file:</p>
-<pre>ExecStart=/usr/bin/git-etc -c /etc/git-etc.conf</pre>
+{% highlight bash %}
+ExecStart=/usr/bin/git-etc -c /etc/git-etc.conf
+{% endhighlight %}
 <p align="justify">to</p>
-<pre>ExecStart=/usr/bin/git-etc -c /new/path/to/file/git-etc.conf</pre>
+{% highlight bash %}
+ExecStart=/usr/bin/git-etc -c /new/path/to/file/git-etc.conf
+{% endhighlight %}
 <!-- end of howto block -->
 
 <!-- config block -->
 <h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
 <p align="justify">All settings are stored in <code>/etc/git-etc.conf</code>. After edit them you must restart daemon</p>
-<pre>systemctl restart git-etc</pre>
+{% highlight bash %}
+systemctl restart git-etc
+{% endhighlight %}
 
 <h3><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
 <table>

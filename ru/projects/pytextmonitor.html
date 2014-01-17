@@ -38,21 +38,29 @@ links:
 <ul>
   <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/pytextmonitor/releases">архив</a> с актуальной версией исходных файлов.</p></li>
   <li><p align="justify">Извлеките из него файлы и установите DataEngine:</p>
-<pre>cd /путь/к/извлеченным/файлам/
+{% highlight bash %}
+cd /путь/к/извлеченным/файлам/
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
 make
-make install</pre>
+make install
+{% endhighlight %}
 <p align="justify">Для глобальной установки наберите:</p>
-<pre>cd /путь/к/извлеченным/файлам/
+{% highlight bash %}
+cd /путь/к/извлеченным/файлам/
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` -DCMAKE_BUILD_TYPE=Release ../
 make
-sudo make install</pre></li>
+sudo make install
+{% endhighlight %}</li>
   <li><p align="justify">Установите плазмоид:</p>
-<pre>plasmapkg -i py-text-monitor-1.5.0.plasmoid</pre>
+{% highlight bash %}
+plasmapkg -i py-text-monitor-1.5.0.plasmoid
+{% endhighlight %}
 <p align="justify">Для глобальной установки наберите:</p>
-<pre>sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid</pre></li>
+{% highlight bash %}
+sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid
+{% endhighlight %}</li>
 </ul>
 
 <h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>

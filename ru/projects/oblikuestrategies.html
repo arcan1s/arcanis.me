@@ -37,21 +37,29 @@ links:
 <ul>
   <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/oblikuestrategies/releases">архив</a> с актуальной версией исходных файлов.</p></li>
   <li><p align="justify">Извлеките из него файлы и установите приложение. Для глобальной установки наберите:</p>
-<pre>cd /путь/куда/распакован/архив
+{% highlight bash %}
+cd /путь/куда/распакован/архив
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` -DCMAKE_BUILD_TYPE=Release ../
 make
-sudo make install</pre>
+sudo make install
+{% endhighlight %}
 <p align="justify">Для локальной:</p>
-<pre>cd /where/your/applet/is/installed
+{% highlight bash %}
+cd /where/your/applet/is/installed
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
 make
-make install</pre></li>
+make install
+{% endhighlight %}</li>
   <li><p align="justify">Перезапустите plasma, чтобы загрузить апплет:</p>
-<pre>kquitapp plasma-desktop && sleep 2 && plasma-desktop</pre>
+{% highlight bash %}
+kquitapp plasma-desktop && sleep 2 && plasma-desktop
+{% endhighlight %}
 <p align="justify">Также Вам может потребоваться запустить <code>kbuildsycoca4</code>, чтобы распознать <code>*.desktop</code> файл:</p>
-<pre>kbuildsycoca4 &> /dev/null</pre></li>
+{% highlight bash %}
+kbuildsycoca4 &> /dev/null
+{% endhighlight %}</li>
 </ul>
 
 <h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>

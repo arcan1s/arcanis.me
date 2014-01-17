@@ -11,20 +11,25 @@ commentIssueId: 5
 ---
 <h3><a name="prepare" class="anchor" href="#prepare"><span class="octicon octicon-link"></span></a>Подготовка</h2>
 <p align="justify">Сначала установите необходимый минимум:</p>
-<pre>pacman -Sy pkgfile zsh zsh-completions zsh-syntax-highlighting</pre>
+{% highlight bash %}
+pacman -Sy pkgfile zsh zsh-completions zsh-syntax-highlighting
+{% endhighlight %}
 <p align="justify"><a href="https://www.archlinux.org/packages/pkgfile/">pkgfile</a> очень полезная утилита. Данная команда также установит шелл, дополнения к нему и подсветку синтаксиса.</p>
 
 <h3><a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Настройка шелла</h2>
 <p align="justify">Все доступные опции приведены <a href="http://zsh.sourceforge.net/Doc/Release/Options.html">здесь</a>.</p>
 
 <p align="justify">Указываем файл с историей, число команд хранящихся в кэше текущего сеанса и число команд, хранящихся в файле:</p>
-<pre># history
+{% highlight bash %}
+# history
 HISTFILE=~/.zsh_history
 HISTSIZE=500000
-SAVEHIST=500000</pre>
+SAVEHIST=500000
+{% endhighlight %}
 
 <p align="justify">Я не могу запомнить все комбинации <code>Ctrl+</code>, поэтому я назначаю клавиши на их стандартное использование:</p>
-<pre># bindkeys
+{% highlight bash %}
+# bindkeys
 bindkey '^[[A'  up-line-or-search        # up arrow for back-history-search
 bindkey '^[[B'  down-line-or-search      # down arrow for fwd-history-search
 bindkey '\e[1~' beginning-of-line        # home
@@ -32,59 +37,85 @@ bindkey '\e[2~' overwrite-mode           # insert
 bindkey '\e[3~' delete-char              # del
 bindkey '\e[4~' end-of-line              # end
 bindkey '\e[5~' up-line-or-history       # page-up
-bindkey '\e[6~' down-line-or-history     # page-down</pre>
+bindkey '\e[6~' down-line-or-history     # page-down
+{% endhighlight %}
 <p align="justify">Но здесь важно, что стрелки <code>вверх</code>/<code>вниз</code> служат для навигации по истории с учетом <b>уже введенной части</b> команды. А <code>PgUp</code>/<code>PgDown</code> <b>проигнорирую</b> уже введенную часть команды.</p>
 
 <p align="justify">Автодополнение команд:</p>
-<pre># autocomplete
+{% highlight bash %}
+# autocomplete
 autoload -U compinit
 compinit
 zstyle ':completion:*' insert-tab false
-zstyle ':completion:*' max-errors 2</pre>
+zstyle ':completion:*' max-errors 2
+{% endhighlight %}
 <p align="justify">Подключается полное автодополнение команд. <code>insert-tab false</code> включит автодополнение для <b>невведенной</b> команды (не знаю, зачем). <code>max-errors</code> устанавливает максимальное число опечаток, которые могут быть исправлены.</p>
 
 <p align="justify">Приглашение:</p>
-<pre># promptinit
+{% highlight bash %}
+# promptinit
 autoload -U promptinit
-promptinit</pre>
+promptinit
+{% endhighlight %}
 
 <p align="justify">Включим цвета:</p>
-<pre># colors
+{% highlight bash %}
+# colors
 autoload -U colors
-colors</pre>
+colors
+{% endhighlight %}
 
 <p align="justify">Различные опции.</p>
 <p align="justify">Смена директории без ввода <code>cd</code>:</p>
-<pre># autocd
-setopt autocd</pre>
+{% highlight bash %}
+# autocd
+setopt autocd
+{% endhighlight %}
 <p align="justify">Корректировка опечаток (и шаблон вопроса):</p>
-<pre># correct
+{% highlight bash %}
+# correct
 setopt CORRECT_ALL
-SPROMPT="Correct '%R' to '%r' ? ([Y]es/[N]o/[E]dit/[A]bort) "</pre>
+SPROMPT="Correct '%R' to '%r' ? ([Y]es/[N]o/[E]dit/[A]bort) "
+{% endhighlight %}
 <p align="justify">Отключаем е#$%ую пищалку:</p>
-<pre># disable beeps
-unsetopt beep</pre>
+{% highlight bash %}
+# disable beeps
+unsetopt beep
+{% endhighlight %}
 <p align="justify">Включаем калькулятор:</p>
-<pre># calc
-autoload zcalc</pre>
+{% highlight bash %}
+# calc
+autoload zcalc
+{% endhighlight %}
 <p align="justify">Дополнение истории (<b>а не перезапись</b> файла):</p>
-<pre># append history
-setopt APPEND_HISTORY</pre>
+{% highlight bash %}
+# append history
+setopt APPEND_HISTORY
+{% endhighlight %}
 <p align="justify">Не сохранять дубликаты в историю:</p>
-<pre># ignore dups in history
-setopt HIST_IGNORE_ALL_DUPS</pre>
+{% highlight bash %}
+# ignore dups in history
+setopt HIST_IGNORE_ALL_DUPS
+{% endhighlight %}
 <p align="justify">...и дополнительные пробелы:</p>
-<pre># ignore spaces in history
-setopt HIST_IGNORE_SPACE</pre>
+{% highlight bash %}
+# ignore spaces in history
+setopt HIST_IGNORE_SPACE
+{% endhighlight %}
 <p align="justify">...и пустые линии тоже:</p>
-<pre># reduce blanks in history
-setopt HIST_REDUCE_BLANKS</pre>
+{% highlight bash %}
+# reduce blanks in history
+setopt HIST_REDUCE_BLANKS
+{% endhighlight %}
 <p align="justify">Включаем <code>pkgfile</code>:</p>
-<pre># pkgfile
-source /usr/share/doc/pkgfile/command-not-found.zsh</pre>
+{% highlight bash %}
+# pkgfile
+source /usr/share/doc/pkgfile/command-not-found.zsh
+{% endhighlight %}
 
 <h3><a name="highlighting" class="anchor" href="#highlighting"><span class="octicon octicon-link"></span></a>Подсветка синтаксиса</h2>
-<pre># highlighting
+{% highlight bash %}
+# highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 # brackets
@@ -127,12 +158,14 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'             # конс�
 # pattern
 #ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 # root
-#ZSH_HIGHLIGHT_STYLES[root]='bg=red'</pre>
+#ZSH_HIGHLIGHT_STYLES[root]='bg=red'
+{% endhighlight %}
 <p align="justify">В первой строке включаем подсветку. Затем включаем основную подсветку, а также подсветку скобок и шаблонов. Шаблоны указываются ниже (<code>rm -rf *</code> в примере). Также может быть включена подсветка команд от <code>root</code> и курсора <code>cursor</code>. Синтаксис настроек понятен, <code>fg</code> цвет шрифта, <code>bg</code> цвет фона.</p>
 
 <h3><a name="prompt" class="anchor" href="#prompt"><span class="octicon octicon-link"></span></a>$PROMPT и $RPROMPT</h2>
 <p align="justify">Я хочу использовать один файл <code>.zshrc</code> для рута и обычного пользователя:</p>
-<pre># PROMPT && RPROMPT
+{% highlight bash %}
+# PROMPT && RPROMPT
 if [[ $EUID == 0 ]]; then
 # [root@host dir]#
   PROMPT="%{$fg_bold[white]%}[%{$reset_color%}\
@@ -149,20 +182,24 @@ else
 %{$fg_no_bold[green]%}%m %{$reset_color%}\
 %{$fg_bold[yellow]%}%1/%{$reset_color%}\
 %{$fg_bold[white]%}]$ %{$reset_color%}"
-fi</pre>
+fi
+{% endhighlight %}
 
 <p align="justify"><code>fg</code> цвет шрифта, <code>bg</code> цвет фона. <code>_bold</code> и <code>_no_bold</code> регулируют оттенок. Команды должны быть обрамлены в <code>%{ ... %}</code>, чтобы не показывались. Доступные цвета:</p>
-<pre>black
+{% highlight bash %}
+black
 red
 green
 yellow
 blue
 magenta
 cyan
-white</pre>
+white
+{% endhighlight %}
 
 <p align="justify">Доступные переменные:</p>
-<pre>%n  - имя пользователя
+{% highlight bash %}
+%n  - имя пользователя
 %m  - хостнейм (выставляется только в начале сессии)
 %M  - хостнейм
 %l  - текущая tty
@@ -173,10 +210,12 @@ white</pre>
 %D  - дата (YY-MM-DD)
 %d  - текущая директория
 %~  - то же, домашняя директория будет заменена на ~
-%1/ - то же, но только последняя директория</pre>
+%1/ - то же, но только последняя директория
+{% endhighlight %}
 
 <p align="justify">RPROMPT (необходим пакет <code>acpi</code>):</p>
-<pre>precmd () {
+{% highlight bash %}
+precmd () {
   # battery charge
   function batcharge {
     bat_perc=`acpi | awk {'print $4;'} | sed -e "s/\s//" -e "s/%.*//"`
@@ -197,20 +236,24 @@ white</pre>
 $(batcharge)\
 "%{$fg_bold[white]%}[%{$reset_color%}"\
 $returncode\
-"%{$fg_bold[white]%}]%{$reset_color%}"</pre>
+"%{$fg_bold[white]%}]%{$reset_color%}"
+{% endhighlight %}
 <p align="justify">Мой RPROMPT показывает текущее время, заряд батареи и код возврата последнего приложения. <code>precmd()</code> необходимо для автоматического обновления. Конструкция <code>$(if.true.false)</code> является условным оператором в <code>zsh</code>.</p>
 
 <h3><a name="aliases" class="anchor" href="#aliases"><span class="octicon octicon-link"></span></a>Аллиасы</h2>
 <p align="justify"><b>Копируйте только те аллиасы, которые Вам необходимы.</b> Если какой-либо аллиас использует приложение, которое не установлено, это приведет к сбою загрузки конфигурационного файла.</p>
 
 <p align="justify">Полезная (или не очень) функция:</p>
-<pre>show_which() {
+{% highlight bash %}
+show_which() {
   OUTPUT=$(which $1 | cut -d " " -f7-)
   echo "Running '$OUTPUT'" 1>&2
-}</pre>
+}
+{% endhighlight %}
 
 <p align="justify">Первая группа аллиасов:</p>
-<pre>## alias
+{% highlight bash %}
+## alias
 # цветной grep
 alias grep='grep --colour=auto'
 # замена top на htop
@@ -226,29 +269,35 @@ alias du='show_which du && du -k --total --human-readable'
 alias less='vimpager'
 alias zless='vimpager'
 # более интерактивный rm
-alias rm='show_which rm && rm -I'</pre>
+alias rm='show_which rm && rm -I'
+{% endhighlight %}
 
 <p align="justify">ls аллиасы (смотри <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?ls">man ls</a>):</p>
-<pre>alias ls='show_which ls && ls --color=auto'
+{% highlight bash %}
+alias ls='show_which ls && ls --color=auto'
 alias ll='show_which ll && ls --group-directories-first -l --human-readable'
 alias lr='show_which lr && ls --recursive'
 alias la='show_which la && ll --almost-all'
 alias lx='show_which lx && ll -X --ignore-backups'
 alias lz='show_which lz && ll -S --reverse'
 alias lt='show_which lt && ll -t --reverse'
-alias lm='show_which lm && la | more'</pre>
+alias lm='show_which lm && la | more'
+{% endhighlight %}
 
 <p align="justify">Аллиасы для быстрого просмотра файлов из консоли (просто набери имя файла!):</p>
-<pre># alias -s
+{% highlight bash %}
+# alias -s
 alias -s {avi,mpeg,mpg,mov,m2v,mkv}=mpv
 alias -s {mp3,flac}=qmmp
 alias -s {odt,doc,xls,ppt,docx,xlsx,pptx,csv}=libreoffice
 alias -s {pdf}=okular
 autoload -U pick-web-browser
-alias -s {html,htm}=opera</pre>
+alias -s {html,htm}=opera
+{% endhighlight %}
 
 <p align="justify">"sudo" аллиасы:</p>
-<pre># sudo alias
+{% highlight bash %}
+# sudo alias
 if [[ $EUID == 0 ]]; then
   alias fat32mnt='show_which fat32mnt && mount -t vfat -o codepage=866,iocharset=utf8,umask=000'
   alias synctime='show_which synctime && { ntpd -qg; hwclock -w; date; }'
@@ -266,20 +315,24 @@ else
   alias rmmod='show_which rmmod && sudo rmmod'
   alias staging-i686-build='show_which staging-i686-build && sudo staging-i686-build'
   alias staging-x86_64-build='show_which staging-x86_64-build && sudo staging-x86_64-build'
-fi</pre>
+fi
+{% endhighlight %}
 
 <p align="justify">Некоторые глобальные аллиасы. Если они включены, команда <code>cat foo g bar</code> будет эквивалентна <code>cat foo | grep bar</code>:</p>
-<pre># global alias
+{% highlight bash %}
+# global alias
 alias -g g="| grep"
 alias -g l="| less"
 alias -g t="| tail"
 alias -g h="| head"
-alias -g dn="&> /dev/null &"</pre>
+alias -g dn="&> /dev/null &"
+{% endhighlight %}
 
 <h3><a name="functions" class="anchor" href="#functions"><span class="octicon octicon-link"></span></a>Функции</h2>
 <p align="justify">Специальная функция для <code>xrandr</code>:</p>
 
-<pre># function to contorl xrandr
+{% highlight bash %}
+# function to contorl xrandr
 # EXAMPLE: projctl 1024x768
 projctl () {
   if [ $1 ] ; then
@@ -298,10 +351,12 @@ projctl () {
     echo "Using default resolution"
     xrandr --output VGA1 --mode 1366x768 --output LVDS1 --mode 1366x768
   fi
-}</pre>
+}
+{% endhighlight %}
 
 <p align="justify">К сожалению, я не могу запомнить флаги <code>tar</code>, поэтому я использую специальные функции:</p>
-<pre># function to extract archives
+{% highlight bash %}
+# function to extract archives
 # EXAMPLE: unpack file
 unpack () {
   if [[ -f $1 ]]; then
@@ -349,10 +404,12 @@ pack () {
   else
     echo "'$1' is not a valid file"
   fi
-}</pre>
+}
+{% endhighlight %}
 
 <p align="justify">Специальная функция для <code>su</code>:</p>
-<pre>su () {
+{% highlight bash %}
+su () {
   checksu=0
   for flags in $*; do
     if [[ $flags == "-" ]]; then
@@ -365,10 +422,12 @@ pack () {
   else
     /usr/bin/su $*
   fi
-}</pre>
+}
+{% endhighlight %}
 
 <p align="justify">Функция для автоматических обновлений путей после установки пакето:</p>
-<pre>pacman () {
+{% highlight bash %}
+pacman () {
   /usr/bin/sudo /usr/bin/pacman $* && echo "$*" | grep -q "S\|R\|U" && rehash
 }
 yaourt () {
@@ -377,28 +436,33 @@ yaourt () {
 # for testing repo
 yatest () {
   /usr/bin/yaourt --config /etc/pactest.conf $* && echo "$*" | grep -q "S\|R\|U" && rehash
-}</pre>
+}
+{% endhighlight %}
 <p align="justify">Но автодополнение для <code>yaourt -Ss</code> <a href="https://github.com/zsh-users/zsh-completions/pull/205">будет требовать</a> привилегий рута.</p>
 
 <h3><a name="variables" class="anchor" href="#variables"><span class="octicon octicon-link"></span></a>Переменные</h2>
 <p align="justify">Рекомендуется хранить свои переменные в <code>~/.zshenv</code>. Но я все храню в одном файле.</p>
 
 <p align="justify">Пути, маска создаваемых файлов, редактор и пейджер:</p>
-<pre># path
+{% highlight bash %}
+# path
 export PATH="$PATH:$HOME/.local/bin"
 # umask
 umask 022
 # editor
 export EDITOR="vim"
-export PAGER="vimpager"</pre>
+export PAGER="vimpager"
+{% endhighlight %}
 
 <p align="justify">Хэши. Если они включены, команда <code>~global</code> будет эквивалентна команде <code>/mnt/global</code>:</p>
-<pre># hash
+{% highlight bash %}
+# hash
 hash -d global=/mnt/global
 hash -d windows=/mnt/windows
 hash -d iso=/mnt/iso
 hash -d u1=/mnt/usbdev1
-hash -d u2=/mnt/usbdev2</pre>
+hash -d u2=/mnt/usbdev2
+{% endhighlight %}
 
 <h3><a name="screenshot" class="anchor" href="#screenshot"><span class="octicon octicon-link"></span></a>Скриншот</h2>
 <p align="justify"><a href="/resources/screenshots/zshrc_demo.png"><img src="/resources/preview/zshrc_demo_prev.jpg"></a></p>

@@ -15,7 +15,8 @@ links:
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
 <p align="justify">Простой демон, который создает git репозиторий в указанной директории и создает коммит в указанный промежуток времени.</p>
-<pre>$ git-etc --help
+{% highlight bash %}
+$ git-etc --help
 Simple daemon written on BASH for monitoring changes in files
 
 Usage: git-etc [ -c | --config /etc/git-etc.conf ] [ -h | --help ] [ -v | --version ]
@@ -25,8 +26,10 @@ Parametrs:
   -h  --help        - show this help and exit
   -v  --version     - show version and exit
 
-See "man 1 git-etc" for more details</pre>
-<pre>$ ctrlconf --help
+See "man 1 git-etc" for more details
+{% endhighlight %}
+{% highlight bash %}
+$ ctrlconf --help
 GUI for git-etc daemon
 
 Usage: ctrlconf [ --default ] [ -h | --help ] [ -v | --version ]
@@ -36,7 +39,8 @@ Additional parametrs:
   -h  --help        - show this help and exit
   -v  --version     - show version and exit
 
-See "man 1 ctrlconf" for more details</pre>
+See "man 1 ctrlconf" for more details
+{% endhighlight %}
 
 <h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
@@ -58,9 +62,13 @@ See "man 1 ctrlconf" for more details</pre>
 <ul>
   <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/git-etc/releases">архив</a> с актуальной версией исходных файлов.</p></li>
   <li><p align="justify">Извлеките из него файлы и установите приложение:</p>
-<pre>./install.sh "/путь/к/корню/"</pre>
+{% highlight bash %}
+./install.sh "/путь/к/корню/"
+{% endhighlight %}
 <p align="justify">Если Вы хотите установить в <code>/</code>, Вы должны запустить это, как root:</p>
-<pre>sudo ./install.sh</pre>
+{% highlight bash %}
+sudo ./install.sh
+{% endhighlight %}
 <p align="justify">Если путь не указан, пакет будет установлен в <code>/</code>.</p></li>
 </ul>
 
@@ -79,23 +87,37 @@ See "man 1 ctrlconf" for more details</pre>
 <!-- howto block -->
 <h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
 <p align="justify">Если Вы хотите запустить демон в <code>/etc</code>, просто запустите</p>
-<pre>systemctl start git-etc</pre>
+{% highlight bash %}
+systemctl start git-etc
+{% endhighlight %}
 <p align="justify">Если Вы хотите включить автозагрузку демона, запутите</p>
-<pre>systemctl enable git-etc</pre>
+{% highlight bash %}
+systemctl enable git-etc
+{% endhighlight %}
 <p align="justify">Но Вы можете изменить путь к конфигурационному файлу или изменить параметры. Для этого, скопируйте (рекомендуется) исходный конфигурационный файл</p>
-<pre>cp /etc/git-etc.conf /новый/путь/к/git-etc.conf</pre>
+{% highlight bash %}
+cp /etc/git-etc.conf /новый/путь/к/git-etc.conf
+{% endhighlight %}
 <p align="justify">и отредактируйте его. Затем скопируйте исходный service-файл в <code>/etc</code>:</p>
-<pre>cp /usr/lib/systemd/system/git-etc.service /etc/systemd/system/git-etc-my-profile.service</pre>
+{% highlight bash %}
+cp /usr/lib/systemd/system/git-etc.service /etc/systemd/system/git-etc-my-profile.service
+{% endhighlight %}
 <p align="justify">Замените следующую строку в этом файле:</p>
-<pre>ExecStart=/usr/bin/git-etc -c /etc/git-etc.conf</pre>
+{% highlight bash %}
+ExecStart=/usr/bin/git-etc -c /etc/git-etc.conf
+{% endhighlight %}
 <p align="justify">на</p>
-<pre>ExecStart=/usr/bin/git-etc -c /новый/путь/к/git-etc.conf</pre>
+{% highlight bash %}
+ExecStart=/usr/bin/git-etc -c /новый/путь/к/git-etc.conf
+{% endhighlight %}
 <!-- end of howto block -->
 
 <!-- config block -->
 <h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
 <p align="justify">Все настройки хранятся в <code>/etc/git-etc.conf</code>. После редактирования, Вы должны перезапустить демон</p>
-<pre>systemctl restart git-etc</pre>
+{% highlight bash %}
+systemctl restart git-etc
+{% endhighlight %}
 
 <h3><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
 <table>
