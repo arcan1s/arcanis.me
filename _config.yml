@@ -5,7 +5,7 @@ layouts:     ./_layouts
 include:     ['.htaccess']
 exclude:     ['.gitignore','Gemfile','Gemfile.lock','README.md','TODO']
 keep_files:  ['.git','.svn']
-gems:        []
+gems:        [jekyll-pagination]
 
 future:      true
 limit_posts: 0
@@ -15,7 +15,9 @@ relative_permalinks: true
 
 permalink:     pretty
 paginate:      10
-paginate_path: 'blog/:num'
+paginate_path:
+    - 'blog/:num'
+    - 'ru/blog/:num'
 
 markdown:      rdiscount
 markdown_ext:  markdown,mkd,mkdn,md
