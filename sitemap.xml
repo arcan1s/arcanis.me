@@ -31,6 +31,12 @@ projects:
   <url>
     <loc>http://arcan1s.github.io/ru/blog/</loc>
   </url>
+  <url>
+    <loc>http://arcan1s.github.io/blog/archive/</loc>
+  </url>
+  <url>
+    <loc>http://arcan1s.github.io/ru/blog/archive/</loc>
+  </url>
 {% for post in site.posts %}
   <url>
     <loc>http://arcan1s.github.io{{ post.url }}</loc>

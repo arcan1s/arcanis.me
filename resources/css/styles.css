@@ -1,3 +1,30 @@
+.spoiler {
+    display: block;
+    background: #dcdcdc;
+    text-decoration: none;
+    color: #555555;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+    margin: 0 0 5px 0;
+}
+.spoiler > .title {
+    font-weight: bold;
+}
+.spoiler > .body {
+    padding: 4px;
+    font-weight: 300;
+    font-size: 11pt;
+    text-align: justify;
+    display: none;
+}
+.spoiler > .bo {
+    display: none;
+}
+.spoiler > :checked ~ .body {
+    display: block;
+}
+
 /* Liberation font ^^ */
 @font-face {
   font-family: "Liberation Serif";

@@ -12,8 +12,27 @@ back: 2
       </header>
       <section>
 
-    {% for post in site.categories.en %}
-        <p align="justify"><i>{{ post.date | date_to_string}}</i> &raquo; <a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.tags }})</p>
+    {% for post in site.categories.en limit:1 %}
+      {% assign month = post.date | date: "%B, %Y" %}
     {% endfor %}
+    <label class="spoiler">
+      <input type="checkbox" class="bo"/>
+      <div class="title">{{ month }}</div>
+      <div class="body">
+      {% for post in site.categories.en %}
+        {% assign new_month = post.date | date: "%B, %Y" %}
+        {% if new_month != month %}
+            </div>
+          </label>
+          <label class="spoiler">
+            <input type="checkbox" class="bo"/>
+            <div class="title">{{ new_month }}</div>
+            <div class="body">
+        {% endif %}
+        {% assign month = post.date | date: "%B, %Y" %}
+        <i>{{ post.date | date_to_string }}</i> &raquo; <a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.tags }})<br>
+      {% endfor %}
+      </div>
+    </label>
 
     <script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date-en-US.js"></script>
