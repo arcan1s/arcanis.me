@@ -16,8 +16,8 @@ relative_permalinks: true
 permalink:     pretty
 paginate:      10
 paginate_path:
-    - 'blog/:num'
-    - 'ru/blog/:num'
+- 'blog/:num'
+- 'ru/blog/:num'
 
 markdown:      rdiscount
 markdown_ext:  markdown,mkd,mkdn,md
