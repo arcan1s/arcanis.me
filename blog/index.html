@@ -9,38 +9,15 @@ back: 1
     <div class="wrapper">
       <header>
         <h1>{{ page.title }}</h1>
+        <h3><a name="archive" class="anchor" href="#archive"><span class="octicon octicon-link"></span></a><a href="/blog/archive">Archive</a></h3>
       </header>
       <section>
 
-    {% for post in paginator.posts %}
-      <h1><a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a></h1>
-      <p align="justify"><i>{{ post.date | date_to_string}}</i></p>
-      <p align="justify">{{ post.description }}</p>
-      <p align="justify"><b>Tags</b>: {{ post.tags }}</p>
+    {% for post in site.categories.en limit:10 %}
+        <h1><a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        <p align="justify"><i>{{ post.date | date_to_string}}</i></p>
+        <p align="justify">{{ post.description }}</p>
+        <p align="justify"><b>Tags</b>: {{ post.tags }}</p>
     {% endfor %}
-
-    {% if paginator.total_pages > 1 %}
-      {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}">&laquo; Prev</a>
-      {% else %}
-        <span>&laquo; Prev</span>
-      {% endif %}
-
-      {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-          <em>{{ page }}</em>
-        {% elsif page == 1 %}
-          <a href="{{ '/blog' }}">{{ page }}</a>
-        {% else %}
-          <a href="{{ site.paginate_path | replace: ':num', page }}">{{ page }}</a>
-        {% endif %}
-      {% endfor %}
-
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}">Next &raquo;</a>
-      {% else %}
-        <span>Next &raquo;</span>
-      {% endif %}
-    {% endif %}
 
     <script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date-en-US.js"></script>

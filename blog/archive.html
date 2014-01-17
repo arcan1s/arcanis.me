@@ -1,0 +1,19 @@
+---
+layout: default
+title: Archive
+comment: false
+share: false
+back: 2
+---
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>{{ page.title }}</h1>
+      </header>
+      <section>
+
+    {% for post in site.categories.en %}
+        <p align="justify"><i>{{ post.date | date_to_string}}</i> &raquo; <a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.tags }})</p>
+    {% endfor %}
+
+    <script type="text/javascript" src="http://datejs.googlecode.com/svn/trunk/build/date-en-US.js"></script>
