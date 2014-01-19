@@ -36,25 +36,26 @@
         {% elsif page.back == 2 %}
           {% include footer_fullback.html %}
         {% endif %}
-        <p>
         {% if page.share == true %}
           {% include footer_sharethis.html %}
         {% endif %}
-        {% if page.category == "ru" %}
-          <small>Расположено на GitHub Pages. <a href="/ru/authors">Авторы</a></small></p>
-          {% if page.type == "paper" %}
-            <p><a href="{{ page.url | replace: '/ru/', '/en/' }}"><img src="/resources/en.png"></a></p>
+        <p>
+          {% if page.category == "ru" %}
+            {% if page.type == "paper" %}
+              <a href="{{ page.url | replace: '/ru/', '/en/' }}"><img src="/resources/en.png"></a>
+            {% else %}
+              <a href="{{ page.url | replace: '/ru/', '/' }}"><img src="/resources/en.png"></a>
+            {% endif %}
+            <small>Расположено на GitHub Pages. <a href="/ru/authors">Авторы</a></small>
           {% else %}
-            <p><a href="{{ page.url | replace: '/ru/', '/' }}"><img src="/resources/en.png"></a></p>
+            {% if page.type == "paper" %}
+              <a href="{{ page.url | replace: '/en/', '/ru/' }}"><img src="/resources/en.png"></a>
+            {% else %}
+              <a href="/ru{{ page.url }}"><img src="/resources/ru.png"></a>
+            {% endif %}
+            <small>Hosted on GitHub Pages. <a href="/authors">Authors</a></small>
           {% endif %}
-        {% else %}
-          <small>Hosted on GitHub Pages. <a href="/authors">Authors</a></small></p>
-          {% if page.type == "paper" %}
-            <p><a href="{{ page.url | replace: '/en/', '/ru/' }}"><img src="/resources/en.png"></a></p>
-          {% else %}
-            <p><a href="/ru{{ page.url }}"><img src="/resources/ru.png"></a></p>
-          {% endif %}
-        {% endif %}
+        </p>
       </footer>
     </div>
     <script src="/resources/js/scale.fix.js"></script>
