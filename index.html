@@ -10,8 +10,18 @@ title: arcanis' homepage
       <header>
         <h1>{{ page.title }}</h1>
 
-        <p class="view"><a href="/blog/">My blog</a><br>
-                        <a href="/projects/">My projects</a></p>
+        <label class="spoiler">
+          <input type="checkbox" class="bo"/>
+          <div class="title"><a href="/blog/">Latest posts:</a></div>
+          <div class="body">
+            <p>
+              {% for post in site.categories.en limit:3 %}
+                <a href="{{ post.url }}">{{ post.title }}</a><br>
+              {% endfor %}
+            </p>
+          </div>
+        </label>
+        <p class="view"><a href="/projects/">My projects</a></p>
         <p class="view"><a href="/about">About me</a></p>
 
       </header>

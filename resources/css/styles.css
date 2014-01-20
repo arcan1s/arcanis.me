@@ -1,12 +1,12 @@
+/* spoiler */
 .spoiler {
     display: block;
     background: #dcdcdc;
     text-decoration: none;
     color: #555555;
-    border: 1px solid #000000;
     border-radius: 5px;
-    padding: 0 5px 0 5px;
-    margin: 0 0 5px 0;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }
 .spoiler > .title {
     font-weight: bold;

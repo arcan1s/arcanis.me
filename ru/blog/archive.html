@@ -19,7 +19,7 @@ back: 2
     {% endfor %}
     <label class="spoiler">
       <input type="checkbox" class="bo"/>
-      <div class="title">{% include longdate_to_ru.html %}</div>
+      <div class="title">{% include longdate_to_ru.html %} (показать)</div>
       <div class="body">
       {% for post in site.categories.ru %}
         {% assign new_month = post.date | date: "%B, %Y" %}
@@ -28,7 +28,7 @@ back: 2
           </label>
           <label class="spoiler">
             <input type="checkbox" class="bo"/>
-            <div class="title">{% include longdate_to_ru.html %}</div>
+            <div class="title">{% include longdate_to_ru.html %} (показать)</div>
             <div class="body">
         {% endif %}
         {% assign month = post.date | date: "%B, %Y" %}
