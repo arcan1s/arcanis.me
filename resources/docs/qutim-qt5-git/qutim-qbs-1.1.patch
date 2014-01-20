@@ -1,0 +1,35 @@
+diff -ruN qutim.orig/core/libqutim.qbs qutim/core/libqutim.qbs
+--- qutim.orig/core/libqutim.qbs	2014-01-06 15:39:56.000000000 +0400
++++ qutim/core/libqutim.qbs	2014-01-06 15:44:54.502175067 +0400
+@@ -75,7 +75,7 @@
+         cpp.linkerFlags: {
+             var flags = base;
+             if (qbs.toolchain.contains("clang") && qbs.targetOS.contains("linux"))
+-                flags = flags.concat("-stdlib=libc++ -lcxxrt");
++                flags = flags.concat("-lc++abi");
+             return flags;
+         }
+ 
+diff -ruN qutim.orig/protocols/jabber/jreen/jreen.qbs qutim/protocols/jabber/jreen/jreen.qbs
+--- qutim.orig/protocols/jabber/jreen/jreen.qbs	2014-01-06 15:41:33.000000000 +0400
++++ qutim/protocols/jabber/jreen/jreen.qbs	2014-01-06 15:44:54.502175067 +0400
+@@ -2,7 +2,7 @@
+ 
+ Project {
+ 
+-    moduleSearchPaths: "qbs/modules"
++    qbsSearchPaths: "qbs/modules"
+ 
+     references: "src/src.qbs"
+ }
+diff -ruN qutim.orig/protocols/vkontakte/vreen/vreen.qbs qutim/protocols/vkontakte/vreen/vreen.qbs
+--- qutim.orig/protocols/vkontakte/vreen/vreen.qbs	2014-01-06 15:41:42.000000000 +0400
++++ qutim/protocols/vkontakte/vreen/vreen.qbs	2014-01-06 15:46:47.142178486 +0400
+@@ -5,6 +5,7 @@
+     property string vreen_qml_path: "bin"
+     property string vreen_lib_path: "lib"
+     property string vreen_libexec_path: "lib"
++    property string lib_path: "lib"
+ 
+     property string vreen_version_major:  1
+     property string vreen_version_minor: 9

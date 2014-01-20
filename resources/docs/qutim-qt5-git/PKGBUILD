@@ -1,0 +1,52 @@
+# Maintainer:  Evgeniy Alekseev <arcanis.arch at gmail dot com>
+
+pkgname=qutim-qt5-git
+_gitname=qutim
+pkgver=v0.3.1.967.gc56d61e
+pkgrel=1
+pkgdesc="Multiplatform instant messenger (qt5 build). Git version"
+arch=('i686' 'x86_64')
+url="http://qutim.org"
+license=('LGPL' 'GPL3')
+depends=('jreen-git' 'libc++abi' 'qt5-quick1' 'qt5-x11extras')
+makedepends=('clang' 'qbs')
+conflicts=(qutim-0.2_ru-git, qutim-0.3-git, qutim-stable, qutim-git)
+source=("${_gitname}::git+https://github.com/euroelessar/qutim.git"
+        "qutim-qbs-1.1.patch"
+        "qbs-qutim.conf")
+md5sums=('SKIP'
+         'c0f151c43c055f76d3fa3efa3b8005e0'
+         '40f096b269eb00b040035591fce8e259')
+
+pkgver() {
+  cd "${_gitname}"
+  git describe --always | sed 's|-|.|g'
+}
+
+prepare() {
+  # FIXME: dirty hack
+  mkdir -p "${srcdir}/.config/QtProject"
+  cp "${srcdir}/qbs-qutim.conf" "${srcdir}/.config/QtProject/qbs.conf"
+  # create build directory
+  if [[ -d ${srcdir}/build ]]; then
+    rm -rf "${srcdir}/build"
+  fi
+  mkdir "${srcdir}/build"
+  
+  cd "${_gitname}"
+  # update modules
+  git submodule update --init --recursive
+  # fix qbs build
+  cd ..
+  patch -p0 -i "${srcdir}/qutim-qbs-1.1.patch"
+}
+
+build() {
+  cd "${_gitname}"
+  HOME="${srcdir}" qbs -j $(nproc) -d ../build release profile:qutim
+}
+
+package() {
+  cd "${srcdir}/${_gitname}"
+  HOME="${srcdir}" qbs install -d ../build --install-root "${pkgdir}/usr" profile:qutim
+}
