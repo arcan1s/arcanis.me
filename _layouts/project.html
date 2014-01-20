@@ -9,27 +9,29 @@ layout: default
       <header>
         <h1>{{ page.title }}</h1>
         <p class="view">{{ page.description }}</p>
-        {% if page.category == "ru" %}
-          <p class="view"><a href="#info">Общая информация</a><br>
-          <a href="#install">Установка</a><br>
-          <a href="#howto">Использование</a><br>
-          <a href="#config">Настройка</a><br>
-          {% if page.hasgui == true %}
-            <a href="#gui">Графический интерфейс</a><br>
-            <a href="#screenshots">Скриншоты</a><br>
+        <p class="view">
+          {% if page.category == "ru" %}
+            <a href="#info">Общая информация</a><br>
+            <a href="#install">Установка</a><br>
+            <a href="#howto">Использование</a><br>
+            <a href="#config">Настройка</a><br>
+            {% if page.hasgui == true %}
+              <a href="#gui">Графический интерфейс</a><br>
+              <a href="#screenshots">Скриншоты</a><br>
+            {% endif %}
+            <a href="#links">Ссылки</a>
+          {% else %}
+            <a href="#info">General information</a><br>
+            <a href="#install">Installation guide</a><br>
+            <a href="#howto">How to use</a><br>
+            <a href="#config">Configuration</a><br>
+            {% if page.hasgui == true %}
+              <a href="#gui">GUI</a><br>
+              <a href="#screenshots">Screenshots</a><br>
+            {% endif %}
+            <a href="#links">Links</a>
           {% endif %}
-          <a href="#links">Ссылки</a></p>
-        {% else %}
-          <p class="view"><a href="#info">General information</a><br>
-          <a href="#install">Installation guide</a><br>
-          <a href="#howto">How to use</a><br>
-          <a href="#config">Configuration</a><br>
-          {% if page.hasgui == true %}
-            <a href="#gui">GUI</a><br>
-            <a href="#screenshots">Screenshots</a><br>
-          {% endif %}
-          <a href="#links">Links</a></p>
-        {% endif %}
+        </p>
       </header>
       <section>
 
@@ -38,7 +40,7 @@ layout: default
 {% if page.category == "ru" %}
   <h2><a name="links" class="anchor" href="#links"><span class="octicon octicon-link"></span></a>Ссылки</h2>
   <ul>
-    <li>Репозиторий на <a href="https://github.com/arcan1s/{{ page.short }}">GitHub</a></li>
+    <li><a href="https://github.com/arcan1s/{{ page.short }}">Репозиторий на GitHub</a></li>
     <li><a href="https://github.com/arcan1s/{{ page.short }}/releases">Последний релиз</a></li>
 {% else %}
   <h2><a name="links" class="anchor" href="#links"><span class="octicon octicon-link"></span></a>Links</h2>

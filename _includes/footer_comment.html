@@ -9,18 +9,15 @@
     }
   });
 </script>
+<div id="comments">
 {% if page.category == "ru" %}
-  <div id="comments">
     <h2><a name="comments" class="anchor" href="#comments"><span class="octicon octicon-link"></span></a>Комментарии</h2>
     <p align="justify">Хотите оставить комментарий? Посетите <a href="https://github.com/arcan1s/arcan1s.github.io/issues/{{page.commentIssueId}}" target="_blank">эту страницу на GitHub</a> (Вам необходим аккаунт на GitHub).</p>
-    </div>
-  </div>
 {% else %}
-  <div id="comments">
     <h2><a name="comments" class="anchor" href="#comments"><span class="octicon octicon-link"></span></a>Comments</h2>
     <p align="justify">Want to leave a comment? Visit <a href="https://github.com/arcan1s/arcan1s.github.io/issues/{{page.commentIssueId}}" target="_blank"> this post's issue page on GitHub</a> (you'll need a GitHub account).</p>
-  </div>
 {% endif %}
+</div>
 <script type="text/javascript">
   function loadComments(data) {
     for (var i=0; i<data.length; i++) {
