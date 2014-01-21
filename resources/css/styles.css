@@ -98,6 +98,7 @@ body {
   font: 14px/1.5 "Liberation Serif", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #555555;
   font-weight: 300;
+  background: #dcdcdc
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -126,20 +127,20 @@ h3, h4, h5, h6 {
 }
 
 a {
-  color: #39c;
+  color: #3399cc;
   font-weight: 350;
   text-decoration: none;
 }
 
 a small {
   font-size: 11px;
-  color: #777;
+  color: #777777;
   margin-top: -0.6em;
   display: block;
 }
 
 .wrapper {
-  width: 860px;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -152,7 +153,7 @@ blockquote {
 
 code, pre {
   font-family: "Liberation Mono", Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
-  color: #333;
+  color: #333333;
   font-size: 12px;
 }
 
@@ -170,9 +171,9 @@ div.codeblock {
   height: 200px;
   border: 1px solid #e5e5e5;
   font-family: "Liberation Mono", Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
-  color: #333;
+  color: #333333;
   font-size: 12px;
-  background: #f8f8f8;  
+  background: #f8f8f8;
   overflow: auto;
   display: block;
   white-space: pre;
@@ -186,16 +187,16 @@ table {
 th, td {
   text-align: left;
   padding: 5px 10px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #ffffff;
 }
 
 dt {
-  color: #444;
+  color: #444444;
   font-weight: 700;
 }
 
 th {
-  color: #444;
+  color: #444444;
 }
 
 img {
@@ -203,7 +204,7 @@ img {
 }
 
 header {
-  width: 270px;
+  width: 24%;
   float: left;
   position: fixed;
 }
@@ -212,21 +213,15 @@ header ul {
   list-style: none;
   height: 40px;
   padding: 0;
-  background: #eee;
-  background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));
-  background: -webkit-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
-  background: -o-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
-  background: -ms-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
-  background: linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
+  background: #eeeeee;
   border-radius: 5px;
   border: 1px solid #d2d2d2;
   box-shadow: inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;
-  width: 270px;
+  width: 24%;
 }
 
 header li {
-  width: 89px;
+  width: 8%;
   float: left;
   border-right: 1px solid #d2d2d2;
   height: 40px;
@@ -235,7 +230,7 @@ header li {
 header ul a {
   line-height: 1;
   font-size: 11px;
-  color: #999;
+  color: #999999;
   display: block;
   text-align: center;
   padding-top: 6px;
@@ -243,28 +238,28 @@ header ul a {
 }
 
 strong {
-  color: #222;
+  color: #222222;
   font-weight: 700;
 }
 
 header ul li + li {
-  width: 88px;
-  border-left: 1px solid #fff;
+  width: 8%;
+  border-left: 1px solid #ffffff;
 }
 
 header ul li + li + li {
+  width: 8%;
   border-right: none;
-  width: 89px;
 }
 
 header ul a strong {
   font-size: 14px;
   display: block;
-  color: #222;
+  color: #222222;
 }
 
 section {
-  width: 500px;
+  width: 60%;
   float: right;
   padding-bottom: 50px;
 }
@@ -275,13 +270,13 @@ small {
 
 hr {
   border: 0;
-  background: #e5e5e5;
+  background: #ffffff;
   height: 1px;
   margin: 0 0 20px;
 }
 
 footer {
-  width: 270px;
+  width: 24%;
   float: left;
   position: fixed;
   bottom: 50px;
@@ -344,14 +339,14 @@ footer {
   body {
     padding: 0.4in;
     font-size: 12pt;
-    color: #444;
+    color: #444444;
   }
 }
 
 /* COMMENTS */
 .comment {
   background-color: transparent;
-  border-color: #CACACA;
+  border-color: #cacaca;
   border-style: solid;
   border-width: 1px;
   color: black;
@@ -362,12 +357,12 @@ footer {
   width: 100%;
 }
 .comment .commentheader {
-  border-bottom-color: #CACACA;
+  border-bottom-color: #cacaca;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   color: black;
-  background-image: -webkit-linear-gradient(#F8F8F8,#E1E1E1);
-  background-image: -moz-linear-gradient(#F8F8F8,#E1E1E1);
+  background-image: -webkit-linear-gradient(#f8f8f8,#e1e1e1);
+  background-image: -moz-linear-gradient(#f8f8f8,#e1e1e1);
   color: black;
   display: block;
   float: left;
@@ -393,7 +388,7 @@ footer {
   background-color: white;
   background-image: none;
   background-origin: padding-box;
-  border-color: #C8C8C8;
+  border-color: #c8c8c8;
   border-style: solid;
   border-width: 1px;
   color: black;
@@ -448,7 +443,7 @@ footer {
 }
 .comment .commentheader .commentdate {
   background-color: transparent;
-  color: #777;
+  color: #777777;
   display: inline;
   float: none;
   font-family: "Liberation Sarif", helvetica, arial, freesans, clean, sans-serif;
@@ -473,7 +468,7 @@ footer {
   background-color: transparent;
   background-image: none;
   background-origin: padding-box;
-  color: #333;
+  color: #333333;
   display: block;
   margin-bottom: 1em;
   margin-left: 1em;
@@ -493,16 +488,16 @@ footer {
   margin-right: 0em;
 }
 .comment .commentbody pre {
-  border: 0px solid #ddd;
-  background-color: #eef;
+  border: 0px solid #dddddd;
+  background-color: #eeeeff;
   padding: 0 .4em;
 }
 .comment .commentbody pre code {
-  border: 0px solid #ddd;
+  border: 0px solid #dddddd;
 }
 .comment .commentbody code {
-  border: 1px solid #ddd;
-  background-color: #eef;
+  border: 1px solid #dddddd;
+  background-color: #eeeeff;
   font-size: 85%;
   padding: 0 .2em;
 }
