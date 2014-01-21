@@ -154,15 +154,16 @@ blockquote {
 code, pre {
   font-family: "Liberation Mono", Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
   color: #333333;
+  background: #f8f8f8;
   font-size: 12px;
 }
 
 pre {
   padding: 8px 15px;
-  background: #f8f8f8;
   border-radius: 5px;
   border: 1px solid #e5e5e5;
   overflow-x: auto;
+  overflow-y: auto;
 }
 
 @external .codeblock;
