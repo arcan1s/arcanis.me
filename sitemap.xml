@@ -42,12 +42,18 @@ projects:
     <loc>http://arcan1s.github.io{{ post.url }}</loc>
   </url>
 {% endfor %}
+  <url>
+    <loc>http://arcan1s.github.io/projects/</loc>
+  </url>
+  <url>
+    <loc>http://arcan1s.github.io/ru/projects/</loc>
+  </url>
 {% for proj in page.projects %}
   <url>
     <loc>http://arcan1s.github.io/projects/{{ proj }}/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/projects/ru/{{ proj }}/</loc>
+    <loc>http://arcan1s.github.io/ru/projects/{{ proj }}/</loc>
   </url>
 {% endfor %}
 </urlset>
