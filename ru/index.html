@@ -12,14 +12,14 @@ title: arcanis
         <h1>{{ page.title }}</h1>
 
         <label class="spoiler">
-          <input type="checkbox" class="bo"/>
-          <div class="title"><a href="/ru/blog/">Блог</a></div>
-          <div class="body">
-            <p>
-              {% for post in site.categories.ru limit:3 %}
-                <a href="{{ post.url }}">{{ post.title }}</a><br>
-              {% endfor %}
-            </p>
+          <input type="checkbox" tabindex="-1">
+          <div class="box">
+            <a href="/ru/blog/">Блог</a> <span class="close">(скрыть)</span><span class="open">(показать)</span>
+            <blockquote>
+            {% for post in site.categories.ru limit:3 %}
+              <a href="{{ post.url }}">{{ post.title }}</a><br>
+            {% endfor %}
+            </blockquote>
           </div>
         </label>
         <p class="view"><a href="/ru/projects/">Проекты</a></p>

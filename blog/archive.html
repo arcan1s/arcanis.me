@@ -16,21 +16,25 @@ back: 2
       {% assign month = post.date | date: "%B, %Y" %}
     {% endfor %}
     <label class="spoiler">
-      <input type="checkbox" class="bo"/>
-      <div class="title">{{ month }} (show)</div>
-      <div class="body">
-      {% for post in site.categories.en %}
-        {% assign new_month = post.date | date: "%B, %Y" %}
-        {% if new_month != month %}
-            </div>
-          </label>
-          <label class="spoiler">
-            <input type="checkbox" class="bo"/>
-            <div class="title">{{ new_month }} (show)</div>
-            <div class="body">
-        {% endif %}
-        {% assign month = post.date | date: "%B, %Y" %}
-        <i>{{ post.date | date_to_string }}</i> &raquo; <a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.tags }})<br>
-      {% endfor %}
+      <input type="checkbox" tabindex="-1">
+      <div class="box">
+        <b>{{ month }}</b> <span class="close" style="float:right;">(hide)</span><span class="open" style="float:right;">(show)</span>
+        <blockquote>
+          {% for post in site.categories.en %}
+            {% assign new_month = post.date | date: "%B, %Y" %}
+            {% if new_month != month %}
+        </blockquote>
+      </div>
+    </label>
+    <label class="spoiler">
+      <input type="checkbox" tabindex="-1">
+      <div class="box">
+        <b>{{ new_month }}</b> <span class="close" style="float:right;">(hide)</span><span class="open" style="float:right;">(show)</span>
+        <blockquote>
+            {% endif %}
+            {% assign month = post.date | date: "%B, %Y" %}
+            <i>{{ post.date | date_to_string }}</i> &raquo; <a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.tags }})<br>
+          {% endfor %}
+        </blockquote>
       </div>
     </label>

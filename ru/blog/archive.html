@@ -18,21 +18,25 @@ back: 2
       {% assign new_month = post.date | date: "%B, %Y" %}
     {% endfor %}
     <label class="spoiler">
-      <input type="checkbox" class="bo"/>
-      <div class="title">{% include longdate_to_ru.html %} (показать)</div>
-      <div class="body">
-      {% for post in site.categories.ru %}
-        {% assign new_month = post.date | date: "%B, %Y" %}
-        {% if new_month != month %}
-            </div>
-          </label>
-          <label class="spoiler">
-            <input type="checkbox" class="bo"/>
-            <div class="title">{% include longdate_to_ru.html %} (показать)</div>
-            <div class="body">
-        {% endif %}
-        {% assign month = post.date | date: "%B, %Y" %}
-        <i>{% include shortdate_to_ru.html %}</i> &raquo; <a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.tags }})<br>
-      {% endfor %}
+      <input type="checkbox" tabindex="-1">
+      <div class="box">
+        <b>{% include longdate_to_ru.html %}</b> <span class="close" style="float:right;">(скрыть)</span><span class="open" style="float:right;">(показать)</span>
+        <blockquote>
+          {% for post in site.categories.ru %}
+            {% assign new_month = post.date | date: "%B, %Y" %}
+            {% if new_month != month %}
+        </blockquote>
+      </div>
+    </label>
+    <label class="spoiler">
+      <input type="checkbox" tabindex="-1">
+      <div class="box">
+        <b>{% include longdate_to_ru.html %}</b> <span class="close" style="float:right;">(скрыть)</span><span class="open" style="float:right;">(показать)</span>
+        <blockquote>
+            {% endif %}
+            {% assign month = post.date | date: "%B, %Y" %}
+            <i>{% include shortdate_to_ru.html %}</i> &raquo; <a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.tags }})<br>
+          {% endfor %}
+        </blockquote>
       </div>
     </label>
