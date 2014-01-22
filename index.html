@@ -46,16 +46,4 @@ title: arcanis' homepage
 <p align="justify">If you have a question or something else you may <a href="/about">contact me</a>. If you want to suggest a pull request or to create a bug report for these pages (or may be for some other projects) feel free to visit <a href="https://github.com/arcan1s">my Github profile</a> and do it.</p>
 
 <h3><a name="search" class="anchor" href="#search"><span class="octicon octicon-link"></span></a>Site search</h3>
-<script>
-  (function() {
-    var cx = '000833618047197874644:rilf4jpvgyo';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
+{% include cse.html %}

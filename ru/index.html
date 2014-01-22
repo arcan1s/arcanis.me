@@ -35,16 +35,4 @@ title: arcanis
 <p align="justify">Если у Вас есть вопрос или что-нибудь еще, Вы можете <a href="/about">связаться со мной</a>. Если Вы хотите предложить пул-реквест или сообщить о баге для этих страничек, не стесняйтесь посетить <a href="https://github.com/arcan1s">мой профиль на GitHub</a> и сделать это.</p>
 
 <h3><a name="search" class="anchor" href="#search"><span class="octicon octicon-link"></span></a>Поиск по сайту</h3>
-<script>
-  (function() {
-    var cx = '000833618047197874644:rilf4jpvgyo';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
+{% include cse.html %}
