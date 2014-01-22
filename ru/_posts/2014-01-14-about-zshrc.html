@@ -267,8 +267,6 @@ alias du='show_which du && du -k --total --human-readable'
 # замена less и zless на vimpager
 alias less='vimpager'
 alias zless='vimpager'
-# более интерактивный rm
-alias rm='show_which rm && rm -I'
 {% endhighlight %}
 
 <p align="justify">ls аллиасы (смотри <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?ls">man ls</a>):</p>
@@ -421,6 +419,42 @@ su () {
   else
     /usr/bin/su $*
   fi
+}
+{% endhighlight %}
+
+<p align="justify">Функция, которая заменяет оригиналькую команду <code>rm</code>. Если Вы наберете <code>rm</code>, это будет эквивалентно перемещению в корзину, также, Вы можете легко восстановить удаленный файл:</p>
+{% highlight bash %}
+rm () {
+  # error check
+  [ $# -eq 0 ] && { echo "Files are not set!"; return 1 }
+  # set trash path
+  TRASHDIR="$HOME/.local/share/Trash"
+  TRASHFILE="${TRASHDIR}/files"
+  TRASHINFO="${TRASHDIR}/info"
+  for DIRECTORY in "${TRASHDIR}" "${TRASHFILE}" "${TRASHINFO}"; do
+    if [ -e "${DIRECTORY}" ]; then
+      [ -d "${DIRECTORY}" ] || { echo "'${DIRECTORY}' is a file"; return 1 }
+    else
+      mkdir -p -m755 "${DIRECTORY}"
+    fi
+  done
+  # confirm
+  CONFIRM=""
+  echo -n "You realy want to remove '$@'? [y/n] "; read -k1 CONFIRM; echo
+  [[ ! $CONFIRM =~ [yY] ]] && return 1
+  # move
+  for FILE in "$@"; do
+    DESTFILE="$(basename ${FILE})"
+    SUFFIX='';
+    ITER=0;
+    while [ -e "${TRASHFILE}/${DESTFILE}${SUFFIX}" ]; do
+      SUFFIX="_${ITER}";
+      ITER=$(expr ${ITER} + 1)
+    done
+    echo "Remove '${FILE}'"
+    mv "${FILE}" "${TRASHFILE}/${DESTFILE}${SUFFIX}"
+    echo "[Trash Info]\nPath=$(realpath ${FILE})\nDeletionDate=$(date +%Y-%m-%dT%H:%M:%S)" > "${TRASHINFO}/${DESTFILE}${SUFFIX}.trashinfo"
+  done
 }
 {% endhighlight %}
 
