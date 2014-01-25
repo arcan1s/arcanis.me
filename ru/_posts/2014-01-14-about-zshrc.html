@@ -38,7 +38,7 @@ bindkey '\e[4~' end-of-line              # end
 bindkey '\e[5~' up-line-or-history       # page-up
 bindkey '\e[6~' down-line-or-history     # page-down
 {% endhighlight %}
-<p align="justify">Но здесь важно, что стрелки <code>вверх</code>/<code>вниз</code> служат для навигации по истории с учетом <b>уже введенной части</b> команды. А <code>PgUp</code>/<code>PgDown</code> <b>проигнорирую</b> уже введенную часть команды.</p>
+<p align="justify">Но здесь важно, что стрелки <code>вверх</code>/<code>вниз</code> служат для навигации по истории с учетом <b>уже введенной части</b> команды. А <code>PgUp</code>/<code>PgDown</code> <b>проигнорируют</b> уже введенную часть команды.</p>
 
 <p align="justify">Автодополнение команд:</p>
 {% highlight bash %}
@@ -458,7 +458,7 @@ rm () {
 }
 {% endhighlight %}
 
-<p align="justify">Функция для автоматических обновлений путей после установки пакето:</p>
+<p align="justify">Функция для автоматических обновлений путей после установки пакетов:</p>
 {% highlight bash %}
 pacman () {
   /usr/bin/sudo /usr/bin/pacman $* && echo "$*" | grep -q "S\|R\|U" && rehash
