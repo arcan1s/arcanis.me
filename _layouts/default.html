@@ -15,9 +15,6 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    {% if page.comment == true %}
-      {% include header_comment.html %}
-    {% endif %}
     {% if page.share == true %}
       {% include header_sharethis.html %}
     {% endif %}
@@ -26,7 +23,7 @@
 {{ content }}
 
 {% if page.comment == true %}
-  {% include footer_comment.html %}
+  {% include comment.html %}
 {% endif %}
 
       </section>
