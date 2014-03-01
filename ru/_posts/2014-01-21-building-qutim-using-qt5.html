@@ -6,7 +6,6 @@ tags: archlinux, linux, сборка, qutim
 title: Сборка Qutim с Qt5
 short: building-qutim-using-qt5
 description: Если кто-то не знает, <a href="http://qutim.org">Qutim</a> - мультипротокольный кросс-платформенный месседжер. Написан он на <code>CPP</code> с использованием библиотек Qt. Проект активно развивается. В этой статье речь пойдет о реализации сборки данного пакета в Archlinux с использованием библиотек Qt5 (а не Qt4, как это делают текущие пакеты в AUR).
-commentIssueId: 6
 ---
 <h2><a name="problems" class="anchor" href="#problems"><span class="octicon octicon-link"></span></a>Что не так?</h2>
 <p align="justify">Да все так. Просто пакет использует для сборки систему <a href="http://qt-project.org/wiki/qbs">qbs</a>, которая, на мой взгляд, немного странная. Пакет, необходимый для сборки, <a href="https://aur.archlinux.org/packages/qbs-git/">находится в AUR</a> (рекомендую git-версию). Когда я спросил у Andrea Scarpino (который сопровождает все KDE и Qt пакеты в официальные репозитории) по поводу переноса этого пакета в репозитории, он ответил, что всему свое время. В принципе, я с ним согласен, так как проект, судя по всему, еще немного сыроват.</p>

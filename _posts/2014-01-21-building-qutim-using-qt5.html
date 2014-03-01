@@ -6,7 +6,6 @@ tags: archlinux, linux, building, qutim
 title: Building Qutim using Qt5
 short: building-qutim-using-qt5
 description: <a href="http://qutim.org">Qutim</a> is a multiprotocol and cross platform messenger. It is written on <code>CPP</code> using Qt library. The project is actively developed. In this paper I will say about building this package in Archlinux using Qt5 library (instead of Qt4 which is used in current AUR packages).
-commentIssueId: 6
 ---
 <h2><a name="problems" class="anchor" href="#problems"><span class="octicon octicon-link"></span></a>What's wrong?</h2>
 <p align="justify">This package uses <a href="http://qt-project.org/wiki/qbs">qbs</a> for building, which is a bit strange IMHO. A package, which is necessary for building, is <a href="https://aur.archlinux.org/packages/qbs-git/">in AUR </a>. I recommend to use git version of the package. When I asked Andrea Scarpino (who maintains KDE and Qt packages into the official repos) about qbs, he told me "we will support it in time". And I agree with him, the project seems to be a little unstable.</p>
