@@ -8,52 +8,52 @@ projects:
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://arcan1s.github.io/</loc>
+    <loc>http://arcanis.name/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/ru/</loc>
+    <loc>http://arcanis.name/ru/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/about/</loc>
+    <loc>http://arcanis.name/about/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/ru/about/</loc>
+    <loc>http://arcanis.name/ru/about/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/authors/</loc>
+    <loc>http://arcanis.name/authors/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/ru/authors/</loc>
+    <loc>http://arcanis.name/ru/authors/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/blog/</loc>
+    <loc>http://arcanis.name/blog/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/ru/blog/</loc>
+    <loc>http://arcanis.name/ru/blog/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/blog/archive/</loc>
+    <loc>http://arcanis.name/blog/archive/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/ru/blog/archive/</loc>
+    <loc>http://arcanis.name/ru/blog/archive/</loc>
   </url>
 {% for post in site.posts %}
   <url>
-    <loc>http://arcan1s.github.io{{ post.url }}</loc>
+    <loc>http://arcanis.name{{ post.url }}</loc>
   </url>
 {% endfor %}
   <url>
-    <loc>http://arcan1s.github.io/projects/</loc>
+    <loc>http://arcanis.name/projects/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/ru/projects/</loc>
+    <loc>http://arcanis.name/ru/projects/</loc>
   </url>
 {% for proj in page.projects %}
   <url>
-    <loc>http://arcan1s.github.io/projects/{{ proj }}/</loc>
+    <loc>http://arcanis.name/projects/{{ proj }}/</loc>
   </url>
   <url>
-    <loc>http://arcan1s.github.io/ru/projects/{{ proj }}/</loc>
+    <loc>http://arcanis.name/ru/projects/{{ proj }}/</loc>
   </url>
 {% endfor %}
 </urlset>
