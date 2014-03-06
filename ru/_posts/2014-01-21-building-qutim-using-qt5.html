@@ -82,21 +82,6 @@ diff -ruN qutim.orig/core/libqutim.qbs qutim/core/libqutim.qbs
          }
  
 {% endhighlight %}
-<p align="justify">Далее пофиксить устаревший стандарт qbs:</p>
-{% highlight diff %}
-diff -ruN qutim.orig/protocols/jabber/jreen/jreen.qbs qutim/protocols/jabber/jreen/jreen.qbs
---- qutim.orig/protocols/jabber/jreen/jreen.qbs 2014-01-06 15:41:33.000000000 +0400
-+++ qutim/protocols/jabber/jreen/jreen.qbs  2014-01-06 15:44:54.502175067 +0400
-@@ -2,7 +2,7 @@
- 
- Project {
- 
--    moduleSearchPaths: "qbs/modules"
-+    qbsSearchPaths: "qbs/modules"
- 
-     references: "src/src.qbs"
- }
-{% endhighlight %}
 <p align="justify">И пофиксить сборку библиотеки для Vk:</p>
 {% highlight diff %}
 diff -ruN qutim.orig/protocols/vkontakte/vreen/vreen.qbs qutim/protocols/vkontakte/vreen/vreen.qbs
@@ -160,7 +145,7 @@ source=("${_gitname}::git+https://github.com/euroelessar/qutim.git"
         "qutim-qbs-1.1.patch"
         "qbs-qutim.conf")
 md5sums=('SKIP'
-         'c0f151c43c055f76d3fa3efa3b8005e0'
+         '12c30176729a5230ff7e6effbb1b37f8'
          '40f096b269eb00b040035591fce8e259')
 
 pkgver() {

@@ -9,13 +9,13 @@ arch=('i686' 'x86_64')
 url="http://qutim.org"
 license=('LGPL' 'GPL3')
 depends=('jreen-git' 'libc++abi' 'qt5-quick1' 'qt5-x11extras')
-makedepends=('clang' 'qbs')
+makedepends=('git' 'clang' 'qbs')
 conflicts=(qutim-0.2_ru-git, qutim-0.3-git, qutim-stable, qutim-git)
 source=("${_gitname}::git+https://github.com/euroelessar/qutim.git"
         "qutim-qbs-1.1.patch"
         "qbs-qutim.conf")
 md5sums=('SKIP'
-         'c0f151c43c055f76d3fa3efa3b8005e0'
+         '12c30176729a5230ff7e6effbb1b37f8'
          '40f096b269eb00b040035591fce8e259')
 
 pkgver() {
