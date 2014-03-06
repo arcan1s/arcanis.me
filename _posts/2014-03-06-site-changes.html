@@ -24,7 +24,7 @@ domain.name.           912     IN      A       192.30.252.153
 domain.name.           912     IN      A       192.30.252.154
 ...
 {% endhighlight %}</li>
-  <li>Also I've created <a href="ftp://89.249.170.38/repo">my own repo</a>, which will contain some AUR packages that I'm using. Support of both architectures is planned.</li>
+  <li>Also I've created <a href="ftp://repo.arcanis.name/repo">my own repo</a>, which will contain some AUR packages that I'm using. Support of both architectures is planned.</li>
   <li>Since the repo requires ftp protocol, I've changed samba shared folders to ftp. The problem of access has been resolved by using mount options:
 {% highlight bash %}
 # read and write rights (the file has size 2 Gb)
@@ -52,7 +52,11 @@ ascii_upload_enable=YES
 ftpd_banner=Welcome to arcanis
 listen=YES
 {% endhighlight %}
-There are plans to create redirection from <code>repo.arcanis.name</code> to the needed IP address (if I'll understand how to do this)
+Now let's add redirection from <code>repo.arcanis.name</code> to the needed IP address. To do this, add the following entry in DNS:
+{% highlight bash %}
+repo.arcanis.name.   A   89.249.170.38
+{% endhighlight %}
+(Do not forget add point at the end of domain.)
   </li>
   <li>Also there are plans to buy a server for compiling packages and hosting the repository, filesharing and backups.</li>
 </ul>
