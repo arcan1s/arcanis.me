@@ -1,0 +1,59 @@
+---
+category: en
+type: paper
+layout: paper
+tags: сайт, github pages
+title: Site changes
+short: site-changes
+description: I decided to change my site. You may find short list of changes below.
+---
+<h2><a name="list" class="anchor" href="#list"><span class="octicon octicon-link"></span></a>The list of changes:</h2>
+<ul>
+  <li>I rented a <code>arcanis.name</code> domain. Now I have a normal address, as well as all white people have it. Small description of how to do it. Firstly, you should rent domain and activate DNS editing (it is called <a href="http://www.nic.ru/dns/service/dns_hosting/">DNS-master</a> for Ru-center). I pay about $30 in year. Then you should create CNAME file in your repository; this file has line with your domain name. And finally you should create two DNS records for your domain:
+{% highlight bash %}
+@    A   192.30.252.153
+@    A   192.30.252.154
+{% endhighlight %}
+(Symbol <code>@</code> means you root domain.) And next wait for two hours. You may find out the result as follows:
+{% highlight bash %}
+$ dig domain.name +nostats +nocomments +nocmd
+
+; <<>> DiG 9.9.2-P2 <<>> domain.name +nostats +nocomments +nocmd
+;; global options: +cmd
+;domain.name.                  IN      A
+domain.name.           912     IN      A       192.30.252.153
+domain.name.           912     IN      A       192.30.252.154
+...
+{% endhighlight %}</li>
+  <li>Also I've created <a href="ftp://89.249.170.38/repo">my own repo</a>, which will contain some AUR packages that I'm using. Support of both architectures is planned.</li>
+  <li>Since the repo requires ftp protocol, I've changed samba shared folders to ftp. The problem of access has been resolved by using mount options:
+{% highlight bash %}
+# read and write rights (the file has size 2 Gb)
+/home/share/share.fs /mnt/ftp/share ext4 defaults,rw 0 0
+# only read rights
+/home/arcanis/arch/repo /mnt/ftp/repo ext4 defaults,bind,ro 0 0
+/mnt/global/Музыка /mnt/ftp/music ext4 defaults,bind,ro 0 0
+{% endhighlight %}
+Also here is my <code>/etc/vsftpd.conf</code> configuration file:
+{% highlight bash %}
+anonymous_enable=YES
+anon_root=/mnt/ftp
+local_enable=YES
+write_enable=YES
+local_umask=022
+anon_upload_enable=YES
+anon_mkdir_write_enable=YES
+anon_other_write_enable=YES
+anon_world_readable_only=YES
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+nopriv_user=share
+ascii_upload_enable=YES
+ftpd_banner=Welcome to arcanis
+listen=YES
+{% endhighlight %}
+There are plans to create redirection from <code>repo.arcanis.name</code> to the needed IP address (if I'll understand how to do this)
+  </li>
+  <li>Also there are plans to buy a server for compiling packages and hosting the repository, filesharing and backups.</li>
+</ul>

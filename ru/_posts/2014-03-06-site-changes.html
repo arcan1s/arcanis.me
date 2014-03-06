@@ -1,0 +1,59 @@
+---
+category: ru
+type: paper
+layout: paper
+tags: сайт, github pages
+title: Изменения сайта
+short: site-changes
+description: Решил немного поиграться с сайтом. Краткий список изменений ниже.
+---
+<h2><a name="list" class="anchor" href="#list"><span class="octicon octicon-link"></span></a>Cписок изменений:</h2>
+<ul>
+  <li>Арендовал домен <code>arcanis.name</code>. Теперь, как и все белые люди, имею нормальный адрес. Небольшое описание (мне, как человеку далекому от интернет-технологий, пришлось немного попариться на эту тему). Арендуем домен, подключаем услугу редактирования DNS (для Ru-center <a href="http://www.nic.ru/dns/service/dns_hosting/">DNS-master</a>) - суммарно мне обошлось около 1100 рублей/год. Кладем в наш репозиторий с сайтом файл CNAME, содержащий имя желаемого домена. Идем и добавляем две записи в DNS для нашего домена:
+{% highlight bash %}
+@    A   192.30.252.153
+@    A   192.30.252.154
+{% endhighlight %}
+(<code>@</code> значит наш корневой домен.) Ждем пару часов. Результат можно узнать примерно так:
+{% highlight bash %}
+$ dig domain.name +nostats +nocomments +nocmd
+
+; <<>> DiG 9.9.2-P2 <<>> domain.name +nostats +nocomments +nocmd
+;; global options: +cmd
+;domain.name.                  IN      A
+domain.name.           912     IN      A       192.30.252.153
+domain.name.           912     IN      A       192.30.252.154
+...
+{% endhighlight %}</li>
+  <li>На радостях создал <a href="ftp://89.249.170.38/repo">собственный репозиторий</a>, в котором будут лежать некоторые пакеты из AUR, которые я использую. Планируется поддержка обеих архитектур.</li>
+  <li>Поскольку репозиторий требует ftp, то перевел samba на ftp. Проблему доступа решил опциями монтирования:
+{% highlight bash %}
+# чтение и запись (файл ограничен 2 Гб)
+/home/share/share.fs /mnt/ftp/share ext4 defaults,rw 0 0
+# только чтение
+/home/arcanis/arch/repo /mnt/ftp/repo ext4 defaults,bind,ro 0 0
+/mnt/global/Музыка /mnt/ftp/music ext4 defaults,bind,ro 0 0
+{% endhighlight %}
+Также привожу свой файл настроек <code>/etc/vsftpd.conf</code>:
+{% highlight bash %}
+anonymous_enable=YES
+anon_root=/mnt/ftp
+local_enable=YES
+write_enable=YES
+local_umask=022
+anon_upload_enable=YES
+anon_mkdir_write_enable=YES
+anon_other_write_enable=YES
+anon_world_readable_only=YES
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+nopriv_user=share
+ascii_upload_enable=YES
+ftpd_banner=Welcome to arcanis
+listen=YES
+{% endhighlight %}
+В ближайшее время планируется сделать перенаправление запросов с <code>repo.arcanis.name</code> на нужный IP адрес (если пойму, как).
+  </li>
+  <li>В ближайшее время (как дойду до магазина с деньгами) планируется приобретение небольшого сервера для работы на постоянной основе (компиляция пакетов, репозиторий, файлообмен, бэкапы).</li>
+</ul>
