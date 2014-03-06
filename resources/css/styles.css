@@ -48,51 +48,6 @@
   font-style: normal;
 }
 
-/* Liberation font ^^ */
-@font-face {
-  font-family: "Liberation Serif";
-  font-style: normal;
-  font-weight: 300;
-  src: local("Liberation Serif"),
-       local("Liberation Serif Regular"),
-       local("LiberationSerif-Regular"),
-       url(LiberationSerif-Regular.ttf);
-}
-@font-face {
-  font-family: "Liberation Serif";
-  font-style: italic;
-  font-weight: 300;
-  src: local("Liberation Serif Italic"),
-       local("LiberationSerif-Italic"),
-       url(LiberationSerif-Italic.ttf);
-}
-@font-face {
-  font-family: "Liberation Serif";
-  font-style: normal;
-  font-weight: 600;
-  src: local("Liberation Serif Bold"),
-       local("LiberationSerif-Bold"),
-       url(LiberationSerif-Bold.ttf);
-}
-@font-face {
-  font-family: "Liberation Serif";
-  font-style: italic;
-  font-weight: 600;
-  src: local("Liberation Serif Bold Italic"),
-       local("Liberation Serif BoldItalic"),
-       local("LiberationSerif-BoldItalic"),
-       url(LiberationSerif-BoldItalic.ttf);
-}
-@font-face {
-  font-family: "Liberation Mono";
-  font-style: normal;
-  font-weight: 300;
-  src: local("Liberation Mono"),
-       local("LiberationMono-Regular"),
-       url(LiberationMono-Regular.ttf);
-}
-
-
 body {
   padding: 50px;
   font: 14px/1.5 "Liberation Serif", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
