@@ -1,0 +1,135 @@
+---
+layout: project
+title: Netctl GUI
+short: netctl-gui
+description: Graphical interface for netctl
+hasgui: true
+developers:
+    - Evgeniy Alelseev
+license: GPLv3
+links:
+    - <a href="https://aur.archlinux.org/packages/netctl-gui">AUR package</a>
+---
+<!-- info block -->
+<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
+<p align="justify">Graphical interface for <code>netctl</code> (several scripts for work with network connection in Archlinux). It is written on <code>CPP</code> using <code>Qt4</code> library. Now it may work with profiles and may create new profiles. Also it may create a connection to WiFi. Moreover, it provides a widget and DataEngine for KDE.</p>
+{% highlight bash %}
+$ netctl-gui --help
+                                    Netctl GUI
+Version : 1.0.0                                                  License : GPLv3
+                                                    Evgeniy Alekseev aka arcanis
+                                                    E-mail : esalexeev@gmail.com
+
+Usage:
+netctl-gui [ --default ] [ -t NUM | --tab NUM ] [ -h | --help]
+
+Parametrs:
+           --default    - start with default settings
+  -t NUM   --tab NUM    - open a tab with number NUM
+  -h       --help       - show this help and exit
+{% endhighlight %}
+
+<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<ul>
+  {% for devel in page.developers %}
+    <li>{{ devel }}</li>
+  {% endfor %}
+</ul>
+
+<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<ul>
+  <li>{{ page.license }}</li>
+</ul>
+<!-- end of info block -->
+
+<!-- install block -->
+<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<ul>
+  <li><p align="justify">Download an <a href="https://github.com/arcan1s/netctl-gui/releases">archive</a> with latest version of source files.</p></li>
+  <li><p align="justify">Extract it and install the application:</p>
+<p align="justify">If you want install it into <code>/</code>, you should run as root following commands:</p>
+{% highlight bash %}
+cd /path/to/extracted/archive
+mkdir build && cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ../
+make
+sudo make install
+{% endhighlight %}
+<p align="justify">If you want install it without KDE widget, run:</p>
+{% highlight bash %}
+cd /path/to/extracted/archive
+mkdir build && cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_DATAENGINE:BOOL=0 -DBUILD_PLASMOID:BOOL=0 ../
+make
+sudo make install
+{% endhighlight %}
+  </li>
+</ul>
+
+<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+<p align="justify">I want note that all were tested on latest version of dependencies.</p>
+<ul>
+  <li>netctl</li>
+  <li>qt4</li>
+  <li>automoc4 <i>(make)</i></li>
+  <li>cmake <i>(make)</i></li>
+  <li>kdebase-workspace <i>(optional, widget)</i></li>
+  <li>sudo <i>(optional, sudo support)</i></li>
+  <li>wpa_supplicant <i>(optional, WiFi support)</i></li>
+</ul>
+<!-- end of install block -->
+
+<!-- howto block -->
+<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
+<p align="justify">Just run application <code>netctl-gui</code>. If it is needed (and if you use KDE), you may add widget <code>netctl</code>, which provides by the application.</p>
+<!-- end of howto block -->
+
+<!-- config block -->
+<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
+<p align="justify">It is recommended to use graphical interface for widget configuration. DataEngine settings are stored in <code>/usr/share/config/netctl.conf</code></p>
+<table>
+  <tr>
+    <th>CMD</th>
+    <td><p align="justify"><code>netctl</code> command. Default value is <code>/usr/bin/netctl</code>.</p></td>
+  </tr>
+  <tr>
+    <th>IPCMD</th>
+    <td><p align="justify"><code>ip</code> command. <code>/usr/bin/ip</code> by default.</p></td>
+  </tr>
+  <tr>
+    <th>NETDIR</th>
+    <td><p align="justify">A directory, which contains subdirectories with names of network interfaces. Default is <code>/sys/class/net/</code>.</p></td>
+  </tr>
+  <tr>
+    <th>EXTIPCMD</th>
+    <td><p align="justify">A command, which returns external IP address. Default value is <code>wget -qO- http://ifconfig.me/ip</code>.</p></td>
+  </tr>
+  <tr>
+    <th>EXTIP</th>
+    <td><p align="justify"><code>true</code> will enable external IP definition. Default is <code>false</code>.</p></td>
+  </tr>
+</table>
+<!-- end of config block -->
+
+<!-- gui block -->
+<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
+<p align="justify">Graphical interface provides by <code>netctl-gui</code> application.</p>
+
+<h3><a name="gui_configuration" class="anchor" href="#gui_configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
+<p align="justify">All settings of GUI are stored in <code>$HOME/.config/netctl-gui.conf</code>. It is highly recommended to edit it from graphical interface.</p>
+
+<h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
+<p align="justify">(Screenshots in Russian, but it has English translation.)</p>
+<p align="justify">Widget:<br>
+<a href="/resources/screenshots/netctl_widget.png"><img src="/resources/preview/netctl_widget_prev.jpg"></a><br>
+Widget settings window:<br>
+<a href="/resources/screenshots/netctl_widget-settings.png"><img src="/resources/preview/netctl_widget-settings_prev.jpg"></a><br>
+Main window:<br>
+<a href="/resources/screenshots/netctl_main.png"><img src="/resources/preview/netctl_main_prev.jpg"></a><br>
+Profile creation window:<br>
+<a href="/resources/screenshots/netctl_profile.png"><img src="/resources/preview/netctl_profile_prev.jpg"></a><br>
+WiFi menu:<br>
+<a href="/resources/screenshots/netctl_wifi.png"><img src="/resources/preview/netctl_wifi_prev.jpg"></a></p>
+<!-- end of gui block -->

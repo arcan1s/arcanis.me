@@ -1,0 +1,136 @@
+---
+category: ru
+layout: project
+title: Netctl GUI
+short: netctl-gui
+description: Графическая оболочка для netctl
+hasgui: true
+developers:
+    - Evgeniy Alelseev
+license: GPLv3
+links:
+    - <a href="https://aur.archlinux.org/packages/netctl-gui">Пакет в AUR</a>
+---
+<!-- info block -->
+<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
+<p align="justify">Графическая оболочка для <code>netctl</code> (набор скриптов для поднятия сети в Arch'е). Написана на <code>CPP</code> с использованием библиотеки <code>Qt4</code>. На текущим момент умеет работать с профилями, в том числе создавать новые, а также умеет подключаться к WiFi. Также предоставляет виджет и DataEngine для KDE.
+Простой демон, который создает git репозиторий в указанной директории и создает коммит в указанный промежуток времени.</p>
+{% highlight bash %}
+$ netctl-gui --help
+                                    Netctl GUI
+Версия : 1.0.0                                                  Лицензия : GPLv3
+                                                    Евгений Алексеев aka arcanis
+                                                    E-mail : esalexeev@gmail.com
+
+Использование:
+netctl-gui [ --default ] [ -t NUM | --tab NUM ] [ -h | --help]
+
+Параметры:
+           --default    - запустить со стандартными настройками
+  -t NUM   --tab NUM    - открыть вкладку с номером NUM
+  -h       --help       - показать эту справку и выход
+{% endhighlight %}
+
+<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
+<ul>
+  {% for devel in page.developers %}
+    <li>{{ devel }}</li>
+  {% endfor %}
+</ul>
+
+<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
+<ul>
+  <li>{{ page.license }}</li>
+</ul>
+<!-- end of info block -->
+
+<!-- install block -->
+<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Установка</h2>
+
+<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
+<ul>
+  <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/netctl-gui/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p align="justify">Извлеките из него файлы и установите приложение:</p>
+<p align="justify">Если Вы хотите установить в <code>/</code>, Вы должны запустить как root:</p>
+{% highlight bash %}
+cd /путь/к/распакованному/архиву
+mkdir build && cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ../
+make
+sudo make install
+{% endhighlight %}
+<p align="justify">Для установки без виджета выполните следующие команды:</p>
+{% highlight bash %}
+cd /путь/к/распакованному/архиву
+mkdir build && cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_DATAENGINE:BOOL=0 -DBUILD_PLASMOID:BOOL=0 ../
+make
+sudo make install
+{% endhighlight %}
+  </li>
+</ul>
+
+<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
+<p align="justify">Все было протестировано на последних версиях зависимостей.</p>
+<ul>
+  <li>netctl</li>
+  <li>qt4</li>
+  <li>automoc4 <i>(make)</i></li>
+  <li>cmake <i>(make)</i></li>
+  <li>kdebase-workspace <i>(опционально, виджет)</i></li>
+  <li>sudo <i>(опционально, поддержка sudo)</i></li>
+  <li>wpa_supplicant <i>(опционально, поддержка WiFi)</i></li>
+</ul>
+<!-- end of install block -->
+
+<!-- howto block -->
+<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
+<p align="justify">Просто запустите приложение <code>netctl-gui</code>. Если потребуется (и если Вы используете KDE), можете добавить виджет <code>netctl</code>, предоставляемый приложением.</p>
+<!-- end of howto block -->
+
+<!-- config block -->
+<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
+<p align="justify">Для настройки виджета рекомендуется использовать графический интерфейс. Настройки DataEngine хранятся в <code>/usr/share/config/netctl.conf</code></p>
+<table>
+  <tr>
+    <th>CMD</th>
+    <td><p align="justify">Команда для запуска <code>netctl</code>. По умолчанию <code>/usr/bin/netctl</code>.</p></td>
+  </tr>
+  <tr>
+    <th>IPCMD</th>
+    <td><p align="justify">Команда для запуска <code>ip</code>. По умолчанию <code>/usr/bin/ip</code>.</p></td>
+  </tr>
+  <tr>
+    <th>NETDIR</th>
+    <td><p align="justify">Директория, содержащая поддиректории с именами сетевых интерфейсов. По умолчанию <code>/sys/class/net/</code>.</p></td>
+  </tr>
+  <tr>
+    <th>EXTIPCMD</th>
+    <td><p align="justify">Команда для получения внешнего IP адреса. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>.</p></td>
+  </tr>
+  <tr>
+    <th>EXTIP</th>
+    <td><p align="justify"><code>true</code> включит определение внешнего IP адреса. По умолчанию <code>false</code>.</p></td>
+  </tr>
+</table>
+<!-- end of config block -->
+
+<!-- gui block -->
+<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
+<p align="justify">Графический интерфейс предоставляется приложением <code>netctl-gui</code>.</p>
+
+<h3><a name="gui_configuration" class="anchor" href="#gui_configuration"><span class="octicon octicon-link"></span></a>Настройка</h3>
+<p align="justify">Все настройки графического интерфейса хранятся в <code>$HOME/.config/netctl-gui.conf</code>. Для редактирования настоятельно рекомендуется использовать графический интерфейс.</p>
+
+<h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
+<p align="justify">Виджет:<br>
+<a href="/resources/screenshots/netctl_widget.png"><img src="/resources/preview/netctl_widget_prev.jpg"></a><br>
+Окно настроек виджета:<br>
+<a href="/resources/screenshots/netctl_widget-settings.png"><img src="/resources/preview/netctl_widget-settings_prev.jpg"></a><br>
+Главное окно:<br>
+<a href="/resources/screenshots/netctl_main.png"><img src="/resources/preview/netctl_main_prev.jpg"></a><br>
+Окно создания профиля:<br>
+<a href="/resources/screenshots/netctl_profile.png"><img src="/resources/preview/netctl_profile_prev.jpg"></a><br>
+Окно подключения к WiFi:<br>
+<a href="/resources/screenshots/netctl_wifi.png"><img src="/resources/preview/netctl_wifi_prev.jpg"></a></p>
+<!-- end of gui block -->

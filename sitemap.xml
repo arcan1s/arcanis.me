@@ -2,6 +2,7 @@
 projects:
     - git-etc
     - oblikuestrategies
+    - netctl-gui
     - pytextmonitor
     - queued
 ---
