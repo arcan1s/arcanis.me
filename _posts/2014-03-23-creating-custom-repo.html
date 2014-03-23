@@ -1,0 +1,143 @@
+---
+category: en
+type: paper
+layout: paper
+tags: archlinux, configuration, linux
+title: Creating own repository
+short: creating-custom-repo
+description: It is a short paper devoted to creation own ArchLinux repository.
+---
+<h2><a name="prepare" class="anchor" href="#prepare"><span class="octicon octicon-link"></span></a>Prepare</h2>
+<p align="justify">First find a server and desire to have sex with it. It is recommended to use Archlinux on it, but it is not necessarily - because you may create special root for Archlinux. Also you need two packages, <code>devtools</code> and <code>pacman</code>:</p>
+{% highlight bash %}
+pacman -Sy devtools
+{% endhighlight %}
+<p align="justify"><a href="https://www.archlinux.org/packages/devtools/">devtools</a> is script set for building automation in the clean chroot. I think most of Arch maintainers use it.</p>
+<p align="justify">Let's create working directories:</p>
+{% highlight bash %}
+mkdir -p ~/arch/repo/{i686,x86_64}
+mkdir -p ~/arch/{prepare,root,staging}
+{% endhighlight %}
+<p align="justify"><code>~/arch/repo/{i686,x86_64}</code> are directories for repository, <code>~/arch/prepare</code> is directory where compiled packages will be stored, <code>~/arch/root</code> is one where clean chroot will be created, <code>~/arch/staging</code> is one where packages will be built.</p>
+
+<h2><a name="theory" class="anchor" href="#theory"><span class="octicon octicon-link"></span></a>A bit of theory</h2>
+<p align="justify">Create directory, share it (using <a href="/2014/03/06/site-changes/">ftp</a>, for example). It has two subdirectories - <code>i686</code> and <code>x86_64</code> - for each architecture respectively. And fill them with a set of packages.</p>
+<p align="justify">Updating repository may be split into the following steps:</p>
+<ol>
+  <li>Creating PKGBUILDs (or updating them from AUR).</li>
+  <li>Packages building for each architecture in clean chroot.</li>
+  <li>Packages signing.</li>
+  <li>Creating the list of packages.</li>
+  <li>Repository update:
+    <ol><li>Removal old packages from database and repository.</li>
+    <li>Copying new packages</li>
+    <li>Repository update.</li></ol>
+    </li>
+  <li>Cleaning.</li>
+</ol>
+
+<h3><a name="pkgbuild" class="anchor" href="#pkgbuild"><span class="octicon octicon-link"></span></a>Creating PKGBUILDs</h3>
+<p align="justify">Download source tarballs from AUR:</p>
+{% highlight bash %}
+cd ~/arch/staging
+yaourt -G package-name
+{% endhighlight %}
+
+<h3><a name="building" class="anchor" href="#building"><span class="octicon octicon-link"></span></a>Packages building</h3>
+<p align="justify">Build each package automatically:</p>
+{% highlight bash %}
+func_build() {
+  PREPARE="$1"
+  ROOT="$2"
+  if grep "arch=('any')" PKGBUILD -q; then
+    /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}"
+  else
+    /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}"
+    /usr/bin/sudo /usr/bin/staging-x86_64-build -r "${ROOT}"
+  fi
+  /usr/bin/cp *.pkg.tar.xz "${PREPARE}"
+}
+
+# building
+/usr/bin/cd "${STAGINGDIR}"
+/usr/bin/find -name PKGBUILD -type f -execdir func_build "${PREPAREDIR}" "${ROOTDIR}" \;
+{% endhighlight %}
+<p align="justify">It is recommended to add the following lines to <code>/etc/sudoers</code>:</p>
+{% highlight bash %}
+username ALL=NOPASSWD: /usr/bin/staging-i686-build
+username ALL=NOPASSWD: /usr/bin/staging-x86_64-build
+{% endhighlight %}
+
+<h3><a name="signing" class="anchor" href="#signing"><span class="octicon octicon-link"></span></a>Packages signing</h3>
+{% highlight bash %}
+# signing
+/usr/bin/cd "${PREPAREDIR}"
+for PACKAGE in $(/usr/bin/ls *.pkg.tar.xz); do
+  /usr/bin/gpg -b ${PACKAGE}
+done
+{% endhighlight %}
+<p align="justify">It is recommended to configure <a href="https://wiki.archlinux.org/index.php/GPG#gpg-agent">gpg-agent</a>.</p>
+
+<h3><a name="list" class="anchor" href="#list"><span class="octicon octicon-link"></span></a>Creating the list of packages</h3>
+{% highlight bash %}
+# creating packages list
+i686_PACKAGES=$(/usr/bin/ls *.pkg.tar.xz | /usr/bin/grep "i686\|any")
+x86_64_PACKAGES=$(/usr/bin/ls *.pkg.tar.xz | /usr/bin/grep "x86_64\|any")
+echo "i686 packages: ${i686_PACKAGES}"
+echo "x86_64 packages: ${x86_64_PACKAGES}"
+{% endhighlight %}
+
+<h3><a name="updating" class="anchor" href="#updating"><span class="octicon octicon-link"></span></a>Repository update</h3>
+<p align="justify">Here is a function for removal packages from database and repository:</p>
+{% highlight bash %}
+func_remove() {
+  DBPATH="$1"
+  PKGNAME="$2"
+  /usr/bin/repo-remove ${DBNAME}.db.tar.gz ${PKGNAME}
+  /usr/bin/repo-remove ${DBNAME}.files.tar.gz ${PKGNAME}
+  /usr/bin/rm -f ${PKGNAME}*
+}
+{% endhighlight %}
+<p align="justify"><code>i686</code> repository update:</p>
+{% highlight bash %}
+# updating i686 repo
+/usr/bin/cd "${REPODIR}/i686"
+for PACKAGE in ${i686_PACKAGES}; do
+  PKGNAME=$(echo ${PACKAGE} | /usr/bin/awk -F '-' '{for(i=1; i<=NF-3;i++) {printf("%s-", $i);}}' | /usr/bin/sed 's/.$//')
+  /usr/bin/ls ${PKGNAME}* && func_remove "${DBNAME}" "${PKGNAME}"
+  /usr/bin/cp "${PREPAREDIR}/${PACKAGE}"{,.sig} .
+done
+/usr/bin/repo-add --new ${DBNAME}.db.tar.gz *.pkg.tar.xz
+/usr/bin/repo-add --new --files ${DBNAME}.files.tar.gz *.pkg.tar.xz
+{% endhighlight %}
+<p align="justify"><code>x86_64</code> repository update:</p>
+{% highlight bash %}
+# updating x86_64 repo
+/usr/bin/cd "${REPODIR}/x86_64"
+for PACKAGE in ${x86_64_PACKAGES}; do
+  PKGNAME=$(echo ${PACKAGE} | /usr/bin/awk -F '-' '{for(i=1; i<=NF-3;i++) {printf("%s-", $i);}}' | /usr/bin/sed 's/.$//')
+  /usr/bin/ls ${PKGNAME}* && func_remove "${DBNAME}" "${PKGNAME}"
+  /usr/bin/cp "${PREPAREDIR}/${PACKAGE}"{,.sig} .
+done
+/usr/bin/repo-add --new ${DBNAME}.db.tar.gz *.pkg.tar.xz
+/usr/bin/repo-add --new --files ${DBNAME}.files.tar.gz *.pkg.tar.xz
+{% endhighlight %}
+
+<h3><a name="clear" class="anchor" href="#clear"><span class="octicon octicon-link"></span></a>Cleaning</h3>
+{% highlight bash %}
+# clear
+/usr/bin/cd "${PREPAREDIR}"
+/usr/bin/rm -rf *
+/usr/bin/cd "${STAGINGDIR}"
+/usr/bin/rm -rf *
+{% endhighlight %}
+
+<h3><a name="file" class="anchor" href="#file"><span class="octicon octicon-link"></span></a>File</h3>
+<p align="justify">Here is <a href="https://raw.github.com/arcan1s/dotfiles/master/repo-update">the script</a>. Download source tarballs and run script (editing variables if it is necessary).</p>
+
+<h2><a name="using" class="anchor" href="#using"><span class="octicon octicon-link"></span></a>Repository usage</h2>
+<p align="justify">Just add following lines to <code>/etc/pacman.conf</code>:</p>
+{% highlight bash %}
+[$REPONAME]
+Server = ftp://$REPOADDRESS/repo/$arch
+{% endhighlight %}
