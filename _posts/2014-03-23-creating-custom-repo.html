@@ -57,10 +57,11 @@ func_build() {
   fi
   /usr/bin/cp *.pkg.tar.xz "${PREPARE}"
 }
+export -f func_build
 
 # building
-/usr/bin/cd "${STAGINGDIR}"
-/usr/bin/find -name PKGBUILD -type f -execdir func_build "${PREPAREDIR}" "${ROOTDIR}" \;
+cd "${STAGINGDIR}"
+/usr/bin/find -name 'PKGBUILD' -type f -execdir /usr/bin/bash -c "func_build "${PREPAREDIR}" "${ROOTDIR}"" \;
 {% endhighlight %}
 <p align="justify">It is recommended to add the following lines to <code>/etc/sudoers</code>:</p>
 {% highlight bash %}
@@ -71,7 +72,7 @@ username ALL=NOPASSWD: /usr/bin/staging-x86_64-build
 <h3><a name="signing" class="anchor" href="#signing"><span class="octicon octicon-link"></span></a>Packages signing</h3>
 {% highlight bash %}
 # signing
-/usr/bin/cd "${PREPAREDIR}"
+cd "${PREPAREDIR}"
 for PACKAGE in $(/usr/bin/ls *.pkg.tar.xz); do
   /usr/bin/gpg -b ${PACKAGE}
 done
@@ -97,14 +98,15 @@ func_remove() {
   /usr/bin/repo-remove ${DBNAME}.files.tar.gz ${PKGNAME}
   /usr/bin/rm -f ${PKGNAME}*
 }
+export -f func_remove
 {% endhighlight %}
 <p align="justify"><code>i686</code> repository update:</p>
 {% highlight bash %}
 # updating i686 repo
-/usr/bin/cd "${REPODIR}/i686"
+cd "${REPODIR}/i686"
 for PACKAGE in ${i686_PACKAGES}; do
   PKGNAME=$(echo ${PACKAGE} | /usr/bin/awk -F '-' '{for(i=1; i<=NF-3;i++) {printf("%s-", $i);}}' | /usr/bin/sed 's/.$//')
-  /usr/bin/find -name '${PKGNAME}*' -type f -exec func_remove "${DBNAME}" "${PKGNAME}"
+  /usr/bin/find -name '${PKGNAME}*' -type f -exec /usr/bin/bash -c "func_remove "${DBNAME}" "${PKGNAME}"" \;
   /usr/bin/cp "${PREPAREDIR}/${PACKAGE}"{,.sig} .
 done
 /usr/bin/repo-add --new ${DBNAME}.db.tar.gz *.pkg.tar.xz
@@ -113,10 +115,10 @@ done
 <p align="justify"><code>x86_64</code> repository update:</p>
 {% highlight bash %}
 # updating x86_64 repo
-/usr/bin/cd "${REPODIR}/x86_64"
+cd "${REPODIR}/x86_64"
 for PACKAGE in ${x86_64_PACKAGES}; do
   PKGNAME=$(echo ${PACKAGE} | /usr/bin/awk -F '-' '{for(i=1; i<=NF-3;i++) {printf("%s-", $i);}}' | /usr/bin/sed 's/.$//')
-  /usr/bin/find -name '${PKGNAME}*' -type f -exec func_remove "${DBNAME}" "${PKGNAME}"
+  /usr/bin/find -name '${PKGNAME}*' -type f -exec /usr/bin/bash -c "func_remove "${DBNAME}" "${PKGNAME}"" \;
   /usr/bin/cp "${PREPAREDIR}/${PACKAGE}"{,.sig} .
 done
 /usr/bin/repo-add --new ${DBNAME}.db.tar.gz *.pkg.tar.xz
@@ -126,9 +128,9 @@ done
 <h3><a name="clear" class="anchor" href="#clear"><span class="octicon octicon-link"></span></a>Cleaning</h3>
 {% highlight bash %}
 # clear
-/usr/bin/cd "${PREPAREDIR}"
+cd "${PREPAREDIR}"
 /usr/bin/rm -rf *
-/usr/bin/cd "${STAGINGDIR}"
+cd "${STAGINGDIR}"
 /usr/bin/rm -rf *
 {% endhighlight %}
 
