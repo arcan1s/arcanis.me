@@ -89,10 +89,11 @@ done
 <h3><a name="list" class="anchor" href="#list"><span class="octicon octicon-link"></span></a>Создание списка пакетов</h3>
 {% highlight bash %}
 # creating packages list
-i686_PACKAGES=$(/usr/bin/ls *.pkg.tar.xz | /usr/bin/grep "i686\|any")
-x86_64_PACKAGES=$(/usr/bin/ls *.pkg.tar.xz | /usr/bin/grep "x86_64\|any")
-echo "i686 packages: ${i686_PACKAGES}"
-echo "x86_64 packages: ${x86_64_PACKAGES}"
+cd "${PREPAREDIR}"
+i686_PACKAGES=$(/usr/bin/find * -name "*-i686.pkg.tar.xz" -o -name "*-any.pkg.tar.xz")
+x86_64_PACKAGES=$(/usr/bin/find * -name "*-x86_64.pkg.tar.xz" -o -name "*-any.pkg.tar.xz")
+echo "=> i686 packages: \n${i686_PACKAGES}"
+echo "=> x86_64 packages: \n${x86_64_PACKAGES}"
 {% endhighlight %}
 
 <h3><a name="updating" class="anchor" href="#updating"><span class="octicon octicon-link"></span></a>Обновление репозиториев</h3>
