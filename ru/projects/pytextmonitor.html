@@ -7,7 +7,7 @@ description: Минималистичный плазмоид, который в�
 hasgui: true
 developers:
     - Evgeniy Alelseev
-license: GPL
+license: GPLv3
 links:
     - Страница плазмоида на <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a>
     - Страница DataEngine на <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773">kde-look.org</a>
@@ -48,17 +48,9 @@ make install
 {% highlight bash %}
 cd /путь/к/извлеченным/файлам/
 mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` -DCMAKE_BUILD_TYPE=Release ../
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` ../
 make
 sudo make install
-{% endhighlight %}</li>
-  <li><p align="justify">Установите плазмоид:</p>
-{% highlight bash %}
-plasmapkg -i py-text-monitor-1.5.0.plasmoid
-{% endhighlight %}
-<p align="justify">Для глобальной установки наберите:</p>
-{% highlight bash %}
-sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid
 {% endhighlight %}</li>
 </ul>
 
@@ -116,7 +108,7 @@ sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid
 <p align="justify">Доступные флаги в таблице ниже.</p>
 <table>
   <tr>
-    <th rowspan="4">Время</th>
+    <th rowspan="21">Время</th>
     <td><code>$time</code></td>
     <td><p align="justify">Время в стандартном формате. Например, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
   </tr>
@@ -133,9 +125,93 @@ sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid
     <td><p align="justify">Время в длинном формате локали.</p></td>
   </tr>
   <tr>
-    <th rowspan="1">Аптайм</th>
+    <td><code>$custom</code></td>
+    <td><p align="justify">Включит специальный формат времени.</p></td>
+  </tr>
+  <tr>
+    <td><code>$dddd</code></td>
+    <td><p align="justify">Длинный день недели (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$ddd</code></td>
+    <td><p align="justify">Короткий день недели (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$dd</code></td>
+    <td><p align="justify">День (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$d</code></td>
+    <td><p align="justify">День без нуля (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$MMMM</code></td>
+    <td><p align="justify">Месяц в длинном формате (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$MMM</code></td>
+    <td><p align="justify">Месяц в коротком формате (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$MM</code></td>
+    <td><p align="justify">Месяц (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$M</code></td>
+    <td><p align="justify">Месяц без нуля (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$yyyy</code></td>
+    <td><p align="justify">Год (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$yy</code></td>
+    <td><p align="justify">Год в коротком формате (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$hh</code></td>
+    <td><p align="justify">Часы (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$h</code></td>
+    <td><p align="justify">Часы без нуля (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$mm</code></td>
+    <td><p align="justify">Минуты (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$m</code></td>
+    <td><p align="justify">Минуты без нуля (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$ss</code></td>
+    <td><p align="justify">Секунды (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$s</code></td>
+    <td><p align="justify">Секунды без нуля (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <th rowspan="5">Аптайм</th>
     <td><code>$uptime</code></td>
     <td><p align="justify">Системный аптайм, <code>---d--h--m</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$custom</code></td>
+    <td><p align="justify">Включит специальный формат аптайма.</p></td>
+  </tr>
+  <tr>
+    <td><code>$ds</code></td>
+    <td><p align="justify">Дни аптайма (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$hs</code></td>
+    <td><p align="justify">Часы аптайма (необходим флаг <code>$custom</code>).</p></td>
+  </tr>
+  <tr>
+    <td><code>$ms</code></td>
+    <td><p align="justify">Минуты аптайма (необходим флаг <code>$custom</code>).</p></td>
   </tr>
   <tr>
     <th rowspan="2">CPU</th>
@@ -222,12 +298,12 @@ sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid
   </tr>
   <tr>
     <th rowspan="5">Музыкальный плеер</th>
-    <td><code>$artist</code></td>
-    <td><p align="justify">Исполнитель текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
-  </tr>
-  <tr>
     <td><code>$album</code></td>
     <td><p align="justify">Альбом текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
+  </tr>
+  <tr>
+    <td><code>$artist</code></td>
+    <td><p align="justify">Исполнитель текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
   </tr>
   <tr>
     <td><code>$progress</code></td>

@@ -6,7 +6,7 @@ description: Minimalistic Plasmoid script that looks like widgets in Awesome WM
 hasgui: true
 developers:
     - Evgeniy Alelseev
-license: GPL
+license: GPLv3
 links:
     - Plasmoid page on <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a>
     - DataEngine page on <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773">kde-look.org</a>
@@ -15,6 +15,7 @@ links:
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Information</h2>
 <p align="justify">A minimalistic Plasmoid script written on <code>Python2</code>. It looks like widgets in <a href="http://awesome.naquadah.org/">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
+<p align="justify"><b>NOTE:</b> LOOKING FOR TRANSLATORS!</p>
 
 <h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
@@ -35,11 +36,11 @@ links:
 <h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
   <li><p align="justify">Download an <a href="https://github.com/arcan1s/pytextmonitor/releases">archive</a> with latest version of source files.</p></li>
-  <li><p align="justify">Extract it and install the DataEngine:</p>
+  <li><p align="justify">Extract it and install:</p>
 {% highlight bash %}
 cd /where/is/applet/
 mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` ../
 make
 make install
 {% endhighlight %}
@@ -47,17 +48,9 @@ make install
 {% highlight bash %}
 cd /where/is/applet/
 mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` -DCMAKE_BUILD_TYPE=Release ../
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` ../
 make
 sudo make install
-{% endhighlight %}</li>
-  <li><p align="justify">Install the Plasmoid:</p>
-{% highlight bash %}
-plasmapkg -i py-text-monitor-1.5.0.plasmoid
-{% endhighlight %}
-<p align="justify">For global isntallation type:</p>
-{% highlight bash %}
-sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid
 {% endhighlight %}</li>
 </ul>
 
@@ -115,7 +108,7 @@ sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid
 <p align="justify">Available flags are in the table below.</p>
 <table>
   <tr>
-    <th rowspan="4">Time label</th>
+    <th rowspan="21">Time label</th>
     <td><code>$time</code></td>
     <td><p align="justify">Time in default format. For example, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
   </tr>
@@ -132,9 +125,93 @@ sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid
     <td><p align="justify">Time in long locale format.</p></td>
   </tr>
   <tr>
-    <th rowspan="1">Uptime label</th>
+    <td><code>$custom</code></td>
+    <td><p align="justify">Will enable custom time format.</p></td>
+  </tr>
+  <tr>
+    <td><code>$dddd</code></td>
+    <td><p align="justify">Weekday in long format (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$ddd</code></td>
+    <td><p align="justify">Weekday in short format (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$dd</code></td>
+    <td><p align="justify">Day (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$d</code></td>
+    <td><p align="justify">Day without zero (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$MMMM</code></td>
+    <td><p align="justify">Nonth in long format (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$MMM</code></td>
+    <td><p align="justify">Month in short format (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$MM</code></td>
+    <td><p align="justify">Month (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$M</code></td>
+    <td><p align="justify">Month without zero (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$yyyy</code></td>
+    <td><p align="justify">Year (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$yy</code></td>
+    <td><p align="justify">Year in short format (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$hh</code></td>
+    <td><p align="justify">Hours (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$h</code></td>
+    <td><p align="justify">Hours without zero (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$mm</code></td>
+    <td><p align="justify">Minutes (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$m</code></td>
+    <td><p align="justify">Minutes without zero (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$ss</code></td>
+    <td><p align="justify">Seconds (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$s</code></td>
+    <td><p align="justify">Seconds without zero (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <th rowspan="5">Uptime label</th>
     <td><code>$uptime</code></td>
     <td><p align="justify">System uptime, <code>---d--h--m</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$custom</code></td>
+    <td><p align="justify">Will enable custom uptime format.</p></td>
+  </tr>
+  <tr>
+    <td><code>$ds</code></td>
+    <td><p align="justify">Uptime days (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$hs</code></td>
+    <td><p align="justify">Uptime hours (required <code>$custom</code> flag).</p></td>
+  </tr>
+  <tr>
+    <td><code>$ms</code></td>
+    <td><p align="justify">Uptime minutes (required <code>$custom</code> flag).</p></td>
   </tr>
   <tr>
     <th rowspan="2">CPU label</th>
@@ -221,12 +298,12 @@ sudo plasmapkg -g -i py-text-monitor-1.5.0.plasmoid
   </tr>
   <tr>
     <th rowspan="5">Music player label</th>
-    <td><code>$artist</code></td>
-    <td><p align="justify">Current song artist. One of supported music players must be installed.</p></td>
-  </tr>
-  <tr>
     <td><code>$album</code></td>
     <td><p align="justify">Current song album. One of supported music players must be installed.</p></td>
+  </tr>
+  <tr>
+    <td><code>$artist</code></td>
+    <td><p align="justify">Current song artist. One of supported music players must be installed.</p></td>
   </tr>
   <tr>
     <td><code>$progress</code></td>
