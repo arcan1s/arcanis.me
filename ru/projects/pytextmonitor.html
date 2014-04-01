@@ -63,7 +63,6 @@ sudo make install
   <li>cmake <i>(make)</i></li>
   <li>kdebase-runtime <i>(make)</i></li>
   <li>lm_sensors <i>(опционально, для определения температурного устройства)</i></li>
-  <li>net-tools <i>(опционально, для определения интернет устройства)</i></li>
   <li>sysstat <i>(опционально, для уведомлений)</i></li>
   <li>hddtemp <i>(опционально, для контроля за температурой HDD)</i></li>
   <li>один из поддерживаемых музыкальных плееров - <a href="http://amarok.kde.org/">amarok</a>, <a href="http://www.musicpd.org/">mtd</a> или <a href="http://qmmp.ylsoftware.com/">qmmp</a> <i>(опционально, для контроля за музыкальным плеером)</i>
@@ -105,10 +104,11 @@ sudo make install
 <h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Настройка виджета</h3>
 <p align="justify">Для настройки внешнего вида Вы должны открыть окно настроек и установить требуемый формат. Порядок меток изменится, если Вы измените положение слайдера. В метках работают HTML тэги.<br>
 <b>ЗАМЕЧАНИЕ</b> Вы не можете, например, заставить его показывать Вам <code>$cpu</code> в метка swap. <b><code>$cpu</code> будет работать только в метке cpu.</b></p>
-<p align="justify">Доступные флаги в таблице ниже.</p>
+<p align="justify">Доступные флаги в таблице ниже.<br>
+<b>ЗАМЕЧАНИЕ</b> Нумерация всех массивов в переменных начинается с 0.</p>
 <table>
   <tr>
-    <th rowspan="21">Время</th>
+    <th rowspan="5">Время</th>
     <td><code>$time</code></td>
     <td><p align="justify">Время в стандартном формате. Например, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
   </tr>
@@ -126,92 +126,16 @@ sudo make install
   </tr>
   <tr>
     <td><code>$custom</code></td>
-    <td><p align="justify">Включит специальный формат времени.</p></td>
+    <td><p align="justify">Cпециальный формат времени.</p></td>
   </tr>
   <tr>
-    <td><code>$dddd</code></td>
-    <td><p align="justify">Длинный день недели (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$ddd</code></td>
-    <td><p align="justify">Короткий день недели (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$dd</code></td>
-    <td><p align="justify">День (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$d</code></td>
-    <td><p align="justify">День без нуля (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$MMMM</code></td>
-    <td><p align="justify">Месяц в длинном формате (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$MMM</code></td>
-    <td><p align="justify">Месяц в коротком формате (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$MM</code></td>
-    <td><p align="justify">Месяц (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$M</code></td>
-    <td><p align="justify">Месяц без нуля (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$yyyy</code></td>
-    <td><p align="justify">Год (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$yy</code></td>
-    <td><p align="justify">Год в коротком формате (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$hh</code></td>
-    <td><p align="justify">Часы (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$h</code></td>
-    <td><p align="justify">Часы без нуля (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$mm</code></td>
-    <td><p align="justify">Минуты (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$m</code></td>
-    <td><p align="justify">Минуты без нуля (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$ss</code></td>
-    <td><p align="justify">Секунды (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$s</code></td>
-    <td><p align="justify">Секунды без нуля (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <th rowspan="5">Аптайм</th>
+    <th rowspan="2">Аптайм</th>
     <td><code>$uptime</code></td>
     <td><p align="justify">Системный аптайм, <code>---d--h--m</code>.</p></td>
   </tr>
   <tr>
     <td><code>$custom</code></td>
-    <td><p align="justify">Включит специальный формат аптайма.</p></td>
-  </tr>
-  <tr>
-    <td><code>$ds</code></td>
-    <td><p align="justify">Дни аптайма (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$hs</code></td>
-    <td><p align="justify">Часы аптайма (необходим флаг <code>$custom</code>).</p></td>
-  </tr>
-  <tr>
-    <td><code>$ms</code></td>
-    <td><p align="justify">Минуты аптайма (необходим флаг <code>$custom</code>).</p></td>
+    <td><p align="justify">Cпециальный формат аптайма.</p></td>
   </tr>
   <tr>
     <th rowspan="2">CPU</th>
@@ -219,8 +143,8 @@ sudo make install
     <td><p align="justify">Полная загрузка CPU, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
-    <td><code>$ccpu</code></td>
-    <td><p align="justify">Загрузка CPU для каждого ядра, %, <code>-----</code>.</p></td>
+    <td><code>$cpuN</code></td>
+    <td><p align="justify">Загрузка CPU для ядра N, %, <code>-----</code>. N должно быть в промежутке от 0 до 7.</p></td>
   </tr>
   <tr>
     <th rowspan="2">Частота CPU</th>
@@ -228,13 +152,13 @@ sudo make install
     <td><p align="justify">Средняя частота CPU, МГц, <code>----</code>.</p></td>
   </tr>
   <tr>
-    <td><code>$ccpucl</code></td>
-    <td><p align="justify">Частота CPU для каждого ядра, МГц, <code>----</code>.</p></td>
+    <td><code>$cpuclN</code></td>
+    <td><p align="justify">Частота CPU для ядра N, МГц, <code>----</code>. N должно быть в промежутке от 0 до 7.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Температура</th>
-    <td><code>$temp</code></td>
-    <td><p align="justify">Средняя температура в системе, &deg;C, <code>----</code>. Устройство должно быть указано.</p></td>
+    <td><code>$tempN</code></td>
+    <td><p align="justify">Температура для датчика N, &deg;C, <code>----</code>. Пример: <code>$temp0</code></p></td>
   </tr>
   <tr>
     <th rowspan="1">GPU</th>
@@ -266,22 +190,22 @@ sudo make install
   </tr>
   <tr>
     <th rowspan="1">HDD</th>
-    <td><code>@@/@@</code></td>
-    <td><p align="justify">Занятость точки монтирования (<code>/</code> в примере), %, <code>-----</code>. Разделитель <code>;</code>, например <code>@@/;/home;/mnt/global@@</code></p></td>
+    <td><code>$hddN</code></td>
+    <td><p align="justify">Занятость точки монтирования N, %, <code>-----</code>. Пример: <code>$hdd0</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Температура HDD</th>
-    <td><code>@@/dev/sda@@</code></td>
-    <td><p align="justify">Температура HDD (<code>/dev/sda</code> в примере), &deg;C, <code>----</code>. Разделитель <code>;</code>, например <code>@@/dev/sda;/dev/sdb@@</code>. <code>hddtemp</code> должен быть установлен.</p></td>
+    <td><code>$hddtempN</code></td>
+    <td><p align="justify">Температура HDD с номером N, &deg;C, <code>----</code>. Пример <code>$hddtemp0</code>. <code>hddtemp</code> должен быть установлен.</p></td>
   </tr>
   <tr>
     <th rowspan="3">Сеть</th>
-    <td><code>$net</code></td>
-    <td><p align="justify">Скорость загрузки и отдачи, KB/s, <code>----/----</code>.</p></td>
+    <td><code>$down</code></td>
+    <td><p align="justify">Скорость загрузки, KB/s, <code>----</code>.</p></td>
   </tr>
   <tr>
-    <td><code>@@eth0@@</code></td>
-    <td><p align="justify">Не использовать автоматическое определение устройства, показывать только данные по указанному устройству (<code>eth0</code> в примере).</p></td>
+    <td><code>$up</code></td>
+    <td><p align="justify">Скорость отдачи, KB/s, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$netdev</code></td>
@@ -290,11 +214,11 @@ sudo make install
   <tr>
     <th rowspan="2">Батарея</th>
     <td><code>$bat</code></td>
-    <td><p align="justify">Заряд батареи, %, <code>---</code>. Устройство может быть указано ниже. Файл (<code>/sys/class/power_supply/BAT0/capacity</code> по умолчанию) должен содержать только заряд батареи в %.</p></td>
+    <td><p align="justify">Заряд батареи, %, <code>---</code>.</p></td>
   </tr>
   <tr>
     <td><code>$ac</code></td>
-    <td><p align="justify">Статус зарядного устройства. Возвращает <code>(*)</code>, если устройство подключено, или <code>( )</code>, если нет. Устройство может быть указано ниже. Файл (<code>/sys/class/power_supply/AC/online</code> по умолчанию) должен содержать <code>1</code>, если устройство подключено.</p></td>
+    <td><p align="justify">Статус зарядного устройства. Возвращает <code>(*)</code>, если устройство подключено, или <code>( )</code>, если нет.</p></td>
   </tr>
   <tr>
     <th rowspan="5">Музыкальный плеер</th>
@@ -307,7 +231,7 @@ sudo make install
   </tr>
   <tr>
     <td><code>$progress</code></td>
-    <td><p align="justify">Прогресс текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен (mpd в настоящий момент не поддерживается).</p></td>
+    <td><p align="justify">Прогресс текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
   </tr>
   <tr>
     <td><code>$time</code></td>
@@ -317,7 +241,115 @@ sudo make install
     <td><code>$title</code></td>
     <td><p align="justify">Название текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
   </tr>
+  <tr>
+    <th rowspan="1">Своя команда</th>
+    <td><code>$custom</code></td>
+    <td><p align="justify">Получить данные из указанной команды.</p></td>
+  </tr>
 </table>
+
+<h4><a name="advanced" class="anchor" href="#advanced"><span class="octicon octicon-link"></span></a>Расширенные настройки</h4>
+<p align="justify"><b>Свой формат времени:</b></p>
+<table>
+  <tr>
+    <td><code>$dddd</code></td>
+    <td><p align="justify">Длинный день недели.</p></td>
+  </tr>
+  <tr>
+    <td><code>$ddd</code></td>
+    <td><p align="justify">Короткий день недели.</p></td>
+  </tr>
+  <tr>
+    <td><code>$dd</code></td>
+    <td><p align="justify">День.</p></td>
+  </tr>
+  <tr>
+    <td><code>$d</code></td>
+    <td><p align="justify">День без нуля.</p></td>
+  </tr>
+  <tr>
+    <td><code>$MMMM</code></td>
+    <td><p align="justify">Месяц в длинном формате.</p></td>
+  </tr>
+  <tr>
+    <td><code>$MMM</code></td>
+    <td><p align="justify">Месяц в коротком формате.</p></td>
+  </tr>
+  <tr>
+    <td><code>$MM</code></td>
+    <td><p align="justify">Месяц.</p></td>
+  </tr>
+  <tr>
+    <td><code>$M</code></td>
+    <td><p align="justify">Месяц без нуля.</p></td>
+  </tr>
+  <tr>
+    <td><code>$yyyy</code></td>
+    <td><p align="justify">Год.</p></td>
+  </tr>
+  <tr>
+    <td><code>$yy</code></td>
+    <td><p align="justify">Год в коротком формате.</p></td>
+  </tr>
+  <tr>
+    <td><code>$hh</code></td>
+    <td><p align="justify">Часы.</p></td>
+  </tr>
+  <tr>
+    <td><code>$h</code></td>
+    <td><p align="justify">Часы без нуля.</p></td>
+  </tr>
+  <tr>
+    <td><code>$mm</code></td>
+    <td><p align="justify">Минуты.</p></td>
+  </tr>
+  <tr>
+    <td><code>$m</code></td>
+    <td><p align="justify">Минуты без нуля.</p></td>
+  </tr>
+  <tr>
+    <td><code>$ss</code></td>
+    <td><p align="justify">Секунды.</p></td>
+  </tr>
+  <tr>
+    <td><code>$s</code></td>
+    <td><p align="justify">Секунды без нуля.</p></td>
+  </tr>
+</table>
+
+<p align="justify"><b>Свой формат времени работы:</b></p>
+<table>
+  <tr>
+    <td><code>$ds</code></td>
+    <td><p align="justify">Дни аптайма.</p></td>
+  </tr>
+  <tr>
+    <td><code>$hs</code></td>
+    <td><p align="justify">Часы аптайма.</p></td>
+  </tr>
+  <tr>
+    <td><code>$ms</code></td>
+    <td><p align="justify">Минуты аптайма.</p></td>
+  </tr>
+</table>
+
+<p align="justify"><b>Датчики температуры:</b> Список датчиков, которые будут наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>sensors</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
+
+<p align="justify"><b>Точки монтирования: </b> Список точек монтирования, которые будут наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>mount</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
+
+<p align="justify"><b>HDD:</b> Список HDD, температура которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>find</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
+
+<p align="justify"><b>Путь к интерфейсам:</b> Путь к директории, которая содержит информацию о сетевых устройствах. По умолчанию <code>/sys/class/net</code>. Необходима для автоматического выбора устройства.</p>
+
+<p align="justify"><b>Сетевой интерфейс:</b> Использовать указанный интерфейс, как активный. Содержимое комбо-бокса заполнятся из <b>пути к интерфейсам</b>. Эта опция отключит автоматический выбор сетевого интерфейса.</p>
+
+<p align="justify"><b>Устройство батареи:</b> Файл, содержащий информацию о батарее. Данный файл (<code>/sys/class/power_supply/BAT0/capacity</code> по умолчанию) должен содержать только заряд батареи в %.</p>
+
+<p align="justify"><b>Устройство AC:</b> Файл, содержащий информацию об адапторе питания. Данный файл (<code>/sys/class/power_supply/AC/online</code> по умолчанию) должен содержать <code>1</code>, если устройство подключено.</p>
+
+<p align="justify"><b>Музыкальный плеер:</b> Выберете один из поддерживаемых музыкальных плееров для соответствующего поля.</p>
+
+<p align="justify"><b>Своя команда:</b> <i><b>ЗАМЕЧАНИЕ</b> это поле может привести к "зависанию" компьютера.</i> Команда, которая будет запущена для соответствующего поля. Например, <code>wget -qO- http://ifconfig.me/ip</code> вернет внешний IP.</p>
 <!-- end of config block -->
 
 <!-- gui block -->

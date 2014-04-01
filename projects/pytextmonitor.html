@@ -63,7 +63,6 @@ sudo make install
   <li>cmake <i>(make)</i></li>
   <li>kdebase-runtime <i>(make)</i></li>
   <li>lm_sensors <i>(optional, for definition temperature device)</i></li>
-  <li>net-tools <i>(optional, for definition network device)</i></li>
   <li>sysstat <i>(optional, for notification)</i></li>
   <li>hddtemp <i>(optional, for HDD temperature monitor)</i></li>
   <li>one of supported music player - <a href="http://amarok.kde.org/">amarok</a>, <a href="http://www.musicpd.org/">mtd</a> or <a href="http://qmmp.ylsoftware.com/">qmmp</a> <i>(optional, for music player monitor)</i>
@@ -104,11 +103,12 @@ sudo make install
 
 <h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Widget configuration</h3>
 <p align="justify">For edited output you must open Settings window and setup output format in lines. Label order will changed if you change slider position. HTML tags in label work normally.<br>
-<b>NOTE</b> you do not may set to show <code>$cpu</code> in swap label for example. <b><code>$cpu</code> will work only in cpu label.</b></p>
-<p align="justify">Available flags are in the table below.</p>
+<b>NOTE</b> You do not may set to show <code>$cpu</code> in swap label for example. <b><code>$cpu</code> will work only in cpu label.</b></p>
+<p align="justify">Available flags are in the table below.<br>
+<b>NOTE</b> The numbering of all arrays in variables starts at 0.</p>
 <table>
   <tr>
-    <th rowspan="21">Time label</th>
+    <th rowspan="5">Time label</th>
     <td><code>$time</code></td>
     <td><p align="justify">Time in default format. For example, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
   </tr>
@@ -129,71 +129,7 @@ sudo make install
     <td><p align="justify">Will enable custom time format.</p></td>
   </tr>
   <tr>
-    <td><code>$dddd</code></td>
-    <td><p align="justify">Weekday in long format (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$ddd</code></td>
-    <td><p align="justify">Weekday in short format (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$dd</code></td>
-    <td><p align="justify">Day (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$d</code></td>
-    <td><p align="justify">Day without zero (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$MMMM</code></td>
-    <td><p align="justify">Nonth in long format (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$MMM</code></td>
-    <td><p align="justify">Month in short format (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$MM</code></td>
-    <td><p align="justify">Month (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$M</code></td>
-    <td><p align="justify">Month without zero (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$yyyy</code></td>
-    <td><p align="justify">Year (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$yy</code></td>
-    <td><p align="justify">Year in short format (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$hh</code></td>
-    <td><p align="justify">Hours (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$h</code></td>
-    <td><p align="justify">Hours without zero (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$mm</code></td>
-    <td><p align="justify">Minutes (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$m</code></td>
-    <td><p align="justify">Minutes without zero (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$ss</code></td>
-    <td><p align="justify">Seconds (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$s</code></td>
-    <td><p align="justify">Seconds without zero (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <th rowspan="5">Uptime label</th>
+    <th rowspan="2">Uptime label</th>
     <td><code>$uptime</code></td>
     <td><p align="justify">System uptime, <code>---d--h--m</code>.</p></td>
   </tr>
@@ -202,25 +138,13 @@ sudo make install
     <td><p align="justify">Will enable custom uptime format.</p></td>
   </tr>
   <tr>
-    <td><code>$ds</code></td>
-    <td><p align="justify">Uptime days (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$hs</code></td>
-    <td><p align="justify">Uptime hours (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
-    <td><code>$ms</code></td>
-    <td><p align="justify">Uptime minutes (required <code>$custom</code> flag).</p></td>
-  </tr>
-  <tr>
     <th rowspan="2">CPU label</th>
     <td><code>$cpu</code></td>
     <td><p align="justify">Total load CPU, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
-    <td><code>$ccpu</code></td>
-    <td><p align="justify">Load CPU for each core, %, <code>-----</code>.</p></td>
+    <td><code>$cpuN</code></td>
+    <td><p align="justify">Load CPU for core N, %, <code>-----</code>. N should be in range 0 to 8.</p></td>
   </tr>
   <tr>
     <th rowspan="2">CPU clock label</th>
@@ -228,13 +152,13 @@ sudo make install
     <td><p align="justify">Average CPU clock, MHz, <code>----</code>.</p></td>
   </tr>
   <tr>
-    <td><code>$ccpucl</code></td>
-    <td><p align="justify">CPU clock for each core, MHz, <code>----</code>.</p></td>
+    <td><code>$cpuclN</code></td>
+    <td><p align="justify">CPU clock for core N, MHz, <code>----</code>. N should be in range 0 to 8.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Temperature label</th>
-    <td><code>$temp</code></td>
-    <td><p align="justify">Average temperature in system, &deg;C, <code>----</code>. Temperature device must be specified.</p></td>
+    <td><code>$tempN</code></td>
+    <td><p align="justify">Temperature for device N, &deg;C, <code>----</code>. For example, <code>$temp0</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="1">GPU label</th>
@@ -266,22 +190,22 @@ sudo make install
   </tr>
   <tr>
     <th rowspan="1">HDD usage label</th>
-    <td><code>@@/@@</code></td>
-    <td><p align="justify">Mount point (<code>/</code> in example) usage, %, <code>-----</code>. Separator for mount points list is <code>;</code>, for example <code>@@/;/home;/mnt/global@@</code></p></td>
+    <td><code>$hddN</code></td>
+    <td><p align="justify">Usage for mount point N, %, <code>-----</code>. For example <code>$hdd0</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="1">HDD temperature label</th>
-    <td><code>@@/dev/sda@@</code></td>
-    <td><p align="justify">HDD (<code>/dev/sda</code> in example) temperature, &deg;C, <code>----</code>. Separator for devices list is <code>;</code>, for example <code>@@/dev/sda;/dev/sdb@@</code>. <code>hddtemp</code> must be installed.</p></td>
+    <td><code>$hddtempN</code></td>
+    <td><p align="justify">Temperature for HDD N, &deg;C, <code>----</code>. For example <code>$hddtemp0</code>. <code>hddtemp</code> must be installed.</p></td>
   </tr>
   <tr>
     <th rowspan="3">Network label</th>
-    <td><code>$net</code></td>
-    <td><p align="justify">Download and upload speed, KB/s, <code>----/----</code>.</p></td>
+    <td><code>$down</code></td>
+    <td><p align="justify">Download speed, KB/s, <code>----</code>.</p></td>
   </tr>
   <tr>
-    <td><code>@@eth0@@</code></td>
-    <td><p align="justify">Do not use automatic device definition, show only specified device (<code>eth0</code> in example).</p></td>
+    <td><code>$up</code></td>
+    <td><p align="justify">Upload speed, KB/s, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$netdev</code></td>
@@ -290,11 +214,11 @@ sudo make install
   <tr>
     <th rowspan="2">Battery label</th>
     <td><code>$bat</code></td>
-    <td><p align="justify">Battery charge, %, <code>---</code>. Battery device may be set below. File (<code>/sys/class/power_supply/BAT0/capacity</code> by default) must contain only battery charge in percent.</p></td>
+    <td><p align="justify">Battery charge, %, <code>---</code>.</p></td>
   </tr>
   <tr>
     <td><code>$ac</code></td>
-    <td><p align="justify">Status of AC device. Returns <code>(*)</code> if AC device is online or <code>( )</code> if offline. AC device may be set below. File (<code>/sys/class/power_supply/AC/online</code> by default) must contain <code>1</code> if AC is online.</p></td>
+    <td><p align="justify">Status of AC device. Returns <code>(*)</code> if AC device is online or <code>( )</code> if offline.</td>
   </tr>
   <tr>
     <th rowspan="5">Music player label</th>
@@ -307,7 +231,7 @@ sudo make install
   </tr>
   <tr>
     <td><code>$progress</code></td>
-    <td><p align="justify">Current song progress. One of supported music players must be installed (mpd does not support yet).</p></td>
+    <td><p align="justify">Current song progress. One of supported music players must be installed.</p></td>
   </tr>
   <tr>
     <td><code>$time</code></td>
@@ -317,7 +241,115 @@ sudo make install
     <td><code>$title</code></td>
     <td><p align="justify">Current song title. One of supported music players must be installed.</p></td>
   </tr>
+  <tr>
+    <th rowspan="1">Custom label</th>
+    <td><code>$custom</code></td>
+    <td><p align="justify">Get output from custom command.</p></td>
+  </tr>
 </table>
+
+<h4><a name="advanced" class="anchor" href="#advanced"><span class="octicon octicon-link"></span></a>Advanced settings</h4>
+<p align="justify"><b>Custom time format:</b></p>
+<table>
+  <tr>
+    <td><code>$dddd</code></td>
+    <td><p align="justify">Weekday in long format.</p></td>
+  </tr>
+  <tr>
+    <td><code>$ddd</code></td>
+    <td><p align="justify">Weekday in short format.</p></td>
+  </tr>
+  <tr>
+    <td><code>$dd</code></td>
+    <td><p align="justify">Day.</p></td>
+  </tr>
+  <tr>
+    <td><code>$d</code></td>
+    <td><p align="justify">Day without zero.</p></td>
+  </tr>
+  <tr>
+    <td><code>$MMMM</code></td>
+    <td><p align="justify">Month in long format.</p></td>
+  </tr>
+  <tr>
+    <td><code>$MMM</code></td>
+    <td><p align="justify">Month in short format.</p></td>
+  </tr>
+  <tr>
+    <td><code>$MM</code></td>
+    <td><p align="justify">Month.</p></td>
+  </tr>
+  <tr>
+    <td><code>$M</code></td>
+    <td><p align="justify">Month without zero.</p></td>
+  </tr>
+  <tr>
+    <td><code>$yyyy</code></td>
+    <td><p align="justify">Year.</p></td>
+  </tr>
+  <tr>
+    <td><code>$yy</code></td>
+    <td><p align="justify">Year in short format.</p></td>
+  </tr>
+  <tr>
+    <td><code>$hh</code></td>
+    <td><p align="justify">Hours.</p></td>
+  </tr>
+  <tr>
+    <td><code>$h</code></td>
+    <td><p align="justify">Hours without zero.</p></td>
+  </tr>
+  <tr>
+    <td><code>$mm</code></td>
+    <td><p align="justify">Minutes.</p></td>
+  </tr>
+  <tr>
+    <td><code>$m</code></td>
+    <td><p align="justify">Minutes without zero.</p></td>
+  </tr>
+  <tr>
+    <td><code>$ss</code></td>
+    <td><p align="justify">Seconds.</p></td>
+  </tr>
+  <tr>
+    <td><code>$s</code></td>
+    <td><p align="justify">Seconds without zero.</p></td>
+  </tr>
+</table>
+
+<p align="justify"><b>Custom uptime format:</b></p>
+<table>
+  <tr>
+    <td><code>$ds</code></td>
+    <td><p align="justify">Uptime days.</p></td>
+  </tr>
+  <tr>
+    <td><code>$hs</code></td>
+    <td><p align="justify">Uptime hours.</p></td>
+  </tr>
+  <tr>
+    <td><code>$ms</code></td>
+    <td><p align="justify">Uptime minutes.</p></td>
+  </tr>
+</table>
+
+<p align="justify"><b>Temperature devices:</b> List of devices, which will be observed in temperature label (combo box items come from <code>sensors</code>). List widget is editable, delete key will remove current item.</p>
+
+<p align="justify"><b>Mount points:</b> List of mount points, which will be observed in HDD label (combo box items come from <code>mount</code>). List widget is editable, delete key will remove current item.</p>
+
+<p align="justify"><b>HDDs:</b> List of hard disk devices, which will be observed in HDD temperature label (combo box items come from <code>find</code>). List widget is editable, delete key will remove current item.</p>
+
+<p align="justify"><b>Network directory:</b> Path to directory, which contains network devices information. Default is <code>/sys/class/net</code>. It is required for auto select of network device.</p>
+
+<p align="justify"><b>Network device:</b> Use specified device as active. Combo box items come from <b>network directory</b>. This option will disable auto select network device.</p>
+
+<p align="justify"><b>Battery device:</b> File with battery information. The file (<code>/sys/class/power_supply/BAT0/capacity</code> by default) should contain only battery charge in percent.</p>
+
+<p align="justify"><b>AC device:</b> File with AC information. The file (<code>/sys/class/power_supply/AC/online</code> by default) should contain <code>1</code> if AC is online.</p>
+
+<p align="justify"><b>Music player:</b> Select one of supported music playes for player label.</p>
+
+<p align="justify"><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> A command, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
