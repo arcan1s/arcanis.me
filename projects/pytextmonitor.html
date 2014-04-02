@@ -99,6 +99,10 @@ sudo make install
     <th>MPDPORT</th>
     <td><p align="justify">MPD host port. Default is <code>6600</code>.</td>
   </tr>
+  <tr>
+    <th>CUSTOM</th>
+    <td><p align="justify">Custom command to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>.</td>
+  </tr>
 </table>
 
 <h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Widget configuration</h3>
@@ -349,10 +353,19 @@ sudo make install
 
 <p align="justify"><b>Music player:</b> Select one of supported music playes for player label.</p>
 
-<p align="justify"><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> A command, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
-
 <h4><a name="tooltips" class="anchor" href="#tooltips"><span class="octicon octicon-link"></span></a>Tooltips</h4>
 <p align="justify">Since version 1.7.0 CPU, CPU clock, memory, swap and network labels support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
+
+<h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
+<p align="justify"><b>GPU device:</b> Select one of supported GPU devices. <code>auto</code> will enable auto selection. Default is <code>auto</code>.</p>
+
+<p align="justify"><b>HDD:</b> Select one of HDDs for HDD temperature monitor. <code>all</code> will enable monitor for all devices. Default is <code>all</code>.</p>
+
+<p align="justify"><b>MPD address:</b> Address of MPD server. Default is <code>localhost</code>.</p>
+
+<p align="justify"><b>MPD port:</b> Port of MPD server. Default is <code>6600</code>.</p>
+
+<p align="justify"><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> A command, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
 <!-- end of config block -->
 
 <!-- gui block -->

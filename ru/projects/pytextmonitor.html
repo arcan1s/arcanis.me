@@ -99,6 +99,10 @@ sudo make install
     <th>MPDPORT</th>
     <td><p align="justify">Адрес MPD хоста. По умолчанию <code>6600</code>.</td>
   </tr>
+  <tr>
+    <th>CUSTOM</th>
+    <td><p align="justify">Своя команда для запуска. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>.</td>
+  </tr>
 </table>
 
 <h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Настройка виджета</h3>
@@ -349,10 +353,19 @@ sudo make install
 
 <p align="justify"><b>Музыкальный плеер:</b> Выберете один из поддерживаемых музыкальных плееров для соответствующего поля.</p>
 
-<p align="justify"><b>Своя команда:</b> <i><b>ЗАМЕЧАНИЕ</b> это поле может привести к "зависанию" компьютера.</i> Команда, которая будет запущена для соответствующего поля. Например, <code>wget -qO- http://ifconfig.me/ip</code> вернет внешний IP.</p>
-
 <h4><a name="tooltips" class="anchor" href="#tooltips"><span class="octicon octicon-link"></span></a>Тултипы</h4>
 <p align="justify">Начиная с версии 1.7.0, поля CPU, частота CPU, память, swap, сеть поддерживают графический тултип (всплывающая подсказка). Чтобы включить их, просто сделайте требуемые чекбоксы полностью чекнутыми. Число хранимых значений может быть установленно во вкладке. Цвета графиков настраиваются тоже.</p>
+
+<h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h4>
+<p align="justify"><b>Устройство GPU:</b> Выберете одно из поддерживаемых устройств GPU. <code>auto</code> включит автоматическое определение устройства. По умолчанию <code>auto</code>.</p>
+
+<p align="justify"><b>HDD:</b> Выберете один из HDD для монитора температуры HDD. <code>all</code> включит монитор для всех доступных устройств. По умолчанию <code>all</code>.</p>
+
+<p align="justify"><b>Адрес MPD:</b> Адрес MPD сервера. По умолчанию <code>localhost</code>.</p>
+
+<p align="justify"><b>Порт MPD:</b> Порт MPD сервера. По умолчанию <code>6600</code>.</p>
+
+<p align="justify"><b>Своя команда:</b> <i><b>ЗАМЕЧАНИЕ</b> это поле может привести к "зависанию" компьютера.</i> Команда, которая будет запущена для соответствующего поля. Например, <code>wget -qO- http://ifconfig.me/ip</code> вернет внешний IP.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
