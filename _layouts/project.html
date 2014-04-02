@@ -32,6 +32,13 @@ layout: default
             <a href="#links">Links</a>
           {% endif %}
         </p>
+        <p class="view">
+          {% if page.category == "ru" %}
+            <a href="https://github.com/arcan1s/{{ page.short }}/issues">Сообщить о баге</a>
+          {% else %}
+            <a href="https://github.com/arcan1s/{{ page.short }}/issues">Report a bug</a>
+          {% endif %}
+        </p>
       </header>
       <section>
 
