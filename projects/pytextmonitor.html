@@ -66,7 +66,8 @@ sudo make install
   <li>cmake <i>(make)</i></li>
   <li>kdebase-runtime <i>(make)</i></li>
   <li>lm_sensors <i>(optional, for definition temperature device)</i></li>
-  <li>sysstat <i>(optional, for notification)</i></li>
+  <li>net-tools <i>(optional, for popup messages)</i></li>
+  <li>sysstat <i>(optional, for popup messages)</i></li>
   <li>hddtemp <i>(optional, for HDD temperature monitor)</i></li>
   <li>one of supported music player - <a href="http://amarok.kde.org/">amarok</a>, <a href="http://www.musicpd.org/">mtd</a> or <a href="http://qmmp.ylsoftware.com/">qmmp</a> <i>(optional, for music player monitor)</i>
   <li>proprietary video driver <i>(optional, for GPU monitor)</i></li></li>
@@ -151,7 +152,7 @@ sudo make install
   </tr>
   <tr>
     <td><code>$cpuN</code></td>
-    <td><p align="justify">Load CPU for core N, %, <code>-----</code>. N should be in range 0 to 8.</p></td>
+    <td><p align="justify">Load CPU for core N, %, <code>-----</code>. N should be in range 0 to 9.</p></td>
   </tr>
   <tr>
     <th rowspan="2">CPU clock label</th>
@@ -160,7 +161,7 @@ sudo make install
   </tr>
   <tr>
     <td><code>$cpuclN</code></td>
-    <td><p align="justify">CPU clock for core N, MHz, <code>----</code>. N should be in range 0 to 8.</p></td>
+    <td><p align="justify">CPU clock for core N, MHz, <code>----</code>. N should be in range 0 to 9.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Temperature label</th>
@@ -178,7 +179,7 @@ sudo make install
     <td><p align="justify">GPU temperature, &deg;C, <code>----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</p></td>
   </tr>
   <tr>
-    <th rowspan="2">Memory label</th>
+    <th rowspan="3">Memory label</th>
     <td><code>$mem</code></td>
     <td><p align="justify">Memory usage, %, <code>-----</code>.</p></td>
   </tr>
@@ -187,13 +188,21 @@ sudo make install
     <td><p align="justify">Memory usage, MB, <code>-----</code>.</p></td>
   </tr>
   <tr>
-    <th rowspan="2">Swap label</th>
+    <td><code>$memgb</code></td>
+    <td><p align="justify">Memory usage, GB, <code>----</code>.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="3">Swap label</th>
     <td><code>$swap</code></td>
     <td><p align="justify">Swap usage, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$swapmb</code></td>
     <td><p align="justify">Swap usage, MB, <code>-----</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$swapgb</code></td>
+    <td><p align="justify">Swap usage, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="1">HDD usage label</th>
