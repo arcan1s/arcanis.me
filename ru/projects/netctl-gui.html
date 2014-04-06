@@ -18,7 +18,7 @@ links:
 {% highlight bash %}
 $ netctl-gui --help
                                     Netctl GUI
-Версия : 1.0.0                                                  Лицензия : GPLv3
+Версия : 1.0.4                                                  Лицензия : GPLv3
                                                     Евгений Алексеев aka arcanis
                                                     E-mail : esalexeev@gmail.com
 
@@ -42,6 +42,9 @@ netctl-gui [ --default ] [ -t NUM | --tab NUM ] [ -h | --help]
 <ul>
   <li>{{ page.license }}</li>
 </ul>
+
+<h3><a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h3>
+<p align="justify"><a href="https://github.com/arcan1s/netctl-gui/blob/master/CHANGELOG">CHANGELOG</a></p>
 <!-- end of info block -->
 
 <!-- install block -->
@@ -59,14 +62,13 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ../
 make
 sudo make install
 {% endhighlight %}
-<p align="justify">Для установки без виджета выполните следующие команды:</p>
-{% highlight bash %}
-cd /путь/к/распакованному/архиву
-mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_DATAENGINE:BOOL=0 -DBUILD_PLASMOID:BOOL=0 ../
-make
-sudo make install
-{% endhighlight %}
+<p align="justify">Доступные флаги cmake:</p>
+  <ul>
+    <li><p align="justify"><code>-DBUILD_DATAENGINE:BOOL=0</code> - не собирать DataEngine;</p></li>
+    <li><p align="justify"><code>-DBUILD_GUI:BOOL=0</code> - не собирать GUI;</p></li>
+    <li><p align="justify"><code>-DBUILD_PLASMOID:BOOL=0</code> - не собирать Плазмоид;</p></li>
+    <li><p align="justify"><code>-DUSE_QT5:BOOL=0</code> - использовать Qt4 вместо Qt5 для GUI.</p></li>
+  </ul>
   </li>
 </ul>
 
@@ -74,9 +76,10 @@ sudo make install
 <p align="justify">Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>netctl</li>
-  <li>qt4</li>
+  <li>qt5-base <i>(если используется Qt5)</i> <b>или</b> qt4 <i>(если используется Qt4)</i></li>
   <li>automoc4 <i>(make)</i></li>
   <li>cmake <i>(make)</i></li>
+  <li>qt5-tools <i>(make, если используется Qt5)</i></li>
   <li>kdebase-workspace <i>(опционально, виджет)</i></li>
   <li>sudo <i>(опционально, поддержка sudo)</i></li>
   <li>wpa_supplicant <i>(опционально, поддержка WiFi)</i></li>
@@ -123,14 +126,17 @@ sudo make install
 <p align="justify">Все настройки графического интерфейса хранятся в <code>$HOME/.config/netctl-gui.conf</code>. Для редактирования настоятельно рекомендуется использовать графический интерфейс.</p>
 
 <h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
-<p align="justify">Виджет:<br>
-<a href="/resources/screenshots/netctl_widget.png"><img src="/resources/preview/netctl_widget_prev.jpg"></a><br>
+<p align="justify">DataEngine:<br>
+<a href="/resources/screenshots/netctl_dataengine.png"><img src="/resources/preview/netctl_dataengine_prev.jpg"></a><br>
+Виджет:<br>
+<a href="/resources/screenshots/netctl_plasmoid.png"><img src="/resources/preview/netctl_plasmoid_prev.jpg"></a><br>
 Окно настроек виджета:<br>
-<a href="/resources/screenshots/netctl_widget-settings.png"><img src="/resources/preview/netctl_widget-settings_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl_plasmoid_conf_01.png"><img src="/resources/preview/netctl_plasmoid_conf_01_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl_plasmoid_conf_02.png"><img src="/resources/preview/netctl_plasmoid_conf_02_prev.jpg"></a><br>
 Главное окно:<br>
-<a href="/resources/screenshots/netctl_main.png"><img src="/resources/preview/netctl_main_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl_gui_main.png"><img src="/resources/preview/netctl_gui_main_prev.jpg"></a><br>
 Окно создания профиля:<br>
-<a href="/resources/screenshots/netctl_profile.png"><img src="/resources/preview/netctl_profile_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl_gui_profile.png"><img src="/resources/preview/netctl_gui_profile_prev.jpg"></a><br>
 Окно подключения к WiFi:<br>
-<a href="/resources/screenshots/netctl_wifi.png"><img src="/resources/preview/netctl_wifi_prev.jpg"></a></p>
+<a href="/resources/screenshots/netctl_gui_wifi.png"><img src="/resources/preview/netctl_gui_wifi_prev.jpg"></a></p>
 <!-- end of gui block -->

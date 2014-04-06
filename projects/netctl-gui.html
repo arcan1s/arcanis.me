@@ -13,10 +13,11 @@ links:
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
 <p align="justify">Graphical interface for <code>netctl</code> (several scripts for work with network connection in Archlinux). It is written on <code>CPP</code> using <code>Qt4</code> library. Now it may work with profiles and may create new profiles. Also it may create a connection to WiFi. Moreover, it provides a widget and DataEngine for KDE.</p>
+<p align="justify"><b>NOTE:</b> LOOKING FOR TRANSLATORS!</p>
 {% highlight bash %}
 $ netctl-gui --help
                                     Netctl GUI
-Version : 1.0.0                                                  License : GPLv3
+Version : 1.0.4                                                  License : GPLv3
                                                     Evgeniy Alekseev aka arcanis
                                                     E-mail : esalexeev@gmail.com
 
@@ -40,6 +41,9 @@ Parametrs:
 <ul>
   <li>{{ page.license }}</li>
 </ul>
+
+<h3><a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h3>
+<p align="justify"><a href="https://github.com/arcan1s/netctl-gui/blob/master/CHANGELOG">CHANGELOG</a></p>
 <!-- end of info block -->
 
 <!-- install block -->
@@ -57,14 +61,13 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ../
 make
 sudo make install
 {% endhighlight %}
-<p align="justify">If you want install it without KDE widget, run:</p>
-{% highlight bash %}
-cd /path/to/extracted/archive
-mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_DATAENGINE:BOOL=0 -DBUILD_PLASMOID:BOOL=0 ../
-make
-sudo make install
-{% endhighlight %}
+<p align="justify">Available cmake flags are:</p>
+  <ul>
+    <li><p align="justify"><code>-DBUILD_DATAENGINE:BOOL=0</code> - do not build DataEngine;</p></li>
+    <li><p align="justify"><code>-DBUILD_GUI:BOOL=0</code> - do not build GUI;</p></li>
+    <li><p align="justify"><code>-DBUILD_PLASMOID:BOOL=0</code> - do not build Plasmoid;</p></li>
+    <li><p align="justify"><code>-DUSE_QT5:BOOL=0</code> - use Qt4 instead of Qt5 for GUI.</p></li>
+  </ul>
   </li>
 </ul>
 
@@ -72,9 +75,10 @@ sudo make install
 <p align="justify">I want note that all were tested on latest version of dependencies.</p>
 <ul>
   <li>netctl</li>
-  <li>qt4</li>
+  <li>qt5-base <i>(if Qt5 is used)</i> <b>or</b> qt4 <i>(if Qt4 is used)</i></li>
   <li>automoc4 <i>(make)</i></li>
   <li>cmake <i>(make)</i></li>
+  <li>qt5-tools <i>(make, if Qt5 is used)</i></li>
   <li>kdebase-workspace <i>(optional, widget)</i></li>
   <li>sudo <i>(optional, sudo support)</i></li>
   <li>wpa_supplicant <i>(optional, WiFi support)</i></li>
@@ -121,15 +125,17 @@ sudo make install
 <p align="justify">All settings of GUI are stored in <code>$HOME/.config/netctl-gui.conf</code>. It is highly recommended to edit it from graphical interface.</p>
 
 <h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
-<p align="justify">(Screenshots in Russian, but it has English translation.)</p>
-<p align="justify">Widget:<br>
-<a href="/resources/screenshots/netctl_widget.png"><img src="/resources/preview/netctl_widget_prev.jpg"></a><br>
+<p align="justify">DataEngine:<br>
+<a href="/resources/screenshots/netctl_dataengine.png"><img src="/resources/preview/netctl_dataengine_prev.jpg"></a><br>
+Widget:<br>
+<a href="/resources/screenshots/netctl_plasmoid.png"><img src="/resources/preview/netctl_plasmoid_prev.jpg"></a><br>
 Widget settings window:<br>
-<a href="/resources/screenshots/netctl_widget-settings.png"><img src="/resources/preview/netctl_widget-settings_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl_plasmoid_conf_01.png"><img src="/resources/preview/netctl_plasmoid_conf_01_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl_plasmoid_conf_02.png"><img src="/resources/preview/netctl_plasmoid_conf_02_prev.jpg"></a><br>
 Main window:<br>
-<a href="/resources/screenshots/netctl_main.png"><img src="/resources/preview/netctl_main_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl_gui_main.png"><img src="/resources/preview/netctl_gui_main_prev.jpg"></a><br>
 Profile creation window:<br>
-<a href="/resources/screenshots/netctl_profile.png"><img src="/resources/preview/netctl_profile_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl_gui_profile.png"><img src="/resources/preview/netctl_gui_profile_prev.jpg"></a><br>
 WiFi menu:<br>
-<a href="/resources/screenshots/netctl_wifi.png"><img src="/resources/preview/netctl_wifi_prev.jpg"></a></p>
+<a href="/resources/screenshots/netctl_gui_wifi.png"><img src="/resources/preview/netctl_gui_wifi_prev.jpg"></a></p>
 <!-- end of gui block -->
