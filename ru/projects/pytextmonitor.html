@@ -88,6 +88,10 @@ sudo make install
 <h4><a name="deoptions" class="anchor" href="#deoptions"><span class="octicon octicon-link"></span></a>Опции DataEngine</h4>
 <table>
   <tr>
+    <th>CUSTOM</th>
+    <td><p align="justify">Своя команда для запуска. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>.</td>
+  </tr>
+  <tr>
     <th>GPUDEV</th>
     <td><p align="justify">Устанавливает тип GPU. Может быть <code>nvidia</code> (для nVidia), <code>ati</code> (для ATI Radeon), <code>ignore</code> или <code>auto</code>. По умолчанию <code>auto</code>.</p></td>
   </tr>
@@ -104,13 +108,17 @@ sudo make install
     <td><p align="justify">Адрес MPD хоста. По умолчанию <code>6600</code>.</td>
   </tr>
   <tr>
-    <th>CUSTOM</th>
-    <td><p align="justify">Своя команда для запуска. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>.</td>
+    <th>PKGCMD</th>
+    <td><p align="justify">Команды, которые будут запущены для пакетного менеджера, разделенные запятой.</td>
+  </tr>
+  <tr>
+    <th>PKGNULL</th>
+    <td><p align="justify">Число пустых строк для команд, разделенные запятой.</td>
   </tr>
 </table>
 
 <h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Настройка виджета</h3>
-<p align="justify">Для настройки внешнего вида Вы должны открыть окно настроек и установить требуемый формат. Порядок меток изменится, если Вы измените положение слайдера. В метках работают HTML тэги.<br>
+<p align="justify">Для настройки внешнего вида Вы должны открыть окно настроек и установить требуемый формат. Порядок меток изменится, если Вы измените положение слайдера. В метках работают HTML теги.<br>
 <b>ЗАМЕЧАНИЕ</b> Вы не можете, например, заставить его показывать Вам <code>$cpu</code> в метка swap. <b><code>$cpu</code> будет работать только в метке cpu.</b></p>
 <p align="justify">Доступные флаги в таблице ниже.<br>
 <b>ЗАМЕЧАНИЕ</b> Нумерация всех массивов в переменных начинается с 0.</p>
@@ -258,6 +266,24 @@ sudo make install
     <td><p align="justify">Название текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
   </tr>
   <tr>
+    <th rowspan="3">Процессы</th>
+    <td><code>$ps</code></td>
+    <td><p align="justify">Список запущенных процессов, разделенных запятой.</p></td>
+  </tr>
+  <tr>
+    <td><code>$pscount</code></td>
+    <td><p align="justify">Число запущенных процессов.</p></td>
+  </tr>
+  <tr>
+    <td><code>$pstotal</code></td>
+    <td><p align="justify">Общее число процессов.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="1">Package manager label</th>
+    <td><code>$pkgcountN</code></td>
+    <td><p align="justify">Число пакетов, доступных для обновления, для команды N.</p></td>
+  </tr>
+  <tr>
     <th rowspan="1">Своя команда</th>
     <td><code>$custom</code></td>
     <td><p align="justify">Получить данные из указанной команды.</p></td>
@@ -373,6 +399,10 @@ sudo make install
 
 <p align="justify"><b>Устройство батареи:</b> Файл, содержащий информацию о батарее. Данный файл (<code>/sys/class/power_supply/BAT0/capacity</code> по умолчанию) должен содержать только заряд батареи в %.</p>
 
+<p align="justify"><b>AC online тег:</b> Строка, которая будет показана, когда AC онлайн. По умолчанию <code>(*)</code>.</p>
+
+<p align="justify"><b>AC offline тег:</b> Строка, которая будет показана, когда AC оффлайн. По умолчанию <code>( )</code>.</p>
+
 <p align="justify"><b>Устройство AC:</b> Файл, содержащий информацию об адапторе питания. Данный файл (<code>/sys/class/power_supply/AC/online</code> по умолчанию) должен содержать <code>1</code>, если устройство подключено.</p>
 
 <p align="justify"><b>Музыкальный плеер:</b> Выберете один из поддерживаемых музыкальных плееров для соответствующего поля.</p>
@@ -381,6 +411,8 @@ sudo make install
 <p align="justify">Начиная с версии 1.7.0, поля CPU, частота CPU, память, swap, сеть поддерживают графический тултип (всплывающая подсказка). Чтобы включить их, просто сделайте требуемые чекбоксы полностью чекнутыми. Число хранимых значений может быть установленно во вкладке. Цвета графиков настраиваются тоже.</p>
 
 <h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h4>
+<p align="justify"><b>Своя команда:</b> <i><b>ЗАМЕЧАНИЕ</b> это поле может привести к "зависанию" компьютера.</i> Команда, которая будет запущена для соответствующего поля. Например, <code>wget -qO- http://ifconfig.me/ip</code> вернет внешний IP.</p>
+
 <p align="justify"><b>Устройство GPU:</b> Выберете одно из поддерживаемых устройств GPU. <code>auto</code> включит автоматическое определение устройства. По умолчанию <code>auto</code>.</p>
 
 <p align="justify"><b>HDD:</b> Выберете один из HDD для монитора температуры HDD. <code>all</code> включит монитор для всех доступных устройств. По умолчанию <code>all</code>.</p>
@@ -389,7 +421,44 @@ sudo make install
 
 <p align="justify"><b>Порт MPD:</b> Порт MPD сервера. По умолчанию <code>6600</code>.</p>
 
-<p align="justify"><b>Своя команда:</b> <i><b>ЗАМЕЧАНИЕ</b> это поле может привести к "зависанию" компьютера.</i> Команда, которая будет запущена для соответствующего поля. Например, <code>wget -qO- http://ifconfig.me/ip</code> вернет внешний IP.</p>
+<p align="justify"><b>Пакетный менеджер:</b> Список команд, которые будут запущены. Число пустых строк - это число ненужных при подсчете строк. Параметры по умолчанию:</p>
+<table>
+  <tr>
+    <td><p align="center"><b>Дистрибутив</b></p></td>
+    <td><p align="center"><b>Команда</b></p></td>
+    <td><p align="center"><b>Число</b></p></td>
+  </tr>
+  <tr>
+    <td><p align="justify">Arch</p></td>
+    <td><code>pacman -Qu</code></td>
+    <td><code>0</code></td>
+  </tr>
+  <tr>
+    <td><p align="justify">Debian</p></td>
+    <td><code>apt-show-versions -u -b</code></td>
+    <td><code>0</code></td>
+  </tr>
+  <tr>
+    <td><p align="justify">Ubuntu</p></td>
+    <td><code>aptitude search '~U'</code></td>
+    <td><code>0</code></td>
+  </tr>
+  <tr>
+    <td><p align="justify">Fedora</p></td>
+    <td><code>yum list updates</code></td>
+    <td><code>3</code></td>
+  </tr>
+  <tr>
+    <td><p align="justify">FreeBSD</p></td>
+    <td><code>pkg_version -I -l '<'</code></td>
+    <td><code>0</code></td>
+  </tr>
+  <tr>
+    <td><p align="justify">Mandriva</p></td>
+    <td><code>urpmq --auto-select</code></td>
+    <td><code>0</code></td>
+  </tr>
+</table>
 <!-- end of config block -->
 
 <!-- gui block -->

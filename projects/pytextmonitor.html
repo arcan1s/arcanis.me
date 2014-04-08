@@ -88,6 +88,10 @@ sudo make install
 <h4><a name="deoptions" class="anchor" href="#deoptions"><span class="octicon octicon-link"></span></a>DataEngine options</h4>
 <table>
   <tr>
+    <th>CUSTOM</th>
+    <td><p align="justify">Custom command to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>.</td>
+  </tr>
+  <tr>
     <th>GPUDEV</th>
     <td><p align="justify">Set GPU device. May be <code>nvidia</code> (for nVidia), <code>ati</code> (for ATI Radeon), <code>ignore</code> or <code>auto</code>. Default is <code>auto</code>.</p></td>
   </tr>
@@ -104,8 +108,12 @@ sudo make install
     <td><p align="justify">MPD host port. Default is <code>6600</code>.</td>
   </tr>
   <tr>
-    <th>CUSTOM</th>
-    <td><p align="justify">Custom command to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>.</td>
+    <th>PKGCMD</th>
+    <td><p align="justify">Commands to run for package manager, comma separated.</td>
+  </tr>
+  <tr>
+    <th>PKGNULL</th>
+    <td><p align="justify">Number of null lines for commands, comma separated.</td>
   </tr>
 </table>
 
@@ -258,6 +266,24 @@ sudo make install
     <td><p align="justify">Current song title. One of supported music players must be installed.</p></td>
   </tr>
   <tr>
+    <th rowspan="3">Process label</th>
+    <td><code>$ps</code></td>
+    <td><p align="justify">List of running processes comma separated.</p></td>
+  </tr>
+  <tr>
+    <td><code>$pscount</code></td>
+    <td><p align="justify">Number of running processes.</p></td>
+  </tr>
+  <tr>
+    <td><code>$pstotal</code></td>
+    <td><p align="justify">Total number of processes.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="1">Package manager label</th>
+    <td><code>$pkgcountN</code></td>
+    <td><p align="justify">Number of packages, which available to upgrade for command N.</p></td>
+  </tr>
+  <tr>
     <th rowspan="1">Custom label</th>
     <td><code>$custom</code></td>
     <td><p align="justify">Get output from custom command.</p></td>
@@ -373,6 +399,10 @@ sudo make install
 
 <p align="justify"><b>Battery device:</b> File with battery information. The file (<code>/sys/class/power_supply/BAT0/capacity</code> by default) should contain only battery charge in percent.</p>
 
+<p align="justify"><b>AC online tag:</b> Line which will be shown when AC is online. Default is <code>(*)</code>.</p>
+
+<p align="justify"><b>AC offline tag:</b> Line which will be shown when AC is offline. Default is <code>( )</code>.</p>
+
 <p align="justify"><b>AC device:</b> File with AC information. The file (<code>/sys/class/power_supply/AC/online</code> by default) should contain <code>1</code> if AC is online.</p>
 
 <p align="justify"><b>Music player:</b> Select one of supported music playes for player label.</p>
@@ -381,6 +411,8 @@ sudo make install
 <p align="justify">Since version 1.7.0 CPU, CPU clock, memory, swap and network labels support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
 
 <h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
+<p align="justify"><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> A command, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
+
 <p align="justify"><b>GPU device:</b> Select one of supported GPU devices. <code>auto</code> will enable auto selection. Default is <code>auto</code>.</p>
 
 <p align="justify"><b>HDD:</b> Select one of HDDs for HDD temperature monitor. <code>all</code> will enable monitor for all devices. Default is <code>all</code>.</p>
@@ -389,7 +421,44 @@ sudo make install
 
 <p align="justify"><b>MPD port:</b> Port of MPD server. Default is <code>6600</code>.</p>
 
-<p align="justify"><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> A command, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
+<p align="justify"><b>Package manager:</b> List of commands, which will be run. Number of null lines is a number of unneeded lines. Defaults are:</p>
+<table>
+  <tr>
+    <td><p align="center"><b>Distro</b></p></td>
+    <td><p align="center"><b>Command</b></p></td>
+    <td><p align="center"><b>Number</b></p></td>
+  </tr>
+  <tr>
+    <td><p align="justify">Arch</p></td>
+    <td><code>pacman -Qu</code></td>
+    <td><code>0</code></td>
+  </tr>
+  <tr>
+    <td><p align="justify">Debian</p></td>
+    <td><code>apt-show-versions -u -b</code></td>
+    <td><code>0</code></td>
+  </tr>
+  <tr>
+    <td><p align="justify">Ubuntu</p></td>
+    <td><code>aptitude search '~U'</code></td>
+    <td><code>0</code></td>
+  </tr>
+  <tr>
+    <td><p align="justify">Fedora</p></td>
+    <td><code>yum list updates</code></td>
+    <td><code>3</code></td>
+  </tr>
+  <tr>
+    <td><p align="justify">FreeBSD</p></td>
+    <td><code>pkg_version -I -l '<'</code></td>
+    <td><code>0</code></td>
+  </tr>
+  <tr>
+    <td><p align="justify">Mandriva</p></td>
+    <td><code>urpmq --auto-select</code></td>
+    <td><code>0</code></td>
+  </tr>
+</table>
 <!-- end of config block -->
 
 <!-- gui block -->
