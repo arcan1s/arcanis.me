@@ -29,7 +29,7 @@ mkdir -p ~/arch/{prepare,root,staging}
   <li>Packages signing.</li>
   <li>Creating the list of packages.</li>
   <li>Repository update:
-    <ol><li>Removal old packages from database and repository.</li>
+    <ol><li>Removal old packages from repository.</li>
     <li>Copying new packages</li>
     <li>Repository update.</li></ol>
     </li>
@@ -49,15 +49,21 @@ yaourt -G package-name
 func_build() {
   PREPARE="$1"
   ROOT="$2"
-  if grep "arch=('any')" PKGBUILD -q; then
-    /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}"
+  eval $(/usr/bin/grep 'arch=' PKGBUILD)
+  if echo ${arch} | /usr/bin/grep any -q; then
+    /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
   else
-    if grep "lib32" PKGBUILD -q; then
-      /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}"
-      /usr/bin/sudo /usr/bin/multilib-staging-build -r "${ROOT}"
+    eval $(/usr/bin/grep 'pkgname=' PKGBUILD)
+    if echo ${pkgname} | /usr/bin/grep lib32 -q; then
+      /usr/bin/sudo /usr/bin/multilib-staging-build -r "${ROOT}" -c
     else
-      /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}"
-      /usr/bin/sudo /usr/bin/staging-x86_64-build -r "${ROOT}"
+      if /usr/bin/grep "lib32" PKGBUILD -q; then
+        /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
+        /usr/bin/sudo /usr/bin/multilib-staging-build -r "${ROOT}" -c
+      else
+        /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
+        /usr/bin/sudo /usr/bin/staging-x86_64-build -r "${ROOT}" -c
+      fi
     fi
   fi
   /usr/bin/cp *.pkg.tar.xz "${PREPARE}"
@@ -78,10 +84,13 @@ username ALL=NOPASSWD: /usr/bin/multilib-staging-build
 <h3><a name="signing" class="anchor" href="#signing"><span class="octicon octicon-link"></span></a>Packages signing</h3>
 {% highlight bash %}
 # signing
-cd "${PREPAREDIR}"
-for PACKAGE in $(/usr/bin/ls *.pkg.tar.xz); do
-  /usr/bin/gpg -b ${PACKAGE}
-done
+if [ ${USEGPG} == "yes" ]; then
+  echo "[II] Signing"
+  cd "${PREPAREDIR}"
+  for PACKAGE in $(/usr/bin/find . -name '*.pkg.tar.xz'); do
+    /usr/bin/gpg -b ${PACKAGE}
+  done
+fi
 {% endhighlight %}
 <p align="justify">It is recommended to configure <a href="https://wiki.archlinux.org/index.php/GPG#gpg-agent">gpg-agent</a>.</p>
 
@@ -89,47 +98,48 @@ done
 {% highlight bash %}
 # creating packages list
 cd "${PREPAREDIR}"
-i686_PACKAGES=$(/usr/bin/find * -name "*-i686.pkg.tar.xz" -o -name "*-any.pkg.tar.xz")
-x86_64_PACKAGES=$(/usr/bin/find * -name "*-x86_64.pkg.tar.xz" -o -name "*-any.pkg.tar.xz")
-echo "=> i686 packages: \n${i686_PACKAGES}"
-echo "=> x86_64 packages: \n${x86_64_PACKAGES}"
+i686_PACKAGES=$(/usr/bin/find * -name '*-i686.pkg.tar.xz' -o -name '*-any.pkg.tar.xz')
+x86_64_PACKAGES=$(/usr/bin/find * -name '*-x86_64.pkg.tar.xz' -o -name '*-any.pkg.tar.xz')
+echo -e "[II] => i686 packages: \n${i686_PACKAGES}"
+echo -e "[II] => x86_64 packages: \n${x86_64_PACKAGES}"
 {% endhighlight %}
 
 <h3><a name="updating" class="anchor" href="#updating"><span class="octicon octicon-link"></span></a>Repository update</h3>
 <p align="justify">Here is a function for removal packages from database and repository:</p>
 {% highlight bash %}
 func_remove() {
-  DBNAME="$1"
-  PKGNAME="$2"
-  /usr/bin/repo-remove ${DBNAME}.db.tar.gz ${PKGNAME}
-  /usr/bin/repo-remove ${DBNAME}.files.tar.gz ${PKGNAME}
-  /usr/bin/rm -f ${PKGNAME}*
+  PKGNAME="$1"
+  /usr/bin/rm -f ${PKGNAME}-[0-9]*
 }
 export -f func_remove
 {% endhighlight %}
 <p align="justify"><code>i686</code> repository update:</p>
 {% highlight bash %}
 # updating i686 repo
+echo "[II] Updating i686 repo"
 cd "${REPODIR}/i686"
 for PACKAGE in ${i686_PACKAGES}; do
   PKGNAME=$(echo ${PACKAGE} | /usr/bin/awk -F '-' '{for(i=1; i<=NF-3;i++) {printf("%s-", $i);}}' | /usr/bin/sed 's/.$//')
-  /usr/bin/find -name "${PKGNAME}*.pkg.tar.xz" -type f -exec /usr/bin/bash -c "func_remove "${DBNAME}" "${PKGNAME}"" \;
-  /usr/bin/cp "${PREPAREDIR}/${PACKAGE}"{,.sig} .
+  /usr/bin/find -name "${PKGNAME}*.pkg.tar.xz" -type f -exec /usr/bin/bash -c "func_remove "${PKGNAME}"" \;
+  /usr/bin/cp "${PREPAREDIR}/${PACKAGE}" .
+  [ ${USEGPG} == "yes" ] && /usr/bin/cp "${PREPAREDIR}/${PACKAGE}.sig" .
+  /usr/bin/repo-add --new ${DBNAME}.db.tar.gz "${PACKAGE}"
+  /usr/bin/repo-add --new --files ${DBNAME}.files.tar.gz "${PACKAGE}"
 done
-/usr/bin/repo-add --new ${DBNAME}.db.tar.gz *.pkg.tar.xz
-/usr/bin/repo-add --new --files ${DBNAME}.files.tar.gz *.pkg.tar.xz
 {% endhighlight %}
 <p align="justify"><code>x86_64</code> repository update:</p>
 {% highlight bash %}
 # updating x86_64 repo
+echo "[II] Updating x86_64 repo"
 cd "${REPODIR}/x86_64"
 for PACKAGE in ${x86_64_PACKAGES}; do
   PKGNAME=$(echo ${PACKAGE} | /usr/bin/awk -F '-' '{for(i=1; i<=NF-3;i++) {printf("%s-", $i);}}' | /usr/bin/sed 's/.$//')
-  /usr/bin/find -name "${PKGNAME}*.pkg.tar.xz" -type f -exec /usr/bin/bash -c "func_remove "${DBNAME}" "${PKGNAME}"" \;
-  /usr/bin/cp "${PREPAREDIR}/${PACKAGE}"{,.sig} .
+  /usr/bin/find -name "${PKGNAME}"'*.pkg.tar.xz' -type f -exec /usr/bin/bash -c "func_remove "${PKGNAME}"" \;
+  /usr/bin/cp "${PREPAREDIR}/${PACKAGE}" .
+  [ ${USEGPG} == "yes" ] && /usr/bin/cp "${PREPAREDIR}/${PACKAGE}.sig" .
+  /usr/bin/repo-add --new ${DBNAME}.db.tar.gz "${PACKAGE}"
+  /usr/bin/repo-add --new --files ${DBNAME}.files.tar.gz "${PACKAGE}"
 done
-/usr/bin/repo-add --new ${DBNAME}.db.tar.gz *.pkg.tar.xz
-/usr/bin/repo-add --new --files ${DBNAME}.files.tar.gz *.pkg.tar.xz
 {% endhighlight %}
 
 <h3><a name="clear" class="anchor" href="#clear"><span class="octicon octicon-link"></span></a>Cleaning</h3>
