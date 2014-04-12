@@ -29,12 +29,13 @@ domain.name.           912     IN      A       192.30.252.154
   <li>На радостях создал <a href="ftp://repo.arcanis.name/repo">собственный репозиторий</a>, в котором будут лежать некоторые пакеты из AUR, которые я использую. Планируется поддержка обеих архитектур.</li>
   <li>Поскольку репозиторий требует ftp, то перевел samba на ftp. Проблему доступа решил опциями монтирования:
 {% highlight bash %}
-# чтение и запись (файл ограничен 2 Гб)
-/home/share/share.fs /mnt/ftp/share ext4 defaults,rw 0 0
 # только чтение
-/home/arcanis/arch/repo /mnt/ftp/repo ext4 defaults,bind,ro 0 0
-/mnt/global/Музыка /mnt/ftp/music ext4 defaults,bind,ro 0 0
+/home/arcanis/music                         /mnt/ftp/music  ext4    defaults,bind,ro   0 0
+/home/arcanis/arch/repo                     /mnt/ftp/repo   ext4    defaults,bind,ro   0 0
+# чтение и запись (файл ограничен 2 Гб)
+/home/arcanis/share.fs                      /mnt/ftp/share  ext4    defaults,rw   0 0
 {% endhighlight %}
+Для отсутствия доступа извне к директории с музыкой, используется логин под специальным пользователем и ограничение <code>anon_world_readable_only=YES</code>.
 Также привожу свой файл настроек <code>/etc/vsftpd.conf</code>:
 {% highlight bash %}
 anonymous_enable=YES
@@ -49,16 +50,17 @@ anon_world_readable_only=YES
 dirmessage_enable=YES
 xferlog_enable=YES
 connect_from_port_20=YES
-nopriv_user=share
+nopriv_user=music
 ascii_upload_enable=YES
 ftpd_banner=Welcome to arcanis
+chroot_local_user=YES
+local_root=/mnt/ftp/music
 listen=YES
 {% endhighlight %}
 Теперь добавим переадресацию с <code>repo.arcanis.name</code> на нужный IP адрес. Для этого внесем следующие записи в DNS:
 {% highlight bash %}
-repo.arcanis.name.   A   89.249.170.38
+repo   A   89.249.170.38
 {% endhighlight %}
-(Обратите внимание на точку в конце.)
   </li>
   <li>В ближайшее время (как дойду до магазина с деньгами) планируется приобретение небольшого сервера для работы на постоянной основе (компиляция пакетов, репозиторий, файлообмен, бэкапы).</li>
 </ul>
