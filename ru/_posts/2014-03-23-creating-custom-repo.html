@@ -123,7 +123,7 @@ func_build() {
 }
 export -f func_build
 
-# building
+# сборка
 echo -e "${bwhite}[II]${cclose} Building packages"
 cd "${STAGINGDIR}"
 /usr/bin/find -name 'PKGBUILD' -type f -execdir /usr/bin/bash -c "func_build "${PREPAREDIR}" "${ROOTDIR}"" \;
@@ -137,7 +137,7 @@ username ALL=NOPASSWD: /usr/bin/multilib-staging-build
 
 <h3><a name="signing" class="anchor" href="#signing"><span class="octicon octicon-link"></span></a>Подпись пакетов</h3>
 {% highlight bash %}
-# signing
+# подпись
 if [ ${USEGPG} == "yes" ]; then
   echo -e "${bwhite}[II]${cclose} Signing"
   cd "${PREPAREDIR}"
@@ -150,7 +150,7 @@ fi
 
 <h3><a name="list" class="anchor" href="#list"><span class="octicon octicon-link"></span></a>Создание списка пакетов</h3>
 {% highlight bash %}
-# creating packages list
+# создание списка пакетов
 cd "${PREPAREDIR}"
 i686_PACKAGES=$(/usr/bin/find * -name '*-i686.pkg.tar.xz' -o -name '*-any.pkg.tar.xz')
 x86_64_PACKAGES=$(/usr/bin/find * -name '*-x86_64.pkg.tar.xz' -o -name '*-any.pkg.tar.xz')
@@ -169,7 +169,7 @@ func_remove() {
 {% endhighlight %}
 <p align="justify">Обновление репозитория <code>i686</code>:</p>
 {% highlight bash %}
-# updating i686 repo
+# обновление репозитория i686
 echo -e "${bwhite}[II]${cclose} Updating ${bwhite}i686${cclose} repo"
 cd "${REPODIR}/i686"
 for PACKAGE in ${i686_PACKAGES}; do
@@ -183,7 +183,7 @@ done
 {% endhighlight %}
 <p align="justify">Обновление репозитория <code>x86_64</code>:</p>
 {% highlight bash %}
-# updating x86_64 repo
+# обновление репозитория x86_64
 echo -e "${bwhite}[II]${cclose} Updating ${bwhite}x86_64${cclose} repo"
 cd "${REPODIR}/x86_64"
 for PACKAGE in ${x86_64_PACKAGES}; do
@@ -198,7 +198,7 @@ done
 
 <h3><a name="clear" class="anchor" href="#clear"><span class="octicon octicon-link"></span></a>Очистка</h3>
 {% highlight bash %}
-# clear
+# очистка
 cd "${PREPAREDIR}"
 /usr/bin/rm -rf *
 cd "${STAGINGDIR}"
