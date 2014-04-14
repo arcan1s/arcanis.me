@@ -17,25 +17,12 @@ pacman -Sy devtools
 {% highlight bash %}
 # colors
 if [ ${USECOLOR} == "yes" ]; then
-  black='\e[0;30m'
-  bblack='\e[1;30m'
-  red='\e[0;31m'
-  bred='\e[1;31m'
-  green='\e[0;32m'
-  bgreen='\e[1;32m'
-  yellow='\e[0;33m'
-  byellow='\e[1;33m'
-  blue='\e[0;34m'
   bblue='\e[1;34m'
-  purple='\e[0;35m'
-  bpurple='\e[1;35m'
-  cyan='\e[0;36m'
-  bcyan='\e[1;36m'
-  white='\e[0;37m'
   bwhite='\e[1;37m'
   cclose='\e[0m'
 fi
 export USECOLOR
+
 # directories
 if [ ! -d "${PREPAREDIR}" ]; then
   [ -e "${PREPAREDIR}" ] && error_mes "file" "${PREPAREDIR}"
@@ -93,32 +80,32 @@ yaourt -G package-name
 {% highlight bash %}
 func_build() {
   if [ ${USECOLOR} == "yes" ]; then
-    bblue='\e[1;34m'
-    bwhite='\e[1;37m'
-    cclose='\e[0m'
+    _bblue='\e[1;34m'
+    _bwhite='\e[1;37m'
+    _cclose='\e[0m'
   fi
-  PREPARE="$1"
-  ROOT="$2"
+  _PREPAREDIR="$1"
+  _ROOTDIR="$2"
   eval $(/usr/bin/grep 'arch=' PKGBUILD)
   eval $(/usr/bin/grep 'pkgname=' PKGBUILD)
-  echo -e "${bwhite}[II] ${bblue}=>${cclose} Building ${bwhite}${pkgname}${cclose}"
+  echo -e "${_bwhite}[II] ${_bblue}=>${_cclose} Building ${_bwhite}${pkgname}${_cclose}"
   if echo ${arch} | /usr/bin/grep 'any' -q; then
-    LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
+    LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-i686-build -r "${_ROOTDIR}" -c
   else
     eval $(/usr/bin/grep 'pkgname=' PKGBUILD)
     if echo ${pkgname} | /usr/bin/grep lib32 -q; then
-      LC_MESSAGES=C /usr/bin/sudo /usr/bin/multilib-staging-build -r "${ROOT}" -c
+      LC_MESSAGES=C /usr/bin/sudo /usr/bin/multilib-staging-build -r "${_ROOTDIR}" -c
     else
       if /usr/bin/grep 'lib32' PKGBUILD -q; then
-        LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
-        LC_MESSAGES=C /usr/bin/sudo /usr/bin/multilib-staging-build -r "${ROOT}" -c
+        LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-i686-build -r "${_ROOTDIR}" -c
+        LC_MESSAGES=C /usr/bin/sudo /usr/bin/multilib-staging-build -r "${_ROOTDIR}" -c
       else
-        LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
-        LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-x86_64-build -r "${ROOT}" -c
+        LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-i686-build -r "${_ROOTDIR}" -c
+        LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-x86_64-build -r "${_ROOTDIR}" -c
       fi
     fi
   fi
-  /usr/bin/cp *.pkg.tar.xz "${PREPARE}"
+  /usr/bin/cp *.pkg.tar.xz "${_PREPAREDIR}"
 }
 export -f func_build
 
@@ -161,9 +148,8 @@ echo -e "${bwhite}[II] ${bblue}=>${cclose} x86_64 packages: \n${bwhite}${x86_64_
 <p align="justify">Here is a function for removal packages from database and repository:</p>
 {% highlight bash %}
 func_remove() {
-  PACKAGE="$1"
-  REPODIR="$2"
-  /usr/bin/rm -f "${REPODIR}/${PACKAGE}"{,.sig}
+  _PACKAGE="$1"
+  /usr/bin/rm -f "${_PACKAGE}"{,.sig}
 }
 {% endhighlight %}
 <p align="justify"><code>i686</code> repository update:</p>
@@ -172,8 +158,11 @@ func_remove() {
 echo -e "${bwhite}[II]${cclose} Updating ${bwhite}i686${cclose} repo"
 cd "${REPODIR}/i686"
 for PACKAGE in ${i686_PACKAGES}; do
-  PKGNAME=$(/usr/bin/package-query -p -f %n "${REPODIR}/i686/${PACKAGE}")
-  func_remove "${PACKAGE}" "${REPODIR}/i686"
+  PKGNAME=$(/usr/bin/package-query -p -f %n "${PREPAREDIR}/${PACKAGE}")
+  for PKG in $(/usr/bin/find "${REPODIR}/i686" -name "${PKGNAME}"'*.pkg.tar.xz'); do
+    _PKGNAME=$(/usr/bin/package-query -p -f %n "${PKG}")
+    [ "${PKGNAME}" == "${_PKGNAME}" ] && func_remove "${PKG}"
+  done
   /usr/bin/cp "${PREPAREDIR}/${PACKAGE}" .
   [ ${USEGPG} == "yes" ] && /usr/bin/cp "${PREPAREDIR}/${PACKAGE}.sig" .
   /usr/bin/repo-add ${DBNAME}.db.tar.gz "${PACKAGE}"
@@ -186,8 +175,11 @@ done
 echo -e "${bwhite}[II]${cclose} Updating ${bwhite}x86_64${cclose} repo"
 cd "${REPODIR}/x86_64"
 for PACKAGE in ${x86_64_PACKAGES}; do
-  PKGNAME=$(/usr/bin/package-query -p -f %n "${REPODIR}/x86_64/${PACKAGE}")
-  func_remove "${PACKAGE}" "${REPODIR}/x86_64"
+  PKGNAME=$(/usr/bin/package-query -p -f %n "${PREPAREDIR}/${PACKAGE}")
+  for PKG in $(/usr/bin/find "${REPODIR}/x86_64" -name "${PKGNAME}"'*.pkg.tar.xz'); do
+    _PKGNAME=$(/usr/bin/package-query -p -f %n "${PKG}")
+    [ "${PKGNAME}" == "${_PKGNAME}" ] && func_remove "${PKG}"
+  done
   /usr/bin/cp "${PREPAREDIR}/${PACKAGE}" .
   [ ${USEGPG} == "yes" ] && /usr/bin/cp "${PREPAREDIR}/${PACKAGE}.sig" .
   /usr/bin/repo-add ${DBNAME}.db.tar.gz "${PACKAGE}"
@@ -202,6 +194,29 @@ cd "${PREPAREDIR}"
 /usr/bin/rm -rf *
 cd "${STAGINGDIR}"
 /usr/bin/rm -rf *
+{% endhighlight %}
+
+<h3><a name="symlinks" class="anchor" href="#symlinks"><span class="octicon octicon-link"></span></a>Creating symlinks</h3>
+<p align="justify">You may want to create a directory, which will contain symlinks on actual packages with names, which does not contain version:</p>
+{% highlight bash %}
+# creating symlinks
+if [ ${SYMLINK} == "yes" ]; then
+  echo -e "${bwhite}[II]${cclose} Creating symlinks"
+  if [ ! -d "${REPODIR}/non-versioned" ]; then
+    [ -e "${REPODIR}/non-versioned" ] && error_mes "file" "${REPODIR}/non-versioned"
+    echo -e "${bwhite}[II] ${bblue}Creating directory ${bwhite}'${REPODIR}/non-versioned'${cclose}"
+    mkdir -p "${REPODIR}/non-versioned" || error_mes "unknown"
+  fi
+  cd "${REPODIR}/non-versioned"
+  for PACKAGE in ${i686_PACKAGES}; do
+    PKGNAME=$(/usr/bin/package-query -p -f %n "${REPODIR}/i686/${PACKAGE}")
+    /usr/bin/ln -sf "../i686/${PACKAGE}" "${PKGNAME}-i686.pkg.tar.xz"
+  done
+  for PACKAGE in ${x86_64_PACKAGES}; do
+    PKGNAME=$(/usr/bin/package-query -p -f %n "${REPODIR}/x86_64/${PACKAGE}")
+    /usr/bin/ln -sf "../x86_64/${PACKAGE}" "${PKGNAME}-x86_64.pkg.tar.xz"
+  done
+fi
 {% endhighlight %}
 
 <h3><a name="file" class="anchor" href="#file"><span class="octicon octicon-link"></span></a>File</h3>
