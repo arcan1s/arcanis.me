@@ -22,7 +22,6 @@ if [ ${USECOLOR} == "yes" ]; then
   cclose='\e[0m'
 fi
 export USECOLOR
-
 # directories
 if [ ! -d "${PREPAREDIR}" ]; then
   [ -e "${PREPAREDIR}" ] && error_mes "file" "${PREPAREDIR}"
