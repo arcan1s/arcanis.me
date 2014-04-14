@@ -13,12 +13,57 @@ description: Небольшая статья, посвященная созда�
 pacman -Sy devtools
 {% endhighlight %}
 <p align="justify"><a href="https://www.archlinux.org/packages/devtools/">devtools</a> - набор скриптов, предназначенный для автоматизации сборки пакетов в чистом чруте. Думаю, большинство мейнтейнеров Arch'а пользуются им.</p>
-<p align="justify">Создадим рабочие директории:</p>
+<p align="justify">Создадим рабочие директории и установим цвета:</p>
 {% highlight bash %}
-mkdir -p ~/arch/repo/{i686,x86_64}
-mkdir -p ~/arch/{prepare,root,staging}
+# цвета
+if [ ${USECOLOR} == "yes" ]; then
+  black='\e[0;30m'
+  bblack='\e[1;30m'
+  red='\e[0;31m'
+  bred='\e[1;31m'
+  green='\e[0;32m'
+  bgreen='\e[1;32m'
+  yellow='\e[0;33m'
+  byellow='\e[1;33m'
+  blue='\e[0;34m'
+  bblue='\e[1;34m'
+  purple='\e[0;35m'
+  bpurple='\e[1;35m'
+  cyan='\e[0;36m'
+  bcyan='\e[1;36m'
+  white='\e[0;37m'
+  bwhite='\e[1;37m'
+  cclose='\e[0m'
+fi
+export USECOLOR
+# директории
+if [ ! -d "${PREPAREDIR}" ]; then
+  [ -e "${PREPAREDIR}" ] && error_mes "file" "${PREPAREDIR}"
+  echo -e "${bwhite}[II] ${bblue}Creating directory ${bwhite}'${PREPAREDIR}'${cclose}"
+  mkdir -p "${PREPAREDIR}" || error_mes "unknown"
+fi
+if [ ! -d "${REPODIR}" ]; then
+  [ -e "${REPODIR}" ] && error_mes "file" "${REPODIR}"
+  echo -e "${bwhite}[II] ${bblue}Creating directory ${bwhite}'${REPODIR}'${cclose}"
+  mkdir -p "${REPODIR}/"{i686,x86_64} || error_mes "unknown"
+fi
+if [ ! -d "${REPODIR}/i686" ]; then
+  [ -e "${REPODIR}/i686" ] && error_mes "file" "${REPODIR}/i686"
+  echo -e "${bwhite}[II] ${bblue}Creating directory ${bwhite}'${REPODIR}/i686'${cclose}"
+  mkdir -p "${REPODIR}/i686" || error_mes "unknown"
+fi
+if [ ! -d "${REPODIR}/x86_64" ]; then
+  [ -e "${REPODIR}/x86_64" ] && error_mes "file" "${REPODIR}/x86_64"
+  echo -e "${bwhite}[II] ${bblue}Creating directory ${bwhite}'${REPODIR}/x86_64'${cclose}"
+  mkdir -p "${REPODIR}/x86_64" || error_mes "unknown"
+fi
+if [ ! -d "${STAGINGDIR}" ]; then
+  [ -e "${STAGINGDIR}" ] && error_mes "file" "${STAGINGDIR}"
+  echo -e "${bwhite}[II] ${bblue}Creating directory ${bwhite}'${STAGINGDIR}'${cclose}"
+  mkdir -p "${STAGINGDIR}" || error_mes "unknown"
+fi
 {% endhighlight %}
-<p align="justify">Директории <code>~/arch/repo/{i686,x86_64}</code> для самого репозитория, <code>~/arch/prepare</code> - директория, где будут лежать собранные пакеты, <code>~/arch/root</code> - директория, где будет создан чистый чрут для сборки, <code>~/arch/staging</code> - директория, откуда будут собираться пакеты.</p>
+<p align="justify">Директории <code>${REPODIR}/{i686,x86_64}</code> для самого репозитория, <code>${PREPAREDIR}</code> - директория, где будут лежать собранные пакеты, <code>${STAGINGDIR}</code> - директория, откуда будут собираться пакеты.</p>
 
 <h2><a name="theory" class="anchor" href="#theory"><span class="octicon octicon-link"></span></a>Немного теории</h2>
 <p align="justify">Создаем директорию, расшариваем ее (например, по <a href="/ru/2014/03/06/site-changes/">ftp</a>). В ней две субдиректории - <code>i686</code> и <code>x86_64</code>, для каждого типа архитектур соответственно. И наполняем их набором пакетов по Вашему усмотрению.</p>
@@ -40,7 +85,7 @@ mkdir -p ~/arch/{prepare,root,staging}
 <h3><a name="pkgbuild" class="anchor" href="#pkgbuild"><span class="octicon octicon-link"></span></a>Создание PKGBUILD'ов</h3>
 <p align="justify">Скачаем исходники для всех нужных пакетов из AUR'а:</p>
 {% highlight bash %}
-cd ~/arch/staging
+cd "${STAGINGDIR}"
 yaourt -G package-name
 {% endhighlight %}
 
@@ -48,22 +93,29 @@ yaourt -G package-name
 <p align="justify">Автоматически соберем каждый пакет:</p>
 {% highlight bash %}
 func_build() {
+  if [ ${USECOLOR} == "yes" ]; then
+    bblue='\e[1;34m'
+    bwhite='\e[1;37m'
+    cclose='\e[0m'
+  fi
   PREPARE="$1"
   ROOT="$2"
   eval $(/usr/bin/grep 'arch=' PKGBUILD)
-  if echo ${arch} | /usr/bin/grep any -q; then
-    /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
+  eval $(/usr/bin/grep 'pkgname=' PKGBUILD)
+  echo -e "${bwhite}[II] ${bblue}=>${cclose} Building ${bwhite}${pkgname}${cclose}"
+  if echo ${arch} | /usr/bin/grep 'any' -q; then
+    LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
   else
     eval $(/usr/bin/grep 'pkgname=' PKGBUILD)
     if echo ${pkgname} | /usr/bin/grep lib32 -q; then
-      /usr/bin/sudo /usr/bin/multilib-staging-build -r "${ROOT}" -c
+      LC_MESSAGES=C /usr/bin/sudo /usr/bin/multilib-staging-build -r "${ROOT}" -c
     else
-      if /usr/bin/grep "lib32" PKGBUILD -q; then
-        /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
-        /usr/bin/sudo /usr/bin/multilib-staging-build -r "${ROOT}" -c
+      if /usr/bin/grep 'lib32' PKGBUILD -q; then
+        LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
+        LC_MESSAGES=C /usr/bin/sudo /usr/bin/multilib-staging-build -r "${ROOT}" -c
       else
-        /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
-        /usr/bin/sudo /usr/bin/staging-x86_64-build -r "${ROOT}" -c
+        LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-i686-build -r "${ROOT}" -c
+        LC_MESSAGES=C /usr/bin/sudo /usr/bin/staging-x86_64-build -r "${ROOT}" -c
       fi
     fi
   fi
@@ -72,6 +124,7 @@ func_build() {
 export -f func_build
 
 # building
+echo -e "${bwhite}[II]${cclose} Building packages"
 cd "${STAGINGDIR}"
 /usr/bin/find -name 'PKGBUILD' -type f -execdir /usr/bin/bash -c "func_build "${PREPAREDIR}" "${ROOTDIR}"" \;
 {% endhighlight %}
@@ -86,7 +139,7 @@ username ALL=NOPASSWD: /usr/bin/multilib-staging-build
 {% highlight bash %}
 # signing
 if [ ${USEGPG} == "yes" ]; then
-  echo "[II] Signing"
+  echo -e "${bwhite}[II]${cclose} Signing"
   cd "${PREPAREDIR}"
   for PACKAGE in $(/usr/bin/find . -name '*.pkg.tar.xz'); do
     /usr/bin/gpg -b ${PACKAGE}
@@ -101,45 +154,45 @@ fi
 cd "${PREPAREDIR}"
 i686_PACKAGES=$(/usr/bin/find * -name '*-i686.pkg.tar.xz' -o -name '*-any.pkg.tar.xz')
 x86_64_PACKAGES=$(/usr/bin/find * -name '*-x86_64.pkg.tar.xz' -o -name '*-any.pkg.tar.xz')
-echo -e "[II] => i686 packages: \n${i686_PACKAGES}"
-echo -e "[II] => x86_64 packages: \n${x86_64_PACKAGES}"
+echo -e "${bwhite}[II] ${bblue}=>${cclose} i686 packages: \n${bwhite}${i686_PACKAGES}${cclose}"
+echo -e "${bwhite}[II] ${bblue}=>${cclose} x86_64 packages: \n${bwhite}${x86_64_PACKAGES}${cclose}"
 {% endhighlight %}
 
 <h3><a name="updating" class="anchor" href="#updating"><span class="octicon octicon-link"></span></a>Обновление репозиториев</h3>
 <p align="justify">Функция для удаления пакетов из базы данных и из репозитория:</p>
 {% highlight bash %}
 func_remove() {
-  PKGNAME="$1"
-  /usr/bin/rm -f ${PKGNAME}*
+  PACKAGE="$1"
+  REPODIR="$2"
+  /usr/bin/rm -f "${REPODIR}/${PACKAGE}"{,.sig}
 }
-export -f func_remove
 {% endhighlight %}
 <p align="justify">Обновление репозитория <code>i686</code>:</p>
 {% highlight bash %}
 # updating i686 repo
-echo "[II] Updating i686 repo"
+echo -e "${bwhite}[II]${cclose} Updating ${bwhite}i686${cclose} repo"
 cd "${REPODIR}/i686"
 for PACKAGE in ${i686_PACKAGES}; do
-  PKGNAME=$(echo ${PACKAGE} | /usr/bin/awk -F '-' '{for(i=1; i<=NF-3;i++) {printf("%s-", $i);}}' | /usr/bin/sed 's/.$//')
-  /usr/bin/find -name "${PKGNAME}*.pkg.tar.xz" -type f -exec /usr/bin/bash -c "func_remove "${PKGNAME}"" \;
+  PKGNAME=$(/usr/bin/package-query -p -f %n "${REPODIR}/i686/${PACKAGE}")
+  func_remove "${PACKAGE}" "${REPODIR}/i686"
   /usr/bin/cp "${PREPAREDIR}/${PACKAGE}" .
   [ ${USEGPG} == "yes" ] && /usr/bin/cp "${PREPAREDIR}/${PACKAGE}.sig" .
-  /usr/bin/repo-add --new ${DBNAME}.db.tar.gz "${PACKAGE}"
-  /usr/bin/repo-add --new --files ${DBNAME}.files.tar.gz "${PACKAGE}"
+  /usr/bin/repo-add ${DBNAME}.db.tar.gz "${PACKAGE}"
+  /usr/bin/repo-add --files ${DBNAME}.files.tar.gz "${PACKAGE}"
 done
 {% endhighlight %}
 <p align="justify">Обновление репозитория <code>x86_64</code>:</p>
 {% highlight bash %}
 # updating x86_64 repo
-echo "[II] Updating x86_64 repo"
+echo -e "${bwhite}[II]${cclose} Updating ${bwhite}x86_64${cclose} repo"
 cd "${REPODIR}/x86_64"
 for PACKAGE in ${x86_64_PACKAGES}; do
-  PKGNAME=$(echo ${PACKAGE} | /usr/bin/awk -F '-' '{for(i=1; i<=NF-3;i++) {printf("%s-", $i);}}' | /usr/bin/sed 's/.$//')
-  /usr/bin/find -name "${PKGNAME}"'*.pkg.tar.xz' -type f -exec /usr/bin/bash -c "func_remove "${PKGNAME}"" \;
+  PKGNAME=$(/usr/bin/package-query -p -f %n "${REPODIR}/x86_64/${PACKAGE}")
+  func_remove "${PACKAGE}" "${REPODIR}/x86_64"
   /usr/bin/cp "${PREPAREDIR}/${PACKAGE}" .
   [ ${USEGPG} == "yes" ] && /usr/bin/cp "${PREPAREDIR}/${PACKAGE}.sig" .
-  /usr/bin/repo-add --new ${DBNAME}.db.tar.gz "${PACKAGE}"
-  /usr/bin/repo-add --new --files ${DBNAME}.files.tar.gz "${PACKAGE}"
+  /usr/bin/repo-add ${DBNAME}.db.tar.gz "${PACKAGE}"
+  /usr/bin/repo-add --files ${DBNAME}.files.tar.gz "${PACKAGE}"
 done
 {% endhighlight %}
 
