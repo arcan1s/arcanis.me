@@ -30,16 +30,16 @@ domain.name.           912     IN      A       192.30.252.154
   <li>Since the repo requires ftp protocol, I've changed samba shared folders to ftp. The problem of access has been resolved by using mount options:
 {% highlight bash %}
 # only read rights
-/home/arcanis/music                         /mnt/ftp/music  ext4    defaults,bind,ro   0 0
-/home/arcanis/arch/repo                     /mnt/ftp/repo   ext4    defaults,bind,ro   0 0
+/home/arcanis/music                         /srv/ftp/music  ext4    defaults,bind,ro   0 0
+/home/arcanis/arch/repo                     /srv/ftp/repo   ext4    defaults,bind,ro   0 0
 # read and write rights (the file has size 2 Gb)
-/home/arcanis/share.fs                      /mnt/ftp/share  ext4    defaults,rw   0 0
+/home/arcanis/share.fs                      /srv/ftp/share  ext4    defaults,rw   0 0
 {% endhighlight %}
 Login on special user and option <code>anon_world_readable_only=YES</code> are used for prevent access to the music directory.
 Also here is my <code>/etc/vsftpd.conf</code> configuration file:
 {% highlight bash %}
 anonymous_enable=YES
-anon_root=/mnt/ftp
+anon_root=/srv/ftp
 local_enable=YES
 write_enable=YES
 local_umask=022
@@ -54,7 +54,7 @@ nopriv_user=music
 ascii_upload_enable=YES
 ftpd_banner=Welcome to arcanis
 chroot_local_user=YES
-local_root=/mnt/ftp/music
+local_root=/srv/ftp/music
 listen=YES
 {% endhighlight %}
 Now let's add redirection from <code>repo.arcanis.name</code> to the needed IP address. To do this, add the following entry in DNS:
