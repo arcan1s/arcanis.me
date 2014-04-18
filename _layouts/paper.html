@@ -12,23 +12,39 @@ layout: default
           {% assign post = page %}
           <p align="justify">{% include shortdate_to_ru.html %}</p>
           <p align="justify"><b>Тэги</b>: {{ page.tags }}</p>
-          <p align="justify"><b>Похожие посты</b>:<br>
-          {% for post in site.related_posts limit:3 %}
-            {% if post.category == "ru" %}
-              <i>{% include shortdate_to_ru.html %}</i> <a href="{{ post.url }}">{{ post.title }}</a><br>
-            {% endif %}
-          {% endfor %}
-          </p>
+          {% if page.tags contains 'offtop' %}
+<!--           do nothing -->
+          {% else %}
+            <p align="justify"><b>Похожие посты</b>:<br>
+            {% for post in site.related_posts limit:5 %}
+              {% if post.tags contains 'offtop' %}
+<!--               do nothing -->
+              {% else %}
+                {% if post.category == "ru" %}
+                  <i>{% include shortdate_to_ru.html %}</i> <a href="{{ post.url }}">{{ post.title }}</a><br>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            </p>
+          {% endif %}
         {% else %}
           <p align="justify">{{ page.date | date_to_string }}<br></p>
           <p align="justify"><b>Tags</b>: {{ page.tags }}</p>
-          <p align="justify"><b>Related posts</b>:<br>
-          {% for post in site.related_posts limit:3 %}
-            {% if post.category != "ru" %}
-              <i>{{ post.date | date_to_string }}</i> <a href="{{ post.url }}">{{ post.title }}</a><br>
-            {% endif %}
-          {% endfor %}
-          </p>
+          {% if page.tags contains 'offtop' %}
+<!--       do nothing -->
+          {% else %}
+            <p align="justify"><b>Related posts</b>:<br>
+            {% for post in site.related_posts limit:5 %}
+              {% if post.tags contains 'offtop' %}
+<!--               do nothing -->
+              {% else %}
+                {% if post.category != "ru" %}
+                  <i>{{ post.date | date_to_string }}</i> <a href="{{ post.url }}">{{ post.title }}</a><br>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            </p>
+          {% endif %}
         {% endif %}
       </header>
       <section>
