@@ -1,0 +1,37 @@
+---
+category: en
+type: paper
+layout: paper
+tags: linux, archlinux, building
+title: Disabling baloo, gentoo-way
+short: disabling-baloo
+description: Paper, which describes how to remove the dependency on baloo in your system.
+---
+<h2><a name="disclaimer" class="anchor" href="#disclaimer"><span class="octicon octicon-link"></span></a>Disclaimer</h2>
+<p align="justify">I do not use this pacth, since I prefer less destructive methods. However, apparently all works fine, because there is no any claims. Since this patch was created in a few minutes, it removes all baloo's calls from source files (maybe I'll create a normal patch sometime).</p>
+
+<p align="justify">On other hand, I highly recommend to people, who do not use baloo for some reason, disable it from the settings menu (it was added it 4.13.1) or read this <a href="http://blog.andreascarpino.it/disabling-baloo-the-arch-way/">article</a>.</p>
+
+<h2><a name="intro" class="anchor" href="#intro"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<p align="justify">In Archlinux <b>gwenview</b> and <b>kdepim</b> (and <b>baloo-widgets</b>) depend on baloo currently (2014-05-18). In the version 4.13.0 <b>kactivities</b> depends on baloo too (and I don't know why); but this dependency was not required explicitly, so it was enough just to rebuild the package by removing baloo from the list of dependencies.</p>
+
+<h2><a name="gwenview" class="anchor" href="#gwenview"><span class="octicon octicon-link"></span></a>gwenview</h2>
+<p align="justify">It's all quite simple. Developers have taken care of the wishes of ordinary users and added a special flag:</p>
+{% highlight cmake %}
+//Semantic info backend for Gwenview (Baloo/Fake/None)
+GWENVIEW_SEMANTICINFO_BACKEND:STRING=Baloo
+{% endhighlight %}
+<p align="justify">Thus, we add requred cmake flag to the build script:</p>
+{% highlight bash %}
+cmake ../gwenview-${pkgver} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DKDE4_BUILD_TESTS=OFF \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DGWENVIEW_SEMANTICINFO_BACKEND=None
+{% endhighlight %}
+
+<h2><a name="kdepim" class="anchor" href="#kdepim"><span class="octicon octicon-link"></span></a>kdepim</h2>
+<p align="justify">Since everything was done in a hurry, I prefer to look at the source code using grep and to find all references to baloo. Needed strings (they are links to ballo in CMakeLists.txt, baloo's function calls and header declarations) were commented (I added some fake calls to the source code). You may find the patch <a href="https://gist.github.com/arcan1s/b698bb586faef627b3bb">here</a> (4.13.1). Download the patch, apply it to the source code and recompile kdepim.</p>
+
+<h2><a name="packages" class="anchor" href="#packages"><span class="octicon octicon-link"></span></a>Packages</h2>
+<p align="justify">All Archlinux packages for both architectures may be found in <a href="https://wiki.archlinux.org/index.php/Unofficial_user_repositories#arcanisrepo">my repository</a>.</p>
