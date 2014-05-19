@@ -6,6 +6,8 @@ short: pytextmonitor
 hasgui: true
 developers:
     - Evgeniy Alelseev
+    - Ernesto Avilés Vzqz (перевод на испанский)
+    - Mermouy (перевод на французский)
 license: GPLv3
 links:
     - Страница плазмоида на <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a>
@@ -88,7 +90,7 @@ sudo make install
 <table>
   <tr>
     <th>CUSTOM</th>
-    <td><p align="justify">Своя команда для запуска. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>.</td>
+    <td><p align="justify">Свои команды для запуска. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>. Разделитель <code>@@</code>.</td>
   </tr>
   <tr>
     <th>GPUDEV</th>
@@ -212,9 +214,26 @@ sudo make install
     <td><p align="justify">Использование swap, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
-    <th rowspan="1">HDD</th>
+    <th rowspan="3">HDD</th>
     <td><code>$hddN</code></td>
     <td><p align="justify">Занятость точки монтирования N, %, <code>-----</code>. Пример: <code>$hdd0</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$hddmbN</code></td>
+    <td><p align="justify">Занятость точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddmb0</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$hddgbN</code></td>
+    <td><p align="justify">Занятость точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddgb0</code>.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="2">Скорость HDD</th>
+    <td><code>$hddrN</code></td>
+    <td><p align="justify">Скорость записи диска N, KB/s, <code>-----</code>. Пример: <code>$hddr0</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$hddwN</code></td>
+    <td><p align="justify">Скорость чтения диска N, KB/s, <code>-----</code>. Пример: <code>$hddw0</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Температура HDD</th>
@@ -284,8 +303,8 @@ sudo make install
   </tr>
   <tr>
     <th rowspan="1">Своя команда</th>
-    <td><code>$custom</code></td>
-    <td><p align="justify">Получить данные из указанной команды.</p></td>
+    <td><code>$customN</code></td>
+    <td><p align="justify">Получить данные из указанной команды N. Например, <code>$custom0</code>.</p></td>
   </tr>
 </table>
 
@@ -392,7 +411,9 @@ sudo make install
 
 <p align="justify"><b>Точки монтирования: </b> Список точек монтирования, которые будут наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>mount</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
 
-<p align="justify"><b>HDD:</b> Список HDD, температура которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>find</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
+<p align="justify"><b>HDD (скорость):</b> Список HDD, скорость которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из DataEngine). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
+
+<p align="justify"><b>HDD (температура):</b> Список HDD, температура которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>find</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
 
 <p align="justify"><b>Путь к интерфейсам:</b> Путь к директории, которая содержит информацию о сетевых устройствах. По умолчанию <code>/sys/class/net</code>. Необходима для автоматического выбора устройства.</p>
 
@@ -412,7 +433,7 @@ sudo make install
 <p align="justify">Начиная с версии 1.7.0, поля CPU, частота CPU, память, swap, сеть поддерживают графический тултип (всплывающая подсказка). Чтобы включить их, просто сделайте требуемые чекбоксы полностью чекнутыми. Число хранимых значений может быть установленно во вкладке. Цвета графиков настраиваются тоже.</p>
 
 <h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h4>
-<p align="justify"><b>Своя команда:</b> <i><b>ЗАМЕЧАНИЕ</b> это поле может привести к "зависанию" компьютера.</i> Команда, которая будет запущена для соответствующего поля. Например, <code>wget -qO- http://ifconfig.me/ip</code> вернет внешний IP.</p>
+<p align="justify"><b>Своя команда:</b> <i><b>ЗАМЕЧАНИЕ</b> это поле может привести к "зависанию" компьютера.</i> Команды, которые будут запущены для соответствующего поля. Например, <code>wget -qO- http://ifconfig.me/ip</code> вернет внешний IP.</p>
 
 <p align="justify"><b>Устройство GPU:</b> Выберете одно из поддерживаемых устройств GPU. <code>auto</code> включит автоматическое определение устройства. По умолчанию <code>auto</code>.</p>
 

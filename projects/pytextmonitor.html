@@ -5,6 +5,8 @@ short: pytextmonitor
 hasgui: true
 developers:
     - Evgeniy Alelseev
+    - Ernesto Avilés Vzqz (Spanish translation)
+    - Mermouy (French translation)
 license: GPLv3
 links:
     - Plasmoid page on <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a>
@@ -88,7 +90,7 @@ sudo make install
 <table>
   <tr>
     <th>CUSTOM</th>
-    <td><p align="justify">Custom command to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>.</td>
+    <td><p align="justify">Custom commands to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>. Separator is <code>@@</code>.</td>
   </tr>
   <tr>
     <th>GPUDEV</th>
@@ -212,9 +214,26 @@ sudo make install
     <td><p align="justify">Swap usage, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
-    <th rowspan="1">HDD usage label</th>
+    <th rowspan="3">HDD usage label</th>
     <td><code>$hddN</code></td>
     <td><p align="justify">Usage for mount point N, %, <code>-----</code>. For example <code>$hdd0</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$hddmbN</code></td>
+    <td><p align="justify">Usage for mount point N, MB, <code>-----</code>. For example <code>$hddmb0</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$hddgbN</code></td>
+    <td><p align="justify">Usage for mount point N, GB, <code>-----</code>. For example <code>$hddgb0</code>.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="2">HDD speed label</th>
+    <td><code>$hddrN</code></td>
+    <td><p align="justify">Read speed of disk N, KB/s, <code>-----</code>. For example <code>$hddr0</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$hddwN</code></td>
+    <td><p align="justify">Write speed of disk N, KB/s, <code>-----</code>. For example <code>$hddw0</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="1">HDD temperature label</th>
@@ -284,8 +303,8 @@ sudo make install
   </tr>
   <tr>
     <th rowspan="1">Custom label</th>
-    <td><code>$custom</code></td>
-    <td><p align="justify">Get output from custom command.</p></td>
+    <td><code>$customN</code></td>
+    <td><p align="justify">Get output from custom command N. For example <code>$custom0</code>.</p></td>
   </tr>
 </table>
 
@@ -392,7 +411,9 @@ sudo make install
 
 <p align="justify"><b>Mount points:</b> List of mount points, which will be observed in HDD label (combo box items come from <code>mount</code>). List widget is editable, delete key will remove current item.</p>
 
-<p align="justify"><b>HDDs:</b> List of hard disk devices, which will be observed in HDD temperature label (combo box items come from <code>find</code>). List widget is editable, delete key will remove current item.</p>
+<p align="justify"><b>HDDs (speed):</b> List of hard disk devices, which will be observed in HDD speed label (combo box items come from DataEngine). List widget is editable, delete key will remove current item.</p>
+
+<p align="justify"><b>HDDs (temperature):</b> List of hard disk devices, which will be observed in HDD temperature label (combo box items come from <code>find</code>). List widget is editable, delete key will remove current item.</p>
 
 <p align="justify"><b>Network directory:</b> Path to directory, which contains network devices information. Default is <code>/sys/class/net</code>. It is required for auto select of network device.</p>
 
@@ -412,7 +433,7 @@ sudo make install
 <p align="justify">Since version 1.7.0 CPU, CPU clock, memory, swap and network labels support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
 
 <h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
-<p align="justify"><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> A command, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
+<p align="justify"><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> Commands, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
 
 <p align="justify"><b>GPU device:</b> Select one of supported GPU devices. <code>auto</code> will enable auto selection. Default is <code>auto</code>.</p>
 
