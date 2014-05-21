@@ -8,6 +8,7 @@ developers:
     - Evgeniy Alelseev
     - Ernesto Avilés Vzqz (перевод на испанский)
     - Mermouy (перевод на французский)
+    - underr (перевод на бразильский португальский)
 license: GPLv3
 links:
     - Страница плазмоида на <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a>
@@ -100,6 +101,10 @@ sudo make install
   <tr>
     <th>HDDDEV</th>
     <td><p align="justify">Устанавливает блочное устройство для <code>hddtemp</code> через запятую или <code>all</code> для всех возможных. По умолчанию <code>all</code>.</p></td>
+  </tr>
+  <tr>
+    <th>HDDTEMPCMD</th>
+    <td><p align="justify">Команда, которая будет запущена для hddtemp. По умолчанию <code>sudo hddtemp</code>.</p></td>
   </tr>
   <tr>
     <th>MPDADDRESS</th>
@@ -439,6 +444,8 @@ sudo make install
 <p align="justify"><b>Устройство GPU:</b> Выберете одно из поддерживаемых устройств GPU. <code>auto</code> включит автоматическое определение устройства. По умолчанию <code>auto</code>.</p>
 
 <p align="justify"><b>HDD:</b> Выберете один из HDD для монитора температуры HDD. <code>all</code> включит монитор для всех доступных устройств. По умолчанию <code>all</code>.</p>
+
+<p align="justify"><b>Команда hddtemp:</b> Введите команду, которая будет запущена для hddtemp DataEngine. По умолчанию <code>sudo hddtemp</code>.</p>
 
 <p align="justify"><b>Адрес MPD:</b> Адрес MPD сервера. По умолчанию <code>localhost</code>.</p>
 

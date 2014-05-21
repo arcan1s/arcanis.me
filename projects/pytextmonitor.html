@@ -7,6 +7,7 @@ developers:
     - Evgeniy Alelseev
     - Ernesto Avilés Vzqz (Spanish translation)
     - Mermouy (French translation)
+    - underr (Brazillian Portuguese translation)
 license: GPLv3
 links:
     - Plasmoid page on <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a>
@@ -99,6 +100,10 @@ sudo make install
   <tr>
     <th>HDDDEV</th>
     <td><p align="justify">Set block device for <code>hddtemp</code> comma separated or use <code>all</code>. Default is <code>all</code>.</p></td>
+  </tr>
+  <tr>
+    <th>HDDTEMPCMD</th>
+    <td><p align="justify">A command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>.</p></td>
   </tr>
   <tr>
     <th>MPDADDRESS</th>
@@ -438,6 +443,8 @@ sudo make install
 <p align="justify"><b>GPU device:</b> Select one of supported GPU devices. <code>auto</code> will enable auto selection. Default is <code>auto</code>.</p>
 
 <p align="justify"><b>HDD:</b> Select one of HDDs for HDD temperature monitor. <code>all</code> will enable monitor for all devices. Default is <code>all</code>.</p>
+
+<p align="justify"><b>hddtemp cmd:</b> Type a command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>.</p>
 
 <p align="justify"><b>MPD address:</b> Address of MPD server. Default is <code>localhost</code>.</p>
 
