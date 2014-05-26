@@ -195,7 +195,7 @@ sudo make install
     <td><p align="justify">Температура GPU, &deg;C, <code>----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</p></td>
   </tr>
   <tr>
-    <th rowspan="3">Память</th>
+    <th rowspan="5">Память</th>
     <td><code>$mem</code></td>
     <td><p align="justify">Использование RAM, %, <code>-----</code>.</p></td>
   </tr>
@@ -208,7 +208,15 @@ sudo make install
     <td><p align="justify">Использование RAM, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
-    <th rowspan="3">Swap</th>
+    <td><code>$memtotmb</code></td>
+    <td><p align="justify">RAM, MB, <code>-----</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$memtotgb</code></td>
+    <td><p align="justify">RAM, GB, <code>----</code>.</p></td>
+  </tr>
+  <tr>
+    <th rowspan="5">Swap</th>
     <td><code>$swap</code></td>
     <td><p align="justify">Использование swap, %, <code>-----</code>.</p></td>
   </tr>
@@ -219,6 +227,14 @@ sudo make install
   <tr>
     <td><code>$swapgb</code></td>
     <td><p align="justify">Использование swap, GB, <code>----</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$swaptotmb</code></td>
+    <td><p align="justify">swap, MB, <code>-----</code>.</p></td>
+  </tr>
+  <tr>
+    <td><code>$swaptotgb</code></td>
+    <td><p align="justify">swap, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="3">HDD</th>
