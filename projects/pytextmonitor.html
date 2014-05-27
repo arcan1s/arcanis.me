@@ -96,11 +96,11 @@ sudo make install
   </tr>
   <tr>
     <th>GPUDEV</th>
-    <td><p align="justify">Set GPU device. May be <code>nvidia</code> (for nVidia), <code>ati</code> (for ATI Radeon), <code>ignore</code> or <code>auto</code>. Default is <code>auto</code>.</p></td>
+    <td><p align="justify">Set GPU device. May be <code>nvidia</code> (for nVidia), <code>ati</code> (for ATI Radeon), <code>disable</code> or <code>auto</code>. Default is <code>auto</code>.</p></td>
   </tr>
   <tr>
     <th>HDDDEV</th>
-    <td><p align="justify">Set block device for <code>hddtemp</code> comma separated or use <code>all</code>. Default is <code>all</code>.</p></td>
+    <td><p align="justify">Set block device for <code>hddtemp</code> comma separated or use <code>all</code>. <code>disable</code> will disable HDD temperature monitor. Default is <code>all</code>.</p></td>
   </tr>
   <tr>
     <th>HDDTEMPCMD</th>
@@ -459,9 +459,9 @@ sudo make install
 <h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
 <p align="justify"><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> Commands, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
 
-<p align="justify"><b>GPU device:</b> Select one of supported GPU devices. <code>auto</code> will enable auto selection. Default is <code>auto</code>.</p>
+<p align="justify"><b>GPU device:</b> Select one of supported GPU devices. <code>auto</code> will enable auto selection, <code>disable</code> will disable all GPU monitors. Default is <code>auto</code>.</p>
 
-<p align="justify"><b>HDD:</b> Select one of HDDs for HDD temperature monitor. <code>all</code> will enable monitor for all devices. Default is <code>all</code>.</p>
+<p align="justify"><b>HDD:</b> Select one of HDDs for HDD temperature monitor. <code>all</code> will enable monitor for all devices, <code>disable</code> will disable HDD temperature monitor. Default is <code>all</code>.</p>
 
 <p align="justify"><b>hddtemp cmd:</b> Type a command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>.</p>
 
