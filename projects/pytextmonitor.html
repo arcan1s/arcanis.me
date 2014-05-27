@@ -122,6 +122,10 @@ sudo make install
     <th>PKGNULL</th>
     <td><p align="justify">Number of null lines for commands, comma separated.</td>
   </tr>
+  <tr>
+    <th>PLAYER</th>
+    <td><p align="justify">Set music player. Supported players are amarok, clementine, mpd, qmmp.</td>
+  </tr>
 </table>
 
 <h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Widget configuration</h3>
@@ -449,8 +453,6 @@ sudo make install
 
 <p align="justify"><b>AC device:</b> File with AC information. The file (<code>/sys/class/power_supply/AC/online</code> by default) should contain <code>1</code> if AC is online.</p>
 
-<p align="justify"><b>Music player:</b> Select one of supported music playes for player label.</p>
-
 <h4><a name="tooltips" class="anchor" href="#tooltips"><span class="octicon octicon-link"></span></a>Tooltips</h4>
 <p align="justify">Since version 1.7.0 CPU, CPU clock, memory, swap and network labels support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
 
@@ -505,6 +507,8 @@ sudo make install
     <td><code>0</code></td>
   </tr>
 </table>
+
+<p align="justify"><b>Music player:</b> Select one of supported music playes for player label.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
