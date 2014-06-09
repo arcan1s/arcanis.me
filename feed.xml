@@ -7,6 +7,11 @@ layout: none
         <title>arcanis' blog</title>
         <description>arcanis' blog</description>
         <link>{{ site.url }}</link>
+        <image>
+            <url>{{ site.url }}/resources/icon.ico</url>
+            <title>Icon</title>
+            <link>{{ site.url }}</link>
+        </image>
         <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
         {% for post in site.categories.en limit:10 %}
         {% if post.tags contains 'offtop' %}
