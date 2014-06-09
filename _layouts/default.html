@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="/resources/css/styles.css">
     <link rel="stylesheet" href="/resources/css/syntax.css">
     <link rel="shortcut icon" href="/resources/icon.ico">
+    {% if page.category == "ru" %}
+        <link href="/ru/feed.xml" rel="alternate" title="arcanis' blog" type="application/rss+xml">
+    {% else %}
+        <link href="/feed.xml" rel="alternate" title="arcanis' blog" type="application/rss+xml">
+    {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>

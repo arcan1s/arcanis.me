@@ -1,3 +1,7 @@
+#for rss feed
+name: arcanis' blog
+url: http://arcanis.name/
+
 source:      .
 destination: ./_site
 plugins:     ./_plugins
