@@ -8,7 +8,7 @@ layout: none
         <description>arcanis' blog</description>
         <link>{{ site.url }}/ru</link>
         <image>
-            <url>{{ site.url }}/resources/icon.png</url>
+            <url>{{ site.url }}/resources/icon-35x35.png</url>
             <title>arcanis' blog</title>
             <link>{{ site.url }}/ru</link>
         </image>
