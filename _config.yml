@@ -1,7 +1,3 @@
-#for rss feed
-name: arcanis' blog
-url: http://arcanis.name/
-
 source:      .
 destination: ./_site
 plugins:     ./_plugins
@@ -30,7 +26,7 @@ safe:        false
 host:        0.0.0.0
 port:        4000
 baseurl:     /
-url:         http://localhost:4000
+url:         http://arcanis.name/
 lsi:         false
 
 maruku:
