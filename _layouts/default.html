@@ -13,8 +13,10 @@
     <link rel="shortcut icon" href="/resources/icon.ico">
     {% if page.category == "ru" %}
         <link href="/ru/feed.xml" rel="alternate" title="arcanis' blog" type="application/rss+xml">
+        <link href="/ru/feed-short.xml" rel="alternate" title="arcanis' blog (только названия)" type="application/rss+xml">
     {% else %}
         <link href="/feed.xml" rel="alternate" title="arcanis' blog" type="application/rss+xml">
+        <link href="/feed-short.xml" rel="alternate" title="arcanis' blog (title only)" type="application/rss+xml">
     {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
