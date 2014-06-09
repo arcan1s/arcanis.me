@@ -8,9 +8,11 @@ layout: none
         <description>arcanis' blog</description>
         <link>{{ site.url }}/ru</link>
         <image>
-            <url>{{ site.url }}/resources/icon.ico</url>
+            <url>{{ site.url }}/resources/icon.png</url>
             <title>Icon</title>
             <link>{{ site.url }}/ru</link>
+            <height>50</height>
+            <width>50</width>
         </image>
         <atom:link href="{{ site.url }}/ru/feed.xml" rel="self" type="application/rss+xml" />
         {% for post in site.categories.ru limit:10 %}
