@@ -6,7 +6,7 @@ layout: none
     <channel>
         <title>arcanis' blog</title>
         <link>{{ site.url }}/ru</link>
-        <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="{{ site.url }}/ru/feed.xml" rel="self" type="application/rss+xml" />
         {% for post in site.categories.ru limit:10 %}
         {% if post.tags contains 'offtop' %}
 <!--               do nothing -->
