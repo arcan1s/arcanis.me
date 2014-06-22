@@ -13,7 +13,7 @@ back: 2
       <section>
 
     {% for post in site.categories.en limit:1 %}
-      {% assign month = post.date | date: "%B, %Y" %}
+      {% assign month = post.date | date: "%Y" %}
     {% endfor %}
     <label class="spoiler">
       <input type="checkbox" tabindex="-1">
@@ -21,7 +21,7 @@ back: 2
         <b>{{ month }}</b> <span class="close" style="float:right;">(hide)</span><span class="open" style="float:right;">(show)</span>
         <blockquote>
           {% for post in site.categories.en %}
-            {% assign new_month = post.date | date: "%B, %Y" %}
+            {% assign new_month = post.date | date: "%Y" %}
             {% if new_month != month %}
         </blockquote>
       </div>
@@ -32,7 +32,7 @@ back: 2
         <b>{{ new_month }}</b> <span class="close" style="float:right;">(hide)</span><span class="open" style="float:right;">(show)</span>
         <blockquote>
             {% endif %}
-            {% assign month = post.date | date: "%B, %Y" %}
+            {% assign month = post.date | date: "%Y" %}
             <i>{{ post.date | date_to_string }}</i> &raquo; <a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.tags }})<br>
           {% endfor %}
         </blockquote>
