@@ -50,10 +50,9 @@
 
 body {
   padding: 50px;
-  font: 14px/1.5 "Liberation Serif", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 14px/1.5 "Liberation Serif", Helvetica, Arial, sans-serif;
   color: #555555;
-  font-weight: 300;
-  background: #dcdcdc
+  background: #eaeaea
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -63,6 +62,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p, ul, ol, table, pre, dl {
   margin: 0 0 20px;
+  text-align: justify;
 }
 
 h1, h2, h3 {
