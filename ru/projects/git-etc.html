@@ -12,7 +12,7 @@ links:
 ---
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p align="justify">Простой демон, который создает git репозиторий в указанной директории и создает коммит в указанный промежуток времени.</p>
+<p>Простой демон, который создает git репозиторий в указанной директории и создает коммит в указанный промежуток времени.</p>
 {% highlight bash %}
 $ git-etc --help
 Simple daemon written on BASH for monitoring changes in files
@@ -58,20 +58,20 @@ See "man 1 ctrlconf" for more details
 
 <h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/git-etc/releases">архив</a> с актуальной версией исходных файлов.</p></li>
-  <li><p align="justify">Извлеките из него файлы и установите приложение:</p>
+  <li><p>Скачайте <a href="https://github.com/arcan1s/git-etc/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p>Извлеките из него файлы и установите приложение:</p>
 {% highlight bash %}
 ./install.sh "/путь/к/корню/"
 {% endhighlight %}
-<p align="justify">Если Вы хотите установить в <code>/</code>, Вы должны запустить это, как root:</p>
+<p>Если Вы хотите установить в <code>/</code>, Вы должны запустить это, как root:</p>
 {% highlight bash %}
 sudo ./install.sh
 {% endhighlight %}
-<p align="justify">Если путь не указан, пакет будет установлен в <code>/</code>.</p></li>
+<p>Если путь не указан, пакет будет установлен в <code>/</code>.</p></li>
 </ul>
 
 <h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
-<p align="justify">Все было протестировано на последних версиях зависимостей.</p>
+<p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>Bash (включая awk, grep, sed)</li>
   <li>git</li>
@@ -84,27 +84,27 @@ sudo ./install.sh
 
 <!-- howto block -->
 <h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
-<p align="justify">Если Вы хотите запустить демон в <code>/etc</code>, просто запустите</p>
+<p>Если Вы хотите запустить демон в <code>/etc</code>, просто запустите</p>
 {% highlight bash %}
 systemctl start git-etc
 {% endhighlight %}
-<p align="justify">Если Вы хотите включить автозагрузку демона, запутите</p>
+<p>Если Вы хотите включить автозагрузку демона, запутите</p>
 {% highlight bash %}
 systemctl enable git-etc
 {% endhighlight %}
-<p align="justify">Но Вы можете изменить путь к конфигурационному файлу или изменить параметры. Для этого, скопируйте (рекомендуется) исходный конфигурационный файл</p>
+<p>Но Вы можете изменить путь к конфигурационному файлу или изменить параметры. Для этого, скопируйте (рекомендуется) исходный конфигурационный файл</p>
 {% highlight bash %}
 cp /etc/git-etc.conf /новый/путь/к/git-etc.conf
 {% endhighlight %}
-<p align="justify">и отредактируйте его. Затем скопируйте исходный service-файл в <code>/etc</code>:</p>
+<p>и отредактируйте его. Затем скопируйте исходный service-файл в <code>/etc</code>:</p>
 {% highlight bash %}
 cp /usr/lib/systemd/system/git-etc.service /etc/systemd/system/git-etc-my-profile.service
 {% endhighlight %}
-<p align="justify">Замените следующую строку в этом файле:</p>
+<p>Замените следующую строку в этом файле:</p>
 {% highlight bash %}
 ExecStart=/usr/bin/git-etc -c /etc/git-etc.conf
 {% endhighlight %}
-<p align="justify">на</p>
+<p>на</p>
 {% highlight bash %}
 ExecStart=/usr/bin/git-etc -c /новый/путь/к/git-etc.conf
 {% endhighlight %}
@@ -112,7 +112,7 @@ ExecStart=/usr/bin/git-etc -c /новый/путь/к/git-etc.conf
 
 <!-- config block -->
 <h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
-<p align="justify">Все настройки хранятся в <code>/etc/git-etc.conf</code>. После редактирования, Вы должны перезапустить демон</p>
+<p>Все настройки хранятся в <code>/etc/git-etc.conf</code>. После редактирования, Вы должны перезапустить демон</p>
 {% highlight bash %}
 systemctl restart git-etc
 {% endhighlight %}
@@ -121,32 +121,32 @@ systemctl restart git-etc
 <table>
   <tr>
     <th>DIRECTORY</th>
-    <td><p align="justify">Полный путь к рабочей директории с наблюдаемыми файлами. По умолчанию <code>/etc</code>.</p></td>
+    <td><p>Полный путь к рабочей директории с наблюдаемыми файлами. По умолчанию <code>/etc</code>.</p></td>
   </tr>
   <tr>
     <th>TIMESLEEP</th>
-    <td><p align="justify">Промежуток времени между обновлениями, часы. Должно быть целым и >= 1. По умолчанию <code>12</code>.</p></td>
+    <td><p>Промежуток времени между обновлениями, часы. Должно быть целым и >= 1. По умолчанию <code>12</code>.</p></td>
   </tr>
   <tr>
     <th>IGNORELIST</th>
-    <td><p align="justify">Список файлов, которые не будут наблюдаться. Разделитель ";;". Может быть пустым.</td>
+    <td><p>Список файлов, которые не будут наблюдаться. Разделитель ";;". Может быть пустым.</td>
   </tr>
   <tr>
     <th>FORALL</th>
-    <td><p align="justify"><code>1</code> включит доступ для обычного пользователя. По умолчанию <code>1</code>.</td>
+    <td><p><code>1</code> включит доступ для обычного пользователя. По умолчанию <code>1</code>.</td>
   </tr>
 </table>
 <!-- end of config block -->
 
 <!-- gui block -->
 <h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
-<p align="justify">Control Config (<code>ctrlconf</code>) - графический интерфейс для <code>git-etc</code>, написанный на <code>Python2/PyQt4</code>. Данное приложение позволяет Вам увидеть список коммитов и изменения в файлах в данных коммитах. Также данное приложение позволит Вам откатиться на указанный коммит (все файлы, посредством <code>git reset --hard</code>, или только указанный, посредством <code>git diff && git apply</code>). Также Вы можете объединить старый и новый конфигурационные файлы (используются две ветки репозитория master и experimental). Приложение может потребовать привелегии root, убедитесь, что пакет <code>sudo</code> установлен.</p>
+<p>Control Config (<code>ctrlconf</code>) - графический интерфейс для <code>git-etc</code>, написанный на <code>Python2/PyQt4</code>. Данное приложение позволяет Вам увидеть список коммитов и изменения в файлах в данных коммитах. Также данное приложение позволит Вам откатиться на указанный коммит (все файлы, посредством <code>git reset --hard</code>, или только указанный, посредством <code>git diff && git apply</code>). Также Вы можете объединить старый и новый конфигурационные файлы (используются две ветки репозитория master и experimental). Приложение может потребовать привелегии root, убедитесь, что пакет <code>sudo</code> установлен.</p>
 
 <h3><a name="gui_configuration" class="anchor" href="#gui_configuration"><span class="octicon octicon-link"></span></a>Настройка</h3>
-<p align="justify">Запустите приложение и откройте окно настроек из меню.</p>
+<p>Запустите приложение и откройте окно настроек из меню.</p>
 
 <h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
-<p align="justify">Основное окно:<br>
+<p>Основное окно:<br>
 <a href="/resources/screenshots/git-etc_mainwindow.png"><img src="/resources/preview/git-etc_mainwindow_prev.jpg"></a><br>
 Окно "О программе":<br>
 <a href="/resources/screenshots/git-etc_aboutwindow.png"><img src="/resources/preview/git-etc_aboutwindow_prev.jpg"></a><br>

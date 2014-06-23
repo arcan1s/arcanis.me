@@ -16,7 +16,7 @@ back: 1
 
     {% for post in site.categories.ru limit:10 %}
         <h1><a name="{{ post.short }}" class="anchor" href="#{{ post.short }}"><span class="octicon octicon-link"></span></a><a href="{{ post.url }}">{{ post.title }}</a></h1>
-        <p align="justify"><i>{% include shortdate_to_ru.html %}</i></p>
-        <p align="justify">{{ post.description }}</p>
-        <p align="justify"><b>Тэги</b>: {{ post.tags }}</p>
+        <p><i>{% include shortdate_to_ru.html %}</i></p>
+        <p>{{ post.description }}</p>
+        <p><b>Тэги</b>: {{ post.tags }}</p>
     {% endfor %}

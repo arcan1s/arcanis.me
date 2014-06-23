@@ -14,7 +14,7 @@ links:
 ---
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p align="justify">Графическая оболочка для <code>netctl</code> (набор скриптов для поднятия сети в Arch'е). Написана на <code>CPP</code> с использованием библиотеки <code>Qt4</code>. На текущим момент умеет работать с профилями, в том числе создавать новые, а также умеет подключаться к WiFi. Также предоставляет виджет и DataEngine для KDE.
+<p>Графическая оболочка для <code>netctl</code> (набор скриптов для поднятия сети в Arch'е). Написана на <code>CPP</code> с использованием библиотеки <code>Qt4</code>. На текущим момент умеет работать с профилями, в том числе создавать новые, а также умеет подключаться к WiFi. Также предоставляет виджет и DataEngine для KDE.
 Простой демон, который создает git репозиторий в указанной директории и создает коммит в указанный промежуток времени.</p>
 {% highlight bash %}
 $ netctl-gui --help
@@ -45,7 +45,7 @@ netctl-gui [ --default ] [ -t NUM | --tab NUM ] [ -h | --help]
 </ul>
 
 <h3><a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h3>
-<p align="justify"><a href="https://github.com/arcan1s/netctl-gui/blob/master/CHANGELOG">CHANGELOG</a></p>
+<p><a href="https://github.com/arcan1s/netctl-gui/blob/master/CHANGELOG">CHANGELOG</a></p>
 <!-- end of info block -->
 
 <!-- install block -->
@@ -53,9 +53,9 @@ netctl-gui [ --default ] [ -t NUM | --tab NUM ] [ -h | --help]
 
 <h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/netctl-gui/releases">архив</a> с актуальной версией исходных файлов.</p></li>
-  <li><p align="justify">Извлеките из него файлы и установите приложение:</p>
-<p align="justify">Если Вы хотите установить в <code>/</code>, Вы должны запустить как root:</p>
+  <li><p>Скачайте <a href="https://github.com/arcan1s/netctl-gui/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p>Извлеките из него файлы и установите приложение:</p>
+<p>Если Вы хотите установить в <code>/</code>, Вы должны запустить как root:</p>
 {% highlight bash %}
 cd /путь/к/распакованному/архиву
 mkdir build && cd build
@@ -63,18 +63,18 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ../
 make
 sudo make install
 {% endhighlight %}
-<p align="justify">Доступные флаги cmake:</p>
+<p>Доступные флаги cmake:</p>
   <ul>
-    <li><p align="justify"><code>-DBUILD_DATAENGINE:BOOL=0</code> - не собирать DataEngine;</p></li>
-    <li><p align="justify"><code>-DBUILD_GUI:BOOL=0</code> - не собирать GUI;</p></li>
-    <li><p align="justify"><code>-DBUILD_PLASMOID:BOOL=0</code> - не собирать Плазмоид;</p></li>
-    <li><p align="justify"><code>-DUSE_QT5:BOOL=0</code> - использовать Qt4 вместо Qt5 для GUI.</p></li>
+    <li><p><code>-DBUILD_DATAENGINE:BOOL=0</code> - не собирать DataEngine;</p></li>
+    <li><p><code>-DBUILD_GUI:BOOL=0</code> - не собирать GUI;</p></li>
+    <li><p><code>-DBUILD_PLASMOID:BOOL=0</code> - не собирать Плазмоид;</p></li>
+    <li><p><code>-DUSE_QT5:BOOL=0</code> - использовать Qt4 вместо Qt5 для GUI.</p></li>
   </ul>
   </li>
 </ul>
 
 <h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
-<p align="justify">Все было протестировано на последних версиях зависимостей.</p>
+<p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>netctl</li>
   <li>qt5-base <i>(если используется Qt5)</i> <b>или</b> qt4 <i>(если используется Qt4)</i></li>
@@ -89,45 +89,45 @@ sudo make install
 
 <!-- howto block -->
 <h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
-<p align="justify">Просто запустите приложение <code>netctl-gui</code>. Если потребуется (и если Вы используете KDE), можете добавить виджет <code>netctl</code>, предоставляемый приложением.</p>
+<p>Просто запустите приложение <code>netctl-gui</code>. Если потребуется (и если Вы используете KDE), можете добавить виджет <code>netctl</code>, предоставляемый приложением.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
 <h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
-<p align="justify">Для настройки виджета рекомендуется использовать графический интерфейс. Настройки DataEngine хранятся в <code>/usr/share/config/netctl.conf</code></p>
+<p>Для настройки виджета рекомендуется использовать графический интерфейс. Настройки DataEngine хранятся в <code>/usr/share/config/netctl.conf</code></p>
 <table>
   <tr>
     <th>CMD</th>
-    <td><p align="justify">Команда для запуска <code>netctl</code>. По умолчанию <code>/usr/bin/netctl</code>.</p></td>
+    <td><p>Команда для запуска <code>netctl</code>. По умолчанию <code>/usr/bin/netctl</code>.</p></td>
   </tr>
   <tr>
     <th>IPCMD</th>
-    <td><p align="justify">Команда для запуска <code>ip</code>. По умолчанию <code>/usr/bin/ip</code>.</p></td>
+    <td><p>Команда для запуска <code>ip</code>. По умолчанию <code>/usr/bin/ip</code>.</p></td>
   </tr>
   <tr>
     <th>NETDIR</th>
-    <td><p align="justify">Директория, содержащая поддиректории с именами сетевых интерфейсов. По умолчанию <code>/sys/class/net/</code>.</p></td>
+    <td><p>Директория, содержащая поддиректории с именами сетевых интерфейсов. По умолчанию <code>/sys/class/net/</code>.</p></td>
   </tr>
   <tr>
     <th>EXTIPCMD</th>
-    <td><p align="justify">Команда для получения внешнего IP адреса. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>.</p></td>
+    <td><p>Команда для получения внешнего IP адреса. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>.</p></td>
   </tr>
   <tr>
     <th>EXTIP</th>
-    <td><p align="justify"><code>true</code> включит определение внешнего IP адреса. По умолчанию <code>false</code>.</p></td>
+    <td><p><code>true</code> включит определение внешнего IP адреса. По умолчанию <code>false</code>.</p></td>
   </tr>
 </table>
 <!-- end of config block -->
 
 <!-- gui block -->
 <h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
-<p align="justify">Графический интерфейс предоставляется приложением <code>netctl-gui</code>.</p>
+<p>Графический интерфейс предоставляется приложением <code>netctl-gui</code>.</p>
 
 <h3><a name="gui_configuration" class="anchor" href="#gui_configuration"><span class="octicon octicon-link"></span></a>Настройка</h3>
-<p align="justify">Все настройки графического интерфейса хранятся в <code>$HOME/.config/netctl-gui.conf</code>. Для редактирования настоятельно рекомендуется использовать графический интерфейс.</p>
+<p>Все настройки графического интерфейса хранятся в <code>$HOME/.config/netctl-gui.conf</code>. Для редактирования настоятельно рекомендуется использовать графический интерфейс.</p>
 
 <h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
-<p align="justify">DataEngine:<br>
+<p>DataEngine:<br>
 <a href="/resources/screenshots/netctl_dataengine.png"><img src="/resources/preview/netctl_dataengine_prev.jpg"></a><br>
 Виджет:<br>
 <a href="/resources/screenshots/netctl_plasmoid.png"><img src="/resources/preview/netctl_plasmoid_prev.jpg"></a><br>

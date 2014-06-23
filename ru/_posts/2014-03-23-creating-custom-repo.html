@@ -8,12 +8,12 @@ short: creating-custom-repo
 description: Небольшая статья, посвященная созданию собственного репозитория для Archlinux.
 ---
 <h2><a name="prepare" class="anchor" href="#prepare"><span class="octicon octicon-link"></span></a>Подготовка</h2>
-<p align="justify">Для начала находим сервер и желание с ним заниматься сексом. Для простоты, лучше, чтобы там стоял Archlinux, хотя, это и не совсем обязательно (можно создать отдельный корень под Arch). Из пакетов, пожалуй, нам понадобится только два, <code>devtools</code> и сам <code>pacman</code>:</p>
+<p>Для начала находим сервер и желание с ним заниматься сексом. Для простоты, лучше, чтобы там стоял Archlinux, хотя, это и не совсем обязательно (можно создать отдельный корень под Arch). Из пакетов, пожалуй, нам понадобится только два, <code>devtools</code> и сам <code>pacman</code>:</p>
 {% highlight bash %}
 pacman -Sy devtools
 {% endhighlight %}
-<p align="justify"><a href="https://www.archlinux.org/packages/devtools/">devtools</a> - набор скриптов, предназначенный для автоматизации сборки пакетов в чистом чруте. Думаю, большинство мейнтейнеров Arch'а пользуются им.</p>
-<p align="justify">Создадим рабочие директории и установим цвета:</p>
+<p><a href="https://www.archlinux.org/packages/devtools/">devtools</a> - набор скриптов, предназначенный для автоматизации сборки пакетов в чистом чруте. Думаю, большинство мейнтейнеров Arch'а пользуются им.</p>
+<p>Создадим рабочие директории и установим цвета:</p>
 {% highlight bash %}
 # цвета
 if [ ${USECOLOR} == "yes" ]; then
@@ -49,11 +49,11 @@ if [ ! -d "${STAGINGDIR}" ]; then
   mkdir -p "${STAGINGDIR}" || error_mes "unknown"
 fi
 {% endhighlight %}
-<p align="justify">Директории <code>${REPODIR}/{i686,x86_64}</code> для самого репозитория, <code>${PREPAREDIR}</code> - директория, где будут лежать собранные пакеты, <code>${STAGINGDIR}</code> - директория, откуда будут собираться пакеты.</p>
+<p>Директории <code>${REPODIR}/{i686,x86_64}</code> для самого репозитория, <code>${PREPAREDIR}</code> - директория, где будут лежать собранные пакеты, <code>${STAGINGDIR}</code> - директория, откуда будут собираться пакеты.</p>
 
 <h2><a name="theory" class="anchor" href="#theory"><span class="octicon octicon-link"></span></a>Немного теории</h2>
-<p align="justify">Создаем директорию, расшариваем ее (например, по <a href="/ru/2014/03/06/site-changes/">ftp</a>). В ней две субдиректории - <code>i686</code> и <code>x86_64</code>, для каждого типа архитектур соответственно. И наполняем их набором пакетов по Вашему усмотрению.</p>
-<p align="justify">Процесс обновления репозитория можно разбить на следующие части:</p>
+<p>Создаем директорию, расшариваем ее (например, по <a href="/ru/2014/03/06/site-changes/">ftp</a>). В ней две субдиректории - <code>i686</code> и <code>x86_64</code>, для каждого типа архитектур соответственно. И наполняем их набором пакетов по Вашему усмотрению.</p>
+<p>Процесс обновления репозитория можно разбить на следующие части:</p>
 <ol>
   <li>Создание PKGBUILD'ов (обновление их из AUR'а).</li>
   <li>Сборка пакетов для различных архитектур в чистом чруте.</li>
@@ -66,17 +66,17 @@ fi
     </li>
   <li>Очистка.</li>
 </ol>
-<p align="justify">Теперь по шагам.</p>
+<p>Теперь по шагам.</p>
 
 <h3><a name="pkgbuild" class="anchor" href="#pkgbuild"><span class="octicon octicon-link"></span></a>Создание PKGBUILD'ов</h3>
-<p align="justify">Скачаем исходники для всех нужных пакетов из AUR'а:</p>
+<p>Скачаем исходники для всех нужных пакетов из AUR'а:</p>
 {% highlight bash %}
 cd "${STAGINGDIR}"
 yaourt -G package-name
 {% endhighlight %}
 
 <h3><a name="building" class="anchor" href="#building"><span class="octicon octicon-link"></span></a>Сборка пакетов</h3>
-<p align="justify">Автоматически соберем каждый пакет:</p>
+<p>Автоматически соберем каждый пакет:</p>
 {% highlight bash %}
 func_build() {
   if [ ${USECOLOR} == "yes" ]; then
@@ -114,7 +114,7 @@ echo -e "${bwhite}[II]${cclose} Building packages"
 cd "${STAGINGDIR}"
 /usr/bin/find -name 'PKGBUILD' -type f -execdir /usr/bin/bash -c "func_build "${PREPAREDIR}" "${ROOTDIR}"" \;
 {% endhighlight %}
-<p align="justify">Для удобства рекомендую добавить в файл <code>/etc/sudoers</code> следующие строки:</p>
+<p>Для удобства рекомендую добавить в файл <code>/etc/sudoers</code> следующие строки:</p>
 {% highlight bash %}
 username ALL=NOPASSWD: /usr/bin/staging-i686-build
 username ALL=NOPASSWD: /usr/bin/staging-x86_64-build
@@ -132,7 +132,7 @@ if [ ${USEGPG} == "yes" ]; then
   done
 fi
 {% endhighlight %}
-<p align="justify">Для удобства рекомендую настроить <a href="https://wiki.archlinux.org/index.php/GPG#gpg-agent">gpg-agent</a>.</p>
+<p>Для удобства рекомендую настроить <a href="https://wiki.archlinux.org/index.php/GPG#gpg-agent">gpg-agent</a>.</p>
 
 <h3><a name="list" class="anchor" href="#list"><span class="octicon octicon-link"></span></a>Создание списка пакетов</h3>
 {% highlight bash %}
@@ -145,14 +145,14 @@ echo -e "${bwhite}[II] ${bblue}=>${cclose} x86_64 packages: \n${bwhite}${x86_64_
 {% endhighlight %}
 
 <h3><a name="updating" class="anchor" href="#updating"><span class="octicon octicon-link"></span></a>Обновление репозиториев</h3>
-<p align="justify">Функция для удаления пакетов из базы данных и из репозитория:</p>
+<p>Функция для удаления пакетов из базы данных и из репозитория:</p>
 {% highlight bash %}
 func_remove() {
   _PACKAGE="$1"
   /usr/bin/rm -f "${_PACKAGE}"{,.sig}
 }
 {% endhighlight %}
-<p align="justify">Обновление репозитория <code>i686</code>:</p>
+<p>Обновление репозитория <code>i686</code>:</p>
 {% highlight bash %}
 # обновление репозитория i686
 echo -e "${bwhite}[II]${cclose} Updating ${bwhite}i686${cclose} repo"
@@ -169,7 +169,7 @@ for PACKAGE in ${i686_PACKAGES}; do
   /usr/bin/repo-add --files ${DBNAME}.files.tar.gz "${PACKAGE}"
 done
 {% endhighlight %}
-<p align="justify">Обновление репозитория <code>x86_64</code>:</p>
+<p>Обновление репозитория <code>x86_64</code>:</p>
 {% highlight bash %}
 # обновление репозитория x86_64
 echo -e "${bwhite}[II]${cclose} Updating ${bwhite}x86_64${cclose} repo"
@@ -197,7 +197,7 @@ cd "${STAGINGDIR}"
 {% endhighlight %}
 
 <h3><a name="symlinks" class="anchor" href="#symlinks"><span class="octicon octicon-link"></span></a>Создание симлинков</h3>
-<p align="justify">Вы можете захотеть создать директорию, которая будет содержать симлинки на актуальные версии пакетов с именами, не содержащими версии:</p>
+<p>Вы можете захотеть создать директорию, которая будет содержать симлинки на актуальные версии пакетов с именами, не содержащими версии:</p>
 {% highlight bash %}
 # создание симлинков
 if [ ${SYMLINK} == "yes" ]; then
@@ -220,10 +220,10 @@ fi
 {% endhighlight %}
 
 <h3><a name="file" class="anchor" href="#file"><span class="octicon octicon-link"></span></a>Файл</h3>
-<p align="justify"><a href="https://github.com/arcan1s/repo-scripts">Скрипты</a> целиком. Скачиваем исходники для пакетов, запускаем скрипт (при необходимости, редактируем переменные) и радуемся жизни.</p>
+<p><a href="https://github.com/arcan1s/repo-scripts">Скрипты</a> целиком. Скачиваем исходники для пакетов, запускаем скрипт (при необходимости, редактируем переменные) и радуемся жизни.</p>
 
 <h2><a name="using" class="anchor" href="#using"><span class="octicon octicon-link"></span></a>Использование репозитория</h2>
-<p align="justify">Просто добавляем в файл <code>/etc/pacman.conf</code> следующие строки:</p>
+<p>Просто добавляем в файл <code>/etc/pacman.conf</code> следующие строки:</p>
 {% highlight bash %}
 [$REPONAME]
 Server = ftp://$REPOADDRESS/repo/$arch

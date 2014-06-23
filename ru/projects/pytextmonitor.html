@@ -18,8 +18,8 @@ links:
 ---
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p align="justify">Минималистичный пламоид, написанный на <code>Python2</code>. Он выглядит, как виджеты в <a href="http://awesome.naquadah.org/">Awesome WM</a>. Мой плазмоид хорошо и легко настраивается и не засоряет Ваш KDE. Также данный пакет имеет дополнительный <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines">DataEngine</a>, который написан на <code>CPP</code> (старые версии были написаны на <code>Python2</code>).</p>
-<p align="justify"><b>ВНИМАНИЕ:</b> <a href="https://github.com/arcan1s/pytextmonitor/issues/14">НУЖНЫ ПЕРЕВОДЧИКИ!</a></p>
+<p>Минималистичный пламоид, написанный на <code>Python2</code>. Он выглядит, как виджеты в <a href="http://awesome.naquadah.org/">Awesome WM</a>. Мой плазмоид хорошо и легко настраивается и не засоряет Ваш KDE. Также данный пакет имеет дополнительный <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines">DataEngine</a>, который написан на <code>CPP</code> (старые версии были написаны на <code>Python2</code>).</p>
+<p><b>ВНИМАНИЕ:</b> <a href="https://github.com/arcan1s/pytextmonitor/issues/14">НУЖНЫ ПЕРЕВОДЧИКИ!</a></p>
 
 <h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
@@ -34,7 +34,7 @@ links:
 </ul>
 
 <h3><a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Список изменений</h3>
-<p align="justify"><a href="https://github.com/arcan1s/pytextmonitor/blob/master/CHANGELOG-RU">CHANGELOG-RU</a></p>
+<p><a href="https://github.com/arcan1s/pytextmonitor/blob/master/CHANGELOG-RU">CHANGELOG-RU</a></p>
 <!-- end of info block -->
 
 <!-- install block -->
@@ -42,8 +42,8 @@ links:
 
 <h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/pytextmonitor/releases">архив</a> с актуальной версией исходных файлов.</p></li>
-  <li><p align="justify">Извлеките из него файлы и установите:</p>
+  <li><p>Скачайте <a href="https://github.com/arcan1s/pytextmonitor/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p>Извлеките из него файлы и установите:</p>
 {% highlight bash %}
 cd /путь/к/извлеченным/файлам/
 mkdir build && cd build
@@ -51,7 +51,7 @@ cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Rele
 make
 make install
 {% endhighlight %}
-<p align="justify">Для глобальной установки наберите:</p>
+<p>Для глобальной установки наберите:</p>
 {% highlight bash %}
 cd /путь/к/извлеченным/файлам/
 mkdir build && cd build
@@ -62,7 +62,7 @@ sudo make install
 </ul>
 
 <h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
-<p align="justify">Все было протестировано на последних версиях зависимостей.</p>
+<p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>kdebase-workspace</li>
   <li>kdebindings-python2</li>
@@ -79,416 +79,416 @@ sudo make install
 
 <!-- howto block -->
 <h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
-<p align="justify">Откройте список виджетов Plasma и выберете <code>Py Text Monitor</code>.</p>
+<p>Откройте список виджетов Plasma и выберете <code>Py Text Monitor</code>.</p>
 
 <h3><a name="tips" class="anchor" href="#tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
-<p align="justify">Вы можете использовать различные цвета в полях. Просто вставьте нужный текст в html код. Смотри <a href="https://github.com/arcan1s/pytextmonitor/issues/9">вопрос</a> для более подробной информации.</p>
+<p>Вы можете использовать различные цвета в полях. Просто вставьте нужный текст в html код. Смотри <a href="https://github.com/arcan1s/pytextmonitor/issues/9">вопрос</a> для более подробной информации.</p>
 
-<p align="justify">Нумерация элементов в полях температура, использование HDD, скорость HDD, температура HDD ссылается на порядок элементов во второй вкладке (<i>Расширенные настройки</i>). Вы должны сначала добавить требуемые элементы в нужный listWidget. И первый элемент в listWdiget будет связан c <code>$tag0</code>. Смотри <a href="https://github.com/arcan1s/pytextmonitor/issues/17">вопрос</a> для более подробной информации.</p>
+<p>Нумерация элементов в полях температура, использование HDD, скорость HDD, температура HDD ссылается на порядок элементов во второй вкладке (<i>Расширенные настройки</i>). Вы должны сначала добавить требуемые элементы в нужный listWidget. И первый элемент в listWdiget будет связан c <code>$tag0</code>. Смотри <a href="https://github.com/arcan1s/pytextmonitor/issues/17">вопрос</a> для более подробной информации.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
 <h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
 
 <h3><a name="deconf" class="anchor" href="#deconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h3>
-<p align="justify">Вы можете отредактировать настройки DataEngine, которые хранятся в <code>/usr/share/config/extsysmon.conf</code> или <code>$HOME/.kde4/share/config/extsysmon.conf</code> в зависимости от типа установки. Раскомментируйте необходимые строчки и отредактируйте их.</p>
+<p>Вы можете отредактировать настройки DataEngine, которые хранятся в <code>/usr/share/config/extsysmon.conf</code> или <code>$HOME/.kde4/share/config/extsysmon.conf</code> в зависимости от типа установки. Раскомментируйте необходимые строчки и отредактируйте их.</p>
 
 <h4><a name="deoptions" class="anchor" href="#deoptions"><span class="octicon octicon-link"></span></a>Опции DataEngine</h4>
 <table>
   <tr>
     <th>CUSTOM</th>
-    <td><p align="justify">Свои команды для запуска. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>. Разделитель <code>@@</code>.</td>
+    <td><p>Свои команды для запуска. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>. Разделитель <code>@@</code>.</td>
   </tr>
   <tr>
     <th>GPUDEV</th>
-    <td><p align="justify">Устанавливает тип GPU. Может быть <code>nvidia</code> (для nVidia), <code>ati</code> (для ATI Radeon), <code>disable</code> или <code>auto</code>. По умолчанию <code>auto</code>.</p></td>
+    <td><p>Устанавливает тип GPU. Может быть <code>nvidia</code> (для nVidia), <code>ati</code> (для ATI Radeon), <code>disable</code> или <code>auto</code>. По умолчанию <code>auto</code>.</p></td>
   </tr>
   <tr>
     <th>HDDDEV</th>
-    <td><p align="justify">Устанавливает блочное устройство для <code>hddtemp</code> через запятую или <code>all</code> для всех возможных. <code>disable</code> отключит монитор температуры HDD. По умолчанию <code>all</code>.</p></td>
+    <td><p>Устанавливает блочное устройство для <code>hddtemp</code> через запятую или <code>all</code> для всех возможных. <code>disable</code> отключит монитор температуры HDD. По умолчанию <code>all</code>.</p></td>
   </tr>
   <tr>
     <th>HDDTEMPCMD</th>
-    <td><p align="justify">Команда, которая будет запущена для hddtemp. По умолчанию <code>sudo hddtemp</code>.</p></td>
+    <td><p>Команда, которая будет запущена для hddtemp. По умолчанию <code>sudo hddtemp</code>.</p></td>
   </tr>
   <tr>
     <th>MPDADDRESS</th>
-    <td><p align="justify">Адрес MPD хоста. По умолчанию <code>localhost</code>.</td>
+    <td><p>Адрес MPD хоста. По умолчанию <code>localhost</code>.</td>
   </tr>
   <tr>
     <th>MPDPORT</th>
-    <td><p align="justify">Адрес MPD хоста. По умолчанию <code>6600</code>.</td>
+    <td><p>Адрес MPD хоста. По умолчанию <code>6600</code>.</td>
   </tr>
   <tr>
     <th>PKGCMD</th>
-    <td><p align="justify">Команды, которые будут запущены для пакетного менеджера, разделенные запятой.</td>
+    <td><p>Команды, которые будут запущены для пакетного менеджера, разделенные запятой.</td>
   </tr>
   <tr>
     <th>PKGNULL</th>
-    <td><p align="justify">Число пустых строк для команд, разделенные запятой.</td>
+    <td><p>Число пустых строк для команд, разделенные запятой.</td>
   </tr>
     <tr>
     <th>PLAYER</th>
-    <td><p align="justify">Устанавливает музыкальный плеер. Поддерживаемые плееры: amarok, clementine, mpd, qmmp.</td>
+    <td><p>Устанавливает музыкальный плеер. Поддерживаемые плееры: amarok, clementine, mpd, qmmp.</td>
   </tr>
 </table>
 
 <h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Настройка виджета</h3>
-<p align="justify">Для настройки внешнего вида Вы должны открыть окно настроек и установить требуемый формат. Порядок меток изменится, если Вы измените положение слайдера. В метках работают HTML теги.<br>
+<p>Для настройки внешнего вида Вы должны открыть окно настроек и установить требуемый формат. Порядок меток изменится, если Вы измените положение слайдера. В метках работают HTML теги.<br>
 <b>ЗАМЕЧАНИЕ</b> Вы не можете, например, заставить его показывать Вам <code>$cpu</code> в метка swap. <b><code>$cpu</code> будет работать только в метке cpu.</b></p>
-<p align="justify">Доступные флаги в таблице ниже.<br>
+<p>Доступные флаги в таблице ниже.<br>
 <b>ЗАМЕЧАНИЕ</b> Нумерация всех массивов в переменных начинается с 0.</p>
 <table>
   <tr>
     <th rowspan="5">Время</th>
     <td><code>$time</code></td>
-    <td><p align="justify">Время в стандартном формате. Например, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
+    <td><p>Время в стандартном формате. Например, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
   </tr>
   <tr>
     <td><code>$isotime</code></td>
-    <td><p align="justify">Время в формате ISO.</p></td>
+    <td><p>Время в формате ISO.</p></td>
   </tr>
   <tr>
     <td><code>$shorttime</code></td>
-    <td><p align="justify">Время в коротком формате локали.</p></td>
+    <td><p>Время в коротком формате локали.</p></td>
   </tr>
   <tr>
     <td><code>$longtime</code></td>
-    <td><p align="justify">Время в длинном формате локали.</p></td>
+    <td><p>Время в длинном формате локали.</p></td>
   </tr>
   <tr>
     <td><code>$custom</code></td>
-    <td><p align="justify">Cпециальный формат времени.</p></td>
+    <td><p>Cпециальный формат времени.</p></td>
   </tr>
   <tr>
     <th rowspan="2">Время работы</th>
     <td><code>$uptime</code></td>
-    <td><p align="justify">Системный аптайм, <code>---d--h--m</code>.</p></td>
+    <td><p>Системный аптайм, <code>---d--h--m</code>.</p></td>
   </tr>
   <tr>
     <td><code>$custom</code></td>
-    <td><p align="justify">Cпециальный формат аптайма.</p></td>
+    <td><p>Cпециальный формат аптайма.</p></td>
   </tr>
   <tr>
     <th rowspan="2">CPU</th>
     <td><code>$cpu</code></td>
-    <td><p align="justify">Полная загрузка CPU, %, <code>-----</code>.</p></td>
+    <td><p>Полная загрузка CPU, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$cpuN</code></td>
-    <td><p align="justify">Загрузка CPU для ядра N, %, <code>-----</code>.</p></td>
+    <td><p>Загрузка CPU для ядра N, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="2">Частота CPU</th>
     <td><code>$cpucl</code></td>
-    <td><p align="justify">Средняя частота CPU, МГц, <code>----</code>.</p></td>
+    <td><p>Средняя частота CPU, МГц, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$cpuclN</code></td>
-    <td><p align="justify">Частота CPU для ядра N, МГц, <code>----</code>.</p></td>
+    <td><p>Частота CPU для ядра N, МГц, <code>----</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Температура</th>
     <td><code>$tempN</code></td>
-    <td><p align="justify">Температура для датчика N, &deg;C, <code>----</code>. Пример: <code>$temp0</code></p></td>
+    <td><p>Температура для датчика N, &deg;C, <code>----</code>. Пример: <code>$temp0</code></p></td>
   </tr>
   <tr>
     <th rowspan="1">GPU</th>
     <td><code>$gpu</code></td>
-    <td><p align="justify">Использование GPU, %, <code>-----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</p></td>
+    <td><p>Использование GPU, %, <code>-----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Температура GPU</th>
     <td><code>$gputemp</code></td>
-    <td><p align="justify">Температура GPU, &deg;C, <code>----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</p></td>
+    <td><p>Температура GPU, &deg;C, <code>----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</p></td>
   </tr>
   <tr>
     <th rowspan="5">Память</th>
     <td><code>$mem</code></td>
-    <td><p align="justify">Использование RAM, %, <code>-----</code>.</p></td>
+    <td><p>Использование RAM, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$memmb</code></td>
-    <td><p align="justify">Использование RAM, MB, <code>-----</code>.</p></td>
+    <td><p>Использование RAM, MB, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$memgb</code></td>
-    <td><p align="justify">Использование RAM, GB, <code>----</code>.</p></td>
+    <td><p>Использование RAM, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$memtotmb</code></td>
-    <td><p align="justify">RAM, MB, <code>-----</code>.</p></td>
+    <td><p>RAM, MB, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$memtotgb</code></td>
-    <td><p align="justify">RAM, GB, <code>----</code>.</p></td>
+    <td><p>RAM, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="5">Swap</th>
     <td><code>$swap</code></td>
-    <td><p align="justify">Использование swap, %, <code>-----</code>.</p></td>
+    <td><p>Использование swap, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$swapmb</code></td>
-    <td><p align="justify">Использование swap, MB, <code>-----</code>.</p></td>
+    <td><p>Использование swap, MB, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$swapgb</code></td>
-    <td><p align="justify">Использование swap, GB, <code>----</code>.</p></td>
+    <td><p>Использование swap, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$swaptotmb</code></td>
-    <td><p align="justify">swap, MB, <code>-----</code>.</p></td>
+    <td><p>swap, MB, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$swaptotgb</code></td>
-    <td><p align="justify">swap, GB, <code>----</code>.</p></td>
+    <td><p>swap, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="5">HDD</th>
     <td><code>$hddN</code></td>
-    <td><p align="justify">Занятость точки монтирования N, %, <code>-----</code>. Пример: <code>$hdd0</code>.</p></td>
+    <td><p>Занятость точки монтирования N, %, <code>-----</code>. Пример: <code>$hdd0</code>.</p></td>
   </tr>
   <tr>
     <td><code>$hddmbN</code></td>
-    <td><p align="justify">Занятость точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddmb0</code>.</p></td>
+    <td><p>Занятость точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddmb0</code>.</p></td>
   </tr>
   <tr>
     <td><code>$hddgbN</code></td>
-    <td><p align="justify">Занятость точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddgb0</code>.</p></td>
+    <td><p>Занятость точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddgb0</code>.</p></td>
   </tr>
   <tr>
     <td><code>$hddtotmbN</code></td>
-    <td><p align="justify">Размер точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddtotmb0</code>.</p></td>
+    <td><p>Размер точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddtotmb0</code>.</p></td>
   </tr>
   <tr>
     <td><code>$hddtotgbN</code></td>
-    <td><p align="justify">Размер точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddtotgb0</code>.</p></td>
+    <td><p>Размер точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddtotgb0</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="2">Скорость HDD</th>
     <td><code>$hddrN</code></td>
-    <td><p align="justify">Скорость записи диска N, KB/s, <code>-----</code>. Пример: <code>$hddr0</code>.</p></td>
+    <td><p>Скорость записи диска N, KB/s, <code>-----</code>. Пример: <code>$hddr0</code>.</p></td>
   </tr>
   <tr>
     <td><code>$hddwN</code></td>
-    <td><p align="justify">Скорость чтения диска N, KB/s, <code>-----</code>. Пример: <code>$hddw0</code>.</p></td>
+    <td><p>Скорость чтения диска N, KB/s, <code>-----</code>. Пример: <code>$hddw0</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Температура HDD</th>
     <td><code>$hddtempN</code></td>
-    <td><p align="justify">Температура HDD с номером N, &deg;C, <code>----</code>. Пример <code>$hddtemp0</code>. <code>hddtemp</code> должен быть установлен.</p></td>
+    <td><p>Температура HDD с номером N, &deg;C, <code>----</code>. Пример <code>$hddtemp0</code>. <code>hddtemp</code> должен быть установлен.</p></td>
   </tr>
   <tr>
     <th rowspan="3">Сеть</th>
     <td><code>$down</code></td>
-    <td><p align="justify">Скорость загрузки, KB/s, <code>----</code>.</p></td>
+    <td><p>Скорость загрузки, KB/s, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$up</code></td>
-    <td><p align="justify">Скорость отдачи, KB/s, <code>----</code>.</p></td>
+    <td><p>Скорость отдачи, KB/s, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$netdev</code></td>
-    <td><p align="justify">Текущее устройство.</p></td>
+    <td><p>Текущее устройство.</p></td>
   </tr>
   <tr>
     <th rowspan="2">Батарея</th>
     <td><code>$bat</code></td>
-    <td><p align="justify">Заряд батареи, %, <code>---</code>.</p></td>
+    <td><p>Заряд батареи, %, <code>---</code>.</p></td>
   </tr>
   <tr>
     <td><code>$ac</code></td>
-    <td><p align="justify">Статус зарядного устройства. Возвращает <code>(*)</code>, если устройство подключено, или <code>( )</code>, если нет.</p></td>
+    <td><p>Статус зарядного устройства. Возвращает <code>(*)</code>, если устройство подключено, или <code>( )</code>, если нет.</p></td>
   </tr>
   <tr>
     <th rowspan="5">Музыкальный плеер</th>
     <td><code>$album</code></td>
-    <td><p align="justify">Альбом текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
+    <td><p>Альбом текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
   </tr>
   <tr>
     <td><code>$artist</code></td>
-    <td><p align="justify">Исполнитель текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
+    <td><p>Исполнитель текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
   </tr>
   <tr>
     <td><code>$progress</code></td>
-    <td><p align="justify">Прогресс текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
+    <td><p>Прогресс текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
   </tr>
   <tr>
     <td><code>$time</code></td>
-    <td><p align="justify">Длительность текущей пени. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
+    <td><p>Длительность текущей пени. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
   </tr>
   <tr>
     <td><code>$title</code></td>
-    <td><p align="justify">Название текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
+    <td><p>Название текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
   </tr>
   <tr>
     <th rowspan="3">Процессы</th>
     <td><code>$ps</code></td>
-    <td><p align="justify">Список запущенных процессов, разделенных запятой.</p></td>
+    <td><p>Список запущенных процессов, разделенных запятой.</p></td>
   </tr>
   <tr>
     <td><code>$pscount</code></td>
-    <td><p align="justify">Число запущенных процессов.</p></td>
+    <td><p>Число запущенных процессов.</p></td>
   </tr>
   <tr>
     <td><code>$pstotal</code></td>
-    <td><p align="justify">Общее число процессов.</p></td>
+    <td><p>Общее число процессов.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Пакетный менеджер</th>
     <td><code>$pkgcountN</code></td>
-    <td><p align="justify">Число пакетов, доступных для обновления, для команды N.</p></td>
+    <td><p>Число пакетов, доступных для обновления, для команды N.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Своя команда</th>
     <td><code>$customN</code></td>
-    <td><p align="justify">Получить данные из указанной команды N. Например, <code>$custom0</code>.</p></td>
+    <td><p>Получить данные из указанной команды N. Например, <code>$custom0</code>.</p></td>
   </tr>
 </table>
 
 <h4><a name="advanced" class="anchor" href="#advanced"><span class="octicon octicon-link"></span></a>Расширенные настройки</h4>
-<p align="justify"><b>Вертикальная разметка:</b> Использовать вертикальную разметку вместо горизонтальной.</p>
+<p><b>Вертикальная разметка:</b> Использовать вертикальную разметку вместо горизонтальной.</p>
 
-<p align="justify"><b>Включить всплывающие сообщения:</b> Нажмите на чекбокс, если вы не используете всплывающие сообщения.</p>
+<p><b>Включить всплывающие сообщения:</b> Нажмите на чекбокс, если вы не используете всплывающие сообщения.</p>
 
-<p align="justify"><b>Добавить пустое пространство:</b> Добавить пустое пространство в указанное место виджета.</p>
+<p><b>Добавить пустое пространство:</b> Добавить пустое пространство в указанное место виджета.</p>
 
-<p align="justify"><b>Свой формат времени:</b></p>
+<p><b>Свой формат времени:</b></p>
 <table>
   <tr>
     <td><code>$dddd</code></td>
-    <td><p align="justify">Длинный день недели.</p></td>
+    <td><p>Длинный день недели.</p></td>
   </tr>
   <tr>
     <td><code>$ddd</code></td>
-    <td><p align="justify">Короткий день недели.</p></td>
+    <td><p>Короткий день недели.</p></td>
   </tr>
   <tr>
     <td><code>$dd</code></td>
-    <td><p align="justify">День.</p></td>
+    <td><p>День.</p></td>
   </tr>
   <tr>
     <td><code>$d</code></td>
-    <td><p align="justify">День без нуля.</p></td>
+    <td><p>День без нуля.</p></td>
   </tr>
   <tr>
     <td><code>$MMMM</code></td>
-    <td><p align="justify">Месяц в длинном формате.</p></td>
+    <td><p>Месяц в длинном формате.</p></td>
   </tr>
   <tr>
     <td><code>$MMM</code></td>
-    <td><p align="justify">Месяц в коротком формате.</p></td>
+    <td><p>Месяц в коротком формате.</p></td>
   </tr>
   <tr>
     <td><code>$MM</code></td>
-    <td><p align="justify">Месяц.</p></td>
+    <td><p>Месяц.</p></td>
   </tr>
   <tr>
     <td><code>$M</code></td>
-    <td><p align="justify">Месяц без нуля.</p></td>
+    <td><p>Месяц без нуля.</p></td>
   </tr>
   <tr>
     <td><code>$yyyy</code></td>
-    <td><p align="justify">Год.</p></td>
+    <td><p>Год.</p></td>
   </tr>
   <tr>
     <td><code>$yy</code></td>
-    <td><p align="justify">Год в коротком формате.</p></td>
+    <td><p>Год в коротком формате.</p></td>
   </tr>
   <tr>
     <td><code>$hh</code></td>
-    <td><p align="justify">Часы.</p></td>
+    <td><p>Часы.</p></td>
   </tr>
   <tr>
     <td><code>$h</code></td>
-    <td><p align="justify">Часы без нуля.</p></td>
+    <td><p>Часы без нуля.</p></td>
   </tr>
   <tr>
     <td><code>$mm</code></td>
-    <td><p align="justify">Минуты.</p></td>
+    <td><p>Минуты.</p></td>
   </tr>
   <tr>
     <td><code>$m</code></td>
-    <td><p align="justify">Минуты без нуля.</p></td>
+    <td><p>Минуты без нуля.</p></td>
   </tr>
   <tr>
     <td><code>$ss</code></td>
-    <td><p align="justify">Секунды.</p></td>
+    <td><p>Секунды.</p></td>
   </tr>
   <tr>
     <td><code>$s</code></td>
-    <td><p align="justify">Секунды без нуля.</p></td>
+    <td><p>Секунды без нуля.</p></td>
   </tr>
 </table>
 
-<p align="justify"><b>Свой формат времени работы:</b></p>
+<p><b>Свой формат времени работы:</b></p>
 <table>
   <tr>
     <td><code>$dd</code></td>
-    <td><p align="justify">Дни аптайма.</p></td>
+    <td><p>Дни аптайма.</p></td>
   </tr>
   <tr>
     <td><code>$d</code></td>
-    <td><p align="justify">Дни аптайма без нуля.</p></td>
+    <td><p>Дни аптайма без нуля.</p></td>
   </tr>
   <tr>
     <td><code>$hh</code></td>
-    <td><p align="justify">Часы аптайма.</p></td>
+    <td><p>Часы аптайма.</p></td>
   </tr>
   <tr>
     <td><code>$h</code></td>
-    <td><p align="justify">Часы аптайма без нуля.</p></td>
+    <td><p>Часы аптайма без нуля.</p></td>
   </tr>
   <tr>
     <td><code>$mm</code></td>
-    <td><p align="justify">Минуты аптайма.</p></td>
+    <td><p>Минуты аптайма.</p></td>
   </tr>
   <tr>
     <td><code>$m</code></td>
-    <td><p align="justify">Минуты аптайма без 0.</p></td>
+    <td><p>Минуты аптайма без 0.</p></td>
   </tr>
 </table>
 
-<p align="justify"><b>Температурные единицы:</b> Выберете единицы температуры. Доступные единицы следующие: Цельсий, Фаренгейт и Кельвин.</p>
+<p><b>Температурные единицы:</b> Выберете единицы температуры. Доступные единицы следующие: Цельсий, Фаренгейт и Кельвин.</p>
 
-<p align="justify"><b>Датчики температуры:</b> Список датчиков, которые будут наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>sensors</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
+<p><b>Датчики температуры:</b> Список датчиков, которые будут наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>sensors</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
 
-<p align="justify"><b>Точки монтирования: </b> Список точек монтирования, которые будут наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>mount</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
+<p><b>Точки монтирования: </b> Список точек монтирования, которые будут наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>mount</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
 
-<p align="justify"><b>HDD (скорость):</b> Список HDD, скорость которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из DataEngine). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
+<p><b>HDD (скорость):</b> Список HDD, скорость которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из DataEngine). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
 
-<p align="justify"><b>HDD (температура):</b> Список HDD, температура которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>find</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
+<p><b>HDD (температура):</b> Список HDD, температура которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>find</code>). Содержимое виджета редактируемо, клавиша delete удалит текущий элемент.</p>
 
-<p align="justify"><b>Путь к интерфейсам:</b> Путь к директории, которая содержит информацию о сетевых устройствах. По умолчанию <code>/sys/class/net</code>. Необходима для автоматического выбора устройства.</p>
+<p><b>Путь к интерфейсам:</b> Путь к директории, которая содержит информацию о сетевых устройствах. По умолчанию <code>/sys/class/net</code>. Необходима для автоматического выбора устройства.</p>
 
-<p align="justify"><b>Сетевой интерфейс:</b> Использовать указанный интерфейс, как активный. Содержимое комбо-бокса заполнятся из <b>пути к интерфейсам</b>. Эта опция отключит автоматический выбор сетевого интерфейса.</p>
+<p><b>Сетевой интерфейс:</b> Использовать указанный интерфейс, как активный. Содержимое комбо-бокса заполнятся из <b>пути к интерфейсам</b>. Эта опция отключит автоматический выбор сетевого интерфейса.</p>
 
-<p align="justify"><b>Устройство батареи:</b> Файл, содержащий информацию о батарее. Данный файл (<code>/sys/class/power_supply/BAT0/capacity</code> по умолчанию) должен содержать только заряд батареи в %.</p>
+<p><b>Устройство батареи:</b> Файл, содержащий информацию о батарее. Данный файл (<code>/sys/class/power_supply/BAT0/capacity</code> по умолчанию) должен содержать только заряд батареи в %.</p>
 
-<p align="justify"><b>AC online тег:</b> Строка, которая будет показана, когда AC онлайн. По умолчанию <code>(*)</code>.</p>
+<p><b>AC online тег:</b> Строка, которая будет показана, когда AC онлайн. По умолчанию <code>(*)</code>.</p>
 
-<p align="justify"><b>AC offline тег:</b> Строка, которая будет показана, когда AC оффлайн. По умолчанию <code>( )</code>.</p>
+<p><b>AC offline тег:</b> Строка, которая будет показана, когда AC оффлайн. По умолчанию <code>( )</code>.</p>
 
-<p align="justify"><b>Устройство AC:</b> Файл, содержащий информацию об адапторе питания. Данный файл (<code>/sys/class/power_supply/AC/online</code> по умолчанию) должен содержать <code>1</code>, если устройство подключено.</p>
+<p><b>Устройство AC:</b> Файл, содержащий информацию об адапторе питания. Данный файл (<code>/sys/class/power_supply/AC/online</code> по умолчанию) должен содержать <code>1</code>, если устройство подключено.</p>
 
 <h4><a name="tooltips" class="anchor" href="#tooltips"><span class="octicon octicon-link"></span></a>Тултипы</h4>
-<p align="justify">Начиная с версии 1.7.0, поля CPU, частота CPU, память, swap, сеть поддерживают графический тултип (всплывающая подсказка). Чтобы включить их, просто сделайте требуемые чекбоксы полностью чекнутыми. Число хранимых значений может быть установленно во вкладке. Цвета графиков настраиваются тоже.</p>
+<p>Начиная с версии 1.7.0, поля CPU, частота CPU, память, swap, сеть поддерживают графический тултип (всплывающая подсказка). Чтобы включить их, просто сделайте требуемые чекбоксы полностью чекнутыми. Число хранимых значений может быть установленно во вкладке. Цвета графиков настраиваются тоже.</p>
 
 <h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h4>
-<p align="justify"><b>Своя команда:</b> <i><b>ЗАМЕЧАНИЕ</b> это поле может привести к "зависанию" компьютера.</i> Команды, которые будут запущены для соответствующего поля. Например, <code>wget -qO- http://ifconfig.me/ip</code> вернет внешний IP.</p>
+<p><b>Своя команда:</b> <i><b>ЗАМЕЧАНИЕ</b> это поле может привести к "зависанию" компьютера.</i> Команды, которые будут запущены для соответствующего поля. Например, <code>wget -qO- http://ifconfig.me/ip</code> вернет внешний IP.</p>
 
-<p align="justify"><b>Устройство GPU:</b> Выберете одно из поддерживаемых устройств GPU. <code>auto</code> включит автоматическое определение устройства, <code>disable</code> отключит все мониторы GPU. По умолчанию <code>auto</code>.</p>
+<p><b>Устройство GPU:</b> Выберете одно из поддерживаемых устройств GPU. <code>auto</code> включит автоматическое определение устройства, <code>disable</code> отключит все мониторы GPU. По умолчанию <code>auto</code>.</p>
 
-<p align="justify"><b>HDD:</b> Выберете один из HDD для монитора температуры HDD. <code>all</code> включит монитор для всех доступных устройств, <code>disable</code> отключит монитор температуры HDD. По умолчанию <code>all</code>.</p>
+<p><b>HDD:</b> Выберете один из HDD для монитора температуры HDD. <code>all</code> включит монитор для всех доступных устройств, <code>disable</code> отключит монитор температуры HDD. По умолчанию <code>all</code>.</p>
 
-<p align="justify"><b>Команда hddtemp:</b> Введите команду, которая будет запущена для hddtemp DataEngine. По умолчанию <code>sudo hddtemp</code>.</p>
+<p><b>Команда hddtemp:</b> Введите команду, которая будет запущена для hddtemp DataEngine. По умолчанию <code>sudo hddtemp</code>.</p>
 
-<p align="justify"><b>Адрес MPD:</b> Адрес MPD сервера. По умолчанию <code>localhost</code>.</p>
+<p><b>Адрес MPD:</b> Адрес MPD сервера. По умолчанию <code>localhost</code>.</p>
 
-<p align="justify"><b>Порт MPD:</b> Порт MPD сервера. По умолчанию <code>6600</code>.</p>
+<p><b>Порт MPD:</b> Порт MPD сервера. По умолчанию <code>6600</code>.</p>
 
-<p align="justify"><b>Пакетный менеджер:</b> Список команд, которые будут запущены. Число пустых строк - это число ненужных при подсчете строк. Параметры по умолчанию:</p>
+<p><b>Пакетный менеджер:</b> Список команд, которые будут запущены. Число пустых строк - это число ненужных при подсчете строк. Параметры по умолчанию:</p>
 <table>
   <tr>
     <td><p align="center"><b>Дистрибутив</b></p></td>
@@ -496,45 +496,45 @@ sudo make install
     <td><p align="center"><b>Число</b></p></td>
   </tr>
   <tr>
-    <td><p align="justify">Arch</p></td>
+    <td><p>Arch</p></td>
     <td><code>pacman -Qu</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p align="justify">Debian</p></td>
+    <td><p>Debian</p></td>
     <td><code>apt-show-versions -u -b</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p align="justify">Ubuntu</p></td>
+    <td><p>Ubuntu</p></td>
     <td><code>aptitude search '~U'</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p align="justify">Fedora</p></td>
+    <td><p>Fedora</p></td>
     <td><code>yum list updates</code></td>
     <td><code>3</code></td>
   </tr>
   <tr>
-    <td><p align="justify">FreeBSD</p></td>
+    <td><p>FreeBSD</p></td>
     <td><code>pkg_version -I -l '<'</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p align="justify">Mandriva</p></td>
+    <td><p>Mandriva</p></td>
     <td><code>urpmq --auto-select</code></td>
     <td><code>0</code></td>
   </tr>
 </table>
 
-<p align="justify"><b>Музыкальный плеер:</b> Выберете один из поддерживаемых музыкальных плееров для соответствующего поля.</p>
+<p><b>Музыкальный плеер:</b> Выберете один из поддерживаемых музыкальных плееров для соответствующего поля.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
 <h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
 
 <h2><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h2>
-<p align="justify">Виджет (кликабельно):<br>
+<p>Виджет (кликабельно):<br>
 <a href="/resources/screenshots/pytextmonitor_widget.png"><img src="/resources/preview/pytextmonitor_widget_prev.jpg"></a><br>
 Окно настроек:<br>
 <a href="/resources/screenshots/pytextmonitor_config_01.png"><img src="/resources/preview/pytextmonitor_config_01_prev.jpg"></a><br>

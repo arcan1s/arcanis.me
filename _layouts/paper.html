@@ -9,12 +9,12 @@ layout: default
       <header>
         {% if page.category == "ru" %}
           {% assign post = page %}
-          <p align="justify">{% include shortdate_to_ru.html %}</p>
-          <p align="justify"><b>Тэги</b>: {{ page.tags }}</p>
+          <p>{% include shortdate_to_ru.html %}</p>
+          <p><b>Тэги</b>: {{ page.tags }}</p>
           {% if page.tags contains 'offtop' %}
 <!--           do nothing -->
           {% else %}
-            <p align="justify"><b>Похожие посты</b>:<br>
+            <p><b>Похожие посты</b>:<br>
             {% for post in site.related_posts limit:5 %}
               {% if post.tags contains 'offtop' %}
 <!--               do nothing -->
@@ -27,12 +27,12 @@ layout: default
             </p>
           {% endif %}
         {% else %}
-          <p align="justify">{{ page.date | date_to_string }}<br></p>
-          <p align="justify"><b>Tags</b>: {{ page.tags }}</p>
+          <p>{{ page.date | date_to_string }}<br></p>
+          <p><b>Tags</b>: {{ page.tags }}</p>
           {% if page.tags contains 'offtop' %}
 <!--       do nothing -->
           {% else %}
-            <p align="justify"><b>Related posts</b>:<br>
+            <p><b>Related posts</b>:<br>
             {% for post in site.related_posts limit:5 %}
               {% if post.tags contains 'offtop' %}
 <!--               do nothing -->
@@ -49,6 +49,6 @@ layout: default
       <section>
 
 <a name="" class="anchor" href="#"><span class="octicon octicon-link"><h1>{{ page.title }}</h1></span></a>
-<p align="justify">{{ page.description }}</p>
+<p>{{ page.description }}</p>
 
 {{ content }}

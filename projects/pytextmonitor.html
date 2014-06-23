@@ -17,8 +17,8 @@ links:
 ---
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Information</h2>
-<p align="justify">A minimalistic Plasmoid script written on <code>Python2</code>. It looks like widgets in <a href="http://awesome.naquadah.org/">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
-<p align="justify"><b>NOTE:</b> <a href="https://github.com/arcan1s/pytextmonitor/issues/14">LOOKING FOR TRANSLATORS!</a></p>
+<p>A minimalistic Plasmoid script written on <code>Python2</code>. It looks like widgets in <a href="http://awesome.naquadah.org/">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
+<p><b>NOTE:</b> <a href="https://github.com/arcan1s/pytextmonitor/issues/14">LOOKING FOR TRANSLATORS!</a></p>
 
 <h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
@@ -33,7 +33,7 @@ links:
 </ul>
 
 <h3><a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h3>
-<p align="justify"><a href="https://github.com/arcan1s/pytextmonitor/blob/master/CHANGELOG">CHANGELOG</a></p>
+<p><a href="https://github.com/arcan1s/pytextmonitor/blob/master/CHANGELOG">CHANGELOG</a></p>
 <!-- end of info block -->
 
 <!-- install block -->
@@ -41,8 +41,8 @@ links:
 
 <h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
-  <li><p align="justify">Download an <a href="https://github.com/arcan1s/pytextmonitor/releases">archive</a> with latest version of source files.</p></li>
-  <li><p align="justify">Extract it and install:</p>
+  <li><p>Download an <a href="https://github.com/arcan1s/pytextmonitor/releases">archive</a> with latest version of source files.</p></li>
+  <li><p>Extract it and install:</p>
 {% highlight bash %}
 cd /where/is/applet/
 mkdir build && cd build
@@ -50,7 +50,7 @@ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=`kde4-config --localpref
 make
 make install
 {% endhighlight %}
-<p align="justify">For global isntallation type:</p>
+<p>For global isntallation type:</p>
 {% highlight bash %}
 cd /where/is/applet/
 mkdir build && cd build
@@ -61,7 +61,7 @@ sudo make install
 </ul>
 
 <h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
-<p align="justify">I want note that all were tested on latest version of dependencies.</p>
+<p>I want note that all were tested on latest version of dependencies.</p>
 <ul>
   <li>kdebase-workspace</li>
   <li>kdebindings-python2</li>
@@ -78,416 +78,416 @@ sudo make install
 
 <!-- howto block -->
 <h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
-<p align="justify">Open your Plasma widgetes and select <code>Py Text Monitor</code>.</p>
+<p>Open your Plasma widgetes and select <code>Py Text Monitor</code>.</p>
 
 <h3><a name="tips" class="anchor" href="#tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
-<p align="justify">You may use different colors for labels. Just put label text into html code. See <a href="https://github.com/arcan1s/pytextmonitor/issues/9">issue</a> for more details.</p>
+<p>You may use different colors for labels. Just put label text into html code. See <a href="https://github.com/arcan1s/pytextmonitor/issues/9">issue</a> for more details.</p>
 
-<p align="justify">Numbering of elements of temperature, HDD usage, HDD speed, HDD temperature refers to elements order from second tab (<i>Advanced settings</i>). You should add item to the required listWidget first. And the first element in the listWidget will be <code>$tag0</code>. See <a href="https://github.com/arcan1s/pytextmonitor/issues/17">issue</a> for more details.</p>
+<p>Numbering of elements of temperature, HDD usage, HDD speed, HDD temperature refers to elements order from second tab (<i>Advanced settings</i>). You should add item to the required listWidget first. And the first element in the listWidget will be <code>$tag0</code>. See <a href="https://github.com/arcan1s/pytextmonitor/issues/17">issue</a> for more details.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
 <h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
 
 <h3><a name="deconf" class="anchor" href="#deconf"><span class="octicon octicon-link"></span></a>DataEngine configuration</h3>
-<p align="justify">You may edit DataEngine configuration. It is <code>/usr/share/config/extsysmon.conf</code> or <code>$HOME/.kde4/share/config/extsysmon.conf</code> depending on the type of installation. Uncomment needed line and edit it.</p>
+<p>You may edit DataEngine configuration. It is <code>/usr/share/config/extsysmon.conf</code> or <code>$HOME/.kde4/share/config/extsysmon.conf</code> depending on the type of installation. Uncomment needed line and edit it.</p>
 
 <h4><a name="deoptions" class="anchor" href="#deoptions"><span class="octicon octicon-link"></span></a>DataEngine options</h4>
 <table>
   <tr>
     <th>CUSTOM</th>
-    <td><p align="justify">Custom commands to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>. Separator is <code>@@</code>.</td>
+    <td><p>Custom commands to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>. Separator is <code>@@</code>.</td>
   </tr>
   <tr>
     <th>GPUDEV</th>
-    <td><p align="justify">Set GPU device. May be <code>nvidia</code> (for nVidia), <code>ati</code> (for ATI Radeon), <code>disable</code> or <code>auto</code>. Default is <code>auto</code>.</p></td>
+    <td><p>Set GPU device. May be <code>nvidia</code> (for nVidia), <code>ati</code> (for ATI Radeon), <code>disable</code> or <code>auto</code>. Default is <code>auto</code>.</p></td>
   </tr>
   <tr>
     <th>HDDDEV</th>
-    <td><p align="justify">Set block device for <code>hddtemp</code> comma separated or use <code>all</code>. <code>disable</code> will disable HDD temperature monitor. Default is <code>all</code>.</p></td>
+    <td><p>Set block device for <code>hddtemp</code> comma separated or use <code>all</code>. <code>disable</code> will disable HDD temperature monitor. Default is <code>all</code>.</p></td>
   </tr>
   <tr>
     <th>HDDTEMPCMD</th>
-    <td><p align="justify">A command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>.</p></td>
+    <td><p>A command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>.</p></td>
   </tr>
   <tr>
     <th>MPDADDRESS</th>
-    <td><p align="justify">MPD host address. Default is <code>localhost</code>.</td>
+    <td><p>MPD host address. Default is <code>localhost</code>.</td>
   </tr>
   <tr>
     <th>MPDPORT</th>
-    <td><p align="justify">MPD host port. Default is <code>6600</code>.</td>
+    <td><p>MPD host port. Default is <code>6600</code>.</td>
   </tr>
   <tr>
     <th>PKGCMD</th>
-    <td><p align="justify">Commands to run for package manager, comma separated.</td>
+    <td><p>Commands to run for package manager, comma separated.</td>
   </tr>
   <tr>
     <th>PKGNULL</th>
-    <td><p align="justify">Number of null lines for commands, comma separated.</td>
+    <td><p>Number of null lines for commands, comma separated.</td>
   </tr>
   <tr>
     <th>PLAYER</th>
-    <td><p align="justify">Set music player. Supported players are amarok, clementine, mpd, qmmp.</td>
+    <td><p>Set music player. Supported players are amarok, clementine, mpd, qmmp.</td>
   </tr>
 </table>
 
 <h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Widget configuration</h3>
-<p align="justify">For edited output you must open Settings window and setup output format in lines. Label order will changed if you change slider position. HTML tags in label work normally.<br>
+<p>For edited output you must open Settings window and setup output format in lines. Label order will changed if you change slider position. HTML tags in label work normally.<br>
 <b>NOTE</b> You do not may set to show <code>$cpu</code> in swap label for example. <b><code>$cpu</code> will work only in cpu label.</b></p>
-<p align="justify">Available flags are in the table below.<br>
+<p>Available flags are in the table below.<br>
 <b>NOTE</b> The numbering of all arrays in variables starts at 0.</p>
 <table>
   <tr>
     <th rowspan="5">Time label</th>
     <td><code>$time</code></td>
-    <td><p align="justify">Time in default format. For example, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
+    <td><p>Time in default format. For example, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
   </tr>
   <tr>
     <td><code>$isotime</code></td>
-    <td><p align="justify">Time in ISO format.</p></td>
+    <td><p>Time in ISO format.</p></td>
   </tr>
   <tr>
     <td><code>$shorttime</code></td>
-    <td><p align="justify">Time in short locale format.</p></td>
+    <td><p>Time in short locale format.</p></td>
   </tr>
   <tr>
     <td><code>$longtime</code></td>
-    <td><p align="justify">Time in long locale format.</p></td>
+    <td><p>Time in long locale format.</p></td>
   </tr>
   <tr>
     <td><code>$custom</code></td>
-    <td><p align="justify">Will enable custom time format.</p></td>
+    <td><p>Will enable custom time format.</p></td>
   </tr>
   <tr>
     <th rowspan="2">Uptime label</th>
     <td><code>$uptime</code></td>
-    <td><p align="justify">System uptime, <code>---d--h--m</code>.</p></td>
+    <td><p>System uptime, <code>---d--h--m</code>.</p></td>
   </tr>
   <tr>
     <td><code>$custom</code></td>
-    <td><p align="justify">Will enable custom uptime format.</p></td>
+    <td><p>Will enable custom uptime format.</p></td>
   </tr>
   <tr>
     <th rowspan="2">CPU label</th>
     <td><code>$cpu</code></td>
-    <td><p align="justify">Total load CPU, %, <code>-----</code>.</p></td>
+    <td><p>Total load CPU, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$cpuN</code></td>
-    <td><p align="justify">Load CPU for core N, %, <code>-----</code>.</p></td>
+    <td><p>Load CPU for core N, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="2">CPU clock label</th>
     <td><code>$cpucl</code></td>
-    <td><p align="justify">Average CPU clock, MHz, <code>----</code>.</p></td>
+    <td><p>Average CPU clock, MHz, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$cpuclN</code></td>
-    <td><p align="justify">CPU clock for core N, MHz, <code>----</code>.</p></td>
+    <td><p>CPU clock for core N, MHz, <code>----</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Temperature label</th>
     <td><code>$tempN</code></td>
-    <td><p align="justify">Temperature for device N, &deg;C, <code>----</code>. For example, <code>$temp0</code>.</p></td>
+    <td><p>Temperature for device N, &deg;C, <code>----</code>. For example, <code>$temp0</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="1">GPU label</th>
     <td><code>$gpu</code></td>
-    <td><p align="justify">GPU usage, %, <code>-----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</p></td>
+    <td><p>GPU usage, %, <code>-----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</p></td>
   </tr>
   <tr>
     <th rowspan="1">GPU temperature label</th>
     <td><code>$gputemp</code></td>
-    <td><p align="justify">GPU temperature, &deg;C, <code>----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</p></td>
+    <td><p>GPU temperature, &deg;C, <code>----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</p></td>
   </tr>
   <tr>
     <th rowspan="5">Memory label</th>
     <td><code>$mem</code></td>
-    <td><p align="justify">Memory usage, %, <code>-----</code>.</p></td>
+    <td><p>Memory usage, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$memmb</code></td>
-    <td><p align="justify">Memory usage, MB, <code>-----</code>.</p></td>
+    <td><p>Memory usage, MB, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$memgb</code></td>
-    <td><p align="justify">Memory usage, GB, <code>----</code>.</p></td>
+    <td><p>Memory usage, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$memtotmb</code></td>
-    <td><p align="justify">RAM, MB, <code>-----</code>.</p></td>
+    <td><p>RAM, MB, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$memtotgb</code></td>
-    <td><p align="justify">RAM, GB, <code>----</code>.</p></td>
+    <td><p>RAM, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="5">Swap label</th>
     <td><code>$swap</code></td>
-    <td><p align="justify">Swap usage, %, <code>-----</code>.</p></td>
+    <td><p>Swap usage, %, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$swapmb</code></td>
-    <td><p align="justify">Swap usage, MB, <code>-----</code>.</p></td>
+    <td><p>Swap usage, MB, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$swapgb</code></td>
-    <td><p align="justify">Swap usage, GB, <code>----</code>.</p></td>
+    <td><p>Swap usage, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$swaptotmb</code></td>
-    <td><p align="justify">Swap, MB, <code>-----</code>.</p></td>
+    <td><p>Swap, MB, <code>-----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$swaptotgb</code></td>
-    <td><p align="justify">Swap, GB, <code>----</code>.</p></td>
+    <td><p>Swap, GB, <code>----</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="5">HDD usage label</th>
     <td><code>$hddN</code></td>
-    <td><p align="justify">Usage for mount point N, %, <code>-----</code>. For example <code>$hdd0</code>.</p></td>
+    <td><p>Usage for mount point N, %, <code>-----</code>. For example <code>$hdd0</code>.</p></td>
   </tr>
   <tr>
     <td><code>$hddmbN</code></td>
-    <td><p align="justify">Usage for mount point N, MB, <code>-----</code>. For example <code>$hddmb0</code>.</p></td>
+    <td><p>Usage for mount point N, MB, <code>-----</code>. For example <code>$hddmb0</code>.</p></td>
   </tr>
   <tr>
     <td><code>$hddgbN</code></td>
-    <td><p align="justify">Usage for mount point N, GB, <code>-----</code>. For example <code>$hddgb0</code>.</p></td>
+    <td><p>Usage for mount point N, GB, <code>-----</code>. For example <code>$hddgb0</code>.</p></td>
   </tr>
   <tr>
     <td><code>$hddtotmbN</code></td>
-    <td><p align="justify">Total size of mount point N, MB, <code>-----</code>. For example <code>$hddtotmb0</code>.</p></td>
+    <td><p>Total size of mount point N, MB, <code>-----</code>. For example <code>$hddtotmb0</code>.</p></td>
   </tr>
   <tr>
     <td><code>$hddtotgbN</code></td>
-    <td><p align="justify">Total size of mount point N, GB, <code>-----</code>. For example <code>$hddtotgb0</code>.</p></td>
+    <td><p>Total size of mount point N, GB, <code>-----</code>. For example <code>$hddtotgb0</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="2">HDD speed label</th>
     <td><code>$hddrN</code></td>
-    <td><p align="justify">Read speed of disk N, KB/s, <code>-----</code>. For example <code>$hddr0</code>.</p></td>
+    <td><p>Read speed of disk N, KB/s, <code>-----</code>. For example <code>$hddr0</code>.</p></td>
   </tr>
   <tr>
     <td><code>$hddwN</code></td>
-    <td><p align="justify">Write speed of disk N, KB/s, <code>-----</code>. For example <code>$hddw0</code>.</p></td>
+    <td><p>Write speed of disk N, KB/s, <code>-----</code>. For example <code>$hddw0</code>.</p></td>
   </tr>
   <tr>
     <th rowspan="1">HDD temperature label</th>
     <td><code>$hddtempN</code></td>
-    <td><p align="justify">Temperature for HDD N, &deg;C, <code>----</code>. For example <code>$hddtemp0</code>. <code>hddtemp</code> must be installed.</p></td>
+    <td><p>Temperature for HDD N, &deg;C, <code>----</code>. For example <code>$hddtemp0</code>. <code>hddtemp</code> must be installed.</p></td>
   </tr>
   <tr>
     <th rowspan="3">Network label</th>
     <td><code>$down</code></td>
-    <td><p align="justify">Download speed, KB/s, <code>----</code>.</p></td>
+    <td><p>Download speed, KB/s, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$up</code></td>
-    <td><p align="justify">Upload speed, KB/s, <code>----</code>.</p></td>
+    <td><p>Upload speed, KB/s, <code>----</code>.</p></td>
   </tr>
   <tr>
     <td><code>$netdev</code></td>
-    <td><p align="justify">Current network device.</p></td>
+    <td><p>Current network device.</p></td>
   </tr>
   <tr>
     <th rowspan="2">Battery label</th>
     <td><code>$bat</code></td>
-    <td><p align="justify">Battery charge, %, <code>---</code>.</p></td>
+    <td><p>Battery charge, %, <code>---</code>.</p></td>
   </tr>
   <tr>
     <td><code>$ac</code></td>
-    <td><p align="justify">Status of AC device. Returns <code>(*)</code> if AC device is online or <code>( )</code> if offline.</td>
+    <td><p>Status of AC device. Returns <code>(*)</code> if AC device is online or <code>( )</code> if offline.</td>
   </tr>
   <tr>
     <th rowspan="5">Music player label</th>
     <td><code>$album</code></td>
-    <td><p align="justify">Current song album. One of supported music players must be installed.</p></td>
+    <td><p>Current song album. One of supported music players must be installed.</p></td>
   </tr>
   <tr>
     <td><code>$artist</code></td>
-    <td><p align="justify">Current song artist. One of supported music players must be installed.</p></td>
+    <td><p>Current song artist. One of supported music players must be installed.</p></td>
   </tr>
   <tr>
     <td><code>$progress</code></td>
-    <td><p align="justify">Current song progress. One of supported music players must be installed.</p></td>
+    <td><p>Current song progress. One of supported music players must be installed.</p></td>
   </tr>
   <tr>
     <td><code>$time</code></td>
-    <td><p align="justify">Current song duration. One of supported music players must be installed.</p></td>
+    <td><p>Current song duration. One of supported music players must be installed.</p></td>
   </tr>
   <tr>
     <td><code>$title</code></td>
-    <td><p align="justify">Current song title. One of supported music players must be installed.</p></td>
+    <td><p>Current song title. One of supported music players must be installed.</p></td>
   </tr>
   <tr>
     <th rowspan="3">Process label</th>
     <td><code>$ps</code></td>
-    <td><p align="justify">List of running processes comma separated.</p></td>
+    <td><p>List of running processes comma separated.</p></td>
   </tr>
   <tr>
     <td><code>$pscount</code></td>
-    <td><p align="justify">Number of running processes.</p></td>
+    <td><p>Number of running processes.</p></td>
   </tr>
   <tr>
     <td><code>$pstotal</code></td>
-    <td><p align="justify">Total number of processes.</p></td>
+    <td><p>Total number of processes.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Package manager label</th>
     <td><code>$pkgcountN</code></td>
-    <td><p align="justify">Number of packages, which available to upgrade for command N.</p></td>
+    <td><p>Number of packages, which available to upgrade for command N.</p></td>
   </tr>
   <tr>
     <th rowspan="1">Custom label</th>
     <td><code>$customN</code></td>
-    <td><p align="justify">Get output from custom command N. For example <code>$custom0</code>.</p></td>
+    <td><p>Get output from custom command N. For example <code>$custom0</code>.</p></td>
   </tr>
 </table>
 
 <h4><a name="advanced" class="anchor" href="#advanced"><span class="octicon octicon-link"></span></a>Advanced settings</h4>
-<p align="justify"><b>Vertical layout:</b> Use vertical layout instead of horizontal one.</p>
+<p><b>Vertical layout:</b> Use vertical layout instead of horizontal one.</p>
 
-<p align="justify"><b>Enable popup:</b> Uncheck box if you do not use popup messages.</p>
+<p><b>Enable popup:</b> Uncheck box if you do not use popup messages.</p>
 
-<p align="justify"><b>Add stretch:</b> Add stretch (spacer) to the selected side of the widget.</p>
+<p><b>Add stretch:</b> Add stretch (spacer) to the selected side of the widget.</p>
 
-<p align="justify"><b>Custom time format:</b></p>
+<p><b>Custom time format:</b></p>
 <table>
   <tr>
     <td><code>$dddd</code></td>
-    <td><p align="justify">Weekday in long format.</p></td>
+    <td><p>Weekday in long format.</p></td>
   </tr>
   <tr>
     <td><code>$ddd</code></td>
-    <td><p align="justify">Weekday in short format.</p></td>
+    <td><p>Weekday in short format.</p></td>
   </tr>
   <tr>
     <td><code>$dd</code></td>
-    <td><p align="justify">Day.</p></td>
+    <td><p>Day.</p></td>
   </tr>
   <tr>
     <td><code>$d</code></td>
-    <td><p align="justify">Day without zero.</p></td>
+    <td><p>Day without zero.</p></td>
   </tr>
   <tr>
     <td><code>$MMMM</code></td>
-    <td><p align="justify">Month in long format.</p></td>
+    <td><p>Month in long format.</p></td>
   </tr>
   <tr>
     <td><code>$MMM</code></td>
-    <td><p align="justify">Month in short format.</p></td>
+    <td><p>Month in short format.</p></td>
   </tr>
   <tr>
     <td><code>$MM</code></td>
-    <td><p align="justify">Month.</p></td>
+    <td><p>Month.</p></td>
   </tr>
   <tr>
     <td><code>$M</code></td>
-    <td><p align="justify">Month without zero.</p></td>
+    <td><p>Month without zero.</p></td>
   </tr>
   <tr>
     <td><code>$yyyy</code></td>
-    <td><p align="justify">Year.</p></td>
+    <td><p>Year.</p></td>
   </tr>
   <tr>
     <td><code>$yy</code></td>
-    <td><p align="justify">Year in short format.</p></td>
+    <td><p>Year in short format.</p></td>
   </tr>
   <tr>
     <td><code>$hh</code></td>
-    <td><p align="justify">Hours.</p></td>
+    <td><p>Hours.</p></td>
   </tr>
   <tr>
     <td><code>$h</code></td>
-    <td><p align="justify">Hours without zero.</p></td>
+    <td><p>Hours without zero.</p></td>
   </tr>
   <tr>
     <td><code>$mm</code></td>
-    <td><p align="justify">Minutes.</p></td>
+    <td><p>Minutes.</p></td>
   </tr>
   <tr>
     <td><code>$m</code></td>
-    <td><p align="justify">Minutes without zero.</p></td>
+    <td><p>Minutes without zero.</p></td>
   </tr>
   <tr>
     <td><code>$ss</code></td>
-    <td><p align="justify">Seconds.</p></td>
+    <td><p>Seconds.</p></td>
   </tr>
   <tr>
     <td><code>$s</code></td>
-    <td><p align="justify">Seconds without zero.</p></td>
+    <td><p>Seconds without zero.</p></td>
   </tr>
 </table>
 
-<p align="justify"><b>Custom uptime format:</b></p>
+<p><b>Custom uptime format:</b></p>
 <table>
   <tr>
     <td><code>$dd</code></td>
-    <td><p align="justify">Uptime days.</p></td>
+    <td><p>Uptime days.</p></td>
   </tr>
   <tr>
     <td><code>$d</code></td>
-    <td><p align="justify">Uptime days without zero.</p></td>
+    <td><p>Uptime days without zero.</p></td>
   </tr>
   <tr>
     <td><code>$hh</code></td>
-    <td><p align="justify">Uptime hours.</p></td>
+    <td><p>Uptime hours.</p></td>
   </tr>
   <tr>
     <td><code>$h</code></td>
-    <td><p align="justify">Uptime hours without zero.</p></td>
+    <td><p>Uptime hours without zero.</p></td>
   </tr>
   <tr>
     <td><code>$mm</code></td>
-    <td><p align="justify">Uptime minutes.</p></td>
+    <td><p>Uptime minutes.</p></td>
   </tr>
   <tr>
     <td><code>$m</code></td>
-    <td><p align="justify">Uptime minutes without zero.</p></td>
+    <td><p>Uptime minutes without zero.</p></td>
   </tr>
 </table>
 
-<p align="justify"><b>Temperature units:</b> Select units for temperature. Available units are Celsius, Farenheit and Kelvin.</p>
+<p><b>Temperature units:</b> Select units for temperature. Available units are Celsius, Farenheit and Kelvin.</p>
 
-<p align="justify"><b>Temperature devices:</b> List of devices, which will be observed in temperature label (combo box items come from <code>sensors</code>). List widget is editable, delete key will remove current item.</p>
+<p><b>Temperature devices:</b> List of devices, which will be observed in temperature label (combo box items come from <code>sensors</code>). List widget is editable, delete key will remove current item.</p>
 
-<p align="justify"><b>Mount points:</b> List of mount points, which will be observed in HDD label (combo box items come from <code>mount</code>). List widget is editable, delete key will remove current item.</p>
+<p><b>Mount points:</b> List of mount points, which will be observed in HDD label (combo box items come from <code>mount</code>). List widget is editable, delete key will remove current item.</p>
 
-<p align="justify"><b>HDDs (speed):</b> List of hard disk devices, which will be observed in HDD speed label (combo box items come from DataEngine). List widget is editable, delete key will remove current item.</p>
+<p><b>HDDs (speed):</b> List of hard disk devices, which will be observed in HDD speed label (combo box items come from DataEngine). List widget is editable, delete key will remove current item.</p>
 
-<p align="justify"><b>HDDs (temperature):</b> List of hard disk devices, which will be observed in HDD temperature label (combo box items come from <code>find</code>). List widget is editable, delete key will remove current item.</p>
+<p><b>HDDs (temperature):</b> List of hard disk devices, which will be observed in HDD temperature label (combo box items come from <code>find</code>). List widget is editable, delete key will remove current item.</p>
 
-<p align="justify"><b>Network directory:</b> Path to directory, which contains network devices information. Default is <code>/sys/class/net</code>. It is required for auto select of network device.</p>
+<p><b>Network directory:</b> Path to directory, which contains network devices information. Default is <code>/sys/class/net</code>. It is required for auto select of network device.</p>
 
-<p align="justify"><b>Network device:</b> Use specified device as active. Combo box items come from <b>network directory</b>. This option will disable auto select network device.</p>
+<p><b>Network device:</b> Use specified device as active. Combo box items come from <b>network directory</b>. This option will disable auto select network device.</p>
 
-<p align="justify"><b>Battery device:</b> File with battery information. The file (<code>/sys/class/power_supply/BAT0/capacity</code> by default) should contain only battery charge in percent.</p>
+<p><b>Battery device:</b> File with battery information. The file (<code>/sys/class/power_supply/BAT0/capacity</code> by default) should contain only battery charge in percent.</p>
 
-<p align="justify"><b>AC online tag:</b> Line which will be shown when AC is online. Default is <code>(*)</code>.</p>
+<p><b>AC online tag:</b> Line which will be shown when AC is online. Default is <code>(*)</code>.</p>
 
-<p align="justify"><b>AC offline tag:</b> Line which will be shown when AC is offline. Default is <code>( )</code>.</p>
+<p><b>AC offline tag:</b> Line which will be shown when AC is offline. Default is <code>( )</code>.</p>
 
-<p align="justify"><b>AC device:</b> File with AC information. The file (<code>/sys/class/power_supply/AC/online</code> by default) should contain <code>1</code> if AC is online.</p>
+<p><b>AC device:</b> File with AC information. The file (<code>/sys/class/power_supply/AC/online</code> by default) should contain <code>1</code> if AC is online.</p>
 
 <h4><a name="tooltips" class="anchor" href="#tooltips"><span class="octicon octicon-link"></span></a>Tooltips</h4>
-<p align="justify">Since version 1.7.0 CPU, CPU clock, memory, swap and network labels support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
+<p>Since version 1.7.0 CPU, CPU clock, memory, swap and network labels support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
 
 <h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
-<p align="justify"><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> Commands, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
+<p><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> Commands, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
 
-<p align="justify"><b>GPU device:</b> Select one of supported GPU devices. <code>auto</code> will enable auto selection, <code>disable</code> will disable all GPU monitors. Default is <code>auto</code>.</p>
+<p><b>GPU device:</b> Select one of supported GPU devices. <code>auto</code> will enable auto selection, <code>disable</code> will disable all GPU monitors. Default is <code>auto</code>.</p>
 
-<p align="justify"><b>HDD:</b> Select one of HDDs for HDD temperature monitor. <code>all</code> will enable monitor for all devices, <code>disable</code> will disable HDD temperature monitor. Default is <code>all</code>.</p>
+<p><b>HDD:</b> Select one of HDDs for HDD temperature monitor. <code>all</code> will enable monitor for all devices, <code>disable</code> will disable HDD temperature monitor. Default is <code>all</code>.</p>
 
-<p align="justify"><b>hddtemp cmd:</b> Type a command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>.</p>
+<p><b>hddtemp cmd:</b> Type a command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>.</p>
 
-<p align="justify"><b>MPD address:</b> Address of MPD server. Default is <code>localhost</code>.</p>
+<p><b>MPD address:</b> Address of MPD server. Default is <code>localhost</code>.</p>
 
-<p align="justify"><b>MPD port:</b> Port of MPD server. Default is <code>6600</code>.</p>
+<p><b>MPD port:</b> Port of MPD server. Default is <code>6600</code>.</p>
 
-<p align="justify"><b>Package manager:</b> List of commands, which will be run. Number of null lines is a number of unneeded lines. Defaults are:</p>
+<p><b>Package manager:</b> List of commands, which will be run. Number of null lines is a number of unneeded lines. Defaults are:</p>
 <table>
   <tr>
     <td><p align="center"><b>Distro</b></p></td>
@@ -495,45 +495,45 @@ sudo make install
     <td><p align="center"><b>Number</b></p></td>
   </tr>
   <tr>
-    <td><p align="justify">Arch</p></td>
+    <td><p>Arch</p></td>
     <td><code>pacman -Qu</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p align="justify">Debian</p></td>
+    <td><p>Debian</p></td>
     <td><code>apt-show-versions -u -b</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p align="justify">Ubuntu</p></td>
+    <td><p>Ubuntu</p></td>
     <td><code>aptitude search '~U'</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p align="justify">Fedora</p></td>
+    <td><p>Fedora</p></td>
     <td><code>yum list updates</code></td>
     <td><code>3</code></td>
   </tr>
   <tr>
-    <td><p align="justify">FreeBSD</p></td>
+    <td><p>FreeBSD</p></td>
     <td><code>pkg_version -I -l '<'</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p align="justify">Mandriva</p></td>
+    <td><p>Mandriva</p></td>
     <td><code>urpmq --auto-select</code></td>
     <td><code>0</code></td>
   </tr>
 </table>
 
-<p align="justify"><b>Music player:</b> Select one of supported music playes for player label.</p>
+<p><b>Music player:</b> Select one of supported music playes for player label.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
 <h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
 
 <h2><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
-<p align="justify">Widget (clickable):<br>
+<p>Widget (clickable):<br>
 <a href="/resources/screenshots/pytextmonitor_widget.png"><img src="/resources/preview/pytextmonitor_widget_prev.jpg"></a><br>
 Configuration window:<br>
 <a href="/resources/screenshots/pytextmonitor_config_01.png"><img src="/resources/preview/pytextmonitor_config_01_prev.jpg"></a><br>

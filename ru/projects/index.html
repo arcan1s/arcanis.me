@@ -112,8 +112,8 @@ groups:
     <h1><a name="{{ group.short }}" class="anchor" href="#{{ group.short }}"><span class="octicon octicon-link"></span></a>{{ group.title }}</a></h1>
     {% for project in group.projects %}
       <h2><a name="{{ project.short }}" class="anchor" href="#{{ project.short }}"><span class="octicon octicon-link"></span></a>{{ project.title }}</h2>
-      <p align="justify">{{ project.description }}</p>
-      <p align="justify"><ul>
+      <p>{{ project.description }}</p>
+      <p><ul>
         {% for link in project.links %}
           <li>{{ link }}</li>
         {% endfor %}

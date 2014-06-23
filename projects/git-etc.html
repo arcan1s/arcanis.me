@@ -11,7 +11,7 @@ links:
 ---
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
-<p align="justify">Simple daemon that automatically creates git repository in the given directory and creates commit at the specified time interval.</p>
+<p>Simple daemon that automatically creates git repository in the given directory and creates commit at the specified time interval.</p>
 {% highlight bash %}
 $ git-etc --help
 Simple daemon written on BASH for monitoring changes in files
@@ -57,20 +57,20 @@ See "man 1 ctrlconf" for more details
 
 <h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
-  <li><p align="justify">Download an <a href="https://github.com/arcan1s/git-etc/releases">archive</a> with latest version of source files.</p></li>
-  <li><p align="justify">Extract it and install the application:</p>
+  <li><p>Download an <a href="https://github.com/arcan1s/git-etc/releases">archive</a> with latest version of source files.</p></li>
+  <li><p>Extract it and install the application:</p>
 {% highlight bash %}
 ./install.sh "/path/to/root"
 {% endhighlight %}
-<p align="justify">If you want install it to <code>/</code> you must run it as root, e.g.:</p>
+<p>If you want install it to <code>/</code> you must run it as root, e.g.:</p>
 {% highlight bash %}
 sudo ./install.sh
 {% endhighlight %}
-<p align="justify">If no path is specified it will be installed to <code>/</code> by default.</p></li>
+<p>If no path is specified it will be installed to <code>/</code> by default.</p></li>
 </ul>
 
 <h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
-<p align="justify">I want note that all were tested on latest version of dependencies.</p>
+<p>I want note that all were tested on latest version of dependencies.</p>
 <ul>
   <li>Bash (including awk, grep, sed)</li>
   <li>git</li>
@@ -83,27 +83,27 @@ sudo ./install.sh
 
 <!-- howto block -->
 <h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
-<p align="justify">If you want to start the daemon into <code>/etc</code> just run</p>
+<p>If you want to start the daemon into <code>/etc</code> just run</p>
 {% highlight bash %}
 systemctl start git-etc
 {% endhighlight %}
-<p align="justify">If you want to enable daemon autoload run</p>
+<p>If you want to enable daemon autoload run</p>
 {% highlight bash %}
 systemctl enable git-etc
 {% endhighlight %}
-<p align="justify">But you may change path to configuration file or change parameters. To do it just copy (recommended) the source configuration file to new path</p>
+<p>But you may change path to configuration file or change parameters. To do it just copy (recommended) the source configuration file to new path</p>
 {% highlight bash %}
 cp /etc/git-etc.conf /new/path/to/file/git-etc.conf
 {% endhighlight %}
-<p align="justify">and edit it. Then copy the source service file to <code>/etc</code>:</p>
+<p>and edit it. Then copy the source service file to <code>/etc</code>:</p>
 {% highlight bash %}
 cp /usr/lib/systemd/system/git-etc.service /etc/systemd/system/git-etc-my-profile.service
 {% endhighlight %}
-<p align="justify">Replace following string in the file:</p>
+<p>Replace following string in the file:</p>
 {% highlight bash %}
 ExecStart=/usr/bin/git-etc -c /etc/git-etc.conf
 {% endhighlight %}
-<p align="justify">to</p>
+<p>to</p>
 {% highlight bash %}
 ExecStart=/usr/bin/git-etc -c /new/path/to/file/git-etc.conf
 {% endhighlight %}
@@ -111,7 +111,7 @@ ExecStart=/usr/bin/git-etc -c /new/path/to/file/git-etc.conf
 
 <!-- config block -->
 <h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
-<p align="justify">All settings are stored in <code>/etc/git-etc.conf</code>. After edit them you must restart daemon</p>
+<p>All settings are stored in <code>/etc/git-etc.conf</code>. After edit them you must restart daemon</p>
 {% highlight bash %}
 systemctl restart git-etc
 {% endhighlight %}
@@ -120,33 +120,33 @@ systemctl restart git-etc
 <table>
   <tr>
     <th>DIRECTORY</th>
-    <td><p align="justify">Full path to working directory with observed files. Default is <code>/etc</code>.</p></td>
+    <td><p>Full path to working directory with observed files. Default is <code>/etc</code>.</p></td>
   </tr>
   <tr>
     <th>TIMESLEEP</th>
-    <td><p align="justify">Time interval between updates, hours. It must be integer and >= 1. Default is <code>12</code>.</p></td>
+    <td><p>Time interval between updates, hours. It must be integer and >= 1. Default is <code>12</code>.</p></td>
   </tr>
   <tr>
     <th>IGNORELIST</th>
-    <td><p align="justify">List of files that will not be observed. Separator is ";;". May be empty.</td>
+    <td><p>List of files that will not be observed. Separator is ";;". May be empty.</td>
   </tr>
   <tr>
     <th>FORALL</th>
-    <td><p align="justify"><code>1</code> will enable access for normal user. Default is <code>1</code>.</td>
+    <td><p><code>1</code> will enable access for normal user. Default is <code>1</code>.</td>
   </tr>
 </table>
 <!-- end of config block -->
 
 <!-- gui block -->
 <h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
-<p align="justify">Control Config (<code>ctrlconf</code>) is GUI for <code>git-etc</code> daemon written on <code>Python2/PyQt4</code>. This application allows you to view a list of commits and changes in files recorded in commit messages. Also, this application allows you to roll back to a specific commit all files (<code>git reset --hard</code>) or individual files (<code>git diff && git apply</code>). And you may merge old and new configuration files (used two branches repository - master and experimental). The application may need root privileges. Make sure that <code>sudo</code> package is installed.</p>
+<p>Control Config (<code>ctrlconf</code>) is GUI for <code>git-etc</code> daemon written on <code>Python2/PyQt4</code>. This application allows you to view a list of commits and changes in files recorded in commit messages. Also, this application allows you to roll back to a specific commit all files (<code>git reset --hard</code>) or individual files (<code>git diff && git apply</code>). And you may merge old and new configuration files (used two branches repository - master and experimental). The application may need root privileges. Make sure that <code>sudo</code> package is installed.</p>
 
 <h3><a name="gui_configuration" class="anchor" href="#gui_configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
-<p align="justify">Just run the application and open the settings window from menu!</p>
+<p>Just run the application and open the settings window from menu!</p>
 
 <h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
-<p align="justify">(Screenshots in Russian, but GUI has English translation.)</p>
-<p align="justify">Main window:<br>
+<p>(Screenshots in Russian, but GUI has English translation.)</p>
+<p>Main window:<br>
 <a href="/resources/screenshots/git-etc_mainwindow.png"><img src="/resources/preview/git-etc_mainwindow_prev.jpg"></a><br>
 About window:<br>
 <a href="/resources/screenshots/git-etc_aboutwindow.png"><img src="/resources/preview/git-etc_aboutwindow_prev.jpg"></a><br>

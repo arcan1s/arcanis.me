@@ -13,7 +13,7 @@ links:
 ---
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p align="justify">Плазмоид, написанный на <code>CPP</code> который показывает случайные карты из Brian Eno и Peter Schmidt's <a href="http://en.wikipedia.org/wiki/Oblique_strategies">Oblique Strategies</a>. Это форк <a href="http://gnome-look.org/content/show.php/Oblique+Strategies?content=78405">апплета для GNOME</a> с некоторыми дополнительными фичами.</p>
+<p>Плазмоид, написанный на <code>CPP</code> который показывает случайные карты из Brian Eno и Peter Schmidt's <a href="http://en.wikipedia.org/wiki/Oblique_strategies">Oblique Strategies</a>. Это форк <a href="http://gnome-look.org/content/show.php/Oblique+Strategies?content=78405">апплета для GNOME</a> с некоторыми дополнительными фичами.</p>
 
 <h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
@@ -33,8 +33,8 @@ links:
 
 <h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p align="justify">Скачайте <a href="https://github.com/arcan1s/oblikuestrategies/releases">архив</a> с актуальной версией исходных файлов.</p></li>
-  <li><p align="justify">Извлеките из него файлы и установите приложение. Для глобальной установки наберите:</p>
+  <li><p>Скачайте <a href="https://github.com/arcan1s/oblikuestrategies/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p>Извлеките из него файлы и установите приложение. Для глобальной установки наберите:</p>
 {% highlight bash %}
 cd /путь/куда/распакован/архив
 mkdir build && cd build
@@ -42,7 +42,7 @@ cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` -DCMAKE_BUILD_TYPE=Release .
 make
 sudo make install
 {% endhighlight %}
-<p align="justify">Для локальной:</p>
+<p>Для локальной:</p>
 {% highlight bash %}
 cd /where/your/applet/is/installed
 mkdir build && cd build
@@ -50,18 +50,18 @@ cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Rele
 make
 make install
 {% endhighlight %}</li>
-  <li><p align="justify">Перезапустите plasma, чтобы загрузить апплет:</p>
+  <li><p>Перезапустите plasma, чтобы загрузить апплет:</p>
 {% highlight bash %}
 kquitapp plasma-desktop && sleep 2 && plasma-desktop
 {% endhighlight %}
-<p align="justify">Также Вам может потребоваться запустить <code>kbuildsycoca4</code>, чтобы распознать <code>*.desktop</code> файл:</p>
+<p>Также Вам может потребоваться запустить <code>kbuildsycoca4</code>, чтобы распознать <code>*.desktop</code> файл:</p>
 {% highlight bash %}
 kbuildsycoca4 &> /dev/null
 {% endhighlight %}</li>
 </ul>
 
 <h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
-<p align="justify">Все было протестировано на последних версиях зависимостей.</p>
+<p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>kdebase-workspace</li>
   <li>automoc4 <i>(make)</i></li>
@@ -71,19 +71,19 @@ kbuildsycoca4 &> /dev/null
 
 <!-- howto block -->
 <h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
-<p align="justify">Откройте список виджетов Plasma и выберете <code>Oblikue strategies</code>.</p>
+<p>Откройте список виджетов Plasma и выберете <code>Oblikue strategies</code>.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
 <h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
-<p align="justify">Клик правой кнопкой по виджету.</p>
+<p>Клик правой кнопкой по виджету.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
 <h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
 
 <h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
-<p align="justify">Виджет:<br>
+<p>Виджет:<br>
 <a href="/resources/screenshots/oblikuestrategies_widget.png"><img src="/resources/preview/oblikuestrategies_widget_prev.jpg"></a><br>
 Окно настроек:<br>
 <a href="/resources/screenshots/oblikuestrategies_config.png"><img src="/resources/preview/oblikuestrategies_config_prev.jpg"></a></p>
