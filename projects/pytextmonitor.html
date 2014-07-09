@@ -99,6 +99,10 @@ sudo make install
     <td><p>Custom commands to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>. Separator is <code>@@</code>.</td>
   </tr>
   <tr>
+    <th>DESKTOPCMD</th>
+    <td><p>Command which defines the current desktop. Default is <code>qdbus org.kde.kwin /KWin currentDesktop</code>.</td>
+  </tr>
+  <tr>
     <th>GPUDEV</th>
     <td><p>Set GPU device. May be <code>nvidia</code> (for nVidia), <code>ati</code> (for ATI Radeon), <code>disable</code> or <code>auto</code>. Default is <code>auto</code>.</p></td>
   </tr>
@@ -344,6 +348,19 @@ sudo make install
     <td><code>$customN</code></td>
     <td><p>Get output from custom command N. For example <code>$custom0</code>.</p></td>
   </tr>
+  <tr>
+    <th rowspan="3">Desktop label</th>
+    <td><code>$name</code></td>
+    <td><p>Name of the current desktop.</p></td>
+  </tr>
+  <tr>
+    <td><code>$number</code></td>
+    <td><p>Number of the current desktop.</p></td>
+  </tr>
+  <tr>
+    <td><code>$total</code></td>
+    <td><p>Total number of desktops.</p></td>
+  </tr>
 </table>
 
 <h4><a name="advanced" class="anchor" href="#advanced"><span class="octicon octicon-link"></span></a>Advanced settings</h4>
@@ -479,6 +496,8 @@ sudo make install
 <h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
 <p><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> Commands, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
 
+<p><b>Desktop cmd:</b> Type a command which will be run for desktop DataEngine. Default is <code>qdbus org.kde.kwin /KWin currentDesktop</code>.</p>
+
 <p><b>GPU device:</b> Select one of supported GPU devices. <code>auto</code> will enable auto selection, <code>disable</code> will disable all GPU monitors. Default is <code>auto</code>.</p>
 
 <p><b>HDD:</b> Select one of HDDs for HDD temperature monitor. <code>all</code> will enable monitor for all devices, <code>disable</code> will disable HDD temperature monitor. Default is <code>all</code>.</p>
@@ -529,6 +548,40 @@ sudo make install
 </table>
 
 <p><b>Music player:</b> Select one of supported music playes for player label.</p>
+
+<h3>PTM desktop panel</h3>
+<p>Since version 1.11.0 PyTextMonitor provides a minimalistic panel for monitoring on desktops written on <code>C++</code>. And yes, it looks like the same panel in Awesome.</p>
+
+<h4>Desktop panel configuration</h4>
+<p><b>Enable background: </b> Uncheck to disable default background and set transparent one.</p>
+
+<p><b>Vertical layout:</b> Use vertical layout instead of horizontal one.</p>
+
+<p><b>Add stretch:</b> Add stretch (spacer) to the selected side of the widget.</p>
+
+<p><b>Mark:</b> Type symbol (or string) which will be shown if this desktop is active now.</p>
+
+<p><b>Pattern tags</b></p>
+<table>
+  <tr>
+    <td><code>$mark</code></td>
+    <td><p>Show mark if this desktop is active.</p></td>
+  </tr>
+  <tr>
+    <td><code>$name</code></td>
+    <td><p>Name of the desktop.</p></td>
+  </tr>
+  <tr>
+    <td><code>$number</code></td>
+    <td><p>Number of the desktop.</p></td>
+  </tr>
+  <tr>
+    <td><code>$total</code></td>
+    <td><p>Total number of desktops.</p></td>
+  </tr>
+</table>
+
+<p><b>Command:</b> Type command which will be run on left click on the selected desktop. Available variables are same as for pattern. Default is <code>dbus org.kde.kwin /KWin setCurrentDesktop $number</code>.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
