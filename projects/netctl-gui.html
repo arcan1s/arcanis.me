@@ -13,22 +13,39 @@ links:
 ---
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
-<p>Graphical interface for <code>netctl</code> (several scripts for work with network connection in Archlinux). It is written on <code>CPP</code> using <code>Qt4</code> library. Now it may work with profiles and may create new profiles. Also it may create a connection to WiFi. Moreover, it provides a widget and DataEngine for KDE.</p>
-<p><b>NOTE:</b> LOOKING FOR TRANSLATORS!</p>
+<p>Graphical interface for <code>netctl</code> (several scripts for work with network connection in Archlinux). It is written on <code>CPP</code> using <code>Qt4</code> library. Now it may work with profiles and may create new profiles. Also it may create a connection to WiFi. Moreover, it provides a Qt library for interaction with netctl and widget and DataEngine for KDE.</p>
+<p><b>NOTE:</b> <a href="https://github.com/arcan1s/netctl-gui/issues/3">LOOKING FOR TRANSLATORS!</a></p>
 {% highlight bash %}
 $ netctl-gui --help
-                                    Netctl GUI
-Version : 1.0.4                                                  License : GPLv3
-                                                    Evgeniy Alekseev aka arcanis
-                                                    E-mail : esalexeev@gmail.com
-
 Usage:
-netctl-gui [ --default ] [ -t NUM | --tab NUM ] [ -h | --help]
+netctl-gui [ --about ] [ --netctl-auto ] [ --settings ]
+           [ -e ESSID | --essid ESSID ] [ -o PROFILE | --open PROFILE ]
+           [ -s PROFILE | --select PROFILE ]
+           [ --config FILE ] [ -d | --debug ] [ --default ]
+           [ --set-opts OPTIONS ] [ -t NUM | --tab NUM ]
+           [ -v | --version ] [ -i | --info ] [ -h | --help]
 
 Parametrs:
-           --default    - start with default settings
-  -t NUM   --tab NUM    - open a tab with number NUM
-  -h       --help       - show this help and exit
+Open window:
+                   --about               - show about window
+                   --netctl-auto         - show netctl-auto window
+                   --settings            - show settings window
+Functions:
+   -e ESSID        --essid ESSID         - select ESSID ESSID
+   -o PROFILE      --open PROFILE        - open profile PROFILE
+   -s PROFILE      --select PROFILE      - select profile PROFILE
+Additional flags:
+                   --config /home/arcanis/.config/netctl-gui.conf
+                                         - read configuration from this file
+   -d              --debug               - print debug information
+                   --default             - start with default settings
+                   --set-opts OPTIONS
+                                         - set options for this run, comma separated
+   -t 1            --tab 1               - open a tab with number 1
+Show messages:
+   -v           --version                - show version and exit
+   -i           --info                   - show build information and exit
+   -h           --help                   - show this help and exit
 {% endhighlight %}
 
 <h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
@@ -65,7 +82,9 @@ sudo make install
 <p>Available cmake flags are:</p>
   <ul>
     <li><p><code>-DBUILD_DATAENGINE:BOOL=0</code> - do not build DataEngine;</p></li>
+    <li><p><code>-DBUILD_DOCS:BOOL=0</code> - do not build developer documentation;</p></li>
     <li><p><code>-DBUILD_GUI:BOOL=0</code> - do not build GUI;</p></li>
+    <li><p><code>-DBUILD_LIBRARY:BOOL=0</code> - do not build library;</p></li>
     <li><p><code>-DBUILD_PLASMOID:BOOL=0</code> - do not build Plasmoid;</p></li>
     <li><p><code>-DUSE_QT5:BOOL=0</code> - use Qt4 instead of Qt5 for GUI.</p></li>
   </ul>
@@ -82,7 +101,8 @@ sudo make install
   <li>qt5-tools <i>(make, if Qt5 is used)</i></li>
   <li>kdebase-workspace <i>(optional, widget)</i></li>
   <li>sudo <i>(optional, sudo support)</i></li>
-  <li>wpa_supplicant <i>(optional, WiFi support)</i></li>
+  <li>wpa_actiond <i>(optional, netctl-auto support)</i></li>
+  <li>wpa_supplicant <i>(optional, WiFi support)</i></
 </ul>
 <!-- end of install block -->
 
@@ -93,50 +113,32 @@ sudo make install
 
 <!-- config block -->
 <h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
-<p>It is recommended to use graphical interface for widget configuration. DataEngine settings are stored in <code>/usr/share/config/netctl.conf</code></p>
-<table>
-  <tr>
-    <th>CMD</th>
-    <td><p><code>netctl</code> command. Default value is <code>/usr/bin/netctl</code>.</p></td>
-  </tr>
-  <tr>
-    <th>IPCMD</th>
-    <td><p><code>ip</code> command. <code>/usr/bin/ip</code> by default.</p></td>
-  </tr>
-  <tr>
-    <th>NETDIR</th>
-    <td><p>A directory, which contains subdirectories with names of network interfaces. Default is <code>/sys/class/net/</code>.</p></td>
-  </tr>
-  <tr>
-    <th>EXTIPCMD</th>
-    <td><p>A command, which returns external IP address. Default value is <code>wget -qO- http://ifconfig.me/ip</code>.</p></td>
-  </tr>
-  <tr>
-    <th>EXTIP</th>
-    <td><p><code>true</code> will enable external IP definition. Default is <code>false</code>.</p></td>
-  </tr>
-</table>
+<p>It is recommended to use graphical interface for widget and DataEngine configuration. All settings of GUI are stored in <code>$HOME/.config/netctl-gui.conf</code>. It is highly recommended to edit it from graphical interface. </p>
 <!-- end of config block -->
 
 <!-- gui block -->
 <h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
 <p>Graphical interface provides by <code>netctl-gui</code> application.</p>
 
-<h3><a name="gui_configuration" class="anchor" href="#gui_configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
-<p>All settings of GUI are stored in <code>$HOME/.config/netctl-gui.conf</code>. It is highly recommended to edit it from graphical interface.</p>
-
 <h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
 <p>DataEngine:<br>
-<a href="/resources/screenshots/netctl_dataengine.png"><img src="/resources/preview/netctl_dataengine_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl-gui_dataengine.png"><img src="/resources/preview/netctl-gui_dataengine_prev.jpg"></a><br>
 Widget:<br>
-<a href="/resources/screenshots/netctl_plasmoid.png"><img src="/resources/preview/netctl_plasmoid_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl-gui_plasmoid.png"><img src="/resources/preview/netctl-gui_plasmoid_prev.jpg"></a><br>
 Widget settings window:<br>
-<a href="/resources/screenshots/netctl_plasmoid_conf_01.png"><img src="/resources/preview/netctl_plasmoid_conf_01_prev.jpg"></a><br>
-<a href="/resources/screenshots/netctl_plasmoid_conf_02.png"><img src="/resources/preview/netctl_plasmoid_conf_02_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl-gui_plasmoid_conf_01.png"><img src="/resources/preview/netctl-gui_plasmoid_conf_01_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl-gui_plasmoid_conf_02.png"><img src="/resources/preview/netctl-gui_plasmoid_conf_02_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl-gui_plasmoid_conf_03.png"><img src="/resources/preview/netctl-gui_plasmoid_conf_03_prev.jpg"></a><br>
 Main window:<br>
-<a href="/resources/screenshots/netctl_gui_main.png"><img src="/resources/preview/netctl_gui_main_prev.jpg"></a><br>
-Profile creation window:<br>
-<a href="/resources/screenshots/netctl_gui_profile.png"><img src="/resources/preview/netctl_gui_profile_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl-gui_main.png"><img src="/resources/preview/netctl-gui_main_prev.jpg"></a><br>
+Profile creation tab:<br>
+<a href="/resources/screenshots/netctl-gui_profile.png"><img src="/resources/preview/netctl-gui_profile_prev.jpg"></a><br>
 WiFi menu:<br>
-<a href="/resources/screenshots/netctl_gui_wifi.png"><img src="/resources/preview/netctl_gui_wifi_prev.jpg"></a></p>
+<a href="/resources/screenshots/netctl-gui_wifi.png"><img src="/resources/preview/netctl-gui_wifi_prev.jpg"></a><br>
+About window:<br>
+<a href="/resources/screenshots/netctl-gui_about.png"><img src="/resources/preview/netctl-gui_about_prev.jpg"></a><br>
+netctl-auto window:<br>
+<a href="/resources/screenshots/netctl-gui_netctl-auto.png"><img src="/resources/preview/netctl-gui_netctl-auto_prev.jpg"></a><br>
+Settings window:<br>
+<a href="/resources/screenshots/netctl-gui_settings.png"><img src="/resources/preview/netctl-gui_settings_prev.jpg"></a></p>
 <!-- end of gui block -->

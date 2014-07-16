@@ -14,22 +14,38 @@ links:
 ---
 <!-- info block -->
 <h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p>Графическая оболочка для <code>netctl</code> (набор скриптов для поднятия сети в Arch'е). Написана на <code>CPP</code> с использованием библиотеки <code>Qt4</code>. На текущим момент умеет работать с профилями, в том числе создавать новые, а также умеет подключаться к WiFi. Также предоставляет виджет и DataEngine для KDE.
-Простой демон, который создает git репозиторий в указанной директории и создает коммит в указанный промежуток времени.</p>
+<p>Графическая оболочка для <code>netctl</code> (набор скриптов для поднятия сети в Arch'е). Написана на <code>CPP</code> с использованием библиотеки <code>Qt4</code>. На текущим момент умеет работать с профилями, в том числе создавать новые, а также умеет подключаться к WiFi. Также предоставляет библиотеку для взаимодействия с netctl и виджет и DataEngine для KDE.</p>
 {% highlight bash %}
 $ netctl-gui --help
-                                    Netctl GUI
-Версия : 1.0.4                                                  Лицензия : GPLv3
-                                                    Евгений Алексеев aka arcanis
-                                                    E-mail : esalexeev@gmail.com
-
 Использование:
-netctl-gui [ --default ] [ -t NUM | --tab NUM ] [ -h | --help]
+netctl-gui [ --about ] [ --netctl-auto ] [ --settings ]
+           [ -e ESSID | --essid ESSID ] [ -o PROFILE | --open PROFILE ]
+           [ -s PROFILE | --select PROFILE ]
+           [ --config FILE ] [ -d | --debug ] [ --default ]
+           [ --set-opts OPTIONS ] [ -t NUM | --tab NUM ]
+           [ -v | --version ] [ -i | --info ] [ -h | --help]
 
 Параметры:
-           --default    - запустить со стандартными настройками
-  -t NUM   --tab NUM    - открыть вкладку с номером NUM
-  -h       --help       - показать эту справку и выход
+Открыть окно:
+                   --about               - показать окно "О программе"
+                   --netctl-auto         - показать окно netctl-auto
+                   --settings            - показать окно настроек
+Функции:
+   -e ESSID        --essid ESSID         - выбрать ESSID ESSID
+   -o PROFILE      --open PROFILE        - открыть профиль PROFILE
+   -s PROFILE      --select PROFILE      - выбрать профиль PROFILE
+Дополнительные флаги:
+                   --config /home/arcanis/.config/netctl-gui.conf
+                                         - прочитать настройки из данного файла
+   -d              --debug               - показать отладочную информацию
+                   --default             - запустить со стандартными настройками
+                   --set-opts OPTIONS
+                                         - установить опции для данного запуска, разделенные запятыми
+   -t 1            --tab 1               - открыть вкладку с номером 1
+Показать сообщения:
+   -v           --version                - показать версию и выход
+   -i           --info                   - показать информацию о сборке и выход
+   -h           --help                   - показать справку и выход
 {% endhighlight %}
 
 <h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
@@ -66,8 +82,10 @@ sudo make install
 <p>Доступные флаги cmake:</p>
   <ul>
     <li><p><code>-DBUILD_DATAENGINE:BOOL=0</code> - не собирать DataEngine;</p></li>
+    <li><p><code>-DBUILD_DOCS:BOOL=0</code> - не собирать документацию;</p></li>
     <li><p><code>-DBUILD_GUI:BOOL=0</code> - не собирать GUI;</p></li>
-    <li><p><code>-DBUILD_PLASMOID:BOOL=0</code> - не собирать Плазмоид;</p></li>
+    <li><p><code>-DBUILD_LIBRARY:BOOL=0</code> - не собирать библиотеку;</p></li>    
+    <li><p><code>-DBUILD_PLASMOID:BOOL=0</code> - не собирать плазмоид;</p></li>
     <li><p><code>-DUSE_QT5:BOOL=0</code> - использовать Qt4 вместо Qt5 для GUI.</p></li>
   </ul>
   </li>
@@ -83,6 +101,7 @@ sudo make install
   <li>qt5-tools <i>(make, если используется Qt5)</i></li>
   <li>kdebase-workspace <i>(опционально, виджет)</i></li>
   <li>sudo <i>(опционально, поддержка sudo)</i></li>
+  <li>wpa_actiond <i>(опционально, поддержка netctl-auto)</i></li>
   <li>wpa_supplicant <i>(опционально, поддержка WiFi)</i></li>
 </ul>
 <!-- end of install block -->
@@ -94,50 +113,32 @@ sudo make install
 
 <!-- config block -->
 <h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
-<p>Для настройки виджета рекомендуется использовать графический интерфейс. Настройки DataEngine хранятся в <code>/usr/share/config/netctl.conf</code></p>
-<table>
-  <tr>
-    <th>CMD</th>
-    <td><p>Команда для запуска <code>netctl</code>. По умолчанию <code>/usr/bin/netctl</code>.</p></td>
-  </tr>
-  <tr>
-    <th>IPCMD</th>
-    <td><p>Команда для запуска <code>ip</code>. По умолчанию <code>/usr/bin/ip</code>.</p></td>
-  </tr>
-  <tr>
-    <th>NETDIR</th>
-    <td><p>Директория, содержащая поддиректории с именами сетевых интерфейсов. По умолчанию <code>/sys/class/net/</code>.</p></td>
-  </tr>
-  <tr>
-    <th>EXTIPCMD</th>
-    <td><p>Команда для получения внешнего IP адреса. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>.</p></td>
-  </tr>
-  <tr>
-    <th>EXTIP</th>
-    <td><p><code>true</code> включит определение внешнего IP адреса. По умолчанию <code>false</code>.</p></td>
-  </tr>
-</table>
+<p>Для настройки виджета и DataEngine рекомендуется использовать графический интерфейс. Все настройки графического интерфейса хранятся в <code>$HOME/.config/netctl-gui.conf</code>. Для редактирования настоятельно рекомендуется использовать графический интерфейс.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
 <h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
 <p>Графический интерфейс предоставляется приложением <code>netctl-gui</code>.</p>
 
-<h3><a name="gui_configuration" class="anchor" href="#gui_configuration"><span class="octicon octicon-link"></span></a>Настройка</h3>
-<p>Все настройки графического интерфейса хранятся в <code>$HOME/.config/netctl-gui.conf</code>. Для редактирования настоятельно рекомендуется использовать графический интерфейс.</p>
-
 <h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
 <p>DataEngine:<br>
-<a href="/resources/screenshots/netctl_dataengine.png"><img src="/resources/preview/netctl_dataengine_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl-gui_dataengine.png"><img src="/resources/preview/netctl-gui_dataengine_prev.jpg"></a><br>
 Виджет:<br>
-<a href="/resources/screenshots/netctl_plasmoid.png"><img src="/resources/preview/netctl_plasmoid_prev.jpg"></a><br>
-Окно настроек виджета:<br>
-<a href="/resources/screenshots/netctl_plasmoid_conf_01.png"><img src="/resources/preview/netctl_plasmoid_conf_01_prev.jpg"></a><br>
-<a href="/resources/screenshots/netctl_plasmoid_conf_02.png"><img src="/resources/preview/netctl_plasmoid_conf_02_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl-gui_plasmoid.png"><img src="/resources/preview/netctl-gui_plasmoid_prev.jpg"></a><br>
+Настройки виджета:<br>
+<a href="/resources/screenshots/netctl-gui_plasmoid_conf_01.png"><img src="/resources/preview/netctl-gui_plasmoid_conf_01_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl-gui_plasmoid_conf_02.png"><img src="/resources/preview/netctl-gui_plasmoid_conf_02_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl-gui_plasmoid_conf_03.png"><img src="/resources/preview/netctl-gui_plasmoid_conf_03_prev.jpg"></a><br>
 Главное окно:<br>
-<a href="/resources/screenshots/netctl_gui_main.png"><img src="/resources/preview/netctl_gui_main_prev.jpg"></a><br>
+<a href="/resources/screenshots/netctl-gui_main.png"><img src="/resources/preview/netctl-gui_main_prev.jpg"></a><br>
 Окно создания профиля:<br>
-<a href="/resources/screenshots/netctl_gui_profile.png"><img src="/resources/preview/netctl_gui_profile_prev.jpg"></a><br>
-Окно подключения к WiFi:<br>
-<a href="/resources/screenshots/netctl_gui_wifi.png"><img src="/resources/preview/netctl_gui_wifi_prev.jpg"></a></p>
+<a href="/resources/screenshots/netctl-gui_profile.png"><img src="/resources/preview/netctl-gui_profile_prev.jpg"></a><br>
+WiFi меню:<br>
+<a href="/resources/screenshots/netctl-gui_wifi.png"><img src="/resources/preview/netctl-gui_wifi_prev.jpg"></a><br>
+Окно "О программе":<br>
+<a href="/resources/screenshots/netctl-gui_about.png"><img src="/resources/preview/netctl-gui_about_prev.jpg"></a><br>
+Окно netctl-auto:<br>
+<a href="/resources/screenshots/netctl-gui_netctl-auto.png"><img src="/resources/preview/netctl-gui_netctl-auto_prev.jpg"></a><br>
+Окно настроек:<br>
+<a href="/resources/screenshots/netctl-gui_settings.png"><img src="/resources/preview/netctl-gui_settings_prev.jpg"></a></p>
 <!-- end of gui block -->
