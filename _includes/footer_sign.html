@@ -1,16 +1,20 @@
 <p>
   {% if page.category == "ru" %}
-    {% if page.type == "paper" %}
+    {% if page.hasTr == true %}
+      {% if page.type == "paper" %}
       <a href="{{ page.url | replace: '/ru/', '/en/' }}"><img src="/resources/en.png"></a>
-    {% else %}
+      {% else %}
       <a href="{{ page.url | replace: '/ru/', '/' }}"><img src="/resources/en.png"></a>
+      {% endif %}
     {% endif %}
     <small>Расположено на GitHub Pages. <a href="/ru/authors">Авторы</a></small>
   {% else %}
-    {% if page.type == "paper" %}
+    {% if page.hasTr == true %}
+      {% if page.type == "paper" %}
       <a href="{{ page.url | replace: '/en/', '/ru/' }}"><img src="/resources/ru.png"></a>
-    {% else %}
+      {% else %}
       <a href="/ru{{ page.url }}"><img src="/resources/ru.png"></a>
+      {% endif %}
     {% endif %}
     <small>Hosted on GitHub Pages. <a href="/authors">Authors</a></small>
   {% endif %}

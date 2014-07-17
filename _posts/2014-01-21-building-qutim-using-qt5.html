@@ -2,6 +2,7 @@
 category: en
 type: paper
 layout: paper
+hasTr: true
 tags: archlinux, linux, building, qutim
 title: Building Qutim using Qt5
 short: building-qutim-using-qt5
@@ -80,7 +81,7 @@ diff -ruN qutim.orig/core/libqutim.qbs qutim/core/libqutim.qbs
 +                flags = flags.concat("-lc++abi");
              return flags;
          }
- 
+
 {% endhighlight %}
 <p>And the second one is Vk plugin:</p>
 {% highlight diff %}
@@ -92,7 +93,7 @@ diff -ruN qutim.orig/protocols/vkontakte/vreen/vreen.qbs qutim/protocols/vkontak
      property string vreen_lib_path: "lib"
      property string vreen_libexec_path: "lib"
 +    property string lib_path: "lib"
- 
+
      property string vreen_version_major:  1
      property string vreen_version_minor: 9
 {% endhighlight %}
@@ -162,7 +163,7 @@ prepare() {
     rm -rf "${srcdir}/build"
   fi
   mkdir "${srcdir}/build"
-  
+
   cd "${_gitname}"
   # update modules
   git submodule update --init --recursive

@@ -1,6 +1,7 @@
 ---
 category: ru
 type: paper
+hasTr: true
 layout: paper
 tags: archlinux, linux, сборка, qutim
 title: Сборка Qutim с Qt5
@@ -80,7 +81,7 @@ diff -ruN qutim.orig/core/libqutim.qbs qutim/core/libqutim.qbs
 +                flags = flags.concat("-lc++abi");
              return flags;
          }
- 
+
 {% endhighlight %}
 <p>И пофиксить сборку библиотеки для Vk:</p>
 {% highlight diff %}
@@ -92,7 +93,7 @@ diff -ruN qutim.orig/protocols/vkontakte/vreen/vreen.qbs qutim/protocols/vkontak
      property string vreen_lib_path: "lib"
      property string vreen_libexec_path: "lib"
 +    property string lib_path: "lib"
- 
+
      property string vreen_version_major:  1
      property string vreen_version_minor: 9
 {% endhighlight %}
@@ -162,7 +163,7 @@ prepare() {
     rm -rf "${srcdir}/build"
   fi
   mkdir "${srcdir}/build"
-  
+
   cd "${_gitname}"
   # update modules
   git submodule update --init --recursive
