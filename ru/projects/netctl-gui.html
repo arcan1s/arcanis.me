@@ -21,7 +21,7 @@ $ netctl-gui --help
 netctl-gui [ --about ] [ --netctl-auto ] [ --settings ]
            [ -e ESSID | --essid ESSID ] [ -o PROFILE | --open PROFILE ]
            [ -s PROFILE | --select PROFILE ]
-           [ --config FILE ] [ -d | --debug ] [ --default ]
+           [ -c FILE | --config FILE ] [ -d | --debug ] [ --default ]
            [ --set-opts OPTIONS ] [ -t NUM | --tab NUM ]
            [ -v | --version ] [ -i | --info ] [ -h | --help]
 
@@ -35,7 +35,7 @@ netctl-gui [ --about ] [ --netctl-auto ] [ --settings ]
    -o PROFILE      --open PROFILE        - открыть профиль PROFILE
    -s PROFILE      --select PROFILE      - выбрать профиль PROFILE
 Дополнительные флаги:
-                   --config /home/arcanis/.config/netctl-gui.conf
+   -c FILE         --config FILE
                                          - прочитать настройки из данного файла
    -d              --debug               - показать отладочную информацию
                    --default             - запустить со стандартными настройками
@@ -101,7 +101,6 @@ sudo make install
   <li>qt5-tools <i>(make, если используется Qt5)</i></li>
   <li>kdebase-workspace <i>(опционально, виджет)</i></li>
   <li>sudo <i>(опционально, поддержка sudo)</i></li>
-  <li>wpa_actiond <i>(опционально, поддержка netctl-auto)</i></li>
   <li>wpa_supplicant <i>(опционально, поддержка WiFi)</i></li>
 </ul>
 <!-- end of install block -->
