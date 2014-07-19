@@ -1,0 +1,148 @@
+---
+category: en
+type: paper
+hasTr: true
+layout: paper
+tags: linux, development
+title: Writting own Shell completions. Zsh
+short: writting-own-completions-p1
+description: Some basics of creating a completion files for own application are described in these articles.
+---
+<h2><a name="preamble" class="anchor" href="#preamble"><span class="octicon octicon-link"></span></a>Preamble</h2>
+<p>While developing <a href="/ru/projects/netctl-gui">one of my projects</a> I have wanted to add completion files. I have already tried to create these files, but I was too lazy to read some manuals about it.</p>
+
+<h2><a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<p>There are some possible ways to create zsh completion file. In this article I will describe only one of them, which provides a lot of opportunities, but does not require a lot of costs (such as regular expressions).</p>
+
+<p>Lets consider the example of my application, which has a part of help message that looks like this:</p>
+
+{% highlight bash %}
+netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FILE ]
+           [ -o PROFILE | --open PROFILE ] [ -t NUM | --tab NUM ] [ --set-opts OPTIONS ]
+{% endhighlight %}
+
+<p>Here is a flag list:
+<ul>
+  <li>flags <code>-h</code> and <code>--help</code> do not require any arguments;</li>
+  <li>flags <code>-e</code> and <code>--essid</code> require a string argument without completion;</li>
+  <li>flags <code>-c</code> and <code>--config</code> require a string argument, which is a file;</li>
+  <li>flags <code>-o</code> and <code>--open</code> require a string argument, there is a completion from files in the specified directory;</li>
+  <li>flags <code>-t</code> and <code>--tab</code> require a string argument, there is a completion from the specified array;</li>
+  <li>flag <code>--set-opts</code> requires a string argument, there is a completion from the specified array comma separated;</li>
+</ul>
+</p>
+
+<h2><a name="file" class="anchor" href="#file"><span class="octicon octicon-link"></span></a>The file pattern</h2>
+<p>It must be specified in the header that it is a completion file and application for which it will complete (may be string if this file provides completions for several applications):
+
+{% highlight bash %}
+#compdef netctl-gui
+{% endhighlight %}
+
+Next there is flags, additional functions and variables declarations. It should be noted that all functions and variables, which will be used for completions, <b>should return arrays</b>. In my case this scheme looks like this (I left empty these functions in this chapter):
+
+{% highlight bash %}
+# variables
+_netctl_gui_arglist=()
+_netctl_gui_settings=()
+_netctl_gui_tabs=()
+_netctl_profiles() {}
+{% endhighlight %}
+
+Then there are main functions, which will be called for completion of specific application. In my case this there is only one applications, so there is only one function:
+
+{% highlight bash %}
+# work block
+_netctl-gui() {}
+{% endhighlight %}
+
+And finally <b>without isolation in a separate function</b> there is a small shamanism, which declares a dependence "application-function":
+
+{% highlight bash %}
+case "$service" in
+    netctl-gui)
+        _netctl-gui "$@" && return 0
+        ;;
+esac
+{% endhighlight %}
+</p>
+
+<h2><a name="flags" class="anchor" href="#flags"><span class="octicon octicon-link"></span></a>Flags</h2>
+<p>As it was said above, there are some different ways to create these files. In particular they differ in the flag declaration and their further processing. In my case I will use <code>_arguments</code> command, which require a specific format of variables: <code>FLAG[description]:MESSAGE:ACTION</code>. The last two fields are not required and, as you will see below, are not needed in some cases. If you want to add two flags for an action (short and long format), then the format is a little bit complicated: <code>{(FLAG_2)FLAG_1,(FLAG_1)FLAG_2}[description]:MESSAGE:ACTION</code>. It should be noted that if you want to create completions for two flags but some flags have not a second format. you will should to add following line: <code>{FLAG,FLAG}[description]:MESSAGE:ACTION</code>. <code>MESSAGE</code> is a message which will be shown, <code>ACTION</code> is an action whichh will be performed after this flag. In this tutorial <code>ACTION</code> will be following: <code>->STATE</code>.</p>
+
+<p>So, according to our requirements, flags declaration will be following:
+
+{% highlight bash %}
+_netctl_gui_arglist=(
+    {'(--help)-h','(-h)--help'}'[show help and exit]'
+    {'(--essid)-e','(-e)--essid'}'[select ESSID]:type ESSID:->essid'
+    {'(--config)-c','(-c)--config'}'[read configuration from this file]:select file:->files'
+    {'(--open)-o','(-o)--open'}'[open profile]:select profile:->profiles'
+    {'(--tab)-t','(-t)--tab'}'[open a tab with specified number]:select tab:->tab'
+    {'--set-opts','--set-opts'}'[set options for this run, comma separated]:comma separated:->settings'
+)
+{% endhighlight %}
+</p>
+
+<h2><a name="variables" class="anchor" href="#variables"><span class="octicon octicon-link"></span></a>Arrays of variables</h2>
+<p>In my case there are two static arrays (which will not be changed):
+
+{% highlight bash %}
+_netctl_gui_settings=(
+    'CTRL_DIR'
+    'CTRL_GROUP'
+)
+
+_netctl_gui_tabs=(
+    '1'
+    '2'
+)
+{% endhighlight %}
+
+And there is a dynamic array, which should be generated each time. In my case it is a list of files in the specified directory (by the way it may be done by means of zsh):
+
+{% highlight bash %}
+_netctl_profiles() {
+    print $(find /etc/netctl -maxdepth 1 -type f -printf "%f\n")
+}
+{% endhighlight %}
+</p>
+
+<h2><a name="body" class="anchor" href="#body"><span class="octicon octicon-link"></span></a>Function</h2>
+<p>Remember, there was something about a state above? It is stored in the variable <code>$state</code> and in this function we will check what it is to choose the appropriate action. At the beginning of the function we should call <code>_arguments</code> with our flags.
+
+{% highlight bash %}
+_netctl-gui() {
+    _arguments $_netctl_gui_arglist
+    case "$state" in
+        essid)
+            # do not completion, wait for string
+            ;;
+        files)
+            # completion from files in this directory
+            _files
+            ;;
+        profiles)
+            # completion from function
+            # first variable is a description
+            # second variable is a completion array
+            _values 'profiles' $(_netctl_profiles)
+            ;;
+        tab)
+            # completion from array
+            _values 'tab' $_netctl_gui_tabs
+            ;;
+        settings)
+            # completion from array
+            # flag -s sets separator and enables multi-selection
+            _values -s ',' 'settings' $_netctl_gui_settings
+            ;;
+    esac
+}
+{% endhighlight %}
+</p>
+
+<h2><a name="conclusion" class="anchor" href="#conclusion"><span class="octicon octicon-link"></span></a>Conclusion</h2>
+<p>File should be places to <code>/usr/share/zsh/site-functions/</code> with any name (it is recommended to set prefix to <code>_</code>). You may found the example <a href="https://raw.githubusercontent.com/arcan1s/netctl-gui/master/sources/gui/zsh-completions">in my repository</a>.</p>
+
+<p>The additional information may be found in <a href="https://github.com/zsh-users/zsh-completions">zsh-completions</a> repository. For example there is this <a href="https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org">How-To</a>. And also there are a lot of examples.</p>

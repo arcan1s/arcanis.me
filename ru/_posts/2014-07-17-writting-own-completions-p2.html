@@ -15,6 +15,7 @@ description: В данных статьях описываются некото�
 <p>Bash, в <a href="/ru/2014/07/17/writting-own-completions-p1">отличие от zsh</a>, требует к себе некоторого велосипедостроения в отношении дополнений. Бегло погуглив, я не нашел более-менее нормальных туториалов, потому за основу были взяты имеющиеся в системе файлы дополнений для <code>pacman</code>.</p>
 
 <p>Рассмотрим на примере все того же моего приложения. Я напомню, что часть справки к которому выглядит таким образом:</p>
+
 {% highlight bash %}
 netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FILE ]
            [ -o PROFILE | --open PROFILE ] [ -t NUM | --tab NUM ] [ --set-opts OPTIONS ]
@@ -49,28 +50,10 @@ _netctl_profiles() {}
 _netctl-gui() {}
 {% endhighlight %}
 
-Далее, опять, <b>без выделения в отдельную функцию</b> делаем соответствие функция-команда:
+Далее, опять, <b>без выделения в отдельную функцию</b> делаем соответствие "функция-команда":
 
 {% highlight bash %}
 complete -F _netctl_gui netctl-gui
-{% endhighlight %}
-</p>
-
-<h2><a name="variables" class="anchor" href="#variables"><span class="octicon octicon-link"></span></a>Массивы переменных</h2>
-<p>Приведу только функцию, которая в zsh выглядела таким образом:
-
-{% highlight bash %}
-_netctl_profiles() {
-    print $(find /etc/netctl -maxdepth 1 -type f -printf "%f\n")
-}
-{% endhighlight %}
-
-В bash так не получится, пришлось чуть-чуть изменить:
-
-{% highlight bash %}
-_netctl_profiles() {
-    echo $(find /etc/netctl -maxdepth 1 -type f -printf "%f\n")
-}
 {% endhighlight %}
 </p>
 
@@ -91,6 +74,24 @@ _netctl_gui_arglist=(
     '--tab'
     '--set-opts'
 )
+{% endhighlight %}
+</p>
+
+<h2><a name="variables" class="anchor" href="#variables"><span class="octicon octicon-link"></span></a>Массивы переменных</h2>
+<p>Приведу только функцию, которая в zsh выглядела таким образом:
+
+{% highlight bash %}
+_netctl_profiles() {
+    print $(find /etc/netctl -maxdepth 1 -type f -printf "%f\n")
+}
+{% endhighlight %}
+
+В bash так не получится, пришлось чуть-чуть изменить:
+
+{% highlight bash %}
+_netctl_profiles() {
+    echo $(find /etc/netctl -maxdepth 1 -type f -printf "%f\n")
+}
 {% endhighlight %}
 </p>
 
