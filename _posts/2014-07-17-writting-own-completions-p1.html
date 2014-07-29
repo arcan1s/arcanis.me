@@ -6,12 +6,12 @@ layout: paper
 tags: linux, development
 title: Writting own Shell completions. Zsh
 short: writting-own-completions-p1
-description: <img hspace="10" hspace="10" align="right" src="/resources/papers/zsh_completion.png"> Some basics of creating a completion files for own application are described in these articles.
+description: <figure class="sign"><img src="/resources/papers/zsh_completion.png" alt="bash_completion"></figure> Some basics of creating a completion files for own application are described in these articles.
 ---
-<h2><a name="preamble" class="anchor" href="#preamble"><span class="octicon octicon-link"></span></a>Preamble</h2>
+<h2><a href="#preamble" class="anchor" name="preamble"><span class="octicon octicon-link"></span></a>Preamble</h2>
 <p>While developing <a href="/ru/projects/netctl-gui">one of my projects</a> I have wanted to add completion files. I have already tried to create these files, but I was too lazy to read some manuals about it.</p>
 
-<h2><a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<h2><a href="#introduction" class="anchor" name="introduction"><span class="octicon octicon-link"></span></a>Introduction</h2>
 <p>There are some possible ways to create zsh completion file. In this article I will describe only one of them, which provides a lot of opportunities, but does not require a lot of costs (such as regular expressions).</p>
 
 <p>Lets consider the example of my application, which has a part of help message that looks like this:</p>
@@ -32,7 +32,7 @@ netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FI
 </ul>
 </p>
 
-<h2><a name="file" class="anchor" href="#file"><span class="octicon octicon-link"></span></a>The file pattern</h2>
+<h2><a href="#file" class="anchor" name="file"><span class="octicon octicon-link"></span></a>The file pattern</h2>
 <p>It must be specified in the header that it is a completion file and application for which it will complete (may be string if this file provides completions for several applications):
 
 {% highlight bash %}
@@ -65,9 +65,10 @@ case "$service" in
         ;;
 esac
 {% endhighlight %}
+
 </p>
 
-<h2><a name="flags" class="anchor" href="#flags"><span class="octicon octicon-link"></span></a>Flags</h2>
+<h2><a href="#flags" class="anchor" name="flags"><span class="octicon octicon-link"></span></a>Flags</h2>
 <p>As it was said above, there are some different ways to create these files. In particular they differ in the flag declaration and their further processing. In my case I will use <code>_arguments</code> command, which require a specific format of variables: <code>FLAG[description]:MESSAGE:ACTION</code>. The last two fields are not required and, as you will see below, are not needed in some cases. If you want to add two flags for an action (short and long format), then the format is a little bit complicated: <code>{(FLAG_2)FLAG_1,(FLAG_1)FLAG_2}[description]:MESSAGE:ACTION</code>. It should be noted that if you want to create completions for two flags but some flags have not a second format. you will should to add following line: <code>{FLAG,FLAG}[description]:MESSAGE:ACTION</code>. <code>MESSAGE</code> is a message which will be shown, <code>ACTION</code> is an action which will be performed after this flag. In this tutorial <code>ACTION</code> will be following: <code>->STATE</code>.</p>
 
 <p>So, according to our requirements, flags declaration will be following:
@@ -82,9 +83,10 @@ _netctl_gui_arglist=(
     {'--set-opts','--set-opts'}'[set options for this run, comma separated]:comma separated:->settings'
 )
 {% endhighlight %}
+
 </p>
 
-<h2><a name="variables" class="anchor" href="#variables"><span class="octicon octicon-link"></span></a>Arrays of variables</h2>
+<h2><a href="#variables" class="anchor" name="variables"><span class="octicon octicon-link"></span></a>Arrays of variables</h2>
 <p>In my case there are two static arrays (which will not be changed):
 
 {% highlight bash %}
@@ -106,9 +108,10 @@ _netctl_profiles() {
     print $(find /etc/netctl -maxdepth 1 -type f -printf "%f\n")
 }
 {% endhighlight %}
+
 </p>
 
-<h2><a name="body" class="anchor" href="#body"><span class="octicon octicon-link"></span></a>Function</h2>
+<h2><a href="#body" class="anchor" name="body"><span class="octicon octicon-link"></span></a>Function</h2>
 <p>Remember, there was something about a state above? It is stored in the variable <code>$state</code> and in this function we will check what it is to choose the appropriate action. At the beginning of the function we should call <code>_arguments</code> with our flags.
 
 {% highlight bash %}
@@ -140,9 +143,10 @@ _netctl-gui() {
     esac
 }
 {% endhighlight %}
+
 </p>
 
-<h2><a name="conclusion" class="anchor" href="#conclusion"><span class="octicon octicon-link"></span></a>Conclusion</h2>
-<p>File should be places to <code>/usr/share/zsh/site-functions/</code> with any name (it is recommended to set prefix to <code>_</code>). You may found the example <a href="https://raw.githubusercontent.com/arcan1s/netctl-gui/master/sources/gui/zsh-completions">in my repository</a>.</p>
+<h2><a href="#conclusion" class="anchor" name="conclusion"><span class="octicon octicon-link"></span></a>Conclusion</h2>
+<p>File should be places to <code>/usr/share/zsh/site-functions/</code> with any name (it is recommended to set prefix to <code>_</code>). You may found the example <a href="https://raw.githubusercontent.com/arcan1s/netctl-gui/master/sources/gui/zsh-completions" title="File" type="text/plain">in my repository</a>.</p>
 
-<p>The additional information may be found in <a href="https://github.com/zsh-users/zsh-completions">zsh-completions</a> repository. For example there is this <a href="https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org">How-To</a>. And also there are a lot of examples.</p>
+<p>The additional information may be found in <a href="https://github.com/zsh-users/zsh-completions" title="GitHub">zsh-completions</a> repository. For example there is this <a href="https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org" title="Tutorial">How-To</a>. And also there are a lot of examples.</p>
