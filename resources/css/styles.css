@@ -1,3 +1,16 @@
+/* in-text images */
+.sign {
+  float: right;
+  border: 0px solid #333;
+  padding: 0px;
+  margin: 5px 0px 5px 10px;
+}
+.sign figcaption {
+  margin: 0px;
+  font-style: italic;
+  text-align: center;
+}
+
 /* spoiler */
 .spoiler > input + .box > blockquote {
   display: none;

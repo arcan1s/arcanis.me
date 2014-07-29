@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Error 404</title>
-    <meta name="author" content="Evgeniy Alekseev" />
-    <meta name="description" content="arcanis' homepage" />
-    <link rel="license" type="text/html" href="/authors" />
+    <title>{{ page.title }}</title>
+    <meta name="author" content="Unknown" >
+    <meta name="description" content="arcanis' homepage">
+    <link href="/authors" rel="license" type="text/html">
 
-    <link rel="stylesheet" href="/resources/css/styles.css">
-    <link rel="stylesheet" href="/resources/css/pygment_trac.css">
-    <link rel="shortcut icon" href="/resources/icon.ico">
+    <link href="/resources/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/syntax.css" rel="stylesheet" type="text/css">
+    <link href="/resources/icon.ico" rel="shortcut icon" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
   </head>
   <body>
@@ -24,7 +24,7 @@
       </header>
       <section>
 <!-- redirection to russian page -->
-  <script>
+  <script type="text/javascript">
     var languageinfo=navigator.language? navigator.language : navigator.userLanguage
     function redirectpage(dest) {
       if (window.location.replace) window.location.replace(dest)
@@ -38,14 +38,13 @@
 
 <img src="/resources/pinkiepie.png" alt="pinkiepie">
 
-<p>I'm Pinkie Pie. You are seeing me because you want a page that I could not find. I'm sorry. Seriously. I'll try to work better. But now I may suggest you to return to the <a href="/">Home</a> or <a href="javascript:history.back()">back</a>.</p>
+<p>I'm Pinkie Pie. You are seeing me because you want a page that I could not find. I'm sorry. Seriously. I'll try to work better. But now I may suggest you to return to the <a href="/" title="Home">Home</a> or <a href="javascript:history.back()" title="Back">back</a>.</p>
 
       </section>
       <footer>
-        <p><small>Hosted on GitHub Pages. <a href="/authors">Authors</a></small></p>
+        <p><small>Hosted on GitHub Pages. <a href="/authors" title="Authors">Authors</a></small></p>
       </footer>
     </div>
-    <script src="/resources/js/scale.fix.js"></script>
-
+    <script src="/resources/js/scale.fix.js" type="text/javascript"></script>
   </body>
 </html>

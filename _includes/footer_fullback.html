@@ -1,7 +1,11 @@
 {% if page.category == "ru" %}
-  <p class="view"><a href="javascript:history.back()">Назад</a><br>
-  <a href="/ru">Главная</a></p>
+  <p class="view">
+    <a href="javascript:history.back()" title="Назад">Назад</a><br>
+    <a href="/ru" title="Главная">Главная</a>
+  </p>
 {% else %}
-  <p class="view"><a href="javascript:history.back()">Back</a><br>
-  <a href="/">Home</a></p>
+  <p class="view">
+    <a href="javascript:history.back()" title="Back">Back</a><br>
+    <a href="/" title="Home">Home</a>
+  </p>
 {% endif %}

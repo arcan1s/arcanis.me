@@ -10,32 +10,32 @@ layout: default
         <h1>{{ page.title }}</h1>
         <p class="view">
           {% if page.category == "ru" %}
-            <a href="#info">Общая информация</a><br>
-            <a href="#install">Установка</a><br>
-            <a href="#howto">Использование</a><br>
-            <a href="#config">Настройка</a><br>
+            <a href="#info" title="Информация">Общая информация</a><br>
+            <a href="#install" title="Установка">Установка</a><br>
+            <a href="#howto" title="Использование">Использование</a><br>
+            <a href="#config" title="Настройка">Настройка</a><br>
             {% if page.hasgui == true %}
-              <a href="#gui">Графический интерфейс</a><br>
-              <a href="#screenshots">Скриншоты</a><br>
+              <a href="#gui" title="Графический интерфейс">Графический интерфейс</a><br>
+              <a href="#screenshots" title="Скриншоты">Скриншоты</a><br>
             {% endif %}
-            <a href="#links">Ссылки</a>
+            <a href="#links" title="Ссылки">Ссылки</a>
           {% else %}
-            <a href="#info">General information</a><br>
-            <a href="#install">Installation guide</a><br>
-            <a href="#howto">How to use</a><br>
-            <a href="#config">Configuration</a><br>
+            <a href="#info" title="Information">General information</a><br>
+            <a href="#install" title="Installation">Installation guide</a><br>
+            <a href="#howto" title="How-to">How to use</a><br>
+            <a href="#config" title="Configuration">Configuration</a><br>
             {% if page.hasgui == true %}
-              <a href="#gui">GUI</a><br>
-              <a href="#screenshots">Screenshots</a><br>
+              <a href="#gui" title="Graphical interface">GUI</a><br>
+              <a href="#screenshots" title="Screenshots">Screenshots</a><br>
             {% endif %}
-            <a href="#links">Links</a>
+            <a href="#links" title="Links">Links</a>
           {% endif %}
         </p>
         <p class="view">
           {% if page.category == "ru" %}
-            <a href="https://github.com/arcan1s/{{ page.short }}/issues">Сообщить о баге</a>
+            <a href="https://github.com/arcan1s/{{ page.short }}/issues" title="Багтрекер">Сообщить о баге</a>
           {% else %}
-            <a href="https://github.com/arcan1s/{{ page.short }}/issues">Report a bug</a>
+            <a href="https://github.com/arcan1s/{{ page.short }}/issues" title="Bugtracker">Report a bug</a>
           {% endif %}
         </p>
       </header>
@@ -44,17 +44,17 @@ layout: default
 {{ content }}
 
 {% if page.category == "ru" %}
-  <h2><a name="links" class="anchor" href="#links"><span class="octicon octicon-link"></span></a>Ссылки</h2>
+  <h2><a href="#links" class="anchor" name="links"><span class="octicon octicon-link"></span></a>Ссылки</h2>
   <ul>
     <li><a href="https://github.com/arcan1s/{{ page.short }}">Репозиторий на GitHub</a></li>
     <li><a href="https://github.com/arcan1s/{{ page.short }}/releases">Последний релиз</a></li>
 {% else %}
-  <h2><a name="links" class="anchor" href="#links"><span class="octicon octicon-link"></span></a>Links</h2>
+  <h2><a href="#links" class="anchor" name="links"><span class="octicon octicon-link"></span></a>Links</h2>
   <ul>
     <li><a href="https://github.com/arcan1s/{{ page.short }}">GitHub repo</a></li>
     <li><a href="https://github.com/arcan1s/{{ page.short }}/releases">Latest release</a></li>
 {% endif %}
-{% for link in page.links %}
-    <li>{{ link }}</li>
-{% endfor %}
+    {% for link in page.links %}
+      <li>{{ link }}</li>
+    {% endfor %}
   </ul>

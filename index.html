@@ -10,26 +10,25 @@ title: arcanis' homepage
     <div class="wrapper">
       <header>
         <h1>{{ page.title }}</h1>
-
         <label class="spoiler">
           <input type="checkbox" tabindex="-1">
           <div class="box">
-            <a href="/feed.xml"><img src="/resources/feed-icon-14x14.png"></a>
-            <a href="/blog/">Blog</a> <span class="close">(hide)</span><span class="open">(show)</span>
+            <a href="/feed.xml" title="RSS"><img src="/resources/feed-icon-14x14.png" alt="RSS"></a>
+            <a href="/blog/" title="Blog">Blog</a><span class="close">(hide)</span><span class="open">(show)</span>
             <blockquote>
-            {% for post in site.categories.en limit:3 %}
-              <a href="{{ post.url }}">{{ post.title }}</a><br>
-            {% endfor %}
+              {% for post in site.categories.en limit:3 %}
+                <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br>
+              {% endfor %}
             </blockquote>
           </div>
         </label>
-        <p class="view"><a href="/projects/">Projects</a><br>
-        <a href="ftp://repo.arcanis.name/repo">Repository</a></p>
-        <p class="view"><a href="/about">About me</a></p>
+        <p class="view"><a href="/projects/" title="Projects">Projects</a><br>
+        <a href="ftp://repo.arcanis.name/repo" title="Repository">Repository</a></p>
+        <p class="view"><a href="/about" title="About">About me</a></p>
 
       </header>
 <!-- redirection to russian page -->
-  <script>
+  <script type="text/javascript">
     function redirectpage(dest) {
       if (window.location.replace) window.location.replace(dest)
       else window.location=dest
@@ -42,11 +41,11 @@ title: arcanis' homepage
 <!-- redirection to russian page -->
       <section>
 
-<h3><a name="welcome" class="anchor" href="#welcome"><span class="octicon octicon-link"></span></a>Welcome</h3>
-<p>Welcome to my homepage, <code>`echo $USERNAME`</code>. You may read about me on <a href="/about">the link</a>. I'm sorry I don't know html/php/ruby/etc (but I know GoogleFOO! At least, I think so), therefore this page may not look very pretty. But I tried (or may be not). In the blog I will write some papers about science, programming, living in Archlinux system and may be package maintaining. Also I will create pages for some of <a href="https://github.com/arcan1s">my projects</a>.</p>
+<h3><a href="#welcome" class="anchor" name="welcome"><span class="octicon octicon-link"></span></a>Welcome</h3>
+<p>Welcome to my homepage, <code>`echo $USERNAME`</code>. You may read about me on <a href="/about" title="About">the link</a>. I'm sorry I don't know html/php/ruby/etc (but I know GoogleFOO! At least, I think so), therefore this page may not look very pretty. But I tried (or may be not). In the blog I will write some papers about science, programming, living in Archlinux system and may be package maintaining. Also I will create pages for some of <a href="https://github.com/arcan1s" title="GitHub">my projects</a>.</p>
 
-<h3><a name="contact" class="anchor" href="#contact"><span class="octicon octicon-link"></span></a>Contact me</h3>
-<p>If you have a question or something else you may <a href="/about">contact me</a>. If you want to suggest a pull request or to create a bug report for these pages (or may be for some other projects) feel free to visit <a href="https://github.com/arcan1s">my Github profile</a> and do it.</p>
+<h3><a href="#contact" class="anchor" name="contact"><span class="octicon octicon-link"></span></a>Contact me</h3>
+<p>If you have a question or something else you may <a href="/about" title="About">contact me</a>. If you want to suggest a pull request or to create a bug report for these pages feel free to visit <a href="https://github.com/arcan1s/arcan1s.github.io" title="Pages repository">its GitHub repository</a> and do it.</p>
 
-<h3><a name="search" class="anchor" href="#search"><span class="octicon octicon-link"></span></a>Site search</h3>
+<h3><a href="#search" class="anchor" name="search"><span class="octicon octicon-link"></span></a>Site search</h3>
 {% include cse.html %}

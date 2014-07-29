@@ -4,23 +4,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>{{ page.title }}</title>
-    <meta name="author" content="Evgeniy Alekseev" />
-    <meta name="description" content="arcanis' homepage" />
-    <link rel="license" type="text/html" href="/authors" />
+    <meta name="author" content="Unknown" >
+    <meta name="description" content="arcanis' homepage">
+    <link href="/authors" rel="license" type="text/html">
 
-    <link rel="stylesheet" href="/resources/css/styles.css">
-    <link rel="stylesheet" href="/resources/css/syntax.css">
-    <link rel="shortcut icon" href="/resources/icon.ico">
+    <link href="/resources/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/syntax.css" rel="stylesheet" type="text/css">
+    <link href="/resources/icon.ico" rel="shortcut icon" type="image/x-icon">
     {% if page.category == "ru" %}
-        <link href="/ru/feed.xml" rel="alternate" title="arcanis' blog" type="application/rss+xml">
-        <link href="/ru/feed-short.xml" rel="alternate" title="arcanis' blog (только названия)" type="application/rss+xml">
+      <link href="/ru/feed.xml" title="arcanis' blog" rel="alternate" type="application/rss+xml">
+      <link href="/ru/feed-short.xml" title="arcanis' blog (только названия)" rel="alternate" type="application/rss+xml">
     {% else %}
-        <link href="/feed.xml" rel="alternate" title="arcanis' blog" type="application/rss+xml">
-        <link href="/feed-short.xml" rel="alternate" title="arcanis' blog (title only)" type="application/rss+xml">
+      <link href="/feed.xml" title="arcanis' blog" rel="alternate" type="application/rss+xml">
+      <link href="/feed-short.xml" title="arcanis' blog (title only)" rel="alternate" type="application/rss+xml">
     {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+      <script type="text/javascript">
+        document.createElement('figure');
+        document.createElement('figcaption');
+      </script>
     <![endif]-->
     {% include google_analytics.html %}
     {% if page.share == true %}
@@ -47,7 +51,6 @@
         {% include footer_sign.html %}
       </footer>
     </div>
-    <script src="/resources/js/scale.fix.js"></script>
-
+    <script src="/resources/js/scale.fix.js" type="text/javascript"></script>
   </body>
 </html>

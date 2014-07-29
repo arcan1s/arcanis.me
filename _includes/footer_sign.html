@@ -2,20 +2,24 @@
   {% if page.category == "ru" %}
     {% if page.hasTr == true %}
       {% if page.type == "paper" %}
-      <a href="{{ page.url | replace: '/ru/', '/en/' }}"><img src="/resources/en.png"></a>
+        <a href="{{ page.url | replace: '/ru/', '/en/' }}" title="Page in English">
       {% else %}
-      <a href="{{ page.url | replace: '/ru/', '/' }}"><img src="/resources/en.png"></a>
+        <a href="{{ page.url | replace: '/ru/', '/' }}" title="Page in English">
       {% endif %}
+          <img src="/resources/en.png" alt="en">
+        </a>
     {% endif %}
-    <small>Расположено на GitHub Pages. <a href="/ru/authors">Авторы</a></small>
+    <small>Расположено на GitHub Pages. <a href="/ru/authors" title="Авторы">Авторы</a></small>
   {% else %}
     {% if page.hasTr == true %}
       {% if page.type == "paper" %}
-      <a href="{{ page.url | replace: '/en/', '/ru/' }}"><img src="/resources/ru.png"></a>
+        <a href="{{ page.url | replace: '/en/', '/ru/' }}" title="Page in Russian">
       {% else %}
-      <a href="/ru{{ page.url }}"><img src="/resources/ru.png"></a>
+        <a href="/ru{{ page.url }}" title="Page in Russian">
       {% endif %}
+          <img src="/resources/ru.png" alt="ru">
+        </a>
     {% endif %}
-    <small>Hosted on GitHub Pages. <a href="/authors">Authors</a></small>
+    <small>Hosted on GitHub Pages. <a href="/authors" title="Authors">Authors</a></small>
   {% endif %}
 </p>
