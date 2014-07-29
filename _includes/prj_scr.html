@@ -1,0 +1,11 @@
+<figure class="sign" style="float:none;">
+  {% if page.category == "ru" %}
+    <a href="/resources/screenshots/{{ scrname }}.png" title="Полный размер">
+  {% else %}
+    <a href="/resources/screenshots/{{ scrname }}.png" title="Full size">
+  {% endif %}
+    <img src="/resources/preview/{{ scrname }}_prev.jpg" alt="{{ scrname }}">
+  </a><br>
+  <figcaption style="float:left">{{ scrdesc }}</figcaption>
+</figure>
+<br>

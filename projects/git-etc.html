@@ -11,8 +11,9 @@ links:
     - Archlinux <a href="https://aur.archlinux.org/packages/git-etc">AUR package</a>
 ---
 <!-- info block -->
-<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
+<h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Information</h2>
 <p>Simple daemon that automatically creates git repository in the given directory and creates commit at the specified time interval.</p>
+
 {% highlight bash %}
 $ git-etc --help
 Simple daemon written on BASH for monitoring changes in files
@@ -40,37 +41,41 @@ Additional parametrs:
 See "man 1 ctrlconf" for more details
 {% endhighlight %}
 
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<h3><a href="#license" class="anchor" name="license"><span class="octicon octicon-link"></span></a>License</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h2>
+<h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
-  <li><p>Download an <a href="https://github.com/arcan1s/git-etc/releases">archive</a> with latest version of source files.</p></li>
+  <li><p>Download an <a href="https://github.com/arcan1s/git-etc/releases" title="GitHub">archive</a> with latest version of source files.</p></li>
   <li><p>Extract it and install the application:</p>
+
 {% highlight bash %}
 ./install.sh "/path/to/root"
 {% endhighlight %}
+
 <p>If you want install it to <code>/</code> you must run it as root, e.g.:</p>
+
 {% highlight bash %}
 sudo ./install.sh
 {% endhighlight %}
+
 <p>If no path is specified it will be installed to <code>/</code> by default.</p></li>
 </ul>
 
-<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+<h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
 <p>I want note that all were tested on latest version of dependencies.</p>
 <ul>
   <li>Bash (including awk, grep, sed)</li>
@@ -83,41 +88,53 @@ sudo ./install.sh
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
+<h2><a href="#howto" class="anchor" name="howto"><span class="octicon octicon-link"></span></a>How to use</h2>
 <p>If you want to start the daemon into <code>/etc</code> just run</p>
+
 {% highlight bash %}
 systemctl start git-etc
 {% endhighlight %}
+
 <p>If you want to enable daemon autoload run</p>
+
 {% highlight bash %}
 systemctl enable git-etc
 {% endhighlight %}
+
 <p>But you may change path to configuration file or change parameters. To do it just copy (recommended) the source configuration file to new path</p>
+
 {% highlight bash %}
 cp /etc/git-etc.conf /new/path/to/file/git-etc.conf
 {% endhighlight %}
+
 <p>and edit it. Then copy the source service file to <code>/etc</code>:</p>
+
 {% highlight bash %}
 cp /usr/lib/systemd/system/git-etc.service /etc/systemd/system/git-etc-my-profile.service
 {% endhighlight %}
+
 <p>Replace following string in the file:</p>
+
 {% highlight bash %}
 ExecStart=/usr/bin/git-etc -c /etc/git-etc.conf
 {% endhighlight %}
+
 <p>to</p>
+
 {% highlight bash %}
 ExecStart=/usr/bin/git-etc -c /new/path/to/file/git-etc.conf
 {% endhighlight %}
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
+<h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Configuration</h2>
 <p>All settings are stored in <code>/etc/git-etc.conf</code>. After edit them you must restart daemon</p>
+
 {% highlight bash %}
 systemctl restart git-etc
 {% endhighlight %}
 
-<h3><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
+<h3><a href="#options" class="anchor" name="options"><span class="octicon octicon-link"></span></a>Options</h3>
 <table>
   <tr>
     <th>DIRECTORY</th>
@@ -139,22 +156,30 @@ systemctl restart git-etc
 <!-- end of config block -->
 
 <!-- gui block -->
-<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
+<h2><a href="#gui" class="anchor" name="gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
 <p>Control Config (<code>ctrlconf</code>) is GUI for <code>git-etc</code> daemon written on <code>Python2/PyQt4</code>. This application allows you to view a list of commits and changes in files recorded in commit messages. Also, this application allows you to roll back to a specific commit all files (<code>git reset --hard</code>) or individual files (<code>git diff && git apply</code>). And you may merge old and new configuration files (used two branches repository - master and experimental). The application may need root privileges. Make sure that <code>sudo</code> package is installed.</p>
 
-<h3><a name="gui_configuration" class="anchor" href="#gui_configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
+<h3><a href="#gui_configuration" class="anchor" name="gui_configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
 <p>Just run the application and open the settings window from menu!</p>
 
-<h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
+<h3><a href="#screenshots" class="anchor" name="screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
 <p>(Screenshots in Russian, but GUI has English translation.)</p>
-<p>Main window:<br>
-<a href="/resources/screenshots/git-etc_mainwindow.png"><img src="/resources/preview/git-etc_mainwindow_prev.jpg"></a><br>
-About window:<br>
-<a href="/resources/screenshots/git-etc_aboutwindow.png"><img src="/resources/preview/git-etc_aboutwindow_prev.jpg"></a><br>
-Commit changes window:<br>
-<a href="/resources/screenshots/git-etc_commitwindow.png"><img src="/resources/preview/git-etc_commitwindow_prev.jpg"></a><br>
-Merging window:<br>
-<a href="/resources/screenshots/git-etc_mergingwindow.png"><img src="/resources/preview/git-etc_mergingwindow_prev.jpg"></a><br>
-Roll back window:<br>
-<a href="/resources/screenshots/git-etc_rollbackwindow.png"><img src="/resources/preview/git-etc_rollbackwindow_prev.jpg"></a></p>
+
+<p>
+  {% assign scrdesc = "Main window" %}
+  {% assign scrname = "git-etc_mainwindow" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "About window" %}
+  {% assign scrname = "git-etc_aboutwindow" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Commit window" %}
+  {% assign scrname = "git-etc_commitwindow" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Merging window" %}
+  {% assign scrname = "git-etc_mergingwindow" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Roll back window" %}
+  {% assign scrname = "git-etc_rollbackwindow" %}
+  {% include prj_scr.html %}
+</p>
 <!-- end of gui block -->

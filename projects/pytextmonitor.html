@@ -12,38 +12,40 @@ developers:
     - Виктор Слободян (Ukrainian translation)
 license: GPLv3
 links:
-    - Plasmoid page on <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a>
-    - DataEngine page on <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773">kde-look.org</a>
-    - Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-pytextmonitor">AUR package</a>
+    - Plasmoid page on <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124" title="kde-look">kde-look.org</a>
+    - DataEngine page on <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773" title="kde-look">kde-look.org</a>
+    - Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-pytextmonitor" title="AUR">AUR package</a>
 ---
 <!-- info block -->
-<h2><a name="info" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Information</h2>
-<p>A minimalistic Plasmoid script written on <code>Python2</code>. It looks like widgets in <a href="http://awesome.naquadah.org/">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
-<p><b>NOTE:</b> <a href="https://github.com/arcan1s/pytextmonitor/issues/14">LOOKING FOR TRANSLATORS!</a></p>
+<h2><a href="#information" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Information</h2>
+<p>A minimalistic Plasmoid script written on <code>Python2</code>. It looks like widgets in <a href="http://awesome.naquadah.org/" title="Awesome Homepage">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines" title="Developers tutorial">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
 
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<p><b>NOTE:</b> <a href="https://github.com/arcan1s/pytextmonitor/issues/14" title="Ticket">LOOKING FOR TRANSLATORS!</a></p>
+
+<h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<h3><a href="#license" class="anchor" name="license"><span class="octicon octicon-link"></span></a>License</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 
-<h3><a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h3>
-<p><a href="https://github.com/arcan1s/pytextmonitor/blob/master/CHANGELOG">CHANGELOG</a></p>
+<h3><a href="#changelog" class="anchor" name="changelog"><span class="octicon octicon-link"></span></a>Changelog</h3>
+<p><a href="https://github.com/arcan1s/pytextmonitor/blob/master/CHANGELOG" title="GitHub">CHANGELOG</a></p>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h2>
+<h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
-  <li><p>Download an <a href="https://github.com/arcan1s/pytextmonitor/releases">archive</a> with latest version of source files.</p></li>
+  <li><p>Download an <a href="https://github.com/arcan1s/pytextmonitor/releases" title="GitHub">archive</a> with latest version of source files.</p></li>
   <li><p>Extract it and install:</p>
+
 {% highlight bash %}
 cd /where/is/applet/
 mkdir build && cd build
@@ -51,17 +53,21 @@ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=`kde4-config --localpref
 make
 make install
 {% endhighlight %}
+
 <p>For global isntallation type:</p>
+
 {% highlight bash %}
 cd /where/is/applet/
 mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` ../
 make
 sudo make install
-{% endhighlight %}</li>
+{% endhighlight %}
+
+  </li>
 </ul>
 
-<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+<h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
 <p>I want note that all were tested on latest version of dependencies.</p>
 <ul>
   <li>kdebase-workspace</li>
@@ -72,7 +78,7 @@ sudo make install
   <li>net-tools <i>(optional, for popup messages)</i></li>
   <li>sysstat <i>(optional, for popup messages)</i></li>
   <li>hddtemp <i>(optional, for HDD temperature monitor)</i></li>
-  <li>one of supported music player - <a href="http://amarok.kde.org/">amarok</a>, <a href="http://www.clementine-player.org/">clementine</a>, <a href="http://www.musicpd.org/">mpd</a> or <a href="http://qmmp.ylsoftware.com/">qmmp</a> <i>(optional, for music player monitor)</i>
+  <li>one of supported music player - <a href="http://amarok.kde.org/" title="Amarok Homepage">amarok</a>, <a href="http://www.clementine-player.org/" title="Clementine Homepage">clementine</a>, <a href="http://www.musicpd.org/" title="mpd Homepage">mpd</a> or <a href="http://qmmp.ylsoftware.com/" title="qmmp Homepage">qmmp</a> <i>(optional, for music player monitor)</i>
   <li>proprietary video driver <i>(optional, for GPU monitor)</i></li></li>
 </ul>
 <!-- end of install block -->
@@ -88,12 +94,12 @@ sudo make install
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
+<h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Configuration</h2>
 
-<h3><a name="deconf" class="anchor" href="#deconf"><span class="octicon octicon-link"></span></a>DataEngine configuration</h3>
+<h3><a href="#deconf" class="anchor" name="deconf"><span class="octicon octicon-link"></span></a>DataEngine configuration</h3>
 <p>You may edit DataEngine configuration. It is <code>/usr/share/config/extsysmon.conf</code> or <code>$HOME/.kde4/share/config/extsysmon.conf</code> depending on the type of installation. Uncomment needed line and edit it.</p>
 
-<h4><a name="deoptions" class="anchor" href="#deoptions"><span class="octicon octicon-link"></span></a>DataEngine options</h4>
+<h4><a href="#deoptions" class="anchor" name="deoptions"><span class="octicon octicon-link"></span></a>DataEngine options</h4>
 <table>
   <tr>
     <th>CUSTOM</th>
@@ -137,9 +143,10 @@ sudo make install
   </tr>
 </table>
 
-<h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Widget configuration</h3>
+<h3><a href="#widconf" class="anchor" name="widconf"><span class="octicon octicon-link"></span></a>Widget configuration</h3>
 <p>For edited output you must open Settings window and setup output format in lines. Label order will changed if you change slider position. HTML tags in label work normally.<br>
 <b>NOTE</b> You do not may set to show <code>$cpu</code> in swap label for example. <b><code>$cpu</code> will work only in cpu label.</b></p>
+
 <p>Available flags are in the table below.<br>
 <b>NOTE</b> The numbering of all arrays in variables starts at 0.</p>
 <table>
@@ -364,7 +371,7 @@ sudo make install
   </tr>
 </table>
 
-<h4><a name="advanced" class="anchor" href="#advanced"><span class="octicon octicon-link"></span></a>Advanced settings</h4>
+<h4><a href="#advanced" class="anchor" name="advanced"><span class="octicon octicon-link"></span></a>Advanced settings</h4>
 <p><b>Enable background:</b> Uncheck to disable default background and set transparent one.</p>
 
 <p><b>Vertical layout:</b> Use vertical layout instead of horizontal one.</p>
@@ -491,10 +498,10 @@ sudo make install
 
 <p><b>AC device:</b> File with AC information. The file (<code>/sys/class/power_supply/AC/online</code> by default) should contain <code>1</code> if AC is online.</p>
 
-<h4><a name="tooltips" class="anchor" href="#tooltips"><span class="octicon octicon-link"></span></a>Tooltips</h4>
+<h4><a href="#tooltips" class="anchor" name="tooltips"><span class="octicon octicon-link"></span></a>Tooltips</h4>
 <p>Since version 1.7.0 CPU, CPU clock, memory, swap and network labels support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
 
-<h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
+<h4><a href="#deguiconf" class="anchor" name="deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
 <p><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> Commands, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
 
 <p><b>Desktop cmd:</b> Type a command which will be run for desktop DataEngine. Default is <code>qdbus org.kde.kwin /KWin currentDesktop</code>.</p>
@@ -550,10 +557,10 @@ sudo make install
 
 <p><b>Music player:</b> Select one of supported music playes for player label.</p>
 
-<h3>PTM desktop panel</h3>
+<h3><a href="#desktoppanel" class="anchor" name="desktoppanel"><span class="octicon octicon-link"></span></a>PTM desktop panel</h3>
 <p>Since version 1.11.0 PyTextMonitor provides a minimalistic panel for monitoring on desktops written on <code>C++</code>. And yes, it looks like the same panel in Awesome.</p>
 
-<h4>Desktop panel configuration</h4>
+<h4><a href="#ptmdpconf" class="anchor" name="ptmdpconf"><span class="octicon octicon-link"></span></a>Desktop panel configuration</h4>
 <p><b>Enable background: </b> Uncheck to disable default background and set transparent one.</p>
 
 <p><b>Vertical layout:</b> Use vertical layout instead of horizontal one.</p>
@@ -586,16 +593,29 @@ sudo make install
 <!-- end of config block -->
 
 <!-- gui block -->
-<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
+<h2><a href="#gui" class="anchor" name="gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
 
-<h2><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
-<p>Widget (clickable):<br>
-<a href="/resources/screenshots/pytextmonitor_widget.png"><img src="/resources/preview/pytextmonitor_widget_prev.jpg"></a><br>
-Configuration window:<br>
-<a href="/resources/screenshots/pytextmonitor_config_01.png"><img src="/resources/preview/pytextmonitor_config_01_prev.jpg"></a><br>
-<a href="/resources/screenshots/pytextmonitor_config_02.png"><img src="/resources/preview/pytextmonitor_config_02_prev.jpg"></a><br>
-<a href="/resources/screenshots/pytextmonitor_config_03.png"><img src="/resources/preview/pytextmonitor_config_03_prev.jpg"></a><br>
-<a href="/resources/screenshots/pytextmonitor_config_04.png"><img src="/resources/preview/pytextmonitor_config_04_prev.jpg"></a><br>
-<a href="/resources/screenshots/pytextmonitor_config_05.png"><img src="/resources/preview/pytextmonitor_config_05_prev.jpg"></a><br>
-Tooltips:<br>
-<a href="/resources/screenshots/pytextmonitor_tooltips.png"><img src="/resources/preview/pytextmonitor_tooltips_prev.jpg"></a></p>
+<h2><a href="#screenshots" class="anchor" name="screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
+<p>
+  {% assign scrdesc = "Widget (clickable)" %}
+  {% assign scrname = "pytextmonitor_widget" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Configuration window" %}
+  {% assign scrname = "pytextmonitor_config_01" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Configuration window" %}
+  {% assign scrname = "pytextmonitor_config_02" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Configuration window" %}
+  {% assign scrname = "pytextmonitor_config_03" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Configuration window" %}
+  {% assign scrname = "pytextmonitor_config_04" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Configuration window" %}
+  {% assign scrname = "pytextmonitor_config_05" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Tooltips" %}
+  {% assign scrname = "pytextmonitor_tooltips" %}
+  {% include prj_scr.html %}
+</p>

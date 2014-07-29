@@ -8,33 +8,34 @@ developers:
     - Evgeniy Alelseev
 license: GPL
 links:
-    - Page on <a href="http://kde-look.org/content/show.php/oblikue-strategies?content=160503">kde-look.org</a>
-    - Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-oblikuestrategies">AUR package</a>
+    - Page on <a href="http://kde-look.org/content/show.php/oblikue-strategies?content=160503" title="kde-look">kde-look.org</a>
+    - Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-oblikuestrategies" title="AUR">AUR package</a>
 ---
 <!-- info block -->
-<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Information</h2>
-<p>Plasmoid written on <code>CPP</code> that displays a random draw from Brian Eno and Peter Schmidt's <a href="http://en.wikipedia.org/wiki/Oblique_strategies">Oblique Strategies</a>. It is <a href="http://gnome-look.org/content/show.php/Oblique+Strategies?content=78405">GNOME applet</a> fork with some of special features.</p>
+<h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Information</h2>
+<p>Plasmoid written on <code>CPP</code> that displays a random draw from Brian Eno and Peter Schmidt's <a href="http://en.wikipedia.org/wiki/Oblique_strategies" title="Wiki">Oblique Strategies</a>. It is <a href="http://gnome-look.org/content/show.php/Oblique+Strategies?content=78405" title="gnome-look">GNOME applet</a> fork with some of special features.</p>
 
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+<h3><a href="#license" class="anchor" name="license"><span class="octicon octicon-link"></span></a>License</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Installation</h2>
+<h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
-  <li><p>Download an <a href="https://github.com/arcan1s/oblikuestrategies/releases">archive</a> with latest version of source files.</p></li>
+  <li><p>Download an <a href="https://github.com/arcan1s/oblikuestrategies/releases" title="GitHub">archive</a> with latest version of source files.</p></li>
   <li><p>Extract it and install the application. For global isntallation type:</p>
+
 {% highlight bash %}
 cd /where/is/applet/
 mkdir build && cd build
@@ -42,25 +43,34 @@ cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` -DCMAKE_BUILD_TYPE=Release .
 make
 sudo make install
 {% endhighlight %}
+
 <p>For local isntallation type:</p>
+
 {% highlight bash %}
 cd /where/is/applet/
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
 make
 make install
-{% endhighlight %}</li>
+{% endhighlight %}
+
+  </li>
   <li><p>Restart plasma to load the applet:</p>
+
 {% highlight bash %}
 kquitapp plasma-desktop && sleep 2 && plasma-desktop
 {% endhighlight %}
+
 <p>Also you might need to run <code>kbuildsycoca4</code> in order to get the <code>*.desktop</code> file recognized:</p>
+
 {% highlight bash %}
 kbuildsycoca4 &> /dev/null
-{% endhighlight %}</li>
+{% endhighlight %}
+
+  </li>
 </ul>
 
-<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+<h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
 <p>I want note that all were tested on latest version of dependencies.</p>
 <ul>
   <li>kdebase-workspace</li>
@@ -70,21 +80,25 @@ kbuildsycoca4 &> /dev/null
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>How to use</h2>
+<h2><a href="#howto" class="anchor" name="howto"><span class="octicon octicon-link"></span></a>How to use</h2>
 <p>Open your Plasma widgets and select <code>Oblikue strategies</code>.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Configuration</h2>
+<h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Configuration</h2>
 <p>Right click on widget.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
-<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
+<h2><a href="#gui" class="anchor" name="gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
 
 <h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
-<p>Widget:<br>
-<a href="/resources/screenshots/oblikuestrategies_widget.png"><img src="/resources/preview/oblikuestrategies_widget_prev.jpg"></a><br>
-Configuration window:<br>
-<a href="/resources/screenshots/oblikuestrategies_config.png"><img src="/resources/preview/oblikuestrategies_config_prev.jpg"></a></p>
+<p>
+  {% assign scrdesc = "Widget" %}
+  {% assign scrname = "oblikuestrategies_widget" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Configuration window" %}
+  {% assign scrname = "oblikuestrategies_config" %}
+  {% include prj_scr.html %}
+</p>
 <!-- end of gui block -->
