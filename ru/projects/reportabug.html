@@ -7,13 +7,13 @@ short: reportabug
 hasgui: false
 hasdocs: true
 developers:
-    - Evgeniy Alelseev
+    - Evgeniy Alekseev
 license: LGPLv3
 links:
 ---
 <!-- info block -->
 <h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p>Приложение/библиотека, написанная на Qt, которое позволяет пользователям отправлять багрепорт для проектов, расположенных на GitHub. Оно может работать как через <a href="https://github.com" title="GitHub">GitHub</a>, так и через <a href="https://gitreports.com" title="GitReports">GitReports</a>.</p>
+<p>Приложение/библиотека, написанное на Qt, которое позволяет пользователям отправлять багрепорт для проектов, расположенных на GitHub. Оно может работать как через <a href="https://github.com" title="GitHub">GitHub</a>, так и через <a href="https://gitreports.com" title="GitReports">GitReports</a>.</p>
 
 <h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
@@ -32,11 +32,11 @@ links:
 <h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Установка</h2>
 
 <h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
-<h4><a href="#singleapp" class="anchor" name="singleapp"><span class="octicon octicon-link"></span></a>Сборка, как отдельное приложение:</h4>
+<h4><a href="#singleapp" class="anchor" name="singleapp"><span class="octicon octicon-link"></span></a>Сборка, как отдельное приложение</h4>
 <ul>
-  <li><p>Скачайте <a href="https://github.com/arcan1s/reportabug/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</p></li>
-  <li><p>Извлеките из него файлы и настройте под себя.</p></li>
-  <li><p>Установите приложение:</p>
+  <li>Скачайте <a href="https://github.com/arcan1s/reportabug/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</li>
+  <li>Извлеките из него файлы и настройте под себя.</li>
+  <li>Установите приложение:
 
 {% highlight bash %}
 cd /path/to/extracted/archive
@@ -49,18 +49,18 @@ sudo make install
   </li>
 </ul>
 
-<h4><a href="#aslibrary" class="anchor" name="aslibrary"><span class="octicon octicon-link"></span></a>Сборка, как библиотека в проекте:</h4>
+<h4><a href="#aslibrary" class="anchor" name="aslibrary"><span class="octicon octicon-link"></span></a>Сборка, как библиотека в проекте</h4>
 <ul>
-  <li><p>Скачайте <a href="https://github.com/arcan1s/reportabug/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</p></li>
-  <li><p>Извлеките из него файлы и настройте под себя.</p>
-  <li><p>Включите библиотеку в Ваш проект. Например, если Вы используете <code>cmake</code>:</p>
+  <li>Скачайте <a href="https://github.com/arcan1s/reportabug/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</li>
+  <li>Извлеките из него файлы и настройте под себя.</li>
+  <li>Включите библиотеку в Ваш проект. Например, если Вы используете <code>cmake</code>:
 
 {% highlight cmake %}
 add_subdirectory (reportabug)
 {% endhighlight %}
 
   </li>
-  <li><p>Объявите класс в Вашем приложении, например:</p>
+  <li>Объявите класс в Вашем приложении, например:
 
 {% highlight cpp %}
 Reportabug *reportWindow = new Reportabug(this, false);
@@ -71,7 +71,7 @@ reportWindow->showWindow();
   <li>Слинкуйте Ваше приложение с библиотекой.</li>
 </ul>
 
-<h4><a href="#cmakeflags" class="anchor" name="cmakeflags"><span class="octicon octicon-link"></span></a>Доступные флаги cmake:</h4>
+<h4><a href="#cmakeflags" class="anchor" name="cmakeflags"><span class="octicon octicon-link"></span></a>Доступные флаги cmake</h4>
 <ul>
   <li><code>-DBUILD_AS_LIBRARY:BOOL=0</code> - собирать отдельное приложение, а не библиотеку.</li>
   <li><code>-DBUILD_DOCS:BOOL=1</code> - собирать документацию для разработчиков.</li>
@@ -115,14 +115,14 @@ curl -X POST -H "Authorization: token token" -d '{"title":"A new bug","body":"So
      https://api.github.com/repos/owner/repo/issues
 {% endhighlight %}
 
-<p>Для того, чтобы включить данный модуль, используйте <code>--DOWN_GITHUB_TOKEN=STRING</code> флаг cmake.</p>
+<p>Для того, чтобы включить данный модуль, используйте <code>-DOWN_GITHUB_TOKEN=STRING</code> флаг cmake.</p>
 
-<p>Данный модуль требует наличия в системе qt5-network.</p>
+<p>Данный модуль требует наличия в системе <code>QtNetwork</code>.</p>
 
 <h3><a href="#gitreports" class="anchor" name="gitreports"><span class="octicon octicon-link"></span></a>Модуль GitReports</h3>
 <p>Данный модуль создает тикет, используя возможности <a href="https://gitreports.com/about" title="GitReports">GitReports</a>. Пожалуйста, посетите <a href="https://gitreports.com/" title="GitReports">данную страницу</a> и настройте под Ваши репозитории.</p>
 
-<p>Для того, чтобы отключить данный модуль, используйте <code>-DENABLE_GITREPORT=0</code> флаг cmake. Данный модуль требует наличия в системе qt5-webkit.</p>
+<p>Для того, чтобы отключить данный модуль, используйте <code>-DENABLE_GITREPORT=0</code> флаг cmake. Данный модуль требует наличия в системе <code>QtWebKit</code>.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
