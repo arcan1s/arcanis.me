@@ -6,12 +6,12 @@ layout: paper
 tags: linux, разработка
 title: Написание своих дополнений для Shell. Zsh
 short: writting-own-completions-p1
-description: <img hspace=10 vspace=10 align="right" src="/resources/papers/zsh_completion.png"> В данных статьях описываются некоторые основы создания файлов дополнений для собственной программы.
+description: <figure class="img"><img src="/resources/papers/zsh_completion.png" alt="bash_completion"></figure> В данных статьях описываются некоторые основы создания файлов дополнений для собственной программы.
 ---
-<h2><a name="preamble" class="anchor" href="#preamble"><span class="octicon octicon-link"></span></a>Преамбула</h2>
-<p>В процессе разработки <a href="/ru/projects/netctl-gui">одного своего проекта</a> возникло желание добавить также файлы дополнений (только не спрашивайте зачем). Благо я как-то уже брался за написание подобных вещей, но читать что-либо тогда мне было лень, и так и не осилил.</p>
+<h2><a href="#preamble" class="anchor" name="preamble"><span class="octicon octicon-link"></span></a>Преамбула</h2>
+<p>В процессе разработки <a href="/ru/projects/netctl-gui" title="Страница netctl-gui">одного своего проекта</a> возникло желание добавить также файлы дополнений (только не спрашивайте зачем). Благо я как-то уже брался за написание подобных вещей, но читать что-либо тогда мне было лень, и так и не осилил.</p>
 
-<h2><a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Введение</h2>
+<h2><a href="#introduction" class="anchor" name="introduction"><span class="octicon octicon-link"></span></a>Введение</h2>
 <p>Существует несколько возможных вариантов написания файла автодополнения для zsh. В случае данной статьи я остановлюсь только на одном из них, который предоставляет большие возможности и не требует больших затрат (например, работы с регулярными выражениями).</p>
 
 <p>Рассмотрим на примере моего же приложения, часть справки к которому выглядит таким образом:</p>
@@ -32,7 +32,7 @@ netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FI
 </ul>
 </p>
 
-<h2><a name="file" class="anchor" href="#file"><span class="octicon octicon-link"></span></a>Структура файла</h2>
+<h2><a href="#file" class="anchor" name="file"><span class="octicon octicon-link"></span></a>Структура файла</h2>
 <p>В заголовке должно быть обязательно указано, что это файл дополнений и для каких приложений он служит (можно строкой, если в файле будет содержаться дополнение для нескольких команд):
 
 {% highlight bash %}
@@ -65,9 +65,10 @@ case "$service" in
         ;;
 esac
 {% endhighlight %}
+
 </p>
 
-<h2><a name="flags" class="anchor" href="#flags"><span class="octicon octicon-link"></span></a>Флаги</h2>
+<h2><a href="#flags" class="anchor" name="flags"><span class="octicon octicon-link"></span></a>Флаги</h2>
 <p>Как я и говорил во введении, существует несколько способов создания подобных файлов. В частности, они различаются декларацией флагов и их дальнейшей обработкой. В данном случае я буду использовать команду <code>_arguments</code>, которая требует специфичный формат переменных. Выглядит он таким образом <code>ФЛАГ[описание]:СООБЩЕНИЕ:ДЕЙСТВИЕ</code>. Последние два поля не обязательны и, как Вы увидите чуть ниже, вовсе и не нужны в некоторых местах. Если Вы предусматриваете два флага (короткий и длинный формат) на одно действие, то формат чуть-чуть усложняется: <code>{(ФЛАГ_2)ФЛАГ_1,(ФЛАГ_1)ФЛАГ_2}[описание]:СООБЩЕНИЕ:ДЕЙСТВИЕ</code>. Замечу, что, если Вы хотите сделать дополнения для двух типов флагов, но некоторые флаги не имеют второй записи, то Вам необходимо продублировать его таким образом: <code>{ФЛАГ,ФЛАГ}[описание]:СООБЩЕНИЕ:ДЕЙСТВИЕ</code>. <code>СООБЩЕНИЕ</code> - сообщение, которое будет показано, <code>ДЕЙСТВИЕ</code> - действие, которое будет выполнено после этого флага. В случае данного туториала, <code>ДЕЙСТВИЕ</code> будет иметь вид <code>->СОСТОЯНИЕ</code>.</p>
 
 <p>Итак, согласно нашим требованиям, получается такое объявление аргументов:
@@ -82,9 +83,10 @@ _netctl_gui_arglist=(
     {'--set-opts','--set-opts'}'[set options for this run, comma separated]:comma separated:->settings'
 )
 {% endhighlight %}
+
 </p>
 
-<h2><a name="variables" class="anchor" href="#variables"><span class="octicon octicon-link"></span></a>Массивы переменных</h2>
+<h2><a href="#variables" class="anchor" name="variables"><span class="octicon octicon-link"></span></a>Массивы переменных</h2>
 <p>В нашем случае есть два статических массива (не изменятся ни сейчас, ни через пять минут) (массивы умышленно уменьшены):
 
 {% highlight bash %}
@@ -106,9 +108,10 @@ _netctl_profiles() {
     print $(find /etc/netctl -maxdepth 1 -type f -printf "%f\n")
 }
 {% endhighlight %}
+
 </p>
 
-<h2><a name="body" class="anchor" href="#body"><span class="octicon octicon-link"></span></a>Тело функции</h2>
+<h2><a href="#body" class="anchor" name="body"><span class="octicon octicon-link"></span></a>Тело функции</h2>
 <p>Помните, там выше было что-то про состояние? Оно хранится в переменной <code>$state</code>, и в теле функции делается проверка на то, чему оно равно, чтобы подобрать соответствующие действия. В начале также нужно не забыть вызвать <code>_arguments</code> с нашими флагами.
 
 {% highlight bash %}
@@ -140,9 +143,10 @@ _netctl-gui() {
     esac
 }
 {% endhighlight %}
+
 </p>
 
-<h2><a name="conclusion" class="anchor" href="#conclusion"><span class="octicon octicon-link"></span></a>Заключение</h2>
-<p>Файл хранится в директории <code>/usr/share/zsh/site-functions/</code> с произвольным, в общем-то, именем с префиксом <code>_</code>. Файл примера полностью может быть найден <a href="https://raw.githubusercontent.com/arcan1s/netctl-gui/master/sources/gui/zsh-completions">в моем репозитории</a>.</p>
+<h2><a href="#conclusion" class="anchor" name="conclusion"><span class="octicon octicon-link"></span></a>Заключение</h2>
+<p>Файл хранится в директории <code>/usr/share/zsh/site-functions/</code> с произвольным, в общем-то, именем с префиксом <code>_</code>. Файл примера полностью может быть найден <a href="https://raw.githubusercontent.com/arcan1s/netctl-gui/master/sources/gui/zsh-completions" title="Файл" type="text/plain">в моем репозитории</a>.</p>
 
-<p>Дополнительная информация может быть найдена в репозитории <a href="https://github.com/zsh-users/zsh-completions">zsh-completions</a>. Например, там есть такой <a href="https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org">How-To</a>. А еще там есть много примеров.</p>
+<p>Дополнительная информация может быть найдена в репозитории <a href="https://github.com/zsh-users/zsh-completions" title="GitHub">zsh-completions</a>. Например, там есть такой <a href="https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org" title="Туториал">How-To</a>. А еще там есть много примеров.</p>
