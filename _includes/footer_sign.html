@@ -1,6 +1,6 @@
 <p>
   {% if page.category == "ru" %}
-    {% if page.hasTr == true %}
+    {% if page.hastr == true %}
       {% if page.type == "paper" %}
         <a href="{{ page.url | replace: '/ru/', '/en/' }}" title="Page in English">
       {% else %}
@@ -11,7 +11,7 @@
     {% endif %}
     <small>Расположено на GitHub Pages. <a href="/ru/authors" title="Авторы">Авторы</a></small>
   {% else %}
-    {% if page.hasTr == true %}
+    {% if page.hastr == true %}
       {% if page.type == "paper" %}
         <a href="{{ page.url | replace: '/en/', '/ru/' }}" title="Page in Russian">
       {% else %}

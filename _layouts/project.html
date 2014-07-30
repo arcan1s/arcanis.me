@@ -34,8 +34,14 @@ layout: default
         <p class="view">
           {% if page.category == "ru" %}
             <a href="https://github.com/arcan1s/{{ page.short }}/issues" title="Багтрекер">Сообщить о баге</a>
+            {% if page.hasdocs == true %}
+              <br><a href="/devs/{{ page.short }}/" title="Документация">Разработчикам</a>
+            {% endif %}
           {% else %}
             <a href="https://github.com/arcan1s/{{ page.short }}/issues" title="Bugtracker">Report a bug</a>
+            {% if page.hasdocs == true %}
+              <br><a href="/devs/{{ page.short }}/" title="Documentation">For developers</a>
+            {% endif %}
           {% endif %}
         </p>
       </header>
