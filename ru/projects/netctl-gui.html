@@ -10,13 +10,16 @@ developers:
     - Evgeniy Alelseev
 license: GPLv3
 links:
-    - Страница на <a href="http://linux.softpedia.com/get/System/Networking/Netctl-GUI-103383.shtml">Softpedia</a>
-    - Страница на <a href="http://kde-apps.org/content/show.php?content=164490">kde-apps.org</a>
-    - <a href="https://aur.archlinux.org/pkgbase/netctl-gui/">Пакет в AUR</a>
+    - Страница на <a href="http://linux.softpedia.com/get/System/Networking/Netctl-GUI-103383.shtml" title="Softpedia">Softpedia</a>
+    - Страница на <a href="http://kde-apps.org/content/show.php?content=164490" title="kde-apps">kde-apps.org</a>
+    - <a href="https://aur.archlinux.org/pkgbase/netctl-gui/" title="AUR">Пакет в AUR</a>
 ---
 <!-- info block -->
-<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
+<h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Информация</h2>
 <p>Графическая оболочка для <code>netctl</code> (набор скриптов для поднятия сети в Arch'е). Написана на <code>CPP</code> с использованием библиотеки <code>Qt4</code>. На текущим момент умеет работать с профилями, в том числе создавать новые, а также умеет подключаться к WiFi. Также предоставляет библиотеку для взаимодействия с netctl и виджет и DataEngine для KDE.</p>
+
+<p><b>ВНИМАНИЕ:</b> <a href="https://github.com/arcan1s/netctl-gui/issues/3" title="Тикет">НУЖНЫ ПЕРЕВОДЧИКИ!</a></p>
+
 {% highlight bash %}
 $ netctl-gui --help
 Использование:
@@ -50,30 +53,31 @@ netctl-gui [ --about ] [ --netctl-auto ] [ --settings ]
    -h           --help                   - показать справку и выход
 {% endhighlight %}
 
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
+<h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
+<h3><a href="#license" class="anchor" name="license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 
-<h3><a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h3>
-<p><a href="https://github.com/arcan1s/netctl-gui/blob/master/CHANGELOG">CHANGELOG</a></p>
+<h3><a href="#changelog" class="anchor" name="changelog"><span class="octicon octicon-link"></span></a>Changelog</h3>
+<p><a href="https://github.com/arcan1s/netctl-gui/blob/master/CHANGELOG" title="GitHub">CHANGELOG</a></p>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Установка</h2>
+<h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Установка</h2>
 
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
+<h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p>Скачайте <a href="https://github.com/arcan1s/netctl-gui/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p>Скачайте <a href="https://github.com/arcan1s/netctl-gui/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</p></li>
   <li><p>Извлеките из него файлы и установите приложение:</p>
 <p>Если Вы хотите установить в <code>/</code>, Вы должны запустить как root:</p>
+
 {% highlight bash %}
 cd /путь/к/распакованному/архиву
 mkdir build && cd build
@@ -81,6 +85,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ../
 make
 sudo make install
 {% endhighlight %}
+
 <p>Доступные флаги cmake:</p>
   <ul>
     <li><code>-DBUILD_DATAENGINE:BOOL=0</code> - не собирать DataEngine;</li>
@@ -93,7 +98,7 @@ sudo make install
   </li>
 </ul>
 
-<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
+<h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
 <p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>netctl</li>
@@ -108,38 +113,53 @@ sudo make install
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
+<h2><a href="#howto" class="anchor" name="howto"><span class="octicon octicon-link"></span></a>Использование</h2>
 <p>Просто запустите приложение <code>netctl-gui</code>. Если потребуется (и если Вы используете KDE), можете добавить виджет <code>netctl</code>, предоставляемый приложением.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
+<h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Настройка</h2>
 <p>Для настройки виджета и DataEngine рекомендуется использовать графический интерфейс. Все настройки графического интерфейса хранятся в <code>$HOME/.config/netctl-gui.conf</code>. Для редактирования настоятельно рекомендуется использовать графический интерфейс.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
-<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
+<h2><a href="#gui" class="anchor" name="gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
 <p>Графический интерфейс предоставляется приложением <code>netctl-gui</code>.</p>
 
 <h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
-<p>DataEngine:<br>
-<a href="/resources/screenshots/netctl-gui_dataengine.png"><img src="/resources/preview/netctl-gui_dataengine_prev.jpg"></a><br>
-Виджет:<br>
-<a href="/resources/screenshots/netctl-gui_plasmoid.png"><img src="/resources/preview/netctl-gui_plasmoid_prev.jpg"></a><br>
-Настройки виджета:<br>
-<a href="/resources/screenshots/netctl-gui_plasmoid_conf_01.png"><img src="/resources/preview/netctl-gui_plasmoid_conf_01_prev.jpg"></a><br>
-<a href="/resources/screenshots/netctl-gui_plasmoid_conf_02.png"><img src="/resources/preview/netctl-gui_plasmoid_conf_02_prev.jpg"></a><br>
-<a href="/resources/screenshots/netctl-gui_plasmoid_conf_03.png"><img src="/resources/preview/netctl-gui_plasmoid_conf_03_prev.jpg"></a><br>
-Главное окно:<br>
-<a href="/resources/screenshots/netctl-gui_main.png"><img src="/resources/preview/netctl-gui_main_prev.jpg"></a><br>
-Окно создания профиля:<br>
-<a href="/resources/screenshots/netctl-gui_profile.png"><img src="/resources/preview/netctl-gui_profile_prev.jpg"></a><br>
-WiFi меню:<br>
-<a href="/resources/screenshots/netctl-gui_wifi.png"><img src="/resources/preview/netctl-gui_wifi_prev.jpg"></a><br>
-Окно "О программе":<br>
-<a href="/resources/screenshots/netctl-gui_about.png"><img src="/resources/preview/netctl-gui_about_prev.jpg"></a><br>
-Окно netctl-auto:<br>
-<a href="/resources/screenshots/netctl-gui_netctl-auto.png"><img src="/resources/preview/netctl-gui_netctl-auto_prev.jpg"></a><br>
-Окно настроек:<br>
-<a href="/resources/screenshots/netctl-gui_settings.png"><img src="/resources/preview/netctl-gui_settings_prev.jpg"></a></p>
+<div class="thumbnails">
+  {% assign scrdesc = "DataEngine" %}
+  {% assign scrname = "netctl-gui_dataengine" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Виджет" %}
+  {% assign scrname = "netctl-gui_plasmoid" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Настройки виджета" %}
+  {% assign scrname = "netctl-gui_plasmoid_conf_01" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Настройки виджета" %}
+  {% assign scrname = "netctl-gui_plasmoid_conf_02" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Настройки виджета" %}
+  {% assign scrname = "netctl-gui_plasmoid_conf_03" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Главное окно" %}
+  {% assign scrname = "netctl-gui_main" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Окно создания профиля" %}
+  {% assign scrname = "netctl-gui_profile" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "WiFi меню" %}
+  {% assign scrname = "netctl-gui_wifi" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Окно 'О программе'" %}
+  {% assign scrname = "netctl-gui_about" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Окно netctl-auto" %}
+  {% assign scrname = "netctl-gui_netctl-auto" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Окно настроек" %}
+  {% assign scrname = "netctl-gui_settings" %}
+  {% include prj_scr.html %}
+</div>
 <!-- end of gui block -->

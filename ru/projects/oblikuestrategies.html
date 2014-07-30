@@ -10,33 +10,34 @@ developers:
     - Evgeniy Alelseev
 license: GPL
 links:
-    - Страница на <a href="http://kde-look.org/content/show.php/oblikue-strategies?content=160503">kde-look.org</a>
-    - Пакет в <a href="https://aur.archlinux.org/packages/kdeplasma-applets-oblikuestrategies">AUR</a>
+    - Страница на <a href="http://kde-look.org/content/show.php/oblikue-strategies?content=160503" title="kde-look">kde-look.org</a>
+    - Пакет в <a href="https://aur.archlinux.org/packages/kdeplasma-applets-oblikuestrategies" title="AUR">AUR</a>
 ---
 <!-- info block -->
-<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p>Плазмоид, написанный на <code>CPP</code> который показывает случайные карты из Brian Eno и Peter Schmidt's <a href="http://en.wikipedia.org/wiki/Oblique_strategies">Oblique Strategies</a>. Это форк <a href="http://gnome-look.org/content/show.php/Oblique+Strategies?content=78405">апплета для GNOME</a> с некоторыми дополнительными фичами.</p>
+<h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Информация</h2>
+<p>Плазмоид, написанный на <code>CPP</code> который показывает случайные карты из Brian Eno и Peter Schmidt's <a href="http://en.wikipedia.org/wiki/Oblique_strategies" title="Wiki">Oblique Strategies</a>. Это форк <a href="http://gnome-look.org/content/show.php/Oblique+Strategies?content=78405" title="gnome-look">апплета для GNOME</a> с некоторыми дополнительными фичами.</p>
 
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
+<h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
+<h3><a href="#license" class="anchor" name="license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Установка</h2>
+<h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Установка</h2>
 
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
+<h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p>Скачайте <a href="https://github.com/arcan1s/oblikuestrategies/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p>Скачайте <a href="https://github.com/arcan1s/oblikuestrategies/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</p></li>
   <li><p>Извлеките из него файлы и установите приложение. Для глобальной установки наберите:</p>
+
 {% highlight bash %}
 cd /путь/куда/распакован/архив
 mkdir build && cd build
@@ -44,25 +45,35 @@ cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` -DCMAKE_BUILD_TYPE=Release .
 make
 sudo make install
 {% endhighlight %}
+
 <p>Для локальной:</p>
+
 {% highlight bash %}
 cd /where/your/applet/is/installed
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
 make
 make install
-{% endhighlight %}</li>
+{% endhighlight %}
+
+  </li>
+
   <li><p>Перезапустите plasma, чтобы загрузить апплет:</p>
+
 {% highlight bash %}
 kquitapp plasma-desktop && sleep 2 && plasma-desktop
 {% endhighlight %}
+
 <p>Также Вам может потребоваться запустить <code>kbuildsycoca4</code>, чтобы распознать <code>*.desktop</code> файл:</p>
+
 {% highlight bash %}
 kbuildsycoca4 &> /dev/null
-{% endhighlight %}</li>
+{% endhighlight %}
+
+  </li>
 </ul>
 
-<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
+<h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
 <p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>kdebase-workspace</li>
@@ -72,21 +83,25 @@ kbuildsycoca4 &> /dev/null
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
+<h2><a href="#howto" class="anchor" name="howto"><span class="octicon octicon-link"></span></a>Использование</h2>
 <p>Откройте список виджетов Plasma и выберете <code>Oblikue strategies</code>.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
+<h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Настройка</h2>
 <p>Клик правой кнопкой по виджету.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
-<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
+<h2><a href="#gui" class="anchor" name="gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
 
-<h3><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
-<p>Виджет:<br>
-<a href="/resources/screenshots/oblikuestrategies_widget.png"><img src="/resources/preview/oblikuestrategies_widget_prev.jpg"></a><br>
-Окно настроек:<br>
-<a href="/resources/screenshots/oblikuestrategies_config.png"><img src="/resources/preview/oblikuestrategies_config_prev.jpg"></a></p>
+<h3><a href="#screenshots" class="anchor" name="screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
+<div class="thumbnails">
+  {% assign scrdesc = "Виджет" %}
+  {% assign scrname = "oblikuestrategies_widget" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Окно настроек" %}
+  {% assign scrname = "oblikuestrategies_config" %}
+  {% include prj_scr.html %}
+</div>
 <!-- end of gui block -->

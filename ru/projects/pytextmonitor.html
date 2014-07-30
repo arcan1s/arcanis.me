@@ -14,38 +14,40 @@ developers:
     - Виктор Слободян (перевод на украинский)
 license: GPLv3
 links:
-    - Страница плазмоида на <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124">kde-look.org</a>
-    - Страница DataEngine на <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773">kde-look.org</a>
-    - Пакет в <a href="https://aur.archlinux.org/packages/kdeplasma-applets-pytextmonitor">AUR</a>
+    - Страница плазмоида на <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124" title="kde-look">kde-look.org</a>
+    - Страница DataEngine на <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773" title="kde-look">kde-look.org</a>
+    - Пакет в <a href="https://aur.archlinux.org/packages/kdeplasma-applets-pytextmonitor" title="AUR">AUR</a>
 ---
 <!-- info block -->
-<h2><a name="info" class="anchor" href="#information"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p>Минималистичный пламоид, написанный на <code>Python2</code>. Он выглядит, как виджеты в <a href="http://awesome.naquadah.org/">Awesome WM</a>. Мой плазмоид хорошо и легко настраивается и не засоряет Ваш KDE. Также данный пакет имеет дополнительный <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines">DataEngine</a>, который написан на <code>CPP</code> (старые версии были написаны на <code>Python2</code>).</p>
-<p><b>ВНИМАНИЕ:</b> <a href="https://github.com/arcan1s/pytextmonitor/issues/14">НУЖНЫ ПЕРЕВОДЧИКИ!</a></p>
+<h2><a href="#information" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Информация</h2>
+<p>Минималистичный пламоид, написанный на <code>Python2</code>. Он выглядит, как виджеты в <a href="http://awesome.naquadah.org/" title="Домашняя страница Awesome">Awesome WM</a>. Мой плазмоид хорошо и легко настраивается и не засоряет Ваш KDE. Также данный пакет имеет дополнительный <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines" title="Мануал для разработчиков">DataEngine</a>, который написан на <code>CPP</code> (старые версии были написаны на <code>Python2</code>).</p>
 
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
+<p><b>ВНИМАНИЕ:</b> <a href="https://github.com/arcan1s/pytextmonitor/issues/14" title="Тикет">НУЖНЫ ПЕРЕВОДЧИКИ!</a></p>
+
+<h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
+<h3><a href="#license" class="anchor" name="license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 
-<h3><a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Список изменений</h3>
-<p><a href="https://github.com/arcan1s/pytextmonitor/blob/master/CHANGELOG-RU">CHANGELOG-RU</a></p>
+<h3><a href="#changelog" class="anchor" name="changelog"><span class="octicon octicon-link"></span></a>Список изменений</h3>
+<p><a href="https://github.com/arcan1s/pytextmonitor/blob/master/CHANGELOG-RU" title="GitHub">CHANGELOG-RU</a></p>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Установка</h2>
+<h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Установка</h2>
 
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
+<h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p>Скачайте <a href="https://github.com/arcan1s/pytextmonitor/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p>Скачайте <a href="https://github.com/arcan1s/pytextmonitor/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</p></li>
   <li><p>Извлеките из него файлы и установите:</p>
+
 {% highlight bash %}
 cd /путь/к/извлеченным/файлам/
 mkdir build && cd build
@@ -53,17 +55,21 @@ cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Rele
 make
 make install
 {% endhighlight %}
+
 <p>Для глобальной установки наберите:</p>
+
 {% highlight bash %}
 cd /путь/к/извлеченным/файлам/
 mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` ../
 make
 sudo make install
-{% endhighlight %}</li>
+{% endhighlight %}
+
+  </li>
 </ul>
 
-<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
+<h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
 <p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>kdebase-workspace</li>
@@ -74,28 +80,28 @@ sudo make install
   <li>net-tools <i>(опционально, для всплывающих подсказок)</i></li>
   <li>sysstat <i>(опционально, для всплывающих подсказок)</i></li>
   <li>hddtemp <i>(опционально, для контроля за температурой HDD)</i></li>
-  <li>один из поддерживаемых музыкальных плееров - <a href="http://amarok.kde.org/">amarok</a>, <a href="http://www.clementine-player.org/">clementine</a>, <a href="http://www.musicpd.org/">mpd</a> или <a href="http://qmmp.ylsoftware.com/">qmmp</a> <i>(опционально, для контроля за музыкальным плеером)</i>
+  <li>один из поддерживаемых музыкальных плееров - <a href="http://amarok.kde.org/" title="Домашняя страница Amarok">amarok</a>, <a href="http://www.clementine-player.org/" title="Домашняя страница Clementine">clementine</a>, <a href="http://www.musicpd.org/" title="Домашняя страница mpd">mpd</a> или <a href="http://qmmp.ylsoftware.com/" title="Домашняя страница qmmp">qmmp</a> <i>(опционально, для контроля за музыкальным плеером)</i>
   <li>проприетарный видеодрайвер <i>(опционально, для контроля за GPU)</i></li></li>
 </ul>
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
+<h2><a href="#howto" class="anchor" name="howto"><span class="octicon octicon-link"></span></a>Использование</h2>
 <p>Откройте список виджетов Plasma и выберете <code>Py Text Monitor</code>.</p>
 
-<h3><a name="tips" class="anchor" href="#tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
-<p>Вы можете использовать различные цвета в полях. Просто вставьте нужный текст в html код. Смотри <a href="https://github.com/arcan1s/pytextmonitor/issues/9">вопрос</a> для более подробной информации.</p>
+<h3><a href="#tips" class="anchor" name="tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
+<p>Вы можете использовать различные цвета в полях. Просто вставьте нужный текст в html код. Смотри <a href="https://github.com/arcan1s/pytextmonitor/issues/9" title="GitHub">вопрос</a> для более подробной информации.</p>
 
-<p>Нумерация элементов в полях температура, использование HDD, скорость HDD, температура HDD ссылается на порядок элементов во второй вкладке (<i>Расширенные настройки</i>). Вы должны сначала добавить требуемые элементы в нужный listWidget. И первый элемент в listWdiget будет связан c <code>$tag0</code>. Смотри <a href="https://github.com/arcan1s/pytextmonitor/issues/17">вопрос</a> для более подробной информации.</p>
+<p>Нумерация элементов в полях температура, использование HDD, скорость HDD, температура HDD ссылается на порядок элементов во второй вкладке (<i>Расширенные настройки</i>). Вы должны сначала добавить требуемые элементы в нужный listWidget. И первый элемент в listWdiget будет связан c <code>$tag0</code>. Смотри <a href="https://github.com/arcan1s/pytextmonitor/issues/17" title="GitHub">вопрос</a> для более подробной информации.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Настройка</h2>
+<h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Настройка</h2>
 
-<h3><a name="deconf" class="anchor" href="#deconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h3>
+<h3><a href="#deconf" class="anchor" name="deconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h3>
 <p>Вы можете отредактировать настройки DataEngine, которые хранятся в <code>/usr/share/config/extsysmon.conf</code> или <code>$HOME/.kde4/share/config/extsysmon.conf</code> в зависимости от типа установки. Раскомментируйте необходимые строчки и отредактируйте их.</p>
 
-<h4><a name="deoptions" class="anchor" href="#deoptions"><span class="octicon octicon-link"></span></a>Опции DataEngine</h4>
+<h4><a href="#deoptions" class="anchor" name="deoptions"><span class="octicon octicon-link"></span></a>Опции DataEngine</h4>
 <table>
   <tr>
     <th>CUSTOM</th>
@@ -139,9 +145,10 @@ sudo make install
   </tr>
 </table>
 
-<h3><a name="widconf" class="anchor" href="#widconf"><span class="octicon octicon-link"></span></a>Настройка виджета</h3>
+<h3><a href="#widconf" class="anchor" name="widconf"><span class="octicon octicon-link"></span></a>Настройка виджета</h3>
 <p>Для настройки внешнего вида Вы должны открыть окно настроек и установить требуемый формат. Порядок меток изменится, если Вы измените положение слайдера. В метках работают HTML теги.<br>
 <b>ЗАМЕЧАНИЕ</b> Вы не можете, например, заставить его показывать Вам <code>$cpu</code> в метка swap. <b><code>$cpu</code> будет работать только в метке cpu.</b></p>
+
 <p>Доступные флаги в таблице ниже.<br>
 <b>ЗАМЕЧАНИЕ</b> Нумерация всех массивов в переменных начинается с 0.</p>
 <table>
@@ -366,7 +373,7 @@ sudo make install
   </tr>
 </table>
 
-<h4><a name="advanced" class="anchor" href="#advanced"><span class="octicon octicon-link"></span></a>Расширенные настройки</h4>
+<h4><a href="#advanced" class="anchor" name="advanced"><span class="octicon octicon-link"></span></a>Расширенные настройки</h4>
 <p><b>Включить фон:</b> Снимите галочку, чтобы отключить стандартный фон виджета и установить прозрачный.</p>
 
 <p><b>Вертикальная разметка:</b> Использовать вертикальную разметку вместо горизонтальной.</p>
@@ -493,10 +500,10 @@ sudo make install
 
 <p><b>Устройство AC:</b> Файл, содержащий информацию об адапторе питания. Данный файл (<code>/sys/class/power_supply/AC/online</code> по умолчанию) должен содержать <code>1</code>, если устройство подключено.</p>
 
-<h4><a name="tooltips" class="anchor" href="#tooltips"><span class="octicon octicon-link"></span></a>Тултипы</h4>
+<h4><a href="#tooltips" class="anchor" name="tooltips"><span class="octicon octicon-link"></span></a>Тултипы</h4>
 <p>Начиная с версии 1.7.0, поля CPU, частота CPU, память, swap, сеть поддерживают графический тултип (всплывающая подсказка). Чтобы включить их, просто сделайте требуемые чекбоксы полностью чекнутыми. Число хранимых значений может быть установленно во вкладке. Цвета графиков настраиваются тоже.</p>
 
-<h4><a name="deguiconf" class="anchor" href="#deguiconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h4>
+<h4><a href="#deguiconf" class="anchor" name="deguiconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h4>
 <p><b>Своя команда:</b> <i><b>ЗАМЕЧАНИЕ</b> это поле может привести к "зависанию" компьютера.</i> Команды, которые будут запущены для соответствующего поля. Например, <code>wget -qO- http://ifconfig.me/ip</code> вернет внешний IP.</p>
 
 <p><b>Комадна для определения рабочего стола</b> Введите команду, которая будет запущеная для desktop DataEngine. По умолчанию <code>qdbus org.kde.kwin /KWin currentDesktop</code>.</p>
@@ -552,10 +559,10 @@ sudo make install
 
 <p><b>Музыкальный плеер:</b> Выберете один из поддерживаемых музыкальных плееров для соответствующего поля.</p>
 
-<h3>PTM desktop panel</h3>
+<h3><a href="#desktoppanel" class="anchor" name="desktoppanel"><span class="octicon octicon-link"></span></a>PTM desktop panel</h3>
 <p>Начиная с версии 1.11.0 PyTextMonitor предоставляет минималистичную панель для мониторинга за рабочими столами, написанный на <code>C++</code>. И да, он выглядит, как аналогичная панель в Awesome.</p>
 
-<h4>Настройка Desktop panel</h4>
+<h4><a href="#ptmdpconf" class="anchor" name="ptmdpconf"><span class="octicon octicon-link"></span></a>Настройка PTM desktop panel</h4>
 <p><b>Включить фон:</b> Снимите галочку, чтобы отключить стандартный фон виджета и установить прозрачный.</p>
 
 <p><b>Вертикальная разметка:</b> Использовать вертикальную разметку вместо горизонтальной.</p>
@@ -588,16 +595,29 @@ sudo make install
 <!-- end of config block -->
 
 <!-- gui block -->
-<h2><a name="gui" class="anchor" href="#gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
+<h2><a href="#gui" class="anchor" name="gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
 
-<h2><a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h2>
-<p>Виджет (кликабельно):<br>
-<a href="/resources/screenshots/pytextmonitor_widget.png"><img src="/resources/preview/pytextmonitor_widget_prev.jpg"></a><br>
-Окно настроек:<br>
-<a href="/resources/screenshots/pytextmonitor_config_01.png"><img src="/resources/preview/pytextmonitor_config_01_prev.jpg"></a><br>
-<a href="/resources/screenshots/pytextmonitor_config_02.png"><img src="/resources/preview/pytextmonitor_config_02_prev.jpg"></a><br>
-<a href="/resources/screenshots/pytextmonitor_config_03.png"><img src="/resources/preview/pytextmonitor_config_03_prev.jpg"></a><br>
-<a href="/resources/screenshots/pytextmonitor_config_04.png"><img src="/resources/preview/pytextmonitor_config_04_prev.jpg"></a><br>
-<a href="/resources/screenshots/pytextmonitor_config_05.png"><img src="/resources/preview/pytextmonitor_config_05_prev.jpg"></a><br>
-Тултипы:<br>
-<a href="/resources/screenshots/pytextmonitor_tooltips.png"><img src="/resources/preview/pytextmonitor_tooltips_prev.jpg"></a></p>
+<h2><a href="#screenshots" class="anchor" name="screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h2>
+<div class="thumbnails">
+  {% assign scrdesc = "Виджет (кликабельно)" %}
+  {% assign scrname = "pytextmonitor_widget" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Окно настроек" %}
+  {% assign scrname = "pytextmonitor_config_01" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Окно настроек" %}
+  {% assign scrname = "pytextmonitor_config_02" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Окно настроек" %}
+  {% assign scrname = "pytextmonitor_config_03" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Окно настроек" %}
+  {% assign scrname = "pytextmonitor_config_04" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Окно настроек" %}
+  {% assign scrname = "pytextmonitor_config_05" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Тултипы" %}
+  {% assign scrname = "pytextmonitor_tooltips" %}
+  {% include prj_scr.html %}
+</div>

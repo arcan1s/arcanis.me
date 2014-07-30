@@ -12,8 +12,9 @@ license: GPLv3
 links:
 ---
 <!-- info block -->
-<h2><a name="info" class="anchor" href="#info"><span class="octicon octicon-link"></span></a>Информация</h2>
+<h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Информация</h2>
 <p>Демон для запуска задач в очередь вычислений. Был создан, как proof-of-concept.</p>
+
 {% highlight bash %}
 $ queued --help
 Simple daemon written on BASH for starting jobs to queue of calculations
@@ -25,6 +26,7 @@ Parametrs:
   -v   --version            - show version and exit
   -h   --help               - show this help and exit
 {% endhighlight %}
+
 {% highlight bash %}
 $ add_queued --help
 add_queued [ -c /etc/queued.conf ] [ -p NUM ] [ -u USER ] [ -h | --help ] /path/to/script
@@ -36,37 +38,41 @@ Parameters:
     -h   --help               - show this help and exit
 {% endhighlight %}
 
-<h3><a name="devel" class="anchor" href="#devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
+<h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
+<h3><a href="#license" class="anchor" name="license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Установка</h2>
+<h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Установка</h2>
 
-<h3><a name="instruction" class="anchor" href="#instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
+<h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
-  <li><p>Скачайте <a href="https://github.com/arcan1s/queued/releases">архив</a> с актуальной версией исходных файлов.</p></li>
+  <li><p>Скачайте <a href="https://github.com/arcan1s/queued/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</p></li>
   <li><p>Извлеките из него файлы и установите приложение:</p>
+
 {% highlight bash %}
 ./install.sh "/путь/к/корню/"
 {% endhighlight %}
+
 <p>Если Вы хотите установить в <code>/</code>, Вы должны запустить это, как root:</p>
+
 {% highlight bash %}
 sudo ./install.sh
 {% endhighlight %}
+
 <p>Если путь не указан, пакет будет установлен в <code>/</code>.</p></li>
 </ul>
 
-<h3><a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
+<h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
 <p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>Bash (включая awk, grep, sed)</li>
@@ -75,33 +81,44 @@ sudo ./install.sh
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Использование</h2>
+<h2><a href="#howto" class="anchor" name="howto"><span class="octicon octicon-link"></span></a>Использование</h2>
 <p>Если Вы хотите запустить демон, просто запустите</p>
+
 {% highlight bash %}
 systemctl start queued
 {% endhighlight %}
+
 <p>Если Вы хотите включить автозагрузку демона, запутите</p>
+
 {% highlight bash %}
 systemctl enable queued
 {% endhighlight %}
+
 <p>Но Вы можете изменить путь к конфигурационному файлу или изменить параметры. Для этого, скопируйте (рекомендуется) исходный конфигурационный файл</p>
+
 {% highlight bash %}
 cp /etc/queued.conf /новый/путь/к/queued.conf
 {% endhighlight %}
+
 <p>и отредактируйте его. Затем скопируйте исходный service-файл в <code>/etc</code>:</p>
+
 {% highlight bash %}
 cp /usr/lib/systemd/system/queued.service /etc/systemd/system/queued-my-profile.service
 {% endhighlight %}
+
 <p>Замените следующую строку в этом файле:</p>
+
 {% highlight bash %}
 ExecStart=/usr/bin/queued
 {% endhighlight %}
+
 <p>на</p>
+
 {% highlight bash %}
 ExecStart=/usr/bin/queued -c /path/to/new/queued.conf
 {% endhighlight %}
 
-<h3><a name="adding" class="anchor" href="#adding"><span class="octicon octicon-link"></span></a>Добавление задачи</h3>
+<h3><a href="#adding" class="anchor" name="adding"><span class="octicon octicon-link"></span></a>Добавление задачи</h3>
 <ol>
   <li>Создайте скрипт с командой (например, с именем <code>script.sh</code>).</li>
   <li>Создайте файл с приоритетом (<code>script.sh.pr</code>) для данной задачи, если это необходимо.</li>
@@ -110,15 +127,16 @@ ExecStart=/usr/bin/queued -c /path/to/new/queued.conf
 </ol>
 <p>Также Вы можете воспользоваться <code>add_queued</code>.</p>
 
-<h2><a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Настройка</h2>
+<h2><a href="#configuration" class="anchor" name="configuration"><span class="octicon octicon-link"></span></a>Настройка</h2>
 <p>Все настройки хранятся в <code>/etc/queued.conf</code>. После редактирования, Вы должны перезапустить демон</p>
+
 {% highlight bash %}
 systemctl restart queued
 {% endhighlight %}
 <!-- end of howto block -->
 
 <!-- config block -->
-<h3><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Опции</h3>
+<h3><a href="#options" class="anchor" name="options"><span class="octicon octicon-link"></span></a>Опции</h3>
 <table>
   <tr>
     <th>WORKDIR</th>
