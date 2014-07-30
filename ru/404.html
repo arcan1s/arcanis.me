@@ -4,21 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Ошибка 404</title>
-    <meta name="author" content="Evgeniy Alekseev" />
-    <meta name="description" content="arcanis' homepage" />
-    <link rel="license" type="text/html" href="/authors" />
+    <meta name="author" content="Unknown" >
+    <meta name="description" content="arcanis' homepage">
+    <link href="/authors" rel="license" type="text/html">
 
-    <link rel="stylesheet" href="/resources/css/styles.css">
-    <link rel="stylesheet" href="/resources/css/pygment_trac.css">
-    <link rel="shortcut icon" href="/resources/icon.ico">
+    <link href="/resources/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/syntax.css" rel="stylesheet" type="text/css">
+    <link href="/resources/icon.ico" rel="shortcut icon" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+      <script type="text/javascript">
+        document.createElement('figure');
+        document.createElement('figcaption');
+      </script>
     <![endif]-->
   </head>
   <body>
     <div class="wrapper">
-      <header>
+      <header class="rainbow">
         <h1>404</h1>
         <p class="view">Страница не найдена!</p>
       </header>
@@ -26,16 +30,17 @@
 
 <h3>Привет!</h3>
 
-<img src="/resources/pinkiepie.png" alt="pinkiepie">
+<figure class="img">
+  <img src="/resources/pinkiepie.png" alt="pinkiepie">
+</figure>
 
-<p>Я Пинки Пай. Ты видишь меня, потому что ты хочешь страницу, которую я не смогла найти. Мне очень жаль. Нет, честно-честно. В будущем я постараюсь работать лучше, а сейчас могу предложить вернуться на <a href="/ru">главную</a> или <a href="javascript:history.back()">назад</a>.</p>
+<p>Я Пинки Пай. Ты видишь меня, потому что ты хочешь страницу, которую я не смогла найти. Мне очень жаль. Нет, честно-честно. В будущем я постараюсь работать лучше, а сейчас могу предложить вернуться на <a href="/ru" title="Главная">главную</a> или <a href="javascript:history.back()" title="Назад">назад</a>.</p>
 
       </section>
       <footer>
-        <p><small>Расположено на GitHub Pages. <a href="/ru/authors">Авторы</a></small></p>
+        <p><small>Расположено на GitHub Pages. <a href="/ru/authors" title="Авторы">Авторы</a></small></p>
       </footer>
     </div>
-    <script src="/resources/js/scale.fix.js"></script>
-
+    <script src="/resources/js/scale.fix.js" type="text/javascript"></script>
   </body>
 </html>

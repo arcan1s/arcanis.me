@@ -200,6 +200,15 @@ header {
   position: fixed;
 }
 
+/* rainbow background =) */
+header.rainbow {
+  background-image: url('/resources/rainbow.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 70%;
+}
+
 header ul {
   list-style: none;
   height: 40px;
