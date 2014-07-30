@@ -1,11 +1,13 @@
-<figure class="sign" style="float:none;">
-  {% if page.category == "ru" %}
-    <a href="/resources/screenshots/{{ scrname }}.png" title="Полный размер" type="image/png">
-  {% else %}
-    <a href="/resources/screenshots/{{ scrname }}.png" title="Full size" type="image/png">
-  {% endif %}
-    <img src="/resources/preview/{{ scrname }}_prev.jpg" alt="{{ scrname }}">
-  </a><br>
-  <figcaption style="float:left">{{ scrdesc }}</figcaption>
-</figure>
-<br>
+<ins class="thumbnail">
+  <div class="r">
+    {% if page.category == "ru" %}
+      <a href="/resources/screenshots/{{ scrname }}.png" title="Полный размер" type="image/png">
+    {% else %}
+      <a href="/resources/screenshots/{{ scrname }}.png" title="Full size" type="image/png">
+    {% endif %}
+      <img src="/resources/preview/{{ scrname }}_prev.jpg" alt="{{ scrname }}">
+    </a>
+    <br>
+    {{ scrdesc }}
+  </div>
+</ins>

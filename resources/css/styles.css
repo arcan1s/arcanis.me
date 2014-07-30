@@ -1,14 +1,37 @@
 /* in-text images */
-.sign {
+figure.img {
   float: right;
   border: 0px solid #333;
   padding: 0px;
   margin: 5px 0px 5px 10px;
 }
-.sign figcaption {
+figure.img img {
+  max-width: 100%;
+  height: auto;
+}
+figure.img figcaption {
   margin: 0px;
+  font-size: 90%;
   font-style: italic;
   text-align: center;
+}
+
+/* screenshots */
+.thumbnails {
+  margin: -3em 0 0 -2em;
+  font-size: 90%;
+  font-style:italic;
+  text-align: center;
+}
+.thumbnail {
+  display: -moz-inline-box;
+  display: inline-block;
+  vertical-align: top;
+  margin: 3em 0 0 2em;
+}
+.thumbnail .r {
+  width: 14em;
+  float: left;
 }
 
 /* spoiler */
