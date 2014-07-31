@@ -110,42 +110,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;QWebView&gt;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span><a class="code" href="class_reportabug.html">Reportabug</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_gitreport_module.html">   42</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_gitreport_module.html">GitreportModule</a> : <span class="keyword">public</span> QObject</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_gitreport_module.html#a87ac50c0cc1bde2f65a467eab9eab5f2">GitreportModule</a>(QWidget *parent = 0,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                             <span class="keywordtype">bool</span> debugCmd = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="class_gitreport_module.html#a78712935bd75fdb2bf28a1188c74f9ee">~GitreportModule</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_gitreport_module.html#a54838444619a3b1d538ee8b34055b745">   61</a></span>&#160;    QWebView *<a class="code" href="class_gitreport_module.html#a54838444619a3b1d538ee8b34055b745">webView</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gitreport_module.html#a94a4f3945b5215fff7a88558728b2e96">sendReportUsingGitreport</a>(<span class="keyword">const</span> QMap&lt;QString, QString&gt; info);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> gitreportFinished(<span class="keyword">const</span> <span class="keywordtype">bool</span> state);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> gitreportLoaded(<span class="keyword">const</span> <span class="keywordtype">bool</span> state);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">bool</span> debug;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="class_reportabug.html">Reportabug</a> *mainWindow;;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GITREPORTMODULE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>QNetworkAccessManager;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span><a class="code" href="class_reportabug.html">Reportabug</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_gitreport_module.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_gitreport_module.html">GitreportModule</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_gitreport_module.html#a87ac50c0cc1bde2f65a467eab9eab5f2">GitreportModule</a>(QWidget *parent = 0,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                             <span class="keywordtype">bool</span> debugCmd = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_gitreport_module.html#a78712935bd75fdb2bf28a1188c74f9ee">~GitreportModule</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_gitreport_module.html#a54838444619a3b1d538ee8b34055b745">   62</a></span>&#160;    QWebView *<a class="code" href="class_gitreport_module.html#a54838444619a3b1d538ee8b34055b745">webView</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gitreport_module.html#a94a4f3945b5215fff7a88558728b2e96">sendReportUsingGitreport</a>(<span class="keyword">const</span> QMap&lt;QString, QString&gt; info);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> gitreportFinished(<span class="keyword">const</span> <span class="keywordtype">bool</span> state);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> gitreportLoaded(<span class="keyword">const</span> <span class="keywordtype">bool</span> state);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> setCaptcha(QNetworkReply *reply);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">bool</span> debug;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="class_reportabug.html">Reportabug</a> *mainWindow;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    QNetworkAccessManager manager;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GITREPORTMODULE_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="class_gitreport_module_html_a87ac50c0cc1bde2f65a467eab9eab5f2"><div class="ttname"><a href="class_gitreport_module.html#a87ac50c0cc1bde2f65a467eab9eab5f2">GitreportModule::GitreportModule</a></div><div class="ttdeci">GitreportModule(QWidget *parent=0, bool debugCmd=false)</div><div class="ttdoc">GitreportModule class constructor. </div></div>
 <div class="ttc" id="class_gitreport_module_html_a94a4f3945b5215fff7a88558728b2e96"><div class="ttname"><a href="class_gitreport_module.html#a94a4f3945b5215fff7a88558728b2e96">GitreportModule::sendReportUsingGitreport</a></div><div class="ttdeci">void sendReportUsingGitreport(const QMap&lt; QString, QString &gt; info)</div><div class="ttdoc">method which creates an issue </div></div>
-<div class="ttc" id="class_reportabug_html"><div class="ttname"><a href="class_reportabug.html">Reportabug</a></div><div class="ttdoc">The Reportabug class is a main class of the application. </div><div class="ttdef"><b>Definition:</b> reportabug.h:43</div></div>
-<div class="ttc" id="class_gitreport_module_html_a54838444619a3b1d538ee8b34055b745"><div class="ttname"><a href="class_gitreport_module.html#a54838444619a3b1d538ee8b34055b745">GitreportModule::webView</a></div><div class="ttdeci">QWebView * webView</div><div class="ttdoc">Webkit item which is used for loading web page. </div><div class="ttdef"><b>Definition:</b> gitreportmodule.h:61</div></div>
-<div class="ttc" id="class_gitreport_module_html"><div class="ttname"><a href="class_gitreport_module.html">GitreportModule</a></div><div class="ttdoc">The GitreportModule class creates issue over GitReports. </div><div class="ttdef"><b>Definition:</b> gitreportmodule.h:42</div></div>
+<div class="ttc" id="class_reportabug_html"><div class="ttname"><a href="class_reportabug.html">Reportabug</a></div><div class="ttdoc">The Reportabug class is a main class of the application. </div><div class="ttdef"><b>Definition:</b> reportabug.h:42</div></div>
+<div class="ttc" id="class_gitreport_module_html_a54838444619a3b1d538ee8b34055b745"><div class="ttname"><a href="class_gitreport_module.html#a54838444619a3b1d538ee8b34055b745">GitreportModule::webView</a></div><div class="ttdeci">QWebView * webView</div><div class="ttdoc">Webkit item which is used for loading web page. </div><div class="ttdef"><b>Definition:</b> gitreportmodule.h:62</div></div>
+<div class="ttc" id="class_gitreport_module_html"><div class="ttname"><a href="class_gitreport_module.html">GitreportModule</a></div><div class="ttdoc">The GitreportModule class creates issue over GitReports. </div><div class="ttdef"><b>Definition:</b> gitreportmodule.h:43</div></div>
 <div class="ttc" id="class_gitreport_module_html_a78712935bd75fdb2bf28a1188c74f9ee"><div class="ttname"><a href="class_gitreport_module.html#a78712935bd75fdb2bf28a1188c74f9ee">GitreportModule::~GitreportModule</a></div><div class="ttdeci">~GitreportModule()</div><div class="ttdoc">GitreportModule class destructor. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 30 2014 19:21:27 for reportabug by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 31 2014 15:20:21 for reportabug by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

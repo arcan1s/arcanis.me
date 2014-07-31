@@ -85,10 +85,10 @@ reportWindow->showWindow();
 <p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>qt5-base <i>(если используется Qt5)</i> <b>или</b> qt4 <i>(если используется Qt4)</i></li>
+  <li>qt5-network (если используется Qt5)</li>
   <li>automoc4 <i>(make)</i></li>
   <li>cmake <i>(make)</i></li>
   <li>doxygen <i>(make, документация)</i></li>
-  <li>qt5-network (если используется Qt5) <i>(опционально, требуется для модуля GitHub)</i></li>
   <li>qt5-webkit (если используется Qt5) <b>или</b> qtwebkit (если используется Qt4) <i>(опционально, требуется для модуля GitReports)</i></li>
 </ul>
 <!-- end of install block -->
@@ -122,7 +122,7 @@ curl -X POST -H "Authorization: token token" -d '{"title":"A new bug","body":"So
 <h3><a href="#gitreports" class="anchor" name="gitreports"><span class="octicon octicon-link"></span></a>Модуль GitReports</h3>
 <p>Данный модуль создает тикет, используя возможности <a href="https://gitreports.com/about" title="GitReports">GitReports</a>. Пожалуйста, посетите <a href="https://gitreports.com/" title="GitReports">данную страницу</a> и настройте под Ваши репозитории.</p>
 
-<p>Для того, чтобы отключить данный модуль, используйте <code>-DENABLE_GITREPORT=0</code> флаг cmake. Данный модуль требует наличия в системе <code>QtWebKit</code>.</p>
+<p>Для того, чтобы отключить данный модуль, используйте <code>-DENABLE_GITREPORT=0</code> флаг cmake. Данный модуль требует наличия в системе <code>QtNetwork</code> и <code>QtWebKit</code>.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
@@ -147,9 +147,7 @@ curl -X POST -H "Authorization: token token" -d '{"title":"A new bug","body":"So
 
 <h3><a href="#gitreportsconfig" class="anchor" name="gitreportsconfig"><span class="octicon octicon-link"></span></a>Настройки модуля GitReports</h3>
 <ul>
-  <li><code>CAPTCHA_KEY</code> - идентификатор капчи. Может быть найдено в исходном коду страницы <code>PUBLIC_URL</code>. По умолчанию <code>7f6ef90bce7389088a52c5c9101aad206b21b56d</code>.</li>
-  <li><code>CAPTCHA_TEXT</code> - текст капчи. Может быть найдено в исходном коду страницы <code>PUBLIC_URL</code>. По умолчанию <code>QJNZXY</code>.</li>
-  <li><code>CAPTCHA_TIME</code> - время капчи. Может быть найдено в исходном коду страницы <code>PUBLIC_URL</code>. По умолчанию <code>1406531273</code>.</li>
+  <li><code>CAPTCHA_URL</code> - URL капчи, в большинстве случаев, не редактируйте его. По умолчанию <code>https://gitreports.com/simple_captcha?code=</code>.</li>
   <li><code>GITREPORT_COMBOBOX</code> - текст модуля в ComboBox.</li>
   <li><code>PUBLIC_URL</code> - URL, в большинстве случаев, не редактируйте его. По умолчанию <code>https://gitreports.com/issue/$OWNER/$PROJECT</code>. Доступные теги <code>$PROJECT</code>, <code>$OWNER</code>.</li>
 </ul>
