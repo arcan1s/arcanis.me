@@ -1,3 +1,50 @@
+/* search */
+#search-block-form{
+	width: 200px;
+	height: 20px;
+	border-radius: 15px;
+	border: #c9c9c9 solid 1px;
+}
+.focus-active{
+	border-color: #aaaaaa !important;
+	background: #ffffff !important;
+}
+#search-block-form input{
+	padding: 0;
+	margin: 0;
+	display: block;
+	border: none;
+	outline: none;
+	background: none;
+	width: 100%;
+	height: 100%;
+}
+#search-block-form .form-actions{
+	width: 20px;
+	height: 20px;
+	float: left;
+	background: url(/resources/searchIconDark.png) 5px 3px no-repeat;
+}
+#search-block-form .form-actions input:hover{
+	cursor: pointer;
+}
+#search-block-form .form-actions input{
+	overflow: hidden;
+	text-indent: -9999px;
+}
+#search-block-form .form-item{
+	width: 170px;
+	height: 20px;
+	padding: 0;
+	float: right;
+}
+#search-block-form .form-item input{
+  height: auto !important;
+  padding: 0;
+  color: #222222;
+	font: 13px/1.5 "Liberation Serif", Helvetica, Arial, sans-serif;
+}
+
 /* in-text images */
 figure.img {
   float: right;

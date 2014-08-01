@@ -1,11 +1,19 @@
-<form name="gcse" role="search" action="http://www.google.ru/cse">
+<form action="http://www.google.ru/cse" id="search-block-form" name="gcse">
   <input type="hidden" name="cx" value="000833618047197874644:rilf4jpvgyo">
   <input type="hidden" name="ie" value="UTF-8">
   {% if page.category == "ru" %}
-    <input type="text" name="q" placeholder="Поиск по сайту">
-    <button type="submit" name="sa">Найти</button>
+    <div class="form-item">
+      <input type="text" name="q" value="" maxlength="128" placeholder="Найти...">
+    </div>
+    <div class="form-actions">
+      <input type="submit" name="sa" value="Поиск" class="form-submit">
+    </div>
   {% else %}
-    <input type="text" name="q" placeholder="Site search">
-    <button type="submit" name="sa">Search</button>
+    <div class="form-item">
+      <input type="text" name="q" value="" maxlength="128" placeholder="Search...">
+    </div>
+    <div class="form-actions">
+      <input type="submit" name="sa" value="Search" class="form-submit">
+    </div>
   {% endif %}
 </form>
