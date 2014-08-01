@@ -13,7 +13,7 @@ links:
 ---
 <!-- info block -->
 <h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p>Приложение/библиотека, написанное на Qt, которое позволяет пользователям отправлять багрепорт для проектов, расположенных на GitHub. Оно может работать как через <a href="https://github.com" title="GitHub">GitHub</a>, так и через <a href="https://gitreports.com" title="GitReports">GitReports</a>.</p>
+<p>Приложение/библиотека, написанное на Qt, которое позволяет пользователям отправлять багрепорт для проектов, расположенных на GitHub. Оно может работать как через <a href="https://github.com" title="GitHub">GitHub</a>, так и через <a href="https://gitreports.com" title="GitReports">GitReports</a>. Работает нормально, однако данное приложение было создано as proof-of-concept.</p>
 
 <h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
@@ -63,7 +63,9 @@ add_subdirectory (reportabug)
   <li>Объявите класс в Вашем приложении, например:
 
 {% highlight cpp %}
-Reportabug *reportWindow = new Reportabug(this, false);
+Reportabug *reportWindow = new Reportabug(parent=this,
+                                          debugCmd=false,
+                                          params=0);
 reportWindow->showWindow();
 {% endhighlight %}
 
@@ -73,12 +75,13 @@ reportWindow->showWindow();
 
 <h4><a href="#cmakeflags" class="anchor" name="cmakeflags"><span class="octicon octicon-link"></span></a>Доступные флаги cmake</h4>
 <ul>
-  <li><code>-DBUILD_AS_LIBRARY:BOOL=0</code> - собирать отдельное приложение, а не библиотеку.</li>
-  <li><code>-DBUILD_DOCS:BOOL=1</code> - собирать документацию для разработчиков.</li>
+  <li><code>-DBUILD_AS_LIBRARY=0</code> - собирать отдельное приложение, а не библиотеку.</li>
+  <li><code>-DBUILD_DOCS=1</code> - собирать документацию для разработчиков.</li>
+  <li><code>-DBUILD_SHARED_LIBRARY=1</code> - собирать библиотеку общего доступа, а не статическую.</li>
   <li><code>-DENABLE_GITHUB=0</code> - отключить модуль GitHub.</li>
   <li><code>-DENABLE_GITREPORT=0</code> - отключить модуль GitReports</li>
   <li><code>-DOWN_GITHUB_TOKEN=STRING</code> - использовать STRING, как свой GitHub токен.</li>
-  <li><code>-DUSE_QT5:BOOL=0</code> - использовать Qt4 вместо Qt5.</li>
+  <li><code>-DUSE_QT5=0</code> - использовать Qt4 вместо Qt5.</li>
 </ul>
 
 <h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
@@ -127,7 +130,7 @@ curl -X POST -H "Authorization: token token" -d '{"title":"A new bug","body":"So
 
 <!-- config block -->
 <h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Настройка</h2>
-<p>Для настройки перед компиляцией отредактируйте хидер <code>src/config.h.in</code>.</p>
+<p>Для настройки перед компиляцией отредактируйте хидер <code>src/config.h</code>. Также Вы можете подгрузить параметры автоматически, используя массив <code>params</code> (необходимые ключи такие же, как и для хидера).</p>
 <h3><a href="#mainconfig" class="anchor" name="mainconfig"><span class="octicon octicon-link"></span></a>Основные настройки</h3>
 <ul>
   <li><code>OWNER</code> - владелец репозитория.</li>

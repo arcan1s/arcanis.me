@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reportabug',['Reportabug',['../class_reportabug.html#ab502639aee622ab3d11e7b912cc01dae',1,'Reportabug::Reportabug(QWidget *parent=0, bool debugCmd=false)'],['../class_reportabug.html#ab502639aee622ab3d11e7b912cc01dae',1,'Reportabug::Reportabug(QWidget *parent=0, bool debugCmd=false)']]]
+  ['reportabug',['Reportabug',['../class_reportabug.html#ab4f41031bc19474bd647e74c6def89c0',1,'Reportabug::Reportabug(QWidget *parent=0, bool debugCmd=false, QMap&lt; QString, QString &gt; params=QMap&lt; QString, QString &gt;())'],['../class_reportabug.html#ab4f41031bc19474bd647e74c6def89c0',1,'Reportabug::Reportabug(QWidget *parent=0, bool debugCmd=false, QMap&lt; QString, QString &gt; params=QMap&lt; QString, QString &gt;())']]]
 ];

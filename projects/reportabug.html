@@ -12,7 +12,7 @@ links:
 ---
 <!-- info block -->
 <h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Information</h2>
-<p>Qt application/library which allows users to create an issue for projects which are hosted on GitHub. It may work over <a href="https://github.com" title="GitHub">GitHub</a> or <a href="https://gitreports.com/" title="GitReports">GitReport</a>.</p>
+<p>Qt application/library which allows users to create an issue for projects which are hosted on GitHub. It may work over <a href="https://github.com" title="GitHub">GitHub</a> or <a href="https://gitreports.com/" title="GitReports">GitReport</a>. It works fine, but it was created as proof-of-concept.</p>
 
 <h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
@@ -62,7 +62,9 @@ add_subdirectory (reportabug)
   <li>Declare class in you sources. For example:
 
 {% highlight cpp %}
-Reportabug *reportWindow = new Reportabug(this, false);
+Reportabug *reportWindow = new Reportabug(parent=this,
+                                          debugCmd=false,
+                                          params=0);
 reportWindow->showWindow();
 {% endhighlight %}
 
@@ -72,12 +74,13 @@ reportWindow->showWindow();
 
 <h4><a href="#cmakeflags" class="anchor" name="cmakeflags"><span class="octicon octicon-link"></span></a>Available cmake flags:</h4>
 <ul>
-  <li><code>-DBUILD_AS_LIBRARY:BOOL=0</code> - build the application but not a shared library.</li>
-  <li><code>-DBUILD_DOCS:BOOL=1</code> - build developer documentation.</li>
+  <li><code>-DBUILD_AS_LIBRARY=0</code> - build the application but not a library.</li>
+  <li><code>-DBUILD_DOCS=1</code> - build developer documentation.</li>
+  <li><code>-DBUILD_SHARED_LIBRARY=1</code> - build the shared library instead of static one.</li>
   <li><code>-DENABLE_GITHUB=0</code> - disable GitHub module.</li>
   <li><code>-DENABLE_GITREPORT=0</code> - disable GitReport module.</li>
   <li><code>-DOWN_GITHUB_TOKEN=STRING</code> - use STRING as own GitHub token.</li>
-  <li><code>-DUSE_QT5:BOOL=0</code> - use Qt4 instead of Qt5.</li>
+  <li><code>-DUSE_QT5=0</code> - use Qt4 instead of Qt5.</li>
 </ul>
 
 <h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
@@ -127,7 +130,7 @@ curl -X POST -H "Authorization: token token" -d '{"title":"A new bug","body":"So
 
 <!-- config block -->
 <h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Configuration</h2>
-<p>For the developer configuration please use <code>config.h.in</code> header.</p>
+<p>For the developer configuration please use <code>config.h</code> header. Also you may load parametrs dynamically using <code>params</code> array (needed keys is the same as for the header</p>
 <h3><a href="#mainconfig" class="anchor" name="mainconfig"><span class="octicon octicon-link"></span></a>Main configuration</h3>
 <ul>
   <li><code>OWNER</code> - the owner of the source repository.</li>
