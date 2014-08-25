@@ -21,7 +21,7 @@ netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FI
            [ -o PROFILE | --open PROFILE ] [ -t NUM | --tab NUM ] [ --set-opts OPTIONS ]
 {% endhighlight %}
 
-<p>Here is a flag list:
+<p>Here is a flag list:</p>
 <ul>
   <li>flags <code>-h</code> and <code>--help</code> do not require any arguments;</li>
   <li>flags <code>-e</code> and <code>--essid</code> require a string argument without completion;</li>
@@ -30,10 +30,9 @@ netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FI
   <li>flags <code>-t</code> and <code>--tab</code> require a string argument, there is a completion from the specified array;</li>
   <li>flag <code>--set-opts</code> requires a string argument, there is a completion from the specified array comma separated;</li>
 </ul>
-</p>
 
 <h2><a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>The file pattern</h2>
-<p>Here <b>all</b> variables must return an array. And there no specific formats. First we declare the flags and then we describe all other variables. As I am not going to describe the functions in more detail below I remind you that <code>_netctl_profiles()</code> should be generated each time:
+<p>Here <b>all</b> variables must return an array. And there no specific formats. First we declare the flags and then we describe all other variables. As I am not going to describe the functions in more detail below I remind you that <code>_netctl_profiles()</code> should be generated each time:</p>
 
 {% highlight bash %}
 # variables
@@ -43,23 +42,22 @@ _netctl_gui_tabs=()
 _netctl_profiles() {}
 {% endhighlight %}
 
-Then there are main functions, which will be called for completion of specific application. In my case this there is only one applications, so there is only one function:
+<p>Then there are main functions, which will be called for completion of specific application. In my case this there is only one applications, so there is only one function:</p>
 
 {% highlight bash %}
 # work block
 _netctl-gui() {}
 {% endhighlight %}
 
-And finally again <b>without isolation in a separate function</b> we create a dependence "function-application":
+<p>And finally again <b>without isolation in a separate function</b> we create a dependence "function-application":</p>
 
 {% highlight bash %}
 complete -F _netctl_gui netctl-gui
 {% endhighlight %}
 
-</p>
 
 <h2><a href="#flags" class="anchor" id="flags"><span class="octicon octicon-link"></span></a>Flags</h2>
-<p>As it was said above there is no specific format, so all available flags declare by array:
+<p>As it was said above there is no specific format, so all available flags declare by array:</p>
 
 {% highlight bash %}
 _netctl_gui_arglist=(
@@ -77,10 +75,8 @@ _netctl_gui_arglist=(
 )
 {% endhighlight %}
 
-</p>
-
 <h2><a href="#variables" class="anchor" id="variables"><span class="octicon octicon-link"></span></a>Arrays of variables</h2>
-<p>I just give a function that looked like this in zsh:
+<p>I just give a function that looked like this in zsh:</p>
 
 {% highlight bash %}
 _netctl_profiles() {
@@ -88,7 +84,7 @@ _netctl_profiles() {
 }
 {% endhighlight %}
 
-Bash does not allow to do so, so this function should be a little changed:
+<p>Bash does not allow to do so, so this function should be a little changed:</p>
 
 {% highlight bash %}
 _netctl_profiles() {
@@ -96,12 +92,10 @@ _netctl_profiles() {
 }
 {% endhighlight %}
 
-</p>
-
 <h2><a href="#body" class="anchor" id="body"><span class="octicon octicon-link"></span></a>Function</h2>
 <p>The variable <code>COMPREPLY</code> responds for completion in Bash. To keep track of the current state function <code>_get_comp_words_by_ref</code> must be called with parameters <code>cur</code> (current flag) and <code>prev</code> (previous flag, it is the state). Also some point for case are needed (variables <code>want*</code>). Function <code>compgen</code> is used for completion generation. A list of words is given after flag <code>-W</code>. (Also there is flag <code>-F</code> which requires a function as argument, but it gives warning for me.) The last argument is a current string to which you want to generate completion.</p>
 
-<p>So, here is our function:
+<p>So, here is our function:</p>
 
 {% highlight bash %}
 _netctl_gui() {
@@ -137,8 +131,6 @@ _netctl_gui() {
     true
 }
 {% endhighlight %}
-
-</p>
 
 <h2><a href="#conclusion" class="anchor" id="conclusion"><span class="octicon octicon-link"></span></a>Conclusion</h2>
 <p>File should be places to <code>/usr/share/bash-completion/completions/</code> with any name. You may found the example <a href="https://raw.githubusercontent.com/arcan1s/netctl-gui/master/sources/gui/bash-completions" title="File" type="text/plain">in my repository</a>.</p>

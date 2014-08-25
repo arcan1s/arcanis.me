@@ -21,7 +21,7 @@ netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FI
            [ -o PROFILE | --open PROFILE ] [ -t NUM | --tab NUM ] [ --set-opts OPTIONS ]
 {% endhighlight %}
 
-<p>Список флагов:
+<p>Список флагов:</p>
 <ul>
   <li>флаги <code>-h</code> и <code>--help</code> не требуют аргументов;</li>
   <li>флаги <code>-e</code> и <code>--essid</code> требуют аргумента в виде строки, без дополнения;</li>
@@ -30,10 +30,9 @@ netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FI
   <li>флаги <code>-t</code> и <code>--tab</code> требуют аргумента в виде строки, дополнение из указанного массива;</li>
   <li>флаг <code>--set-opts</code> требует аргумента в виде строки, дополнение из указанного массива, разделены запятыми;</li>
 </ul>
-</p>
 
 <h2><a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>Структура файла</h2>
-<p>Здесь <b>все</b> переменные должны возвращать массив. Каких-либо особых форматов тут уже нет. Сначала опишем флаги, потом уже все остальные переменные. Я напомню (так как ниже я уже не буду приводить функции более подробно), что <code>_netctl_profiles()</code>, в отличие от других переменных, должна возвращать актуальный на данный момент массив:
+<p>Здесь <b>все</b> переменные должны возвращать массив. Каких-либо особых форматов тут уже нет. Сначала опишем флаги, потом уже все остальные переменные. Я напомню (так как ниже я уже не буду приводить функции более подробно), что <code>_netctl_profiles()</code>, в отличие от других переменных, должна возвращать актуальный на данный момент массив:</p>
 
 {% highlight bash %}
 # variables
@@ -43,23 +42,21 @@ _netctl_gui_tabs=()
 _netctl_profiles() {}
 {% endhighlight %}
 
-Затем идут основные функции, которые будут вызываться для дополнения для определенной команды. В моем случае команда одна, и функция одна:
+<p>Затем идут основные функции, которые будут вызываться для дополнения для определенной команды. В моем случае команда одна, и функция одна:</p>
 
 {% highlight bash %}
 # work block
 _netctl-gui() {}
 {% endhighlight %}
 
-Далее, опять, <b>без выделения в отдельную функцию</b> делаем соответствие "функция-команда":
+<p>Далее, опять, <b>без выделения в отдельную функцию</b> делаем соответствие "функция-команда":</p>
 
 {% highlight bash %}
 complete -F _netctl_gui netctl-gui
 {% endhighlight %}
 
-</p>
-
 <h2><a href="#flags" class="anchor" id="flags"><span class="octicon octicon-link"></span></a>Флаги</h2>
-<p>Как было сказано выше, особого формата тут нет, доступные флаги располагаются просто массивом:
+<p>Как было сказано выше, особого формата тут нет, доступные флаги располагаются просто массивом:</p>
 
 {% highlight bash %}
 _netctl_gui_arglist=(
@@ -77,10 +74,8 @@ _netctl_gui_arglist=(
 )
 {% endhighlight %}
 
-</p>
-
 <h2><a href="#variables" class="anchor" id="variables"><span class="octicon octicon-link"></span></a>Массивы переменных</h2>
-<p>Приведу только функцию, которая в zsh выглядела таким образом:
+<p>Приведу только функцию, которая в zsh выглядела таким образом:</p>
 
 {% highlight bash %}
 _netctl_profiles() {
@@ -88,7 +83,7 @@ _netctl_profiles() {
 }
 {% endhighlight %}
 
-В bash так не получится, пришлось чуть-чуть изменить:
+<p>В bash так не получится, пришлось чуть-чуть изменить:</p>
 
 {% highlight bash %}
 _netctl_profiles() {
@@ -96,12 +91,10 @@ _netctl_profiles() {
 }
 {% endhighlight %}
 
-</p>
-
 <h2><a href="#body" class="anchor" id="body"><span class="octicon octicon-link"></span></a>Тело функции</h2>
 <p>За дополнение в bash отвечает переменная <code>COMPREPLY</code>. Для отслеживания текущего состояния нужно вызвать функцию <code>_get_comp_words_by_ref</code> с параметрами <code>cur</code> (текущая опция) и <code>prev</code> (предыдущая, собственно состояние). Ну и нужно несколько точек, на которых сворачивать в определенную часть case (переменные <code>want*</code>). Для генерации дополнения используется <code>compgen</code>. После флага <code>-W</code> ему подается список слов. (Есть еще флаг <code>-F</code>, который вызывает функцию, но у меня он помимо этого еще и ворнинг выдает.) Последним аргументом идет текущая строка, к которой и нужно генерировать дополнение.</p>
 
-<p>Таким образом, наша функция выглядит так:
+<p>Таким образом, наша функция выглядит так:</p>
 
 {% highlight bash %}
 _netctl_gui() {
@@ -137,8 +130,6 @@ _netctl_gui() {
     true
 }
 {% endhighlight %}
-
-</p>
 
 <h2><a href="#conclusion" class="anchor" id="conclusion"><span class="octicon octicon-link"></span></a>Заключение</h2>
 <p>Файл хранится в директории <code>/usr/share/bash-completion/completions/</code> с произвольным именем. Файл примера полностью может быть найден <a href="https://raw.githubusercontent.com/arcan1s/netctl-gui/master/sources/gui/bash-completions" title="Файл" type="text/plain">в моем репозитории</a>.</p>
