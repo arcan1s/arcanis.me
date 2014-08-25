@@ -120,10 +120,10 @@ groups:
   {% for project in group.projects %}
     <h2><a href="#{{ project.short }}" class="anchor" id="{{ project.short }}"><span class="octicon octicon-link"></span></a>{{ project.title }}</h2>
     <p>{{ project.description }}</p>
-    <p><ul>
+    <ul>
       {% for link in project.links %}
         <li>{{ link }}</li>
       {% endfor %}
-    </ul></p>
+    </ul>
   {% endfor %}
 {% endfor %}
