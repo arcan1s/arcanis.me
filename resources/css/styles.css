@@ -223,9 +223,12 @@ table {
 }
 
 th, td {
-  text-align: left;
   padding: 5px 10px;
   border-bottom: 1px solid #ffffff;
+}
+
+td {
+  text-align: justify;
 }
 
 dt {
@@ -234,6 +237,7 @@ dt {
 }
 
 th {
+  text-align: left;
   color: #444444;
 }
 

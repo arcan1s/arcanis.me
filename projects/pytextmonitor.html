@@ -105,43 +105,43 @@ sudo make install
 <table>
   <tr>
     <th>CUSTOM</th>
-    <td><p>Custom commands to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>. Separator is <code>@@</code>.</td>
+    <td>Custom commands to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>. Separator is <code>@@</code>.</td>
   </tr>
   <tr>
     <th>DESKTOPCMD</th>
-    <td><p>Command which defines the current desktop. Default is <code>qdbus org.kde.kwin /KWin currentDesktop</code>.</td>
+    <td>Command which defines the current desktop. Default is <code>qdbus org.kde.kwin /KWin currentDesktop</code>.</td>
   </tr>
   <tr>
     <th>GPUDEV</th>
-    <td><p>Set GPU device. May be <code>nvidia</code> (for nVidia), <code>ati</code> (for ATI Radeon), <code>disable</code> or <code>auto</code>. Default is <code>auto</code>.</p></td>
+    <td>Set GPU device. May be <code>nvidia</code> (for nVidia), <code>ati</code> (for ATI Radeon), <code>disable</code> or <code>auto</code>. Default is <code>auto</code>.</td>
   </tr>
   <tr>
     <th>HDDDEV</th>
-    <td><p>Set block device for <code>hddtemp</code> comma separated or use <code>all</code>. <code>disable</code> will disable HDD temperature monitor. Default is <code>all</code>.</p></td>
+    <td>Set block device for <code>hddtemp</code> comma separated or use <code>all</code>. <code>disable</code> will disable HDD temperature monitor. Default is <code>all</code>.</td>
   </tr>
   <tr>
     <th>HDDTEMPCMD</th>
-    <td><p>A command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>.</p></td>
+    <td>A command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>.</td>
   </tr>
   <tr>
     <th>MPDADDRESS</th>
-    <td><p>MPD host address. Default is <code>localhost</code>.</td>
+    <td>MPD host address. Default is <code>localhost</code>.</td>
   </tr>
   <tr>
     <th>MPDPORT</th>
-    <td><p>MPD host port. Default is <code>6600</code>.</td>
+    <td>MPD host port. Default is <code>6600</code>.</td>
   </tr>
   <tr>
     <th>PKGCMD</th>
-    <td><p>Commands to run for package manager, comma separated.</td>
+    <td>Commands to run for package manager, comma separated.</td>
   </tr>
   <tr>
     <th>PKGNULL</th>
-    <td><p>Number of null lines for commands, comma separated.</td>
+    <td>Number of null lines for commands, comma separated.</td>
   </tr>
   <tr>
     <th>PLAYER</th>
-    <td><p>Set music player. Supported players are amarok, clementine, mpd, qmmp.</td>
+    <td>Set music player. Supported players are amarok, clementine, mpd, qmmp.</td>
   </tr>
 </table>
 
@@ -155,221 +155,221 @@ sudo make install
   <tr>
     <th rowspan="5">Time label</th>
     <td><code>$time</code></td>
-    <td><p>Time in default format. For example, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
+    <td>Time in default format. For example, <code>fri Nov 6 04:48:01 2013</code>.</td>
   </tr>
   <tr>
     <td><code>$isotime</code></td>
-    <td><p>Time in ISO format.</p></td>
+    <td>Time in ISO format.</td>
   </tr>
   <tr>
     <td><code>$shorttime</code></td>
-    <td><p>Time in short locale format.</p></td>
+    <td>Time in short locale format.</td>
   </tr>
   <tr>
     <td><code>$longtime</code></td>
-    <td><p>Time in long locale format.</p></td>
+    <td>Time in long locale format.</td>
   </tr>
   <tr>
     <td><code>$custom</code></td>
-    <td><p>Will enable custom time format.</p></td>
+    <td>Will enable custom time format.</td>
   </tr>
   <tr>
     <th rowspan="2">Uptime label</th>
     <td><code>$uptime</code></td>
-    <td><p>System uptime, <code>---d--h--m</code>.</p></td>
+    <td>System uptime, <code>---d--h--m</code>.</td>
   </tr>
   <tr>
     <td><code>$custom</code></td>
-    <td><p>Will enable custom uptime format.</p></td>
+    <td>Will enable custom uptime format.</td>
   </tr>
   <tr>
     <th rowspan="2">CPU label</th>
     <td><code>$cpu</code></td>
-    <td><p>Total load CPU, %, <code>-----</code>.</p></td>
+    <td>Total load CPU, %, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$cpuN</code></td>
-    <td><p>Load CPU for core N, %, <code>-----</code>.</p></td>
+    <td>Load CPU for core N, %, <code>-----</code>.</td>
   </tr>
   <tr>
     <th rowspan="2">CPU clock label</th>
     <td><code>$cpucl</code></td>
-    <td><p>Average CPU clock, MHz, <code>----</code>.</p></td>
+    <td>Average CPU clock, MHz, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$cpuclN</code></td>
-    <td><p>CPU clock for core N, MHz, <code>----</code>.</p></td>
+    <td>CPU clock for core N, MHz, <code>----</code>.</td>
   </tr>
   <tr>
     <th rowspan="1">Temperature label</th>
     <td><code>$tempN</code></td>
-    <td><p>Temperature for device N, &deg;C, <code>----</code>. For example, <code>$temp0</code>.</p></td>
+    <td>Temperature for device N, &deg;C, <code>----</code>. For example, <code>$temp0</code>.</td>
   </tr>
   <tr>
     <th rowspan="1">GPU label</th>
     <td><code>$gpu</code></td>
-    <td><p>GPU usage, %, <code>-----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</p></td>
+    <td>GPU usage, %, <code>-----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</td>
   </tr>
   <tr>
     <th rowspan="1">GPU temperature label</th>
     <td><code>$gputemp</code></td>
-    <td><p>GPU temperature, &deg;C, <code>----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</p></td>
+    <td>GPU temperature, &deg;C, <code>----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</td>
   </tr>
   <tr>
     <th rowspan="5">Memory label</th>
     <td><code>$mem</code></td>
-    <td><p>Memory usage, %, <code>-----</code>.</p></td>
+    <td>Memory usage, %, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$memmb</code></td>
-    <td><p>Memory usage, MB, <code>-----</code>.</p></td>
+    <td>Memory usage, MB, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$memgb</code></td>
-    <td><p>Memory usage, GB, <code>----</code>.</p></td>
+    <td>Memory usage, GB, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$memtotmb</code></td>
-    <td><p>RAM, MB, <code>-----</code>.</p></td>
+    <td>RAM, MB, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$memtotgb</code></td>
-    <td><p>RAM, GB, <code>----</code>.</p></td>
+    <td>RAM, GB, <code>----</code>.</td>
   </tr>
   <tr>
     <th rowspan="5">Swap label</th>
     <td><code>$swap</code></td>
-    <td><p>Swap usage, %, <code>-----</code>.</p></td>
+    <td>Swap usage, %, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$swapmb</code></td>
-    <td><p>Swap usage, MB, <code>-----</code>.</p></td>
+    <td>Swap usage, MB, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$swapgb</code></td>
-    <td><p>Swap usage, GB, <code>----</code>.</p></td>
+    <td>Swap usage, GB, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$swaptotmb</code></td>
-    <td><p>Swap, MB, <code>-----</code>.</p></td>
+    <td>Swap, MB, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$swaptotgb</code></td>
-    <td><p>Swap, GB, <code>----</code>.</p></td>
+    <td>Swap, GB, <code>----</code>.</td>
   </tr>
   <tr>
     <th rowspan="5">HDD usage label</th>
     <td><code>$hddN</code></td>
-    <td><p>Usage for mount point N, %, <code>-----</code>. For example <code>$hdd0</code>.</p></td>
+    <td>Usage for mount point N, %, <code>-----</code>. For example <code>$hdd0</code>.</td>
   </tr>
   <tr>
     <td><code>$hddmbN</code></td>
-    <td><p>Usage for mount point N, MB, <code>-----</code>. For example <code>$hddmb0</code>.</p></td>
+    <td>Usage for mount point N, MB, <code>-----</code>. For example <code>$hddmb0</code>.</td>
   </tr>
   <tr>
     <td><code>$hddgbN</code></td>
-    <td><p>Usage for mount point N, GB, <code>-----</code>. For example <code>$hddgb0</code>.</p></td>
+    <td>Usage for mount point N, GB, <code>-----</code>. For example <code>$hddgb0</code>.</td>
   </tr>
   <tr>
     <td><code>$hddtotmbN</code></td>
-    <td><p>Total size of mount point N, MB, <code>-----</code>. For example <code>$hddtotmb0</code>.</p></td>
+    <td>Total size of mount point N, MB, <code>-----</code>. For example <code>$hddtotmb0</code>.</td>
   </tr>
   <tr>
     <td><code>$hddtotgbN</code></td>
-    <td><p>Total size of mount point N, GB, <code>-----</code>. For example <code>$hddtotgb0</code>.</p></td>
+    <td>Total size of mount point N, GB, <code>-----</code>. For example <code>$hddtotgb0</code>.</td>
   </tr>
   <tr>
     <th rowspan="2">HDD speed label</th>
     <td><code>$hddrN</code></td>
-    <td><p>Read speed of disk N, KB/s, <code>-----</code>. For example <code>$hddr0</code>.</p></td>
+    <td>Read speed of disk N, KB/s, <code>-----</code>. For example <code>$hddr0</code>.</td>
   </tr>
   <tr>
     <td><code>$hddwN</code></td>
-    <td><p>Write speed of disk N, KB/s, <code>-----</code>. For example <code>$hddw0</code>.</p></td>
+    <td>Write speed of disk N, KB/s, <code>-----</code>. For example <code>$hddw0</code>.</td>
   </tr>
   <tr>
     <th rowspan="1">HDD temperature label</th>
     <td><code>$hddtempN</code></td>
-    <td><p>Temperature for HDD N, &deg;C, <code>----</code>. For example <code>$hddtemp0</code>. <code>hddtemp</code> must be installed.</p></td>
+    <td>Temperature for HDD N, &deg;C, <code>----</code>. For example <code>$hddtemp0</code>. <code>hddtemp</code> must be installed.</td>
   </tr>
   <tr>
     <th rowspan="3">Network label</th>
     <td><code>$down</code></td>
-    <td><p>Download speed, KB/s, <code>----</code>.</p></td>
+    <td>Download speed, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$up</code></td>
-    <td><p>Upload speed, KB/s, <code>----</code>.</p></td>
+    <td>Upload speed, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$netdev</code></td>
-    <td><p>Current network device.</p></td>
+    <td>Current network device.</td>
   </tr>
   <tr>
     <th rowspan="2">Battery label</th>
     <td><code>$bat</code></td>
-    <td><p>Battery charge, %, <code>---</code>.</p></td>
+    <td>Battery charge, %, <code>---</code>.</td>
   </tr>
   <tr>
     <td><code>$ac</code></td>
-    <td><p>Status of AC device. Returns <code>(*)</code> if AC device is online or <code>( )</code> if offline.</td>
+    <td>Status of AC device. Returns <code>(*)</code> if AC device is online or <code>( )</code> if offline.</td>
   </tr>
   <tr>
     <th rowspan="5">Music player label</th>
     <td><code>$album</code></td>
-    <td><p>Current song album. One of supported music players must be installed.</p></td>
+    <td>Current song album. One of supported music players must be installed.</td>
   </tr>
   <tr>
     <td><code>$artist</code></td>
-    <td><p>Current song artist. One of supported music players must be installed.</p></td>
+    <td>Current song artist. One of supported music players must be installed.</td>
   </tr>
   <tr>
     <td><code>$progress</code></td>
-    <td><p>Current song progress. One of supported music players must be installed.</p></td>
+    <td>Current song progress. One of supported music players must be installed.</td>
   </tr>
   <tr>
     <td><code>$time</code></td>
-    <td><p>Current song duration. One of supported music players must be installed.</p></td>
+    <td>Current song duration. One of supported music players must be installed.</td>
   </tr>
   <tr>
     <td><code>$title</code></td>
-    <td><p>Current song title. One of supported music players must be installed.</p></td>
+    <td>Current song title. One of supported music players must be installed.</td>
   </tr>
   <tr>
     <th rowspan="3">Process label</th>
     <td><code>$ps</code></td>
-    <td><p>List of running processes comma separated.</p></td>
+    <td>List of running processes comma separated.</td>
   </tr>
   <tr>
     <td><code>$pscount</code></td>
-    <td><p>Number of running processes.</p></td>
+    <td>Number of running processes.</td>
   </tr>
   <tr>
     <td><code>$pstotal</code></td>
-    <td><p>Total number of processes.</p></td>
+    <td>Total number of processes.</td>
   </tr>
   <tr>
     <th rowspan="1">Package manager label</th>
     <td><code>$pkgcountN</code></td>
-    <td><p>Number of packages, which available to upgrade for command N.</p></td>
+    <td>Number of packages, which available to upgrade for command N.</td>
   </tr>
   <tr>
     <th rowspan="1">Custom label</th>
     <td><code>$customN</code></td>
-    <td><p>Get output from custom command N. For example <code>$custom0</code>.</p></td>
+    <td>Get output from custom command N. For example <code>$custom0</code>.</td>
   </tr>
   <tr>
     <th rowspan="3">Desktop label</th>
     <td><code>$name</code></td>
-    <td><p>Name of the current desktop.</p></td>
+    <td>Name of the current desktop.</td>
   </tr>
   <tr>
     <td><code>$number</code></td>
-    <td><p>Number of the current desktop.</p></td>
+    <td>Number of the current desktop.</td>
   </tr>
   <tr>
     <td><code>$total</code></td>
-    <td><p>Total number of desktops.</p></td>
+    <td>Total number of desktops.</td>
   </tr>
 </table>
 
@@ -386,67 +386,67 @@ sudo make install
 <table>
   <tr>
     <td><code>$dddd</code></td>
-    <td><p>Weekday in long format.</p></td>
+    <td>Weekday in long format.</td>
   </tr>
   <tr>
     <td><code>$ddd</code></td>
-    <td><p>Weekday in short format.</p></td>
+    <td>Weekday in short format.</td>
   </tr>
   <tr>
     <td><code>$dd</code></td>
-    <td><p>Day.</p></td>
+    <td>Day.</td>
   </tr>
   <tr>
     <td><code>$d</code></td>
-    <td><p>Day without zero.</p></td>
+    <td>Day without zero.</td>
   </tr>
   <tr>
     <td><code>$MMMM</code></td>
-    <td><p>Month in long format.</p></td>
+    <td>Month in long format.</td>
   </tr>
   <tr>
     <td><code>$MMM</code></td>
-    <td><p>Month in short format.</p></td>
+    <td>Month in short format.</td>
   </tr>
   <tr>
     <td><code>$MM</code></td>
-    <td><p>Month.</p></td>
+    <td>Month.</td>
   </tr>
   <tr>
     <td><code>$M</code></td>
-    <td><p>Month without zero.</p></td>
+    <td>Month without zero.</td>
   </tr>
   <tr>
     <td><code>$yyyy</code></td>
-    <td><p>Year.</p></td>
+    <td>Year.</td>
   </tr>
   <tr>
     <td><code>$yy</code></td>
-    <td><p>Year in short format.</p></td>
+    <td>Year in short format.</td>
   </tr>
   <tr>
     <td><code>$hh</code></td>
-    <td><p>Hours.</p></td>
+    <td>Hours.</td>
   </tr>
   <tr>
     <td><code>$h</code></td>
-    <td><p>Hours without zero.</p></td>
+    <td>Hours without zero.</td>
   </tr>
   <tr>
     <td><code>$mm</code></td>
-    <td><p>Minutes.</p></td>
+    <td>Minutes.</td>
   </tr>
   <tr>
     <td><code>$m</code></td>
-    <td><p>Minutes without zero.</p></td>
+    <td>Minutes without zero.</td>
   </tr>
   <tr>
     <td><code>$ss</code></td>
-    <td><p>Seconds.</p></td>
+    <td>Seconds.</td>
   </tr>
   <tr>
     <td><code>$s</code></td>
-    <td><p>Seconds without zero.</p></td>
+    <td>Seconds without zero.</td>
   </tr>
 </table>
 
@@ -454,27 +454,27 @@ sudo make install
 <table>
   <tr>
     <td><code>$dd</code></td>
-    <td><p>Uptime days.</p></td>
+    <td>Uptime days.</td>
   </tr>
   <tr>
     <td><code>$d</code></td>
-    <td><p>Uptime days without zero.</p></td>
+    <td>Uptime days without zero.</td>
   </tr>
   <tr>
     <td><code>$hh</code></td>
-    <td><p>Uptime hours.</p></td>
+    <td>Uptime hours.</td>
   </tr>
   <tr>
     <td><code>$h</code></td>
-    <td><p>Uptime hours without zero.</p></td>
+    <td>Uptime hours without zero.</td>
   </tr>
   <tr>
     <td><code>$mm</code></td>
-    <td><p>Uptime minutes.</p></td>
+    <td>Uptime minutes.</td>
   </tr>
   <tr>
     <td><code>$m</code></td>
-    <td><p>Uptime minutes without zero.</p></td>
+    <td>Uptime minutes without zero.</td>
   </tr>
 </table>
 
@@ -521,37 +521,37 @@ sudo make install
 <p><b>Package manager:</b> List of commands, which will be run. Number of null lines is a number of unneeded lines. Defaults are:</p>
 <table>
   <tr>
-    <td><p align="center"><b>Distro</b></p></td>
-    <td><p align="center"><b>Command</b></p></td>
-    <td><p align="center"><b>Number</b></p></td>
+    <th>Distro</th>
+    <th>Command</th>
+    <th>Number</th>
   </tr>
   <tr>
-    <td><p>Arch</p></td>
+    <td>Arch</td>
     <td><code>pacman -Qu</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p>Debian</p></td>
+    <td>Debian</td>
     <td><code>apt-show-versions -u -b</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p>Ubuntu</p></td>
+    <td>Ubuntu</td>
     <td><code>aptitude search '~U'</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p>Fedora</p></td>
+    <td>Fedora</td>
     <td><code>yum list updates</code></td>
     <td><code>3</code></td>
   </tr>
   <tr>
-    <td><p>FreeBSD</p></td>
+    <td>FreeBSD</td>
     <td><code>pkg_version -I -l '<'</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p>Mandriva</p></td>
+    <td>Mandriva</td>
     <td><code>urpmq --auto-select</code></td>
     <td><code>0</code></td>
   </tr>
@@ -575,19 +575,19 @@ sudo make install
 <table>
   <tr>
     <td><code>$mark</code></td>
-    <td><p>Show mark if this desktop is active.</p></td>
+    <td>Show mark if this desktop is active.</td>
   </tr>
   <tr>
     <td><code>$name</code></td>
-    <td><p>Name of the desktop.</p></td>
+    <td>Name of the desktop.</td>
   </tr>
   <tr>
     <td><code>$number</code></td>
-    <td><p>Number of the desktop.</p></td>
+    <td>Number of the desktop.</td>
   </tr>
   <tr>
     <td><code>$total</code></td>
-    <td><p>Total number of desktops.</p></td>
+    <td>Total number of desktops.</td>
   </tr>
 </table>
 

@@ -106,43 +106,43 @@ sudo make install
 <table>
   <tr>
     <th>CUSTOM</th>
-    <td><p>Свои команды для запуска. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>. Разделитель <code>@@</code>.</td>
+    <td>Свои команды для запуска. По умолчанию <code>wget -qO- http://ifconfig.me/ip</code>. Разделитель <code>@@</code>.</td>
   </tr>
   <tr>
     <th>DESKTOPCMD</th>
-    <td><p>Комадна, которая определяет текущий рабочий стол. По умолчанию <code>qdbus org.kde.kwin /KWin currentDesktop</code>.</td>
+    <td>Комадна, которая определяет текущий рабочий стол. По умолчанию <code>qdbus org.kde.kwin /KWin currentDesktop</code>.</td>
   </tr>
   <tr>
     <th>GPUDEV</th>
-    <td><p>Устанавливает тип GPU. Может быть <code>nvidia</code> (для nVidia), <code>ati</code> (для ATI Radeon), <code>disable</code> или <code>auto</code>. По умолчанию <code>auto</code>.</p></td>
+    <td>Устанавливает тип GPU. Может быть <code>nvidia</code> (для nVidia), <code>ati</code> (для ATI Radeon), <code>disable</code> или <code>auto</code>. По умолчанию <code>auto</code>.</td>
   </tr>
   <tr>
     <th>HDDDEV</th>
-    <td><p>Устанавливает блочное устройство для <code>hddtemp</code> через запятую или <code>all</code> для всех возможных. <code>disable</code> отключит монитор температуры HDD. По умолчанию <code>all</code>.</p></td>
+    <td>Устанавливает блочное устройство для <code>hddtemp</code> через запятую или <code>all</code> для всех возможных. <code>disable</code> отключит монитор температуры HDD. По умолчанию <code>all</code>.</td>
   </tr>
   <tr>
     <th>HDDTEMPCMD</th>
-    <td><p>Команда, которая будет запущена для hddtemp. По умолчанию <code>sudo hddtemp</code>.</p></td>
+    <td>Команда, которая будет запущена для hddtemp. По умолчанию <code>sudo hddtemp</code>.</td>
   </tr>
   <tr>
     <th>MPDADDRESS</th>
-    <td><p>Адрес MPD хоста. По умолчанию <code>localhost</code>.</td>
+    <td>Адрес MPD хоста. По умолчанию <code>localhost</code>.</td>
   </tr>
   <tr>
     <th>MPDPORT</th>
-    <td><p>Адрес MPD хоста. По умолчанию <code>6600</code>.</td>
+    <td>Адрес MPD хоста. По умолчанию <code>6600</code>.</td>
   </tr>
   <tr>
     <th>PKGCMD</th>
-    <td><p>Команды, которые будут запущены для пакетного менеджера, разделенные запятой.</td>
+    <td>Команды, которые будут запущены для пакетного менеджера, разделенные запятой.</td>
   </tr>
   <tr>
     <th>PKGNULL</th>
-    <td><p>Число пустых строк для команд, разделенные запятой.</td>
+    <td>Число пустых строк для команд, разделенные запятой.</td>
   </tr>
     <tr>
     <th>PLAYER</th>
-    <td><p>Устанавливает музыкальный плеер. Поддерживаемые плееры: amarok, clementine, mpd, qmmp.</td>
+    <td>Устанавливает музыкальный плеер. Поддерживаемые плееры: amarok, clementine, mpd, qmmp.</td>
   </tr>
 </table>
 
@@ -156,221 +156,221 @@ sudo make install
   <tr>
     <th rowspan="5">Время</th>
     <td><code>$time</code></td>
-    <td><p>Время в стандартном формате. Например, <code>fri Nov 6 04:48:01 2013</code>.</p></td>
+    <td>Время в стандартном формате. Например, <code>fri Nov 6 04:48:01 2013</code>.</td>
   </tr>
   <tr>
     <td><code>$isotime</code></td>
-    <td><p>Время в формате ISO.</p></td>
+    <td>Время в формате ISO.</td>
   </tr>
   <tr>
     <td><code>$shorttime</code></td>
-    <td><p>Время в коротком формате локали.</p></td>
+    <td>Время в коротком формате локали.</td>
   </tr>
   <tr>
     <td><code>$longtime</code></td>
-    <td><p>Время в длинном формате локали.</p></td>
+    <td>Время в длинном формате локали.</td>
   </tr>
   <tr>
     <td><code>$custom</code></td>
-    <td><p>Cпециальный формат времени.</p></td>
+    <td>Cпециальный формат времени.</td>
   </tr>
   <tr>
     <th rowspan="2">Время работы</th>
     <td><code>$uptime</code></td>
-    <td><p>Системный аптайм, <code>---d--h--m</code>.</p></td>
+    <td>Системный аптайм, <code>---d--h--m</code>.</td>
   </tr>
   <tr>
     <td><code>$custom</code></td>
-    <td><p>Cпециальный формат аптайма.</p></td>
+    <td>Cпециальный формат аптайма.</td>
   </tr>
   <tr>
     <th rowspan="2">CPU</th>
     <td><code>$cpu</code></td>
-    <td><p>Полная загрузка CPU, %, <code>-----</code>.</p></td>
+    <td>Полная загрузка CPU, %, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$cpuN</code></td>
-    <td><p>Загрузка CPU для ядра N, %, <code>-----</code>.</p></td>
+    <td>Загрузка CPU для ядра N, %, <code>-----</code>.</td>
   </tr>
   <tr>
     <th rowspan="2">Частота CPU</th>
     <td><code>$cpucl</code></td>
-    <td><p>Средняя частота CPU, МГц, <code>----</code>.</p></td>
+    <td>Средняя частота CPU, МГц, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$cpuclN</code></td>
-    <td><p>Частота CPU для ядра N, МГц, <code>----</code>.</p></td>
+    <td>Частота CPU для ядра N, МГц, <code>----</code>.</td>
   </tr>
   <tr>
     <th rowspan="1">Температура</th>
     <td><code>$tempN</code></td>
-    <td><p>Температура для датчика N, &deg;C, <code>----</code>. Пример: <code>$temp0</code></p></td>
+    <td>Температура для датчика N, &deg;C, <code>----</code>. Пример: <code>$temp0</code></td>
   </tr>
   <tr>
     <th rowspan="1">GPU</th>
     <td><code>$gpu</code></td>
-    <td><p>Использование GPU, %, <code>-----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</p></td>
+    <td>Использование GPU, %, <code>-----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</td>
   </tr>
   <tr>
     <th rowspan="1">Температура GPU</th>
     <td><code>$gputemp</code></td>
-    <td><p>Температура GPU, &deg;C, <code>----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</p></td>
+    <td>Температура GPU, &deg;C, <code>----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</td>
   </tr>
   <tr>
     <th rowspan="5">Память</th>
     <td><code>$mem</code></td>
-    <td><p>Использование RAM, %, <code>-----</code>.</p></td>
+    <td>Использование RAM, %, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$memmb</code></td>
-    <td><p>Использование RAM, MB, <code>-----</code>.</p></td>
+    <td>Использование RAM, MB, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$memgb</code></td>
-    <td><p>Использование RAM, GB, <code>----</code>.</p></td>
+    <td>Использование RAM, GB, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$memtotmb</code></td>
-    <td><p>RAM, MB, <code>-----</code>.</p></td>
+    <td>RAM, MB, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$memtotgb</code></td>
-    <td><p>RAM, GB, <code>----</code>.</p></td>
+    <td>RAM, GB, <code>----</code>.</td>
   </tr>
   <tr>
     <th rowspan="5">Swap</th>
     <td><code>$swap</code></td>
-    <td><p>Использование swap, %, <code>-----</code>.</p></td>
+    <td>Использование swap, %, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$swapmb</code></td>
-    <td><p>Использование swap, MB, <code>-----</code>.</p></td>
+    <td>Использование swap, MB, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$swapgb</code></td>
-    <td><p>Использование swap, GB, <code>----</code>.</p></td>
+    <td>Использование swap, GB, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$swaptotmb</code></td>
-    <td><p>swap, MB, <code>-----</code>.</p></td>
+    <td>swap, MB, <code>-----</code>.</td>
   </tr>
   <tr>
     <td><code>$swaptotgb</code></td>
-    <td><p>swap, GB, <code>----</code>.</p></td>
+    <td>swap, GB, <code>----</code>.</td>
   </tr>
   <tr>
     <th rowspan="5">HDD</th>
     <td><code>$hddN</code></td>
-    <td><p>Занятость точки монтирования N, %, <code>-----</code>. Пример: <code>$hdd0</code>.</p></td>
+    <td>Занятость точки монтирования N, %, <code>-----</code>. Пример: <code>$hdd0</code>.</td>
   </tr>
   <tr>
     <td><code>$hddmbN</code></td>
-    <td><p>Занятость точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddmb0</code>.</p></td>
+    <td>Занятость точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddmb0</code>.</td>
   </tr>
   <tr>
     <td><code>$hddgbN</code></td>
-    <td><p>Занятость точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddgb0</code>.</p></td>
+    <td>Занятость точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddgb0</code>.</td>
   </tr>
   <tr>
     <td><code>$hddtotmbN</code></td>
-    <td><p>Размер точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddtotmb0</code>.</p></td>
+    <td>Размер точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddtotmb0</code>.</td>
   </tr>
   <tr>
     <td><code>$hddtotgbN</code></td>
-    <td><p>Размер точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddtotgb0</code>.</p></td>
+    <td>Размер точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddtotgb0</code>.</td>
   </tr>
   <tr>
     <th rowspan="2">Скорость HDD</th>
     <td><code>$hddrN</code></td>
-    <td><p>Скорость записи диска N, KB/s, <code>-----</code>. Пример: <code>$hddr0</code>.</p></td>
+    <td>Скорость записи диска N, KB/s, <code>-----</code>. Пример: <code>$hddr0</code>.</td>
   </tr>
   <tr>
     <td><code>$hddwN</code></td>
-    <td><p>Скорость чтения диска N, KB/s, <code>-----</code>. Пример: <code>$hddw0</code>.</p></td>
+    <td>Скорость чтения диска N, KB/s, <code>-----</code>. Пример: <code>$hddw0</code>.</td>
   </tr>
   <tr>
     <th rowspan="1">Температура HDD</th>
     <td><code>$hddtempN</code></td>
-    <td><p>Температура HDD с номером N, &deg;C, <code>----</code>. Пример <code>$hddtemp0</code>. <code>hddtemp</code> должен быть установлен.</p></td>
+    <td>Температура HDD с номером N, &deg;C, <code>----</code>. Пример <code>$hddtemp0</code>. <code>hddtemp</code> должен быть установлен.</td>
   </tr>
   <tr>
     <th rowspan="3">Сеть</th>
     <td><code>$down</code></td>
-    <td><p>Скорость загрузки, KB/s, <code>----</code>.</p></td>
+    <td>Скорость загрузки, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$up</code></td>
-    <td><p>Скорость отдачи, KB/s, <code>----</code>.</p></td>
+    <td>Скорость отдачи, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$netdev</code></td>
-    <td><p>Текущее устройство.</p></td>
+    <td>Текущее устройство.</td>
   </tr>
   <tr>
     <th rowspan="2">Батарея</th>
     <td><code>$bat</code></td>
-    <td><p>Заряд батареи, %, <code>---</code>.</p></td>
+    <td>Заряд батареи, %, <code>---</code>.</td>
   </tr>
   <tr>
     <td><code>$ac</code></td>
-    <td><p>Статус зарядного устройства. Возвращает <code>(*)</code>, если устройство подключено, или <code>( )</code>, если нет.</p></td>
+    <td>Статус зарядного устройства. Возвращает <code>(*)</code>, если устройство подключено, или <code>( )</code>, если нет.</td>
   </tr>
   <tr>
     <th rowspan="5">Музыкальный плеер</th>
     <td><code>$album</code></td>
-    <td><p>Альбом текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
+    <td>Альбом текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</td>
   </tr>
   <tr>
     <td><code>$artist</code></td>
-    <td><p>Исполнитель текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
+    <td>Исполнитель текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</td>
   </tr>
   <tr>
     <td><code>$progress</code></td>
-    <td><p>Прогресс текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
+    <td>Прогресс текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</td>
   </tr>
   <tr>
     <td><code>$time</code></td>
-    <td><p>Длительность текущей пени. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
+    <td>Длительность текущей пени. Один из поддерживаемых музыкальных плееров должен быть установлен.</td>
   </tr>
   <tr>
     <td><code>$title</code></td>
-    <td><p>Название текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</p></td>
+    <td>Название текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</td>
   </tr>
   <tr>
     <th rowspan="3">Процессы</th>
     <td><code>$ps</code></td>
-    <td><p>Список запущенных процессов, разделенных запятой.</p></td>
+    <td>Список запущенных процессов, разделенных запятой.</td>
   </tr>
   <tr>
     <td><code>$pscount</code></td>
-    <td><p>Число запущенных процессов.</p></td>
+    <td>Число запущенных процессов.</td>
   </tr>
   <tr>
     <td><code>$pstotal</code></td>
-    <td><p>Общее число процессов.</p></td>
+    <td>Общее число процессов.</td>
   </tr>
   <tr>
     <th rowspan="1">Пакетный менеджер</th>
     <td><code>$pkgcountN</code></td>
-    <td><p>Число пакетов, доступных для обновления, для команды N.</p></td>
+    <td>Число пакетов, доступных для обновления, для команды N.</td>
   </tr>
   <tr>
     <th rowspan="1">Своя команда</th>
     <td><code>$customN</code></td>
-    <td><p>Получить данные из указанной команды N. Например, <code>$custom0</code>.</p></td>
+    <td>Получить данные из указанной команды N. Например, <code>$custom0</code>.</td>
   </tr>
   <tr>
     <th rowspan="3">Desktop label</th>
     <td><code>$name</code></td>
-    <td><p>Имя текущего рабочего стола.</p></td>
+    <td>Имя текущего рабочего стола.</td>
   </tr>
   <tr>
     <td><code>$number</code></td>
-    <td><p>Номер текущего рабочего стола.</p></td>
+    <td>Номер текущего рабочего стола.</td>
   </tr>
   <tr>
     <td><code>$total</code></td>
-    <td><p>Общее число рабочих столов.</p></td>
+    <td>Общее число рабочих столов.</td>
   </tr>
 </table>
 
@@ -387,67 +387,67 @@ sudo make install
 <table>
   <tr>
     <td><code>$dddd</code></td>
-    <td><p>Длинный день недели.</p></td>
+    <td>Длинный день недели.</td>
   </tr>
   <tr>
     <td><code>$ddd</code></td>
-    <td><p>Короткий день недели.</p></td>
+    <td>Короткий день недели.</td>
   </tr>
   <tr>
     <td><code>$dd</code></td>
-    <td><p>День.</p></td>
+    <td>День.</td>
   </tr>
   <tr>
     <td><code>$d</code></td>
-    <td><p>День без нуля.</p></td>
+    <td>День без нуля.</td>
   </tr>
   <tr>
     <td><code>$MMMM</code></td>
-    <td><p>Месяц в длинном формате.</p></td>
+    <td>Месяц в длинном формате.</td>
   </tr>
   <tr>
     <td><code>$MMM</code></td>
-    <td><p>Месяц в коротком формате.</p></td>
+    <td>Месяц в коротком формате.</td>
   </tr>
   <tr>
     <td><code>$MM</code></td>
-    <td><p>Месяц.</p></td>
+    <td>Месяц.</td>
   </tr>
   <tr>
     <td><code>$M</code></td>
-    <td><p>Месяц без нуля.</p></td>
+    <td>Месяц без нуля.</td>
   </tr>
   <tr>
     <td><code>$yyyy</code></td>
-    <td><p>Год.</p></td>
+    <td>Год.</td>
   </tr>
   <tr>
     <td><code>$yy</code></td>
-    <td><p>Год в коротком формате.</p></td>
+    <td>Год в коротком формате.</td>
   </tr>
   <tr>
     <td><code>$hh</code></td>
-    <td><p>Часы.</p></td>
+    <td>Часы.</td>
   </tr>
   <tr>
     <td><code>$h</code></td>
-    <td><p>Часы без нуля.</p></td>
+    <td>Часы без нуля.</td>
   </tr>
   <tr>
     <td><code>$mm</code></td>
-    <td><p>Минуты.</p></td>
+    <td>Минуты.</td>
   </tr>
   <tr>
     <td><code>$m</code></td>
-    <td><p>Минуты без нуля.</p></td>
+    <td>Минуты без нуля.</td>
   </tr>
   <tr>
     <td><code>$ss</code></td>
-    <td><p>Секунды.</p></td>
+    <td>Секунды.</td>
   </tr>
   <tr>
     <td><code>$s</code></td>
-    <td><p>Секунды без нуля.</p></td>
+    <td>Секунды без нуля.</td>
   </tr>
 </table>
 
@@ -455,27 +455,27 @@ sudo make install
 <table>
   <tr>
     <td><code>$dd</code></td>
-    <td><p>Дни аптайма.</p></td>
+    <td>Дни аптайма.</td>
   </tr>
   <tr>
     <td><code>$d</code></td>
-    <td><p>Дни аптайма без нуля.</p></td>
+    <td>Дни аптайма без нуля.</td>
   </tr>
   <tr>
     <td><code>$hh</code></td>
-    <td><p>Часы аптайма.</p></td>
+    <td>Часы аптайма.</td>
   </tr>
   <tr>
     <td><code>$h</code></td>
-    <td><p>Часы аптайма без нуля.</p></td>
+    <td>Часы аптайма без нуля.</td>
   </tr>
   <tr>
     <td><code>$mm</code></td>
-    <td><p>Минуты аптайма.</p></td>
+    <td>Минуты аптайма.</td>
   </tr>
   <tr>
     <td><code>$m</code></td>
-    <td><p>Минуты аптайма без 0.</p></td>
+    <td>Минуты аптайма без 0.</td>
   </tr>
 </table>
 
@@ -522,37 +522,37 @@ sudo make install
 <p><b>Пакетный менеджер:</b> Список команд, которые будут запущены. Число пустых строк - это число ненужных при подсчете строк. Параметры по умолчанию:</p>
 <table>
   <tr>
-    <td><p align="center"><b>Дистрибутив</b></p></td>
-    <td><p align="center"><b>Команда</b></p></td>
-    <td><p align="center"><b>Число</b></p></td>
+    <th>Дистрибутив</th>
+    <th>Команда</th>
+    <th>Число</th>
   </tr>
   <tr>
-    <td><p>Arch</p></td>
+    <td>Arch</td>
     <td><code>pacman -Qu</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p>Debian</p></td>
+    <td>Debian</td>
     <td><code>apt-show-versions -u -b</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p>Ubuntu</p></td>
+    <td>Ubuntu</td>
     <td><code>aptitude search '~U'</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p>Fedora</p></td>
+    <td>Fedora</td>
     <td><code>yum list updates</code></td>
     <td><code>3</code></td>
   </tr>
   <tr>
-    <td><p>FreeBSD</p></td>
+    <td>FreeBSD</td>
     <td><code>pkg_version -I -l '<'</code></td>
     <td><code>0</code></td>
   </tr>
   <tr>
-    <td><p>Mandriva</p></td>
+    <td>Mandriva</td>
     <td><code>urpmq --auto-select</code></td>
     <td><code>0</code></td>
   </tr>
@@ -576,19 +576,19 @@ sudo make install
 <table>
   <tr>
     <td><code>$mark</code></td>
-    <td><p>Показать метку, если данный рабочий стол активен.</p></td>
+    <td>Показать метку, если данный рабочий стол активен.</td>
   </tr>
   <tr>
     <td><code>$name</code></td>
-    <td><p>Имя рабочего стола.</p></td>
+    <td>Имя рабочего стола.</td>
   </tr>
   <tr>
     <td><code>$number</code></td>
-    <td><p>Номер рабочего стола.</p></td>
+    <td>Номер рабочего стола.</td>
   </tr>
   <tr>
     <td><code>$total</code></td>
-    <td><p>Общее число рабочих столов.</p></td>
+    <td>Общее число рабочих столов.</td>
   </tr>
 </table>
 
