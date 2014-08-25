@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['isnetctlautoenabled',['isNetctlAutoEnabled',['../class_netctl.html#ad86fc14aa2a20d4f1d6ceaa29d1d582a',1,'Netctl']]],
-  ['isnetctlautorunning',['isNetctlAutoRunning',['../class_netctl.html#a38fe28973167cf9853d97947a0e432ce',1,'Netctl']]],
-  ['isprofileactive',['isProfileActive',['../class_netctl.html#a788c98b484dd49b774e5e4fd3ee98326',1,'Netctl::isProfileActive()'],['../class_wpa_sup.html#a84e2b4cb1d25d21379e0fc860a7fb9a4',1,'WpaSup::isProfileActive()']]],
-  ['isprofileenabled',['isProfileEnabled',['../class_netctl.html#accd1fca26390a148adb1c3aee2fecbf4',1,'Netctl']]],
-  ['isprofileexists',['isProfileExists',['../class_wpa_sup.html#aebc870feafdc0acdee5d9007627ba3d8',1,'WpaSup']]]
+  ['getactiveprofile',['getActiveProfile',['../class_netctl.html#ae001a141ebeb8e7ab937ab0bbbfaf9ef',1,'Netctl']]],
+  ['getprofiledescription',['getProfileDescription',['../class_netctl.html#a8d22999dfc83293aed4f272ce9bcac03',1,'Netctl']]],
+  ['getprofilelist',['getProfileList',['../class_netctl.html#abe7984b6994217653b550e6ea24bb572',1,'Netctl']]],
+  ['getprofilelistfromnetctlauto',['getProfileListFromNetctlAuto',['../class_netctl.html#a534db1cbc7d56cc88e9f56fb91a835f2',1,'Netctl']]],
+  ['getprofilestatus',['getProfileStatus',['../class_netctl.html#ae328363bbcbda4d951a09f31dc5fe570',1,'Netctl']]],
+  ['getrecommendedconfiguration',['getRecommendedConfiguration',['../class_netctl.html#afa2e7a1f9c44fc4eed7e39b9bbe97456',1,'Netctl::getRecommendedConfiguration()'],['../class_netctl_profile.html#afd4f9bf1ae5725fbb4f85ab32428e01a',1,'NetctlProfile::getRecommendedConfiguration()'],['../class_wpa_sup.html#ab60ec6f1349b09dbdeca9e359dc6a355',1,'WpaSup::getRecommendedConfiguration()']]],
+  ['getsettingsfromprofile',['getSettingsFromProfile',['../class_netctl_profile.html#a32c509f71d5a5b2fbf88100f268c152f',1,'NetctlProfile']]],
+  ['getvaluefromprofile',['getValueFromProfile',['../class_netctl_profile.html#a4e9303e64f53c27ed925f13acc7bb8ce',1,'NetctlProfile']]],
+  ['getwirelessinterfacelist',['getWirelessInterfaceList',['../class_netctl.html#a6b58390c578d05591119f2d09ed8fd0e',1,'Netctl']]]
 ];

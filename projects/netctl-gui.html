@@ -13,6 +13,8 @@ links:
     - Page on <a href="http://linux.softpedia.com/get/System/Networking/Netctl-GUI-103383.shtml" title="Softpedia">Softpedia</a>
     - Page on <a href="http://kde-apps.org/content/show.php?content=164490" title="kde-apps">kde-apps.org</a>
     - <a href="https://aur.archlinux.org/pkgbase/netctl-gui/" title="AUR">AUR package</a>
+    - <a href="/devs/netctl-gui-dbus-api.html" title="DBus API">DBus API reference</a>
+    - <a href="/devs/netctl-gui-security-notes.html" title="Security">Security notes</a>
 ---
 <!-- info block -->
 <h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Information</h2>
@@ -23,34 +25,46 @@ links:
 {% highlight bash %}
 $ netctl-gui --help
 Usage:
-netctl-gui [ --about ] [ --netctl-auto ] [ --settings ]
-           [ -e ESSID | --essid ESSID ] [ -o PROFILE | --open PROFILE ]
-           [ -s PROFILE | --select PROFILE ]
-           [ -c FILE | --config FILE ] [ -d | --debug ] [ --default ]
-           [ --set-opts OPTIONS ] [ -t NUM | --tab NUM ]
-           [ -v | --version ] [ -i | --info ] [ -h | --help]
+netctl-gui [ options ]
+Options:
+ Open window:
+       --detached        - start detached from console
+       --maximized       - start maximized
+       --minimized       - start minimized to tray
+       --about           - show about window
+       --netctl-auto     - show netctl-auto window
+       --settings        - show settings window
+ Functions:
+   -e, --essid <arg>     - select this ESSID
+   -o, --open <arg>      - open this profile
+   -s, --select <arg>    - select this profile
+ Additional flags:
+   -c, --config <arg>    - read configuration from this file
+   -d, --debug           - print debug information
+       --default         - start with default settings
+       --set-opts <arg>  - set options for this run, comma separated
+   -t, --tab <arg>       - open a tab with this number
+ Show messages:
+   -v, --version         - show version and exit
+   -i, --info            - show build information and exit
+   -h, --help            - show this help and exit
+{% endhighlight %}
 
-Parametrs:
-Open window:
-                   --about               - show about window
-                   --netctl-auto         - show netctl-auto window
-                   --settings            - show settings window
-Functions:
-   -e ESSID        --essid ESSID         - select ESSID ESSID
-   -o PROFILE      --open PROFILE        - open profile PROFILE
-   -s PROFILE      --select PROFILE      - select profile PROFILE
-Additional flags:
-   -c FILE         --config FILE
-                                         - read configuration from this file
-   -d              --debug               - print debug information
-                   --default             - start with default settings
-                   --set-opts OPTIONS
-                                         - set options for this run, comma separated
-   -t 1            --tab 1               - open a tab with number 1
-Show messages:
-   -v           --version                - show version and exit
-   -i           --info                   - show build information and exit
-   -h           --help                   - show this help and exit
+{% highlight bash %}
+$ netctlgui-helper --help
+Usage:
+netctlgui-helper [ options ]
+Options:
+   -c, --config <arg>    - read configuration from this file
+   -d, --debug           - print debug information
+       --nodaemon        - do not start as daemon
+       --replace         - force replace the existing session
+       --restore         - force restore the existing session
+       --system          - do not read user configuration, system-wide only
+ Show messages:
+   -v, --version         - show version and exit
+   -i, --info            - show build information and exit
+   -h, --help            - show this help and exit
 {% endhighlight %}
 
 <h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
@@ -88,14 +102,28 @@ sudo make install
 
 <p>Available cmake flags are:</p>
   <ul>
-    <li><code>-DBUILD_DATAENGINE:BOOL=0</code> - do not build DataEngine;</li>
-    <li><code>-DBUILD_DOCS:BOOL=0</code> - do not build developer documentation;</li>
-    <li><code>-DBUILD_GUI:BOOL=0</code> - do not build GUI;</li>
-    <li><code>-DBUILD_LIBRARY:BOOL=0</code> - do not build library;</li>
-    <li><code>-DBUILD_PLASMOID:BOOL=0</code> - do not build Plasmoid;</li>
-    <li><code>-DUSE_QT5:BOOL=0</code> - use Qt4 instead of Qt5 for GUI.</li>
-  </ul>
-  </li>
+    <li>components:
+    <ul>
+      <li><code>-DBUILD_DATAENGINE:BOOL=0</code> - do not build DataEngine</li>
+      <li><code>-DBUILD_GUI:BOOL=0</code> - do not build GUI</li>
+      <li><code>-DBUILD_HELPER:BOOL=0</code> - do not build helper daemon</li>
+      <li><code>-DBUILD_LIBRARY:BOOL=0</code> - do not build library</li>
+      <li><code>-DBUILD_PLASMOID:BOOL=0</code> - do not build Plasmoid</li>
+    </ul></li>
+    <li>additional components:
+    <ul>
+      <li><code>-DBUILD_DOCS:BOOL=0</code> - do not build developer documentation</li>
+      <li><code>-DBUILD_TEST:BOOL=1</code> - build auto tests for the library and the helper</li>
+    </ul></li>
+    <li>project properties:
+    <ul>
+      <li><code>-DDBUS_SYSTEMCONF_PATH=/etc/dbus-1/system.d/</code> - path to DBus system configuration files</li>
+      <li><code>-DSYSTEMD_SERVICE_PATH=lib/systemd/system</code> - path to systemd services</li>
+      <li><code>-DUSE_CAPABILITIES:BOOL=0</code> - do not use setcap to get privileges to the helper</li>
+      <li><code>-DUSE_QT5:BOOL=0</code> - use Qt4 instead of Qt5 for GUI</li>
+    </ul></li>
+  </ul></li>
+  </ul></li>
 </ul>
 
 <h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
@@ -119,7 +147,13 @@ sudo make install
 
 <!-- config block -->
 <h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Configuration</h2>
-<p>It is recommended to use graphical interface for widget and DataEngine configuration. All settings of GUI are stored in <code>$HOME/.config/netctl-gui.conf</code>. It is highly recommended to edit it from graphical interface. </p>
+<p>It is recommended to use graphical interface for configuration. Configuration files are:</p>
+<ul>
+  <li><code>$HOME/.config/netctl-gui.conf</code> - GUI/helper user configuration</li>
+  <li><code>/etc/netctl-gui.conf</code> - helper system-wide configuration</li>
+  <li><code>$KDEHOME/share/config/netctl.conf</code> - DataEngine user configuration</li>
+  <li><code>$KDESYSTEM/share/config/netctl.conf</code> - DataEngine system-wide configuration</li>
+</ul>
 <!-- end of config block -->
 
 <!-- gui block -->

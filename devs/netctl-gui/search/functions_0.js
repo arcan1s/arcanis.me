@@ -4,6 +4,7 @@ var searchData=
   ['autoenableallprofiles',['autoEnableAllProfiles',['../class_netctl.html#a9662e47827403c08d4f67b179d437f14',1,'Netctl']]],
   ['autoenableprofile',['autoEnableProfile',['../class_netctl.html#a9e0799dcbb0dec95ca33eb45fbda96b1',1,'Netctl']]],
   ['autoenableservice',['autoEnableService',['../class_netctl.html#a55690068a9b0afb425fc659b3a558f5f',1,'Netctl']]],
+  ['autogetactiveprofile',['autoGetActiveProfile',['../class_netctl.html#ae709b48b235f8a021552bced9b6138a0',1,'Netctl']]],
   ['autoisprofileactive',['autoIsProfileActive',['../class_netctl.html#a9eeafe65785ce097634cc3d6dfc8d9ac',1,'Netctl']]],
   ['autoisprofileenabled',['autoIsProfileEnabled',['../class_netctl.html#aeb3ccd5ffc93684ef45b293ed30e2e71',1,'Netctl']]],
   ['autorestartservice',['autoRestartService',['../class_netctl.html#a1f9f5131cce695fe0a26adbc7be68fa3',1,'Netctl']]],

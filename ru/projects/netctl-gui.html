@@ -14,6 +14,8 @@ links:
     - Страница на <a href="http://linux.softpedia.com/get/System/Networking/Netctl-GUI-103383.shtml" title="Softpedia">Softpedia</a>
     - Страница на <a href="http://kde-apps.org/content/show.php?content=164490" title="kde-apps">kde-apps.org</a>
     - <a href="https://aur.archlinux.org/pkgbase/netctl-gui/" title="AUR">Пакет в AUR</a>
+    - <a href="/devs/netctl-gui-dbus-api.html" title="DBus API">Описание DBus API</a>
+    - <a href="/devs/netctl-gui-security-notes.html" title="Security">Примечания о безопасности</a>
 ---
 <!-- info block -->
 <h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Информация</h2>
@@ -24,34 +26,46 @@ links:
 {% highlight bash %}
 $ netctl-gui --help
 Использование:
-netctl-gui [ --about ] [ --netctl-auto ] [ --settings ]
-           [ -e ESSID | --essid ESSID ] [ -o PROFILE | --open PROFILE ]
-           [ -s PROFILE | --select PROFILE ]
-           [ -c FILE | --config FILE ] [ -d | --debug ] [ --default ]
-           [ --set-opts OPTIONS ] [ -t NUM | --tab NUM ]
-           [ -v | --version ] [ -i | --info ] [ -h | --help]
+netctl-gui [ options ]
+Опции:
+ Открыть окно:
+       --detached        - запустить открепленным от консоли
+       --maximized       - запустить развернутым
+       --minimized       - запустить свернутым в трей
+       --about           - показать окно "О программе"
+       --netctl-auto     - показать окно netctl-auto
+       --settings        - показать окно настроек
+ Функции:
+   -e, --essid <arg>     - выбрать данный ESSID
+   -o, --open <arg>      - открыть данный профиль
+   -s, --select <arg>    - выбрать данный профиль
+ Дополнительные флаги:
+   -c, --config <arg>    - прочитать настройки из данного файла
+   -d, --debug           - показать отладочную информацию
+       --default         - запустить со стандартными настройками
+       --set-opts <arg>  - установить опции для данного запуска, разделенные запятыми
+   -t, --tab <arg>       - открыть вкладку с этим номером
+ Показать сообщения:
+   -v, --version         - показать версию и выход
+   -i, --info            - показать информацию о сборке и выход
+   -h, --help            - показать справку и выход
+{% endhighlight %}
 
-Параметры:
-Открыть окно:
-                   --about               - показать окно "О программе"
-                   --netctl-auto         - показать окно netctl-auto
-                   --settings            - показать окно настроек
-Функции:
-   -e ESSID        --essid ESSID         - выбрать ESSID ESSID
-   -o PROFILE      --open PROFILE        - открыть профиль PROFILE
-   -s PROFILE      --select PROFILE      - выбрать профиль PROFILE
-Дополнительные флаги:
-   -c FILE         --config FILE
-                                         - прочитать настройки из данного файла
-   -d              --debug               - показать отладочную информацию
-                   --default             - запустить со стандартными настройками
-                   --set-opts OPTIONS
-                                         - установить опции для данного запуска, разделенные запятыми
-   -t 1            --tab 1               - открыть вкладку с номером 1
-Показать сообщения:
-   -v           --version                - показать версию и выход
-   -i           --info                   - показать информацию о сборке и выход
-   -h           --help                   - показать справку и выход
+{% highlight bash %}
+$ netctlgui-helper --help
+Использование:
+netctlgui-helper [ options ]
+Опции:
+   -c, --config <arg>    - прочитать настройки из данного файла
+   -d, --debug           - показать отладочную информацию
+       --nodaemon        - не запускать как демон
+       --replace         - принудительно заменить существующую сессию
+       --restore         - принудительно восстановить существующую сессию
+       --system          - не считывать пользовательские настройки, только системные
+ Показать сообщения:
+   -v, --version         - показать версию и выход
+   -i, --info            - показать информацию о сборке и выход
+   -h, --help            - показать справку и выход
 {% endhighlight %}
 
 <h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
@@ -89,14 +103,28 @@ sudo make install
 
 <p>Доступные флаги cmake:</p>
   <ul>
-    <li><code>-DBUILD_DATAENGINE:BOOL=0</code> - не собирать DataEngine;</li>
-    <li><code>-DBUILD_DOCS:BOOL=0</code> - не собирать документацию;</li>
-    <li><code>-DBUILD_GUI:BOOL=0</code> - не собирать GUI;</li>
-    <li><code>-DBUILD_LIBRARY:BOOL=0</code> - не собирать библиотеку;</li>
-    <li><code>-DBUILD_PLASMOID:BOOL=0</code> - не собирать плазмоид;</li>
-    <li><code>-DUSE_QT5:BOOL=0</code> - использовать Qt4 вместо Qt5 для GUI.</li>
-  </ul>
-  </li>
+    <li>компоненты:
+    <ul>
+      <li><code>-DBUILD_DATAENGINE:BOOL=0</code> - не собирать DataEngine</li>
+      <li><code>-DBUILD_GUI:BOOL=0</code> - не собирать GUI</li>
+      <li><code>-DBUILD_HELPER:BOOL=0</code> - не собирать хелпер</li>
+      <li><code>-DBUILD_LIBRARY:BOOL=0</code> - не собирать библиотеку</li>
+      <li><code>-DBUILD_PLASMOID:BOOL=0</code> - не собирать плазмоид</li>
+    </ul></li>
+    <li>дополнительные компоненты:
+    <ul>
+      <li><code>-DBUILD_DOCS:BOOL=0</code> - не собирать документацию разработчика</li>
+      <li><code>-DBUILD_TEST:BOOL=1</code> - собирать авто тесты для библиотеки и хелпера</li>
+    </ul></li>
+    <li>свойства проекта:
+    <ul>
+      <li><code>-DDBUS_SYSTEMCONF_PATH=/etc/dbus-1/system.d/</code> - путь к системный файлам конфигурации DBus</li>
+      <li><code>-DSYSTEMD_SERVICE_PATH=lib/systemd/system</code> - путь к сервису systemd</li>
+      <li><code>-DUSE_CAPABILITIES:BOOL=0</code> - не использовать setcap, чтобы дать необходимые привилегии хелперу</li>
+      <li><code>-DUSE_QT5:BOOL=0</code> - использовать Qt4 вместо Qt5</li>
+    </ul></li>
+  </ul></li>
+  </ul></li>
 </ul>
 
 <h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
@@ -120,6 +148,14 @@ sudo make install
 
 <!-- config block -->
 <h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Настройка</h2>
+<p>Рекомендуется использовать графический интерфейс для настройки. Конфигурационные файлы:</p>
+<ul>
+  <li><code>$HOME/.config/netctl-gui.conf</code> - пользовательские настройки GUI/хелпера</li>
+  <li><code>/etc/netctl-gui.conf</code> - системные настройки хелпера</li>
+  <li><code>$KDEHOME/share/config/netctl.conf</code> - пользовательские настройки DataEngine</li>
+  <li><code>$KDESYSTEM/share/config/netctl.conf</code> - системные настройки DataEngine</li>
+</ul>
+
 <p>Для настройки виджета и DataEngine рекомендуется использовать графический интерфейс. Все настройки графического интерфейса хранятся в <code>$HOME/.config/netctl-gui.conf</code>. Для редактирования настоятельно рекомендуется использовать графический интерфейс.</p>
 <!-- end of config block -->
 

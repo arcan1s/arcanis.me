@@ -24,7 +24,7 @@
   <td id="projectlogo"><img alt="Logo" src="icon.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">netctlgui
-   &#160;<span id="projectnumber">1.2.0</span>
+   &#160;<span id="projectnumber">1.3.0</span>
    </div>
    <div id="projectbrief">Qt library which interacts with netctl</div>
   </td>
@@ -73,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_netctl-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Netctl Class Reference</div>  </div>
@@ -109,12 +110,27 @@ Public Slots</h2></td></tr>
 <tr class="memitem:a237675bbe56f98df70fa787d9b7a8fca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a237675bbe56f98df70fa787d9b7a8fca">enableProfile</a> (const QString profile)</td></tr>
 <tr class="memdesc:a237675bbe56f98df70fa787d9b7a8fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which sets profile disabled or enabled  <a href="#a237675bbe56f98df70fa787d9b7a8fca">More...</a><br /></td></tr>
 <tr class="separator:a237675bbe56f98df70fa787d9b7a8fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae52539bef828bbcdf3779127e30acfba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#ae52539bef828bbcdf3779127e30acfba">forceStartProfile</a> (const QString profile)</td></tr>
+<tr class="memdesc:ae52539bef828bbcdf3779127e30acfba"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which force starts profile  <a href="#ae52539bef828bbcdf3779127e30acfba">More...</a><br /></td></tr>
+<tr class="separator:ae52539bef828bbcdf3779127e30acfba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bcb6486f14c2a2c4ba7d37f633272f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a0bcb6486f14c2a2c4ba7d37f633272f3">forceStopProfile</a> (const QString profile)</td></tr>
+<tr class="memdesc:a0bcb6486f14c2a2c4ba7d37f633272f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which force stops profile  <a href="#a0bcb6486f14c2a2c4ba7d37f633272f3">More...</a><br /></td></tr>
+<tr class="separator:a0bcb6486f14c2a2c4ba7d37f633272f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc6b27c0168e631d1e6dfddd600d4a16"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#abc6b27c0168e631d1e6dfddd600d4a16">reenableProfile</a> (const QString profile)</td></tr>
+<tr class="memdesc:abc6b27c0168e631d1e6dfddd600d4a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which reenables profile  <a href="#abc6b27c0168e631d1e6dfddd600d4a16">More...</a><br /></td></tr>
+<tr class="separator:abc6b27c0168e631d1e6dfddd600d4a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebbaf936349a229239b59eafcb17e4f7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#aebbaf936349a229239b59eafcb17e4f7">restartProfile</a> (const QString profile)</td></tr>
 <tr class="memdesc:aebbaf936349a229239b59eafcb17e4f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which restarts profile  <a href="#aebbaf936349a229239b59eafcb17e4f7">More...</a><br /></td></tr>
 <tr class="separator:aebbaf936349a229239b59eafcb17e4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc6a547515b76b9c7b26170da3a2f39d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#adc6a547515b76b9c7b26170da3a2f39d">startProfile</a> (const QString profile)</td></tr>
 <tr class="memdesc:adc6a547515b76b9c7b26170da3a2f39d"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which starts or stops profile  <a href="#adc6a547515b76b9c7b26170da3a2f39d">More...</a><br /></td></tr>
 <tr class="separator:adc6a547515b76b9c7b26170da3a2f39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c41f200fade2bbc7611376a92fc645f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a5c41f200fade2bbc7611376a92fc645f">stopAllProfiles</a> ()</td></tr>
+<tr class="memdesc:a5c41f200fade2bbc7611376a92fc645f"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which stops all profiles  <a href="#a5c41f200fade2bbc7611376a92fc645f">More...</a><br /></td></tr>
+<tr class="separator:a5c41f200fade2bbc7611376a92fc645f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adde2340d88ec55bd8b5c908e8ed793ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#adde2340d88ec55bd8b5c908e8ed793ef">switchToProfile</a> (const QString profile)</td></tr>
+<tr class="memdesc:adde2340d88ec55bd8b5c908e8ed793ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which starts another profile  <a href="#adde2340d88ec55bd8b5c908e8ed793ef">More...</a><br /></td></tr>
+<tr class="separator:adde2340d88ec55bd8b5c908e8ed793ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa980954693549f3b5531a43cda23adec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#aa980954693549f3b5531a43cda23adec">autoDisableAllProfiles</a> ()</td></tr>
 <tr class="memdesc:aa980954693549f3b5531a43cda23adec"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which sets all profiles disabled (netctl-auto)  <a href="#aa980954693549f3b5531a43cda23adec">More...</a><br /></td></tr>
 <tr class="separator:aa980954693549f3b5531a43cda23adec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,27 +161,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad148c9999a03a65f67a9e097e3b56ec0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#ad148c9999a03a65f67a9e097e3b56ec0">~Netctl</a> ()</td></tr>
 <tr class="memdesc:ad148c9999a03a65f67a9e097e3b56ec0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_netctl.html" title="The Netctl class interacts with netctl. ">Netctl</a> class destructor.  <a href="#ad148c9999a03a65f67a9e097e3b56ec0">More...</a><br /></td></tr>
 <tr class="separator:ad148c9999a03a65f67a9e097e3b56ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad17ead46c74cf7271078bcaa03f643f2"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#ad17ead46c74cf7271078bcaa03f643f2">getInterfaceList</a> ()</td></tr>
-<tr class="memdesc:ad17ead46c74cf7271078bcaa03f643f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which gets interface list from PREFERED_IFACE and IFACE_DIR  <a href="#ad17ead46c74cf7271078bcaa03f643f2">More...</a><br /></td></tr>
-<tr class="separator:ad17ead46c74cf7271078bcaa03f643f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a977402c158d3b8af68a8fd726b3f2e6a"><td class="memItemLeft" align="right" valign="top">QList&lt; QStringList &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a977402c158d3b8af68a8fd726b3f2e6a">getProfileList</a> ()</td></tr>
-<tr class="memdesc:a977402c158d3b8af68a8fd726b3f2e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which returns profile informations from netctl  <a href="#a977402c158d3b8af68a8fd726b3f2e6a">More...</a><br /></td></tr>
-<tr class="separator:a977402c158d3b8af68a8fd726b3f2e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b96fb759fcfe60564620a2dae0a4e7e"><td class="memItemLeft" align="right" valign="top">QList&lt; QStringList &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a0b96fb759fcfe60564620a2dae0a4e7e">getProfileListFromNetctlAuto</a> ()</td></tr>
-<tr class="memdesc:a0b96fb759fcfe60564620a2dae0a4e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which returns profile informations from netctl-auto  <a href="#a0b96fb759fcfe60564620a2dae0a4e7e">More...</a><br /></td></tr>
-<tr class="separator:a0b96fb759fcfe60564620a2dae0a4e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae001a141ebeb8e7ab937ab0bbbfaf9ef"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#ae001a141ebeb8e7ab937ab0bbbfaf9ef">getActiveProfile</a> ()</td></tr>
+<tr class="memdesc:ae001a141ebeb8e7ab937ab0bbbfaf9ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which returns active profile name  <a href="#ae001a141ebeb8e7ab937ab0bbbfaf9ef">More...</a><br /></td></tr>
+<tr class="separator:ae001a141ebeb8e7ab937ab0bbbfaf9ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae709b48b235f8a021552bced9b6138a0"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#ae709b48b235f8a021552bced9b6138a0">autoGetActiveProfile</a> ()</td></tr>
+<tr class="memdesc:ae709b48b235f8a021552bced9b6138a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which returns active profile name from netctl-auto  <a href="#ae709b48b235f8a021552bced9b6138a0">More...</a><br /></td></tr>
+<tr class="separator:ae709b48b235f8a021552bced9b6138a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe7984b6994217653b550e6ea24bb572"><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="structnetctl_profile_info.html">netctlProfileInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#abe7984b6994217653b550e6ea24bb572">getProfileList</a> ()</td></tr>
+<tr class="memdesc:abe7984b6994217653b550e6ea24bb572"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which returns profile informations from netctl  <a href="#abe7984b6994217653b550e6ea24bb572">More...</a><br /></td></tr>
+<tr class="separator:abe7984b6994217653b550e6ea24bb572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a534db1cbc7d56cc88e9f56fb91a835f2"><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="structnetctl_profile_info.html">netctlProfileInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a534db1cbc7d56cc88e9f56fb91a835f2">getProfileListFromNetctlAuto</a> ()</td></tr>
+<tr class="memdesc:a534db1cbc7d56cc88e9f56fb91a835f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which returns profile informations from netctl-auto  <a href="#a534db1cbc7d56cc88e9f56fb91a835f2">More...</a><br /></td></tr>
+<tr class="separator:a534db1cbc7d56cc88e9f56fb91a835f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d22999dfc83293aed4f272ce9bcac03"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a8d22999dfc83293aed4f272ce9bcac03">getProfileDescription</a> (const QString profile)</td></tr>
 <tr class="memdesc:a8d22999dfc83293aed4f272ce9bcac03"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which gets description from profile  <a href="#a8d22999dfc83293aed4f272ce9bcac03">More...</a><br /></td></tr>
 <tr class="separator:a8d22999dfc83293aed4f272ce9bcac03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57a2b38db1f006c73dcf783705a086be"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a57a2b38db1f006c73dcf783705a086be">getProfileDescriptions</a> (const QStringList profileList)</td></tr>
-<tr class="memdesc:a57a2b38db1f006c73dcf783705a086be"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which gets descriptions from profile list  <a href="#a57a2b38db1f006c73dcf783705a086be">More...</a><br /></td></tr>
-<tr class="separator:a57a2b38db1f006c73dcf783705a086be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae328363bbcbda4d951a09f31dc5fe570"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#ae328363bbcbda4d951a09f31dc5fe570">getProfileStatus</a> (const QString profile)</td></tr>
 <tr class="memdesc:ae328363bbcbda4d951a09f31dc5fe570"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which gets profile status  <a href="#ae328363bbcbda4d951a09f31dc5fe570">More...</a><br /></td></tr>
 <tr class="separator:ae328363bbcbda4d951a09f31dc5fe570"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87cfaee8b2d2813d02c2d0f516cabbad"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a87cfaee8b2d2813d02c2d0f516cabbad">getProfileStatuses</a> (const QStringList profileList)</td></tr>
-<tr class="memdesc:a87cfaee8b2d2813d02c2d0f516cabbad"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which gets statuses of profile list  <a href="#a87cfaee8b2d2813d02c2d0f516cabbad">More...</a><br /></td></tr>
-<tr class="separator:a87cfaee8b2d2813d02c2d0f516cabbad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a788c98b484dd49b774e5e4fd3ee98326"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a788c98b484dd49b774e5e4fd3ee98326">isProfileActive</a> (const QString profile)</td></tr>
 <tr class="memdesc:a788c98b484dd49b774e5e4fd3ee98326"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which checks if profile is active  <a href="#a788c98b484dd49b774e5e4fd3ee98326">More...</a><br /></td></tr>
 <tr class="separator:a788c98b484dd49b774e5e4fd3ee98326"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,6 +197,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a38fe28973167cf9853d97947a0e432ce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a38fe28973167cf9853d97947a0e432ce">isNetctlAutoRunning</a> ()</td></tr>
 <tr class="memdesc:a38fe28973167cf9853d97947a0e432ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which checks netctl-auto status  <a href="#a38fe28973167cf9853d97947a0e432ce">More...</a><br /></td></tr>
 <tr class="separator:a38fe28973167cf9853d97947a0e432ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b58390c578d05591119f2d09ed8fd0e"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#a6b58390c578d05591119f2d09ed8fd0e">getWirelessInterfaceList</a> ()</td></tr>
+<tr class="memdesc:a6b58390c578d05591119f2d09ed8fd0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which gets wireless interface list from PREFERED_IFACE and IFACE_DIR  <a href="#a6b58390c578d05591119f2d09ed8fd0e">More...</a><br /></td></tr>
+<tr class="separator:a6b58390c578d05591119f2d09ed8fd0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:afa2e7a1f9c44fc4eed7e39b9bbe97456"><td class="memItemLeft" align="right" valign="top">static QMap&lt; QString, QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_netctl.html#afa2e7a1f9c44fc4eed7e39b9bbe97456">getRecommendedConfiguration</a> ()</td></tr>
+<tr class="memdesc:afa2e7a1f9c44fc4eed7e39b9bbe97456"><td class="mdescLeft">&#160;</td><td class="mdescRight">method which check system configuration and return recommended values to keys  <a href="#afa2e7a1f9c44fc4eed7e39b9bbe97456">More...</a><br /></td></tr>
+<tr class="separator:afa2e7a1f9c44fc4eed7e39b9bbe97456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_netctl.html" title="The Netctl class interacts with netctl. ">Netctl</a> class interacts with netctl. </p>
@@ -224,7 +246,7 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">debugCmd</td><td>show debug messages </td></tr>
-    <tr><td class="paramname">settings</td><td>default settings. Needed keys are IFACE_DIR (path to directory with interfaces), PREFERED_IFACE (prefered interface for WiFi), NETCTL_PATH (path to netctl command), NETCTLAUTO_PATH (path to netctl-auto command), NETCTLAUTO_SERVICE (netctl-auto service name), PROFILE_DIR (path to directory which contains profiles), SUDO_PATH (path to sudo command), SYSTEMCTL_PATH (path to systemctl command) </td></tr>
+    <tr><td class="paramname">settings</td><td>default settings. Needed keys are FORCE_SUDO (force to use sudo), IFACE_DIR (path to directory with interfaces), PREFERED_IFACE (prefered interface for WiFi), NETCTL_PATH (path to netctl command), NETCTLAUTO_PATH (path to netctl-auto command), NETCTLAUTO_SERVICE (netctl-auto service name), PROFILE_DIR (path to directory which contains profiles), SUDO_PATH (path to sudo command), SYSTEMCTL_PATH (path to systemctl command) </td></tr>
   </table>
   </dd>
 </dl>
@@ -365,6 +387,24 @@ true if the method was completed without errors </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>false if components are not found or command exit code is not equal to 0 </dd>
 <dd>
 true if the method was completed without errors </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae709b48b235f8a021552bced9b6138a0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString Netctl::autoGetActiveProfile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>method which returns active profile name from netctl-auto </p>
+<dl class="section return"><dt>Returns</dt><dd>profile name or "" </dd></dl>
 
 </div>
 </div>
@@ -548,12 +588,82 @@ true if the method was completed without errors </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ad17ead46c74cf7271078bcaa03f643f2"></a>
+<a class="anchor" id="ae52539bef828bbcdf3779127e30acfba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Netctl::forceStartProfile </td>
+          <td>(</td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>profile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>method which force starts profile </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">profile</td><td>profile name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>false if components are not found or command exit code is not equal to 0 </dd>
+<dd>
+true if the method was completed without errors </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0bcb6486f14c2a2c4ba7d37f633272f3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Netctl::forceStopProfile </td>
+          <td>(</td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>profile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>method which force stops profile </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">profile</td><td>profile name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>false if components are not found or command exit code is not equal to 0 </dd>
+<dd>
+true if the method was completed without errors </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae001a141ebeb8e7ab937ab0bbbfaf9ef"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QStringList Netctl::getInterfaceList </td>
+          <td class="memname">QStringList Netctl::getActiveProfile </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -561,8 +671,8 @@ true if the method was completed without errors </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>method which gets interface list from PREFERED_IFACE and IFACE_DIR </p>
-<dl class="section return"><dt>Returns</dt><dd>interface list. If PREFERED_IFACE is not empty it will be first element </dd></dl>
+<p>method which returns active profile name </p>
+<dl class="section return"><dt>Returns</dt><dd>profile name or "" </dd></dl>
 
 </div>
 </div>
@@ -591,37 +701,12 @@ true if the method was completed without errors </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a57a2b38db1f006c73dcf783705a086be"></a>
+<a class="anchor" id="abe7984b6994217653b550e6ea24bb572"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QStringList Netctl::getProfileDescriptions </td>
-          <td>(</td>
-          <td class="paramtype">const QStringList&#160;</td>
-          <td class="paramname"><em>profileList</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>method which gets descriptions from profile list </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">profileList</td><td>profile names </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>list of profile descriptions (if description is not available returns "") </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a977402c158d3b8af68a8fd726b3f2e6a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QList&lt;QStringList&gt; Netctl::getProfileList </td>
+          <td class="memname">QList&lt;<a class="el" href="structnetctl_profile_info.html">netctlProfileInfo</a>&gt; Netctl::getProfileList </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -630,16 +715,16 @@ true if the method was completed without errors </dd></dl>
 </div><div class="memdoc">
 
 <p>method which returns profile informations from netctl </p>
-<dl class="section return"><dt>Returns</dt><dd>list of profiles. Available information is [NAME, DESCRIPTION, STATUS]: NAME is a profile name, DESCRIPTION is a profile description (see more details below), STATUS is a profile status (see more details below) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>list of profiles </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a0b96fb759fcfe60564620a2dae0a4e7e"></a>
+<a class="anchor" id="a534db1cbc7d56cc88e9f56fb91a835f2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QList&lt;QStringList&gt; Netctl::getProfileListFromNetctlAuto </td>
+          <td class="memname">QList&lt;<a class="el" href="structnetctl_profile_info.html">netctlProfileInfo</a>&gt; Netctl::getProfileListFromNetctlAuto </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -648,7 +733,7 @@ true if the method was completed without errors </dd></dl>
 </div><div class="memdoc">
 
 <p>method which returns profile informations from netctl-auto </p>
-<dl class="section return"><dt>Returns</dt><dd>list of profiles. Available information is [NAME, DESCRIPTION, STATUS]: NAME is a profile name, DESCRIPTION is a profile description (see more details below), STATUS is a profile status (see more details below) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>list of profiles from netctl-auto </dd></dl>
 
 </div>
 </div>
@@ -677,28 +762,47 @@ true if the method was completed without errors </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a87cfaee8b2d2813d02c2d0f516cabbad"></a>
+<a class="anchor" id="afa2e7a1f9c44fc4eed7e39b9bbe97456"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QMap&lt;QString, QString&gt; Netctl::getRecommendedConfiguration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>method which check system configuration and return recommended values to keys </p>
+<dl class="section return"><dt>Returns</dt><dd>recommended parametrs </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6b58390c578d05591119f2d09ed8fd0e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QStringList Netctl::getProfileStatuses </td>
+          <td class="memname">QStringList Netctl::getWirelessInterfaceList </td>
           <td>(</td>
-          <td class="paramtype">const QStringList&#160;</td>
-          <td class="paramname"><em>profileList</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>method which gets statuses of profile list </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">profileList</td><td>profile names </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>list of profile statuses. It may be "active (enabled)", "active (static)", "inactive (enabled)", "inactive (static)" </dd></dl>
+<p>method which gets wireless interface list from PREFERED_IFACE and IFACE_DIR </p>
+<dl class="section return"><dt>Returns</dt><dd>interface list. If PREFERED_IFACE is not empty it will be first element </dd></dl>
 
 </div>
 </div>
@@ -796,6 +900,41 @@ true if profile is enabled </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="abc6b27c0168e631d1e6dfddd600d4a16"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Netctl::reenableProfile </td>
+          <td>(</td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>profile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>method which reenables profile </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">profile</td><td>profile name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>false if components are not found or command exit code is not equal to 0 </dd>
+<dd>
+true if the method was completed without errors </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aebbaf936349a229239b59eafcb17e4f7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -866,13 +1005,76 @@ true if the method was completed without errors </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a5c41f200fade2bbc7611376a92fc645f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Netctl::stopAllProfiles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>method which stops all profiles </p>
+<dl class="section return"><dt>Returns</dt><dd>false if components are not found or command exit code is not equal to 0 </dd>
+<dd>
+true if the method was completed without errors </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adde2340d88ec55bd8b5c908e8ed793ef"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Netctl::switchToProfile </td>
+          <td>(</td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>profile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>method which starts another profile </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">profile</td><td>profile name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>false if components are not found or command exit code is not equal to 0 </dd>
+<dd>
+true if the method was completed without errors </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="netctlinteract_8h_source.html">netctlinteract.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 30 2014 19:20:33 for netctlgui by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 25 2014 15:07:08 for netctlgui by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

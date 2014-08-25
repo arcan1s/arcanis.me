@@ -24,7 +24,7 @@
   <td id="projectlogo"><img alt="Logo" src="icon.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">netctlgui
-   &#160;<span id="projectnumber">1.2.0</span>
+   &#160;<span id="projectnumber">1.3.0</span>
    </div>
    <div id="projectbrief">Qt library which interacts with netctl</div>
   </td>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -118,35 +118,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_netctl_profile.html#adbbaf6da0c7325e7477db00efbf646f8">NetctlProfile</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> debugCmd = <span class="keyword">false</span>,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                           <span class="keyword">const</span> QMap&lt;QString, QString&gt; settings = QMap&lt;QString, QString&gt;());</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_netctl_profile.html#a00b3becc7bf1f888500127bcd0cb86c8">~NetctlProfile</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_netctl_profile.html#a3de2d57c7b7e3bf3f743a6332c2971ae">copyProfile</a>(<span class="keyword">const</span> QString oldPath);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    QString <a class="code" href="class_netctl_profile.html#ade8dabcf148c27c1c0f865b6c620ab48">createProfile</a>(<span class="keyword">const</span> QString profile, <span class="keyword">const</span> QMap&lt;QString, QString&gt; settings);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    QMap&lt;QString, QString&gt; <a class="code" href="class_netctl_profile.html#a32c509f71d5a5b2fbf88100f268c152f">getSettingsFromProfile</a>(<span class="keyword">const</span> QString profile);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    QString <a class="code" href="class_netctl_profile.html#a4e9303e64f53c27ed925f13acc7bb8ce">getValueFromProfile</a>(<span class="keyword">const</span> QString profile, <span class="keyword">const</span> QString key);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_netctl_profile.html#adc032c8203e0e8cef96f0586b8351079">removeProfile</a>(<span class="keyword">const</span> QString profile);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">bool</span> debug;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    QDir *profileDirectory;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    QString sudoCommand;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* NETCTLPROFILE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_netctl_profile.html#adbbaf6da0c7325e7477db00efbf646f8">NetctlProfile</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> debugCmd = <span class="keyword">false</span>,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                           <span class="keyword">const</span> QMap&lt;QString, QString&gt; settings = QMap&lt;QString, QString&gt;());</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="class_netctl_profile.html#a00b3becc7bf1f888500127bcd0cb86c8">~NetctlProfile</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_netctl_profile.html#a3de2d57c7b7e3bf3f743a6332c2971ae">copyProfile</a>(<span class="keyword">const</span> QString oldPath);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    QString <a class="code" href="class_netctl_profile.html#ade8dabcf148c27c1c0f865b6c620ab48">createProfile</a>(<span class="keyword">const</span> QString profile, <span class="keyword">const</span> QMap&lt;QString, QString&gt; settings);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">static</span> QMap&lt;QString, QString&gt; <a class="code" href="class_netctl_profile.html#afd4f9bf1ae5725fbb4f85ab32428e01a">getRecommendedConfiguration</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    QMap&lt;QString, QString&gt; <a class="code" href="class_netctl_profile.html#a32c509f71d5a5b2fbf88100f268c152f">getSettingsFromProfile</a>(<span class="keyword">const</span> QString profile);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    QString <a class="code" href="class_netctl_profile.html#a4e9303e64f53c27ed925f13acc7bb8ce">getValueFromProfile</a>(<span class="keyword">const</span> QString profile, <span class="keyword">const</span> QString key);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_netctl_profile.html#adc032c8203e0e8cef96f0586b8351079">removeProfile</a>(<span class="keyword">const</span> QString profile);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> debug = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">bool</span> useSuid = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    QDir *profileDirectory = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    QString sudoCommand = QString(<span class="stringliteral">&quot;/usr/bin/kdesu&quot;</span>);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* NETCTLPROFILE_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="class_netctl_profile_html_ade8dabcf148c27c1c0f865b6c620ab48"><div class="ttname"><a href="class_netctl_profile.html#ade8dabcf148c27c1c0f865b6c620ab48">NetctlProfile::createProfile</a></div><div class="ttdeci">QString createProfile(const QString profile, const QMap&lt; QString, QString &gt; settings)</div><div class="ttdoc">method which creates temporary profile </div></div>
 <div class="ttc" id="class_netctl_profile_html_a32c509f71d5a5b2fbf88100f268c152f"><div class="ttname"><a href="class_netctl_profile.html#a32c509f71d5a5b2fbf88100f268c152f">NetctlProfile::getSettingsFromProfile</a></div><div class="ttdeci">QMap&lt; QString, QString &gt; getSettingsFromProfile(const QString profile)</div><div class="ttdoc">method which reads settings from profile </div></div>
 <div class="ttc" id="class_netctl_profile_html_a4e9303e64f53c27ed925f13acc7bb8ce"><div class="ttname"><a href="class_netctl_profile.html#a4e9303e64f53c27ed925f13acc7bb8ce">NetctlProfile::getValueFromProfile</a></div><div class="ttdeci">QString getValueFromProfile(const QString profile, const QString key)</div><div class="ttdoc">method which return value from profile by key </div></div>
 <div class="ttc" id="class_netctl_profile_html_adbbaf6da0c7325e7477db00efbf646f8"><div class="ttname"><a href="class_netctl_profile.html#adbbaf6da0c7325e7477db00efbf646f8">NetctlProfile::NetctlProfile</a></div><div class="ttdeci">NetctlProfile(const bool debugCmd=false, const QMap&lt; QString, QString &gt; settings=QMap&lt; QString, QString &gt;())</div><div class="ttdoc">NetctlProfile class constructor. </div></div>
 <div class="ttc" id="class_netctl_profile_html"><div class="ttname"><a href="class_netctl_profile.html">NetctlProfile</a></div><div class="ttdoc">The NetctlProfile class interacts with netctl profiles. </div><div class="ttdef"><b>Definition:</b> netctlprofile.h:37</div></div>
+<div class="ttc" id="class_netctl_profile_html_afd4f9bf1ae5725fbb4f85ab32428e01a"><div class="ttname"><a href="class_netctl_profile.html#afd4f9bf1ae5725fbb4f85ab32428e01a">NetctlProfile::getRecommendedConfiguration</a></div><div class="ttdeci">static QMap&lt; QString, QString &gt; getRecommendedConfiguration()</div><div class="ttdoc">method which check system configuration and return recommended values to keys </div></div>
 <div class="ttc" id="class_netctl_profile_html_a00b3becc7bf1f888500127bcd0cb86c8"><div class="ttname"><a href="class_netctl_profile.html#a00b3becc7bf1f888500127bcd0cb86c8">NetctlProfile::~NetctlProfile</a></div><div class="ttdeci">~NetctlProfile()</div><div class="ttdoc">Netctl class destructor. </div></div>
 <div class="ttc" id="class_netctl_profile_html_a3de2d57c7b7e3bf3f743a6332c2971ae"><div class="ttname"><a href="class_netctl_profile.html#a3de2d57c7b7e3bf3f743a6332c2971ae">NetctlProfile::copyProfile</a></div><div class="ttdeci">bool copyProfile(const QString oldPath)</div><div class="ttdoc">method which copies temporary profile to PROFILE_DIR </div></div>
 <div class="ttc" id="class_netctl_profile_html_adc032c8203e0e8cef96f0586b8351079"><div class="ttname"><a href="class_netctl_profile.html#adc032c8203e0e8cef96f0586b8351079">NetctlProfile::removeProfile</a></div><div class="ttdeci">bool removeProfile(const QString profile)</div><div class="ttdoc">method which removes profile </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 30 2014 19:20:33 for netctlgui by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 25 2014 15:07:08 for netctlgui by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
