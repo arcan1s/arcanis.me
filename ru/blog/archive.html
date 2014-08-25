@@ -20,7 +20,7 @@ hastr: true
 {% endfor %}
 <label class="spoiler">
   <input type="checkbox" tabindex="-1">
-  <div class="box">
+  <span class="box">
     <b>{% include longdate_to_ru.html %}</b>
     <span class="close" style="float:right;">(скрыть)</span><span class="open" style="float:right;">(показать)</span>
     <blockquote>
@@ -28,11 +28,11 @@ hastr: true
         {% assign new_month = post.date | date: "%Y" %}
         {% if new_month != month %}
     </blockquote>
-  </div>
+  </span>
 </label>
 <label class="spoiler">
   <input type="checkbox" tabindex="-1">
-  <div class="box">
+  <span class="box">
     <b>{% include longdate_to_ru.html %}</b>
     <span class="close" style="float:right;">(скрыть)</span><span class="open" style="float:right;">(показать)</span>
     <blockquote>
@@ -43,5 +43,5 @@ hastr: true
         <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> ({{ post.tags }})<br>
       {% endfor %}
     </blockquote>
-  </div>
+  </span>
 </label>

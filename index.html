@@ -12,7 +12,7 @@ title: arcanis' homepage
         <h1>{{ page.title }}</h1>
         <label class="spoiler">
           <input type="checkbox" tabindex="-1">
-          <div class="box">
+          <span class="box">
             <a href="/feed.xml" title="RSS"><img src="/resources/feed-icon-14x14.png" alt="RSS"></a>
             <a href="/blog/" title="Blog">Blog</a> <span class="close">(hide)</span><span class="open">(show)</span>
             <blockquote>
@@ -20,7 +20,7 @@ title: arcanis' homepage
                 <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br>
               {% endfor %}
             </blockquote>
-          </div>
+          </span>
         </label>
         <p class="view"><a href="/projects/" title="Projects">Projects</a><br>
         <a href="ftp://repo.arcanis.name/repo" title="Repository">Repository</a></p>

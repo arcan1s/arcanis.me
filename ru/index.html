@@ -13,7 +13,7 @@ title: arcanis
         <h1>{{ page.title }}</h1>
         <label class="spoiler">
           <input type="checkbox" tabindex="-1">
-          <div class="box">
+          <span class="box">
             <a href="/ru/feed.xml" title="RSS"><img src="/resources/feed-icon-14x14.png" alt="RSS"></a>
             <a href="/ru/blog/" title="Блог">Блог</a> <span class="close">(скрыть)</span><span class="open">(показать)</span>
             <blockquote>
@@ -21,7 +21,7 @@ title: arcanis
                 <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br>
               {% endfor %}
             </blockquote>
-          </div>
+          </span>
         </label>
         <p class="view"><a href="/ru/projects/" title="Проекты">Проекты</a><br>
         <a href="ftp://repo.arcanis.name/repo" title="Репозиторий">Репозиторий</a></p>
