@@ -21,11 +21,11 @@ hastr: true
   <span class="box">
     <b>{{ month }}</b>
     <span class="close" style="float:right;">(hide)</span><span class="open" style="float:right;">(show)</span>
-    <blockquote>
+    <p class="spoilerbody">
       {% for post in site.categories.en %}
         {% assign new_month = post.date | date: "%Y" %}
         {% if new_month != month %}
-    </blockquote>
+    </p>
   </span>
 </label>
 <label class="spoiler">
@@ -33,13 +33,13 @@ hastr: true
   <span class="box">
     <b>{{ new_month }}</b>
     <span class="close" style="float:right;">(hide)</span><span class="open" style="float:right;">(show)</span>
-    <blockquote>
+    <p class="spoilerbody">
         {% endif %}
         {% assign month = post.date | date: "%Y" %}
         <i>{{ post.date | date_to_string }}</i> &raquo;
         <a href="#{{ post.short }}" class="anchor" id="{{ post.short }}"><span class="octicon octicon-link"></span></a>
         <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> ({{ post.tags }})<br>
       {% endfor %}
-    </blockquote>
+    </p>
   </span>
 </label>

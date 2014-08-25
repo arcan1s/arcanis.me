@@ -16,11 +16,11 @@ title: arcanis
           <span class="box">
             <a href="/ru/feed.xml" title="RSS"><img src="/resources/feed-icon-14x14.png" alt="RSS"></a>
             <a href="/ru/blog/" title="Блог">Блог</a> <span class="close">(скрыть)</span><span class="open">(показать)</span>
-            <blockquote>
+            <p class="spoilerbody">
               {% for post in site.categories.ru limit:3 %}
                 <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br>
               {% endfor %}
-            </blockquote>
+            </p>
           </span>
         </label>
         <p class="view"><a href="/ru/projects/" title="Проекты">Проекты</a><br>
