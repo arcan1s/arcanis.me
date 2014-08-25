@@ -18,11 +18,11 @@ hastr: true
       <section>
 
 {% for post in site.categories.en limit:10 %}
-  <h1>
+  <h2>
     <a href="#{{ post.short }}" class="anchor" id="{{ post.short }}"><span class="octicon octicon-link"></span></a>
     <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-  </h1>
+  </h2>
   <p><i>{{ post.date | date_to_string }}</i></p>
-  <p>{{ post.description }}</p>
+{{ post.description }}
   <p><b>Tags</b>: {{ post.tags }}</p>
 {% endfor %}
