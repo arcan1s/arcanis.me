@@ -37,7 +37,7 @@ hastr: true
         {% endif %}
         {% assign month = post.date | date: "%Y" %}
         <i>{{ post.date | date_to_string }}</i> &raquo;
-        <a href="#{{ post.short }}" class="anchor" name="{{ post.short }}"><span class="octicon octicon-link"></span></a>
+        <a href="#{{ post.short }}" class="anchor" id="{{ post.short }}"><span class="octicon octicon-link"></span></a>
         <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> ({{ post.tags }})<br>
       {% endfor %}
     </blockquote>

@@ -12,7 +12,7 @@ hastr: true
       <header>
         <h1>{{ page.title }}</h1>
         <h3>
-          <a href="#archive" class="anchor" name="archive"><span class="octicon octicon-link"></span></a>
+          <a href="#archive" class="anchor" id="archive"><span class="octicon octicon-link"></span></a>
           <a href="/ru/blog/archive" title="Архив">Архив материалов</a>
         </h3>
       </header>
@@ -20,7 +20,7 @@ hastr: true
 
 {% for post in site.categories.ru limit:10 %}
   <h1>
-    <a href="#{{ post.short }}" class="anchor" name="{{ post.short }}"><span class="octicon octicon-link"></span></a>
+    <a href="#{{ post.short }}" class="anchor" id="{{ post.short }}"><span class="octicon octicon-link"></span></a>
     <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
   </h1>
   <p><i>{% include shortdate_to_ru.html %}</i></p>

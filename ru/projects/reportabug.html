@@ -13,27 +13,27 @@ license: LGPLv3
 links:
 ---
 <!-- info block -->
-<h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Информация</h2>
+<h2><a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Информация</h2>
 <p>Приложение/библиотека, написанное на Qt, которое позволяет пользователям отправлять багрепорт для проектов, расположенных на GitHub. Оно может работать как через <a href="https://github.com" title="GitHub">GitHub</a>, так и через <a href="https://gitreports.com" title="GitReports">GitReports</a>. Работает нормально, однако данное приложение было создано as proof-of-concept.</p>
 
-<h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
+<h3><a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a href="#license" class="anchor" name="license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
+<h3><a href="#license" class="anchor" id="license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Установка</h2>
+<h2><a href="#install" class="anchor" id="install"><span class="octicon octicon-link"></span></a>Установка</h2>
 
-<h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
-<h4><a href="#singleapp" class="anchor" name="singleapp"><span class="octicon octicon-link"></span></a>Сборка, как отдельное приложение</h4>
+<h3><a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
+<h4><a href="#singleapp" class="anchor" id="singleapp"><span class="octicon octicon-link"></span></a>Сборка, как отдельное приложение</h4>
 <ul>
   <li>Скачайте <a href="https://github.com/arcan1s/reportabug/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</li>
   <li>Извлеките из него файлы и настройте под себя.</li>
@@ -50,7 +50,7 @@ sudo make install
   </li>
 </ul>
 
-<h4><a href="#aslibrary" class="anchor" name="aslibrary"><span class="octicon octicon-link"></span></a>Сборка, как библиотека в проекте</h4>
+<h4><a href="#aslibrary" class="anchor" id="aslibrary"><span class="octicon octicon-link"></span></a>Сборка, как библиотека в проекте</h4>
 <ul>
   <li>Скачайте <a href="https://github.com/arcan1s/reportabug/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</li>
   <li>Извлеките из него файлы и настройте под себя.</li>
@@ -74,7 +74,7 @@ reportWindow->showWindow();
   <li>Слинкуйте Ваше приложение с библиотекой.</li>
 </ul>
 
-<h4><a href="#cmakeflags" class="anchor" name="cmakeflags"><span class="octicon octicon-link"></span></a>Доступные флаги cmake</h4>
+<h4><a href="#cmakeflags" class="anchor" id="cmakeflags"><span class="octicon octicon-link"></span></a>Доступные флаги cmake</h4>
 <ul>
   <li><code>-DBUILD_AS_LIBRARY=0</code> - собирать отдельное приложение, а не библиотеку.</li>
   <li><code>-DBUILD_DOCS=1</code> - собирать документацию для разработчиков.</li>
@@ -85,7 +85,7 @@ reportWindow->showWindow();
   <li><code>-DUSE_QT5=0</code> - использовать Qt4 вместо Qt5.</li>
 </ul>
 
-<h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
+<h3><a href="#dependencies" class="anchor" id="dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
 <p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>qt5-base <i>(если используется Qt5)</i> <b>или</b> qt4 <i>(если используется Qt4)</i></li>
@@ -98,8 +98,8 @@ reportWindow->showWindow();
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a href="#howto" class="anchor" name="howto"><span class="octicon octicon-link"></span></a>Использование</h2>
-<h3><a href="#github" class="anchor" name="github"><span class="octicon octicon-link"></span></a>Модуль GitHub</h3>
+<h2><a href="#howto" class="anchor" id="howto"><span class="octicon octicon-link"></span></a>Использование</h2>
+<h3><a href="#github" class="anchor" id="github"><span class="octicon octicon-link"></span></a>Модуль GitHub</h3>
 <p>Данный модуль создает тикет, используя <a href="https://developer.github.com/v3/issues/" title="Документация">GitHub API</a>. Данный модуль требует авторизации пользователя. Типичный POST запрос выглядит так:</p>
 
 {% highlight bash %}
@@ -123,16 +123,16 @@ curl -X POST -H "Authorization: token token" -d '{"title":"A new bug","body":"So
 
 <p>Данный модуль требует наличия в системе <code>QtNetwork</code>.</p>
 
-<h3><a href="#gitreports" class="anchor" name="gitreports"><span class="octicon octicon-link"></span></a>Модуль GitReports</h3>
+<h3><a href="#gitreports" class="anchor" id="gitreports"><span class="octicon octicon-link"></span></a>Модуль GitReports</h3>
 <p>Данный модуль создает тикет, используя возможности <a href="https://gitreports.com/about" title="GitReports">GitReports</a>. Пожалуйста, посетите <a href="https://gitreports.com/" title="GitReports">данную страницу</a> и настройте под Ваши репозитории.</p>
 
 <p>Для того, чтобы отключить данный модуль, используйте <code>-DENABLE_GITREPORT=0</code> флаг cmake. Данный модуль требует наличия в системе <code>QtNetwork</code> и <code>QtWebKit</code>.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Настройка</h2>
+<h2><a href="#config" class="anchor" id="config"><span class="octicon octicon-link"></span></a>Настройка</h2>
 <p>Для настройки перед компиляцией отредактируйте хидер <code>src/config.h</code>. Также Вы можете подгрузить параметры автоматически, используя массив <code>params</code> (необходимые ключи такие же, как и для хидера).</p>
-<h3><a href="#mainconfig" class="anchor" name="mainconfig"><span class="octicon octicon-link"></span></a>Основные настройки</h3>
+<h3><a href="#mainconfig" class="anchor" id="mainconfig"><span class="octicon octicon-link"></span></a>Основные настройки</h3>
 <ul>
   <li><code>OWNER</code> - владелец репозитория.</li>
   <li><code>PROJECT</code> - имя проекта.</li>
@@ -143,13 +143,13 @@ curl -X POST -H "Authorization: token token" -d '{"title":"A new bug","body":"So
   <li><code>TAG_MILESTONE</code> - установить данную веху тикету. Может быть использовано только в модуле GitHub. Данный тег будет работать, только если пользователь имеет права на запись. Если будет пустым, будет проигнорировано.</li>
 </ul>
 
-<h3><a href="#githubconfig" class="anchor" name="githubconfig"><span class="octicon octicon-link"></span></a>Настройки модуля GitHub</h3>
+<h3><a href="#githubconfig" class="anchor" id="githubconfig"><span class="octicon octicon-link"></span></a>Настройки модуля GitHub</h3>
 <ul>
   <li><code>GITHUB_COMBOBOX</code> - текст модуля в ComboBox.</li>
   <li><code>ISSUES_URL</code> - URL, в большинстве случаев, не редактируйте его. По умолчанию <code>https://api.github.com/repos/$OWNER/$PROJECT/issues</code>. Доступные теги <code>$PROJECT</code>, <code>$OWNER</code>.</li>
 </ul>
 
-<h3><a href="#gitreportsconfig" class="anchor" name="gitreportsconfig"><span class="octicon octicon-link"></span></a>Настройки модуля GitReports</h3>
+<h3><a href="#gitreportsconfig" class="anchor" id="gitreportsconfig"><span class="octicon octicon-link"></span></a>Настройки модуля GitReports</h3>
 <ul>
   <li><code>CAPTCHA_URL</code> - URL капчи, в большинстве случаев, не редактируйте его. По умолчанию <code>https://gitreports.com/simple_captcha?code=</code>.</li>
   <li><code>GITREPORT_COMBOBOX</code> - текст модуля в ComboBox.</li>

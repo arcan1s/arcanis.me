@@ -50,12 +50,12 @@ layout: default
 {{ content }}
 
 {% if page.category == "ru" %}
-  <h2><a href="#links" class="anchor" name="links"><span class="octicon octicon-link"></span></a>Ссылки</h2>
+  <h2><a href="#links" class="anchor" id="links"><span class="octicon octicon-link"></span></a>Ссылки</h2>
   <ul>
     <li><a href="https://github.com/arcan1s/{{ page.short }}">Репозиторий на GitHub</a></li>
     <li><a href="https://github.com/arcan1s/{{ page.short }}/releases">Последний релиз</a></li>
 {% else %}
-  <h2><a href="#links" class="anchor" name="links"><span class="octicon octicon-link"></span></a>Links</h2>
+  <h2><a href="#links" class="anchor" id="links"><span class="octicon octicon-link"></span></a>Links</h2>
   <ul>
     <li><a href="https://github.com/arcan1s/{{ page.short }}">GitHub repo</a></li>
     <li><a href="https://github.com/arcan1s/{{ page.short }}/releases">Latest release</a></li>

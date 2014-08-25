@@ -8,15 +8,15 @@ title: Disabling baloo, gentoo-way
 short: disabling-baloo
 description: Paper, which describes how to remove the dependency on baloo in your system.
 ---
-<h2><a href="#disclaimer" class="anchor" name="disclaimer"><span class="octicon octicon-link"></span></a>Disclaimer</h2>
+<h2><a href="#disclaimer" class="anchor" id="disclaimer"><span class="octicon octicon-link"></span></a>Disclaimer</h2>
 <p>I do not use this patch, since I prefer less destructive methods. However, apparently all works fine, because there is no any claims. Since this patch was created in a few minutes, it removes all baloo's calls from source files (maybe I'll create a normal patch sometime).</p>
 
 <p>On other hand, I highly recommend to people, who do not use baloo for some reason, disable it from the settings menu (it was added it 4.13.1) or read this <a href="http://blog.andreascarpino.it/disabling-baloo-the-arch-way/" title="Scarpino's blog">article</a>.</p>
 
-<h2><a href="#intro" class="anchor" name="intro"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<h2><a href="#intro" class="anchor" id="intro"><span class="octicon octicon-link"></span></a>Introduction</h2>
 <p>In Archlinux <b>gwenview</b> and <b>kdepim</b> (and <b>baloo-widgets</b>) depend on baloo currently (2014-05-18). In the version 4.13.0 <b>kactivities</b> depends on baloo too (and I don't know why); but this dependency was not required explicitly, so it was enough just to rebuild the package by removing baloo from the list of dependencies.</p>
 
-<h2><a href="#gwenview" class="anchor" name="gwenview"><span class="octicon octicon-link"></span></a>gwenview</h2>
+<h2><a href="#gwenview" class="anchor" id="gwenview"><span class="octicon octicon-link"></span></a>gwenview</h2>
 <p>It's all quite simple. Developers have taken care of the wishes of ordinary users and added a special flag:</p>
 
 {% highlight cmake %}
@@ -34,8 +34,8 @@ cmake ../gwenview-${pkgver} \
     -DGWENVIEW_SEMANTICINFO_BACKEND=None
 {% endhighlight %}
 
-<h2><a href="#kdepim" class="anchor" name="kdepim"><span class="octicon octicon-link"></span></a>kdepim</h2>
+<h2><a href="#kdepim" class="anchor" id="kdepim"><span class="octicon octicon-link"></span></a>kdepim</h2>
 <p>Since everything was done in a hurry, I prefer to look at the source code using grep and to find all references to baloo. Needed strings (they are links to ballo in CMakeLists.txt, baloo's function calls and header declarations) were commented (I added some fake calls to the source code). You may find the patch <a href="https://gist.github.com/arcan1s/b698bb586faef627b3bb" title="Gist">here</a> (4.13.3). Download the patch, apply it to the source code and recompile kdepim.</p>
 
-<h2><a href="#packages" class="anchor" name="packages"><span class="octicon octicon-link"></span></a>Packages</h2>
+<h2><a href="#packages" class="anchor" id="packages"><span class="octicon octicon-link"></span></a>Packages</h2>
 <p>All Archlinux packages for both architectures may be found in <a href="https://wiki.archlinux.org/index.php/Unofficial_user_repositories#arcanisrepo" title="ArchWiki">my repository</a>.</p>

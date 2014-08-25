@@ -14,7 +14,7 @@ links:
     - Пакет в <a href="https://aur.archlinux.org/packages/git-etc" title="AUR">AUR</a>
 ---
 <!-- info block -->
-<h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Информация</h2>
+<h2><a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Информация</h2>
 <p>Простой демон, который создает git репозиторий в указанной директории и создает коммит в указанный промежуток времени.</p>
 
 {% highlight bash %}
@@ -45,23 +45,23 @@ Additional parametrs:
 See "man 1 ctrlconf" for more details
 {% endhighlight %}
 
-<h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
+<h3><a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a href="#license" class="anchor" name="license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
+<h3><a href="#license" class="anchor" id="license"><span class="octicon octicon-link"></span></a>Лицензия</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Установка</h2>
+<h2><a href="#install" class="anchor" id="install"><span class="octicon octicon-link"></span></a>Установка</h2>
 
-<h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
+<h3><a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <ul>
   <li><p>Скачайте <a href="https://github.com/arcan1s/git-etc/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</p></li>
   <li><p>Извлеките из него файлы и установите приложение:</p>
@@ -79,7 +79,7 @@ sudo ./install.sh
 <p>Если путь не указан, пакет будет установлен в <code>/</code>.</p></li>
 </ul>
 
-<h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
+<h3><a href="#dependencies" class="anchor" id="dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
 <p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>Bash (включая awk, grep, sed)</li>
@@ -92,7 +92,7 @@ sudo ./install.sh
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a href="#howto" class="anchor" name="howto"><span class="octicon octicon-link"></span></a>Использование</h2>
+<h2><a href="#howto" class="anchor" id="howto"><span class="octicon octicon-link"></span></a>Использование</h2>
 <p>Если Вы хотите запустить демон в <code>/etc</code>, просто запустите</p>
 
 {% highlight bash %}
@@ -131,14 +131,14 @@ ExecStart=/usr/bin/git-etc -c /новый/путь/к/git-etc.conf
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Настройка</h2>
+<h2><a href="#config" class="anchor" id="config"><span class="octicon octicon-link"></span></a>Настройка</h2>
 <p>Все настройки хранятся в <code>/etc/git-etc.conf</code>. После редактирования, Вы должны перезапустить демон</p>
 
 {% highlight bash %}
 systemctl restart git-etc
 {% endhighlight %}
 
-<h3><a href="#options" class="anchor" name="options"><span class="octicon octicon-link"></span></a>Опции</h3>
+<h3><a href="#options" class="anchor" id="options"><span class="octicon octicon-link"></span></a>Опции</h3>
 <table>
   <tr>
     <th>DIRECTORY</th>
@@ -160,14 +160,14 @@ systemctl restart git-etc
 <!-- end of config block -->
 
 <!-- gui block -->
-<h2><a href="#gui" class="anchor" name="gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
+<h2><a href="#gui" class="anchor" id="gui"><span class="octicon octicon-link"></span></a>Графический интерфейс</h2>
 <p>Control Config (<code>ctrlconf</code>) - графический интерфейс для <code>git-etc</code>, написанный на <code>Python2/PyQt4</code>. Данное приложение позволяет Вам увидеть список коммитов и изменения в файлах в данных коммитах. Также данное приложение позволит Вам откатиться на указанный коммит (все файлы, посредством <code>git reset --hard</code>, или только указанный, посредством <code>git diff && git apply</code>). Также Вы можете объединить старый и новый конфигурационные файлы (используются две
 ветки репозитория master и experimental). Приложение может потребовать привелегии root, убедитесь, что пакет <code>sudo</code> установлен.</p>
 
-<h3><a href="#gui_configuration" class="anchor" name="gui_configuration"><span class="octicon octicon-link"></span></a>Настройка</h3>
+<h3><a href="#gui_configuration" class="anchor" id="gui_configuration"><span class="octicon octicon-link"></span></a>Настройка</h3>
 <p>Запустите приложение и откройте окно настроек из меню.</p>
 
-<h3><a href="#screenshots" class="anchor" name="screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
+<h3><a href="#screenshots" class="anchor" id="screenshots"><span class="octicon octicon-link"></span></a>Скриншоты</h3>
 <div class="thumbnails">
   {% assign scrdesc = "Основное окно" %}
   {% assign scrname = "git-etc_mainwindow" %}

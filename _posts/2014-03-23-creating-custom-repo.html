@@ -8,7 +8,7 @@ title: Creating own repository
 short: creating-custom-repo
 description: It is a short paper devoted to creation own ArchLinux repository.
 ---
-<h2><a href="#prepare" class="anchor" name="prepare"><span class="octicon octicon-link"></span></a>Prepare</h2>
+<h2><a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Prepare</h2>
 <p>First find a server and desire to have sex with it. It is recommended to use Archlinux on it, but it is not necessarily - because you may create special root for Archlinux. Also you need two packages, <code>devtools</code> and <code>pacman</code>:</p>
 
 {% highlight bash %}
@@ -57,7 +57,7 @@ fi
 
 <p><code>${REPODIR}/{i686,x86_64}</code> are directories for repository, <code>${PREPAREDIR}</code> is directory where compiled packages will be stored, <code>${STAGINGDIR}</code> is one where packages will be built.</p>
 
-<h2><a href="#theory" class="anchor" name="theory"><span class="octicon octicon-link"></span></a>A bit of theory</h2>
+<h2><a href="#theory" class="anchor" id="theory"><span class="octicon octicon-link"></span></a>A bit of theory</h2>
 <p>Create directory, share it (using <a href="/en/2014/03/06/site-changes/" title="Site changes paper">ftp</a>, for example). It has two subdirectories - <code>i686</code> and <code>x86_64</code> - for each architecture respectively. And fill them with a set of packages.</p>
 
 <p>Updating repository may be split into the following steps:</p>
@@ -74,7 +74,7 @@ fi
   <li>Cleaning.</li>
 </ol>
 
-<h3><a href="#pkgbuild" class="anchor" name="pkgbuild"><span class="octicon octicon-link"></span></a>Creating PKGBUILDs</h3>
+<h3><a href="#pkgbuild" class="anchor" id="pkgbuild"><span class="octicon octicon-link"></span></a>Creating PKGBUILDs</h3>
 <p>Download source tarballs from AUR:</p>
 
 {% highlight bash %}
@@ -82,7 +82,7 @@ cd "${STAGINGDIR}"
 yaourt -G package-name
 {% endhighlight %}
 
-<h3><a href="#building" class="anchor" name="building"><span class="octicon octicon-link"></span></a>Packages building</h3>
+<h3><a href="#building" class="anchor" id="building"><span class="octicon octicon-link"></span></a>Packages building</h3>
 <p>Build each package automatically:</p>
 
 {% highlight bash %}
@@ -131,7 +131,7 @@ username ALL=NOPASSWD: /usr/bin/staging-x86_64-build
 username ALL=NOPASSWD: /usr/bin/multilib-staging-build
 {% endhighlight %}
 
-<h3><a href="#signing" class="anchor" name="signing"><span class="octicon octicon-link"></span></a>Packages signing</h3>
+<h3><a href="#signing" class="anchor" id="signing"><span class="octicon octicon-link"></span></a>Packages signing</h3>
 
 {% highlight bash %}
 # signing
@@ -146,7 +146,7 @@ fi
 
 <p>It is recommended to configure <a href="https://wiki.archlinux.org/index.php/GPG#gpg-agent" title="ArchWiki">gpg-agent</a>.</p>
 
-<h3><a href="#list" class="anchor" name="list"><span class="octicon octicon-link"></span></a>Creating the list of packages</h3>
+<h3><a href="#list" class="anchor" id="list"><span class="octicon octicon-link"></span></a>Creating the list of packages</h3>
 
 {% highlight bash %}
 # creating packages list
@@ -157,7 +157,7 @@ echo -e "${bwhite}[II] ${bblue}=>${cclose} i686 packages: \n${bwhite}${i686_PACK
 echo -e "${bwhite}[II] ${bblue}=>${cclose} x86_64 packages: \n${bwhite}${x86_64_PACKAGES}${cclose}"
 {% endhighlight %}
 
-<h3><a href="#updating" class="anchor" name="updating"><span class="octicon octicon-link"></span></a>Repository update</h3>
+<h3><a href="#updating" class="anchor" id="updating"><span class="octicon octicon-link"></span></a>Repository update</h3>
 <p>Here is a function for removal packages from database and repository:</p>
 
 {% highlight bash %}
@@ -205,7 +205,7 @@ for PACKAGE in ${x86_64_PACKAGES}; do
 done
 {% endhighlight %}
 
-<h3><a href="#clear" class="anchor" name="clear"><span class="octicon octicon-link"></span></a>Cleaning</h3>
+<h3><a href="#clear" class="anchor" id="clear"><span class="octicon octicon-link"></span></a>Cleaning</h3>
 
 {% highlight bash %}
 # clear
@@ -215,7 +215,7 @@ cd "${STAGINGDIR}"
 /usr/bin/rm -rf *
 {% endhighlight %}
 
-<h3><a href="#symlinks" class="anchor" name="symlinks"><span class="octicon octicon-link"></span></a>Creating symlinks</h3>
+<h3><a href="#symlinks" class="anchor" id="symlinks"><span class="octicon octicon-link"></span></a>Creating symlinks</h3>
 <p>You may want to create a directory, which will contain symlinks on actual packages with names, which does not contain version:</p>
 
 {% highlight bash %}
@@ -239,10 +239,10 @@ if [ ${SYMLINK} == "yes" ]; then
 fi
 {% endhighlight %}
 
-<h3><a href="#file" class="anchor" name="file"><span class="octicon octicon-link"></span></a>File</h3>
+<h3><a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>File</h3>
 <p>Here is <a href="https://github.com/arcan1s/repo-scripts" title="GitHub">the scripts</a>. Download source tarballs and run script (editing variables if it is necessary).</p>
 
-<h2><a href="#using" class="anchor" name="using"><span class="octicon octicon-link"></span></a>Repository usage</h2>
+<h2><a href="#using" class="anchor" id="using"><span class="octicon octicon-link"></span></a>Repository usage</h2>
 <p>Just add following lines to <code>/etc/pacman.conf</code>:</p>
 
 {% highlight bash %}

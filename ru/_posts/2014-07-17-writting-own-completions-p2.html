@@ -8,10 +8,10 @@ title: Написание своих дополнений для Shell. Bash
 short: writting-own-completions-p2
 description: <figure class="img"><img src="/resources/papers/bash_completion.png" alt="bash_completion"></figure> В данных статьях описываются некоторые основы создания файлов дополнений для собственной программы.
 ---
-<h2><a href="#preamble" class="anchor" name="preamble"><span class="octicon octicon-link"></span></a>Преамбула</h2>
+<h2><a href="#preamble" class="anchor" id="preamble"><span class="octicon octicon-link"></span></a>Преамбула</h2>
 <p>В процессе разработки <a href="/ru/projects/netctl-gui" title="Страница netctl-gui">одного своего проекта</a> возникло желание добавить также файлы дополнений (только не спрашивайте зачем). Благо я как-то уже брался за написание подобных вещей, но читать что-либо тогда мне было лень, и так и не осилил.</p>
 
-<h2><a href="#introduction" class="anchor" name="introduction"><span class="octicon octicon-link"></span></a>Введение</h2>
+<h2><a href="#introduction" class="anchor" id="introduction"><span class="octicon octicon-link"></span></a>Введение</h2>
 <p>Bash, в <a href="/ru/2014/07/17/writting-own-completions-p1" title="Статья о дополнениях zsh">отличие от zsh</a>, требует к себе некоторого велосипедостроения в отношении дополнений. Бегло погуглив, я не нашел более-менее нормальных туториалов, потому за основу были взяты имеющиеся в системе файлы дополнений для <code>pacman</code>.</p>
 
 <p>Рассмотрим на примере все того же моего приложения. Я напомню, что часть справки к которому выглядит таким образом:</p>
@@ -32,7 +32,7 @@ netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FI
 </ul>
 </p>
 
-<h2><a href="#file" class="anchor" name="file"><span class="octicon octicon-link"></span></a>Структура файла</h2>
+<h2><a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>Структура файла</h2>
 <p>Здесь <b>все</b> переменные должны возвращать массив. Каких-либо особых форматов тут уже нет. Сначала опишем флаги, потом уже все остальные переменные. Я напомню (так как ниже я уже не буду приводить функции более подробно), что <code>_netctl_profiles()</code>, в отличие от других переменных, должна возвращать актуальный на данный момент массив:
 
 {% highlight bash %}
@@ -58,7 +58,7 @@ complete -F _netctl_gui netctl-gui
 
 </p>
 
-<h2><a href="#flags" class="anchor" name="flags"><span class="octicon octicon-link"></span></a>Флаги</h2>
+<h2><a href="#flags" class="anchor" id="flags"><span class="octicon octicon-link"></span></a>Флаги</h2>
 <p>Как было сказано выше, особого формата тут нет, доступные флаги располагаются просто массивом:
 
 {% highlight bash %}
@@ -79,7 +79,7 @@ _netctl_gui_arglist=(
 
 </p>
 
-<h2><a href="#variables" class="anchor" name="variables"><span class="octicon octicon-link"></span></a>Массивы переменных</h2>
+<h2><a href="#variables" class="anchor" id="variables"><span class="octicon octicon-link"></span></a>Массивы переменных</h2>
 <p>Приведу только функцию, которая в zsh выглядела таким образом:
 
 {% highlight bash %}
@@ -98,7 +98,7 @@ _netctl_profiles() {
 
 </p>
 
-<h2><a href="#body" class="anchor" name="body"><span class="octicon octicon-link"></span></a>Тело функции</h2>
+<h2><a href="#body" class="anchor" id="body"><span class="octicon octicon-link"></span></a>Тело функции</h2>
 <p>За дополнение в bash отвечает переменная <code>COMPREPLY</code>. Для отслеживания текущего состояния нужно вызвать функцию <code>_get_comp_words_by_ref</code> с параметрами <code>cur</code> (текущая опция) и <code>prev</code> (предыдущая, собственно состояние). Ну и нужно несколько точек, на которых сворачивать в определенную часть case (переменные <code>want*</code>). Для генерации дополнения используется <code>compgen</code>. После флага <code>-W</code> ему подается список слов. (Есть еще флаг <code>-F</code>, который вызывает функцию, но у меня он помимо этого еще и ворнинг выдает.) Последним аргументом идет текущая строка, к которой и нужно генерировать дополнение.</p>
 
 <p>Таким образом, наша функция выглядит так:
@@ -140,5 +140,5 @@ _netctl_gui() {
 
 </p>
 
-<h2><a href="#conclusion" class="anchor" name="conclusion"><span class="octicon octicon-link"></span></a>Заключение</h2>
+<h2><a href="#conclusion" class="anchor" id="conclusion"><span class="octicon octicon-link"></span></a>Заключение</h2>
 <p>Файл хранится в директории <code>/usr/share/bash-completion/completions/</code> с произвольным именем. Файл примера полностью может быть найден <a href="https://raw.githubusercontent.com/arcan1s/netctl-gui/master/sources/gui/bash-completions" title="Файл" type="text/plain">в моем репозитории</a>.</p>

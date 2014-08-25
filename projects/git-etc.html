@@ -13,7 +13,7 @@ links:
     - Archlinux <a href="https://aur.archlinux.org/packages/git-etc" title="AUR">AUR package</a>
 ---
 <!-- info block -->
-<h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Information</h2>
+<h2><a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Information</h2>
 <p>Simple daemon that automatically creates git repository in the given directory and creates commit at the specified time interval.</p>
 
 {% highlight bash %}
@@ -44,23 +44,23 @@ Additional parametrs:
 See "man 1 ctrlconf" for more details
 {% endhighlight %}
 
-<h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<h3><a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a href="#license" class="anchor" name="license"><span class="octicon octicon-link"></span></a>License</h3>
+<h3><a href="#license" class="anchor" id="license"><span class="octicon octicon-link"></span></a>License</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Installation</h2>
+<h2><a href="#install" class="anchor" id="install"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<h3><a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
   <li><p>Download an <a href="https://github.com/arcan1s/git-etc/releases" title="GitHub">archive</a> with latest version of source files.</p></li>
   <li><p>Extract it and install the application:</p>
@@ -78,7 +78,7 @@ sudo ./install.sh
 <p>If no path is specified it will be installed to <code>/</code> by default.</p></li>
 </ul>
 
-<h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+<h3><a href="#dependencies" class="anchor" id="dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
 <p>I want note that all were tested on latest version of dependencies.</p>
 <ul>
   <li>Bash (including awk, grep, sed)</li>
@@ -91,7 +91,7 @@ sudo ./install.sh
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a href="#howto" class="anchor" name="howto"><span class="octicon octicon-link"></span></a>How to use</h2>
+<h2><a href="#howto" class="anchor" id="howto"><span class="octicon octicon-link"></span></a>How to use</h2>
 <p>If you want to start the daemon into <code>/etc</code> just run</p>
 
 {% highlight bash %}
@@ -130,14 +130,14 @@ ExecStart=/usr/bin/git-etc -c /new/path/to/file/git-etc.conf
 <!-- end of howto block -->
 
 <!-- config block -->
-<h2><a href="#config" class="anchor" name="config"><span class="octicon octicon-link"></span></a>Configuration</h2>
+<h2><a href="#config" class="anchor" id="config"><span class="octicon octicon-link"></span></a>Configuration</h2>
 <p>All settings are stored in <code>/etc/git-etc.conf</code>. After edit them you must restart daemon</p>
 
 {% highlight bash %}
 systemctl restart git-etc
 {% endhighlight %}
 
-<h3><a href="#options" class="anchor" name="options"><span class="octicon octicon-link"></span></a>Options</h3>
+<h3><a href="#options" class="anchor" id="options"><span class="octicon octicon-link"></span></a>Options</h3>
 <table>
   <tr>
     <th>DIRECTORY</th>
@@ -159,13 +159,13 @@ systemctl restart git-etc
 <!-- end of config block -->
 
 <!-- gui block -->
-<h2><a href="#gui" class="anchor" name="gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
+<h2><a href="#gui" class="anchor" id="gui"><span class="octicon octicon-link"></span></a>Graphical user interface</h2>
 <p>Control Config (<code>ctrlconf</code>) is GUI for <code>git-etc</code> daemon written on <code>Python2/PyQt4</code>. This application allows you to view a list of commits and changes in files recorded in commit messages. Also, this application allows you to roll back to a specific commit all files (<code>git reset --hard</code>) or individual files (<code>git diff && git apply</code>). And you may merge old and new configuration files (used two branches repository - master and experimental). The application may need root privileges. Make sure that <code>sudo</code> package is installed.</p>
 
-<h3><a href="#gui_configuration" class="anchor" name="gui_configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
+<h3><a href="#gui_configuration" class="anchor" id="gui_configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
 <p>Just run the application and open the settings window from menu!</p>
 
-<h3><a href="#screenshots" class="anchor" name="screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
+<h3><a href="#screenshots" class="anchor" id="screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h3>
 <p>(Screenshots in Russian, but GUI has English translation.)</p>
 
 <div class="thumbnails">

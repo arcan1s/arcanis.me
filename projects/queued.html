@@ -12,7 +12,7 @@ license: GPLv3
 links:
 ---
 <!-- info block -->
-<h2><a href="#info" class="anchor" name="info"><span class="octicon octicon-link"></span></a>Information</h2>
+<h2><a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Information</h2>
 <p>Daemon for starting jobs to queue of calculations. It was written as proof-of-concept.</p>
 
 {% highlight bash %}
@@ -38,23 +38,23 @@ Parameters:
     -h   --help               - show this help and exit
 {% endhighlight %}
 
-<h3><a href="#devel" class="anchor" name="devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
+<h3><a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
   {% for devel in page.developers %}
     <li>{{ devel }}</li>
   {% endfor %}
 </ul>
 
-<h3><a href="#license" class="anchor" name="license"><span class="octicon octicon-link"></span></a>License</h3>
+<h3><a href="#license" class="anchor" id="license"><span class="octicon octicon-link"></span></a>License</h3>
 <ul>
   <li>{{ page.license }}</li>
 </ul>
 <!-- end of info block -->
 
 <!-- install block -->
-<h2><a href="#install" class="anchor" name="install"><span class="octicon octicon-link"></span></a>Installation</h2>
+<h2><a href="#install" class="anchor" id="install"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<h3><a href="#instruction" class="anchor" name="instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
+<h3><a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
   <li><p>Download an <a href="https://github.com/arcan1s/queued/releases" title="GitHub">archive</a> with latest version of source files.</p></li>
   <li><p>Extract it and install the application:</p>
@@ -72,7 +72,7 @@ sudo ./install.sh
 <p>If no path is specified it will be installed to <code>/</code> by default.</p></li>
 </ul>
 
-<h3><a href="#dependencies" class="anchor" name="dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+<h3><a href="#dependencies" class="anchor" id="dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
 <p>I want note that all were tested on latest version of dependencies.</p>
 <ul>
   <li>Bash (including awk, grep, sed)</li>
@@ -81,7 +81,7 @@ sudo ./install.sh
 <!-- end of install block -->
 
 <!-- howto block -->
-<h2><a href="#howto" class="anchor" name="howto"><span class="octicon octicon-link"></span></a>How to use</h2>
+<h2><a href="#howto" class="anchor" id="howto"><span class="octicon octicon-link"></span></a>How to use</h2>
 <p>If you want to start the daemon just run</p>
 
 {% highlight bash %}
@@ -118,7 +118,7 @@ ExecStart=/usr/bin/queued
 ExecStart=/usr/bin/queued -c /path/to/new/queued.conf
 {% endhighlight %}
 
-<h3><a href="#adding" class="anchor" name="adding"><span class="octicon octicon-link"></span></a>Adding a job</h3>
+<h3><a href="#adding" class="anchor" id="adding"><span class="octicon octicon-link"></span></a>Adding a job</h3>
 <ol>
   <li>Create shell script with the command (e.g. it have a name <code>script.sh</code>).</li>
   <li>Create priority file (<code>script.sh.pr</code>) with the job priority if it is needed.</li>
@@ -127,7 +127,7 @@ ExecStart=/usr/bin/queued -c /path/to/new/queued.conf
 </ol>
 <p>Also you may use <code>add_queued</code>.</p>
 
-<h2><a href="#configuration" class="anchor" name="configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
+<h2><a href="#configuration" class="anchor" id="configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
 <p>All settings are stored in <code>/etc/queued.conf</code>. After edit them you must restart daemon</p>
 
 {% highlight bash %}
@@ -136,7 +136,7 @@ systemctl restart queued
 <!-- end of howto block -->
 
 <!-- config block -->
-<h3><a href="#options" class="anchor" name="options"><span class="octicon octicon-link"></span></a>Options</h3>
+<h3><a href="#options" class="anchor" id="options"><span class="octicon octicon-link"></span></a>Options</h3>
 <table>
   <tr>
     <th>WORKDIR</th>

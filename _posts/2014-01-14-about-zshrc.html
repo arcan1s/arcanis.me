@@ -8,7 +8,7 @@ title: About zshrc
 short: about-zshrc
 description: It is first paper in my blog (I think I need something here for tests =)). There are many similar articles, and I'll not be an exception. I just want to show my <code>.zshrc</code> and explain what it does and why it is needed. Also any comments or additions are welcome. It is a translated paper from Russian (<a href="http://archlinux.org.ru/forum/topic/12752/" title="Forum thread">original</a>).
 ---
-<h2><a href="#prepare" class="anchor" name="prepare"><span class="octicon octicon-link"></span></a>Prepare</h2>
+<h2><a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Prepare</h2>
 <p>First install recommended minima:</p>
 
 {% highlight bash %}
@@ -17,7 +17,7 @@ pacman -Sy pkgfile zsh zsh-completions zsh-syntax-highlighting
 
 <p><a href="https://www.archlinux.org/packages/pkgfile/" title="Archlinux package">pkgfile</a> is a very useful utility. Also this command will install shell, additional completion and syntax highlighting.</p>
 
-<h2><a href="#configuration" class="anchor" name="configuration"><span class="octicon octicon-link"></span></a>Shell configuration</h2>
+<h2><a href="#configuration" class="anchor" id="configuration"><span class="octicon octicon-link"></span></a>Shell configuration</h2>
 <p>All options are avaible <a href="http://zsh.sourceforge.net/Doc/Release/Options.html" title="zsh documentation">here</a>.</p>
 
 <p>Set history file and number of commands in cache of the current session and in the history file:</p>
@@ -138,7 +138,7 @@ setopt HIST_REDUCE_BLANKS
 source /usr/share/doc/pkgfile/command-not-found.zsh
 {% endhighlight %}
 
-<h2><a href="#highlighting" class="anchor" name="highlighting"><span class="octicon octicon-link"></span></a>Syntax highlighting</h2>
+<h2><a href="#highlighting" class="anchor" id="highlighting"><span class="octicon octicon-link"></span></a>Syntax highlighting</h2>
 
 {% highlight bash %}
 # highlighting
@@ -189,7 +189,7 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
 
 <p>In first line highlighting is turned on. Next main, brackets and pattern highlighting are turned on. Patterns are set below (<code>rm -rf *</code> in the example). Also <code>root</code> and <code>cursor</code> highlighting may be turned on. Colors syntax is understandable, <code>fg</code> is font color, <code>bg</code> is background color.</p>
 
-<h2><a href="#prompt" class="anchor" name="prompt"><span class="octicon octicon-link"></span></a>$PROMPT and $RPROMPT</h2>
+<h2><a href="#prompt" class="anchor" id="prompt"><span class="octicon octicon-link"></span></a>$PROMPT and $RPROMPT</h2>
 <p>The general idea is the use single <code>.zshrc</code> for root and normal user:</p>
 
 {% highlight bash %}
@@ -272,7 +272,7 @@ $returncode\
 
 <p>My RPROMPT shows current time, battery change and last returned code. <code>precmd()</code> is necessary for automatic updating. The construct <code>$(if.true.false)</code> is conditional statement in <code>zsh</code>.</p>
 
-<h2><a href="#aliases" class="anchor" name="aliases"><span class="octicon octicon-link"></span></a>Aliases</h2>
+<h2><a href="#aliases" class="anchor" id="aliases"><span class="octicon octicon-link"></span></a>Aliases</h2>
 <p><b>Copy only those aliases that you need.</b> If any alias uses application that is not installed it will leads to fail of loading of configuration file.</p>
 
 <p>Small useful (or maybe not) function:</p>
@@ -364,7 +364,7 @@ alias -g h="| head"
 alias -g dn="&> /dev/null &"
 {% endhighlight %}
 
-<h2><a href="#functions" class="anchor" name="functions"><span class="octicon octicon-link"></span></a>Functions</h2>
+<h2><a href="#functions" class="anchor" id="functions"><span class="octicon octicon-link"></span></a>Functions</h2>
 <p>Here is a special function for <code>xrandr</code>:</p>
 
 {% highlight bash %}
@@ -522,7 +522,7 @@ yatest () {
 }
 {% endhighlight %}
 
-<h2><a href="#variables" class="anchor" name="variables"><span class="octicon octicon-link"></span></a>Variables</h2>
+<h2><a href="#variables" class="anchor" id="variables"><span class="octicon octicon-link"></span></a>Variables</h2>
 <p>It is recommended to set own variables in <code>~/.zshenv</code>. But I have everything stored in the single file.</p>
 
 <p>Here are path, mask of new files, editor and pager:</p>
@@ -548,12 +548,12 @@ hash -d u1=/mnt/usbdev1
 hash -d u2=/mnt/usbdev
 {% endhighlight %}
 
-<h2><a href="#screenshot" class="anchor" name="screenshot"><span class="octicon octicon-link"></span></a>Screenshot</h2>
+<h2><a href="#screenshot" class="anchor" id="screenshot"><span class="octicon octicon-link"></span></a>Screenshot</h2>
 <p>
   {% assign scrdesc = "Zsh demonstation" %}
   {% assign scrname = "zshrc_demo" %}
   {% include prj_scr.html %}
 </p>
 
-<h2><a href="#file" class="anchor" name="file"><span class="octicon octicon-link"></span></a>File</h2>
+<h2><a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>File</h2>
 <p><a href="https://raw.github.com/arcan1s/dotfiles/master/zshrc" title="GitHub" type="text/plain">Here is</a> my <code>.zshrc</code>.</p>

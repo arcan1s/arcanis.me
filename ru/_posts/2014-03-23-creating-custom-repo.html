@@ -8,7 +8,7 @@ title: Создание собственного репозитория
 short: creating-custom-repo
 description: Небольшая статья, посвященная созданию собственного репозитория для Archlinux.
 ---
-<h2><a href="#prepare" class="anchor" name="prepare"><span class="octicon octicon-link"></span></a>Подготовка</h2>
+<h2><a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Подготовка</h2>
 <p>Для начала находим сервер и желание с ним заниматься сексом. Для простоты, лучше, чтобы там стоял Archlinux, хотя, это и не совсем обязательно (можно создать отдельный корень под Arch). Из пакетов, пожалуй, нам понадобится только два, <code>devtools</code> и сам <code>pacman</code>:</p>
 
 {% highlight bash %}
@@ -56,7 +56,7 @@ fi
 
 <p>Директории <code>${REPODIR}/{i686,x86_64}</code> для самого репозитория, <code>${PREPAREDIR}</code> - директория, где будут лежать собранные пакеты, <code>${STAGINGDIR}</code> - директория, откуда будут собираться пакеты.</p>
 
-<h2><a href="#theory" class="anchor" name="theory"><span class="octicon octicon-link"></span></a>Немного теории</h2>
+<h2><a href="#theory" class="anchor" id="theory"><span class="octicon octicon-link"></span></a>Немного теории</h2>
 <p>Создаем директорию, расшариваем ее (например, по <a href="/ru/2014/03/06/site-changes/" title="Статья про изменения сайта">ftp</a>). В ней две субдиректории - <code>i686</code> и <code>x86_64</code>, для каждого типа архитектур соответственно. И наполняем их набором пакетов по Вашему усмотрению.</p>
 
 <p>Процесс обновления репозитория можно разбить на следующие части:</p>
@@ -75,7 +75,7 @@ fi
 
 <p>Теперь по шагам.</p>
 
-<h3><a href="#pkgbuild" class="anchor" name="pkgbuild"><span class="octicon octicon-link"></span></a>Создание PKGBUILD'ов</h3>
+<h3><a href="#pkgbuild" class="anchor" id="pkgbuild"><span class="octicon octicon-link"></span></a>Создание PKGBUILD'ов</h3>
 <p>Скачаем исходники для всех нужных пакетов из AUR'а:</p>
 
 {% highlight bash %}
@@ -83,7 +83,7 @@ cd "${STAGINGDIR}"
 yaourt -G package-name
 {% endhighlight %}
 
-<h3><a href="#building" class="anchor" name="building"><span class="octicon octicon-link"></span></a>Сборка пакетов</h3>
+<h3><a href="#building" class="anchor" id="building"><span class="octicon octicon-link"></span></a>Сборка пакетов</h3>
 <p>Автоматически соберем каждый пакет:</p>
 
 {% highlight bash %}
@@ -132,7 +132,7 @@ username ALL=NOPASSWD: /usr/bin/staging-x86_64-build
 username ALL=NOPASSWD: /usr/bin/multilib-staging-build
 {% endhighlight %}
 
-<h3><a href="#signing" class="anchor" name="signing"><span class="octicon octicon-link"></span></a>Подпись пакетов</h3>
+<h3><a href="#signing" class="anchor" id="signing"><span class="octicon octicon-link"></span></a>Подпись пакетов</h3>
 
 {% highlight bash %}
 # подпись
@@ -147,7 +147,7 @@ fi
 
 <p>Для удобства рекомендую настроить <a href="https://wiki.archlinux.org/index.php/GPG#gpg-agent" title="ArchWiki">gpg-agent</a>.</p>
 
-<h3><a href="#list" class="anchor" name="list"><span class="octicon octicon-link"></span></a>Создание списка пакетов</h3>
+<h3><a href="#list" class="anchor" id="list"><span class="octicon octicon-link"></span></a>Создание списка пакетов</h3>
 
 {% highlight bash %}
 # создание списка пакетов
@@ -158,7 +158,7 @@ echo -e "${bwhite}[II] ${bblue}=>${cclose} i686 packages: \n${bwhite}${i686_PACK
 echo -e "${bwhite}[II] ${bblue}=>${cclose} x86_64 packages: \n${bwhite}${x86_64_PACKAGES}${cclose}"
 {% endhighlight %}
 
-<h3><a href="#updating" class="anchor" name="updating"><span class="octicon octicon-link"></span></a>Обновление репозиториев</h3>
+<h3><a href="#updating" class="anchor" id="updating"><span class="octicon octicon-link"></span></a>Обновление репозиториев</h3>
 <p>Функция для удаления пакетов из базы данных и из репозитория:</p>
 
 {% highlight bash %}
@@ -206,7 +206,7 @@ for PACKAGE in ${x86_64_PACKAGES}; do
 done
 {% endhighlight %}
 
-<h3><a href="#clear" class="anchor" name="clear"><span class="octicon octicon-link"></span></a>Очистка</h3>
+<h3><a href="#clear" class="anchor" id="clear"><span class="octicon octicon-link"></span></a>Очистка</h3>
 
 {% highlight bash %}
 # очистка
@@ -216,7 +216,7 @@ cd "${STAGINGDIR}"
 /usr/bin/rm -rf *
 {% endhighlight %}
 
-<h3><a href="#symlinks" class="anchor" name="symlinks"><span class="octicon octicon-link"></span></a>Создание симлинков</h3>
+<h3><a href="#symlinks" class="anchor" id="symlinks"><span class="octicon octicon-link"></span></a>Создание симлинков</h3>
 <p>Вы можете захотеть создать директорию, которая будет содержать симлинки на актуальные версии пакетов с именами, не содержащими версии:</p>
 
 {% highlight bash %}
@@ -240,10 +240,10 @@ if [ ${SYMLINK} == "yes" ]; then
 fi
 {% endhighlight %}
 
-<h3><a href="#file" class="anchor" name="file"><span class="octicon octicon-link"></span></a>Файл</h3>
+<h3><a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>Файл</h3>
 <p><a href="https://github.com/arcan1s/repo-scripts" title="GitHub">Скрипты</a> целиком. Скачиваем исходники для пакетов, запускаем скрипт (при необходимости, редактируем переменные) и радуемся жизни.</p>
 
-<h2><a href="#using" class="anchor" name="using"><span class="octicon octicon-link"></span></a>Использование репозитория</h2>
+<h2><a href="#using" class="anchor" id="using"><span class="octicon octicon-link"></span></a>Использование репозитория</h2>
 <p>Просто добавляем в файл <code>/etc/pacman.conf</code> следующие строки:</p>
 
 {% highlight bash %}
