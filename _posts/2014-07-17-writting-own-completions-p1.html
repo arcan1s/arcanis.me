@@ -21,7 +21,7 @@ netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FI
            [ -o PROFILE | --open PROFILE ] [ -t NUM | --tab NUM ] [ --set-opts OPTIONS ]
 {% endhighlight %}
 
-<p>Here is a flag list:
+<p>Here is a flag list:</p>
 <ul>
   <li>flags <code>-h</code> and <code>--help</code> do not require any arguments;</li>
   <li>flags <code>-e</code> and <code>--essid</code> require a string argument without completion;</li>
@@ -30,16 +30,15 @@ netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FI
   <li>flags <code>-t</code> and <code>--tab</code> require a string argument, there is a completion from the specified array;</li>
   <li>flag <code>--set-opts</code> requires a string argument, there is a completion from the specified array comma separated;</li>
 </ul>
-</p>
 
 <h2><a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>The file pattern</h2>
-<p>It must be specified in the header that it is a completion file and application for which it will complete (may be string if this file provides completions for several applications):
+<p>It must be specified in the header that it is a completion file and application for which it will complete (may be string if this file provides completions for several applications):</p>
 
 {% highlight bash %}
 #compdef netctl-gui
 {% endhighlight %}
 
-Next there is flags, additional functions and variables declarations. It should be noted that all functions and variables, which will be used for completions, <b>should return arrays</b>. In my case this scheme looks like this (I left empty these functions in this chapter):
+<p>Next there is flags, additional functions and variables declarations. It should be noted that all functions and variables, which will be used for completions, <b>should return arrays</b>. In my case this scheme looks like this (I left empty these functions in this chapter):</p>
 
 {% highlight bash %}
 # variables
@@ -49,14 +48,14 @@ _netctl_gui_tabs=()
 _netctl_profiles() {}
 {% endhighlight %}
 
-Then there are main functions, which will be called for completion of specific application. In my case this there is only one applications, so there is only one function:
+<p>Then there are main functions, which will be called for completion of specific application. In my case this there is only one applications, so there is only one function:</p>
 
 {% highlight bash %}
 # work block
 _netctl-gui() {}
 {% endhighlight %}
 
-And finally <b>without isolation in a separate function</b> there is a small shamanism, which declares a dependence "application-function":
+<p>And finally <b>without isolation in a separate function</b> there is a small shamanism, which declares a dependence "application-function":</p>
 
 {% highlight bash %}
 case "$service" in
@@ -66,12 +65,10 @@ case "$service" in
 esac
 {% endhighlight %}
 
-</p>
-
 <h2><a href="#flags" class="anchor" id="flags"><span class="octicon octicon-link"></span></a>Flags</h2>
 <p>As it was said above, there are some different ways to create these files. In particular they differ in the flag declaration and their further processing. In my case I will use <code>_arguments</code> command, which require a specific format of variables: <code>FLAG[description]:MESSAGE:ACTION</code>. The last two fields are not required and, as you will see below, are not needed in some cases. If you want to add two flags for an action (short and long format), then the format is a little bit complicated: <code>{(FLAG_2)FLAG_1,(FLAG_1)FLAG_2}[description]:MESSAGE:ACTION</code>. It should be noted that if you want to create completions for two flags but some flags have not a second format. you will should to add following line: <code>{FLAG,FLAG}[description]:MESSAGE:ACTION</code>. <code>MESSAGE</code> is a message which will be shown, <code>ACTION</code> is an action which will be performed after this flag. In this tutorial <code>ACTION</code> will be following: <code>->STATE</code>.</p>
 
-<p>So, according to our requirements, flags declaration will be following:
+<p>So, according to our requirements, flags declaration will be following:</p>
 
 {% highlight bash %}
 _netctl_gui_arglist=(
@@ -84,10 +81,8 @@ _netctl_gui_arglist=(
 )
 {% endhighlight %}
 
-</p>
-
 <h2><a href="#variables" class="anchor" id="variables"><span class="octicon octicon-link"></span></a>Arrays of variables</h2>
-<p>In my case there are two static arrays (which will not be changed):
+<p>In my case there are two static arrays (which will not be changed):</p>
 
 {% highlight bash %}
 _netctl_gui_settings=(
@@ -101,7 +96,7 @@ _netctl_gui_tabs=(
 )
 {% endhighlight %}
 
-And there is a dynamic array, which should be generated each time. In my case it is a list of files in the specified directory (by the way it may be done by means of zsh):
+<p>And there is a dynamic array, which should be generated each time. In my case it is a list of files in the specified directory (by the way it may be done by means of zsh):</p>
 
 {% highlight bash %}
 _netctl_profiles() {
@@ -109,10 +104,8 @@ _netctl_profiles() {
 }
 {% endhighlight %}
 
-</p>
-
 <h2><a href="#body" class="anchor" id="body"><span class="octicon octicon-link"></span></a>Function</h2>
-<p>Remember, there was something about a state above? It is stored in the variable <code>$state</code> and in this function we will check what it is to choose the appropriate action. At the beginning of the function we should call <code>_arguments</code> with our flags.
+<p>Remember, there was something about a state above? It is stored in the variable <code>$state</code> and in this function we will check what it is to choose the appropriate action. At the beginning of the function we should call <code>_arguments</code> with our flags.</p>
 
 {% highlight bash %}
 _netctl-gui() {
@@ -143,8 +136,6 @@ _netctl-gui() {
     esac
 }
 {% endhighlight %}
-
-</p>
 
 <h2><a href="#conclusion" class="anchor" id="conclusion"><span class="octicon octicon-link"></span></a>Conclusion</h2>
 <p>File should be places to <code>/usr/share/zsh/site-functions/</code> with any name (it is recommended to set prefix to <code>_</code>). You may found the example <a href="https://raw.githubusercontent.com/arcan1s/netctl-gui/master/sources/gui/zsh-completions" title="File" type="text/plain">in my repository</a>.</p>
