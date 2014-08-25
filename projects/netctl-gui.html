@@ -88,9 +88,8 @@ Options:
 
 <h3><a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
-  <li><p>Download an <a href="https://github.com/arcan1s/netctl-gui/releases" title="GitHub">archive</a> with latest version of source files.</p></li>
-  <li><p>Extract it and install the application:</p>
-<p>If you want install it into <code>/</code>, you should run as root following commands:</p>
+  <li>Download an <a href="https://github.com/arcan1s/netctl-gui/releases" title="GitHub">archive</a> with latest version of source files.</li>
+  <li>Extract it and install the application. If you want install it into <code>/</code>, you should run as root following commands:
 
 {% highlight bash %}
 cd /path/to/extracted/archive
@@ -100,7 +99,7 @@ make
 sudo make install
 {% endhighlight %}
 
-<p>Available cmake flags are:</p>
+Available cmake flags are:
   <ul>
     <li>components:
     <ul>
@@ -122,7 +121,6 @@ sudo make install
       <li><code>-DUSE_CAPABILITIES:BOOL=0</code> - do not use setcap to get privileges to the helper</li>
       <li><code>-DUSE_QT5:BOOL=0</code> - use Qt4 instead of Qt5 for GUI</li>
     </ul></li>
-  </ul></li>
   </ul></li>
 </ul>
 

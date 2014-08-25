@@ -35,8 +35,8 @@ links:
 
 <h3><a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
-  <li><p>Download an <a href="https://github.com/arcan1s/oblikuestrategies/releases" title="GitHub">archive</a> with latest version of source files.</p></li>
-  <li><p>Extract it and install the application. For global isntallation type:</p>
+  <li>Download an <a href="https://github.com/arcan1s/oblikuestrategies/releases" title="GitHub">archive</a> with latest version of source files.</li>
+  <li>Extract it and install the application. For global isntallation type:
 
 {% highlight bash %}
 cd /where/is/applet/
@@ -46,7 +46,7 @@ make
 sudo make install
 {% endhighlight %}
 
-<p>For local isntallation type:</p>
+For local isntallation type:
 
 {% highlight bash %}
 cd /where/is/applet/
@@ -57,13 +57,13 @@ make install
 {% endhighlight %}
 
   </li>
-  <li><p>Restart plasma to load the applet:</p>
+  <li>Restart plasma to load the applet:
 
 {% highlight bash %}
 kquitapp plasma-desktop && sleep 2 && plasma-desktop
 {% endhighlight %}
 
-<p>Also you might need to run <code>kbuildsycoca4</code> in order to get the <code>*.desktop</code> file recognized:</p>
+Also you might need to run <code>kbuildsycoca4</code> in order to get the <code>*.desktop</code> file recognized:
 
 {% highlight bash %}
 kbuildsycoca4 &> /dev/null
