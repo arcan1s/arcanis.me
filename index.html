@@ -15,11 +15,11 @@ title: arcanis' homepage
           <span class="box">
             <a href="/feed.xml" title="RSS"><img src="/resources/feed-icon-14x14.png" alt="RSS"></a>
             <a href="/blog/" title="Blog">Blog</a> <span class="close">(hide)</span><span class="open">(show)</span>
-            <p class="spoilerbody">
+            <span class="spoilerbody">
               {% for post in site.categories.en limit:3 %}
                 <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br>
               {% endfor %}
-            </p>
+            </span>
           </span>
         </label>
         <p class="view"><a href="/projects/" title="Projects">Projects</a><br>
