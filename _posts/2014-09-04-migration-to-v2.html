@@ -1,0 +1,38 @@
+---
+category: en
+type: paper
+hastr: true
+layout: paper
+tags: awesome-widgets, pytextmonitor
+title: Migration Awesome Widgets (ex-PyTextMonitor) to version 2.0
+short: migration-to-v2
+description: <figure class="img"><img src="/resources/papers/broken-computer.jpg" alt="broken-computer"></figure>Some significant changes occur in the version 2.0 (really, I didn't do anything which can break your desktop!) and user API was rewritten. This paper should help to migrate from older PyTextMonitor versions (<1.11.0) to new one (>2.0).
+---
+<h2><a href="#new" class="anchor" id="new"><span class="octicon octicon-link"></span></a>New features</h2>
+<p>Firstly, a series of new features, including:</p>
+
+<ul>
+  <li>New widget - <b>Desktop panel</b>. It shows desktop list and select the active one. It can switch to the selected desktop by mouse clicking. Also it may set selected panels hidden.</li>
+  <li>New tags - <code>hddfreemb</code>, <code>hddfreegb</code>, <code>memusedmb</code>, <code>memusedgb</code>, <code>memfreemb</code>, <code>memfreegb</code>, <code>swapfreemb</code>, <code>swapfreegb</code>. And there are new tags related to new features - <code>desktop</code>, <code>ndesktop</code>, <code>tdesktops</code>.</li>
+  <li>New graphical tooltip - battery. It is twin colour (the colour depends on AC status).</li>
+</ul>
+
+<h2><a href="#changes" class="anchor" id="changes"><span class="octicon octicon-link"></span></a>Significant changes</h2>
+<p>Secondly, there are some changes because of which the old settings <b>will not</b> more work. They are:</p>
+
+<ul>
+  <li>The main widget was rewritten to <code>С++</code>, so the project was renamed to <b>Awesome Widgets</b>, and the main widget was done to <b>Awesome Widget</b></li>
+  <li>Configuration of battery and AC files <b>was moved to DataEngine</b>.</li>
+  <li><b>The labels was removed</b>. Now the widget is a single label. You may set up text in the special browser.</li>
+  <li>All tags should be framed by <code>$</code> <b>on both sides</b>. This changes was caused by code optimization, it allows me to reduce one of the classes to over9000 times.</li>
+  <li>According to fields combining several tags were renamed:
+  <ul>
+    <li><code>custom</code> (time) -&gt; <code>ctime</code></li>
+    <li><code>custom</code> (uptime) -&gt; <code>cuptime</code></li>
+    <li><code>time</code> (player) -&gt; <code>duration</code></li>
+  </ul>
+  </li>
+  <li>According to removal of the label, tooltip <b>should be configured separately</b>.</li>
+</ul>
+
+<p>On any issues related to the migration, feel free to leave a comment here.</p>

@@ -1,0 +1,38 @@
+---
+category: ru
+type: paper
+hastr: true
+layout: paper
+tags: awesome-widgets, pytextmonitor
+title: Миграция Awesome Widgets (ex-PyTextMonitor) на версию 2.0
+short: migration-to-v2
+description: <figure class="img"><img src="/resources/papers/broken-computer.jpg" alt="broken-computer"></figure>В версии 2.0 произошел ряд значительных изменений (совершенно случайно, само по себе, я тут не при чем) и было полностью переписано пользовательское API. Данная статья призвана облегчить миграцию со старых версий PyTextMonitor (<1.11.0) на новую (>2.0).
+---
+<h2><a href="#new" class="anchor" id="new"><span class="octicon octicon-link"></span></a>Новые фичи</h2>
+<p>Во-первых, это ряд нововведений, среди которых:</p>
+
+<ul>
+  <li>Новый виджет - <b>Desktop panel</b>. Показывает список рабочих столов, выделяя активный. Умеет переключаться между ними по клику. Также умеет скрывать выбранные панели по хоткею.</li>
+  <li>Новые теги - <code>hddfreemb</code>, <code>hddfreegb</code>, <code>memusedmb</code>, <code>memusedgb</code>, <code>memfreemb</code>, <code>memfreegb</code>, <code>swapfreemb</code>, <code>swapfreegb</code>. А также новые теги, связанные с новыми возможностями - <code>desktop</code>, <code>ndesktop</code>, <code>tdesktops</code>.</li>
+  <li>Новый графический тултип - батарея. Двухцветный, в зависимости от статуса адаптора питания.</li>
+</ul>
+
+<h2><a href="#changes" class="anchor" id="changes"><span class="octicon octicon-link"></span></a>Значительные изменения</h2>
+<p>Во-вторых, и это главное - произошел ряд изменений, из-за которых старые настройки <b>не будут</b> более работать. Среди пользовательских следует выделить:</p>
+
+<ul>
+  <li>Переписка основного виджета на <code>С++</code>, что вызвало переименование проекта в <b>Awesome Widgets</b>, а главного виджета в <b>Awesome Widget</b></li>
+  <li>Настройки файлов батареи и адаптора питания <b>вынесены в DataEngine</b>.</li>
+  <li><b>Убраны поля</b>. Теперь виджет представляет собой монолитное поле. Текст настраивается в специальном браузере.</li>
+  <li>Все теги теперь должны обрамляться знаком <code>$</code> <b>с двух сторон</b>. Это изменение связано с оптимизацией кода и позволило сократить один из вспомогательных классов в over9000 раз.</li>
+  <li>В связи с объединением полей, несколько тегов были переименованы:
+  <ul>
+    <li><code>custom</code> (время) -&gt; <code>ctime</code></li>
+    <li><code>custom</code> (время работы) -&gt; <code>cuptime</code></li>
+    <li><code>time</code> (плеер) -&gt; <code>duration</code></li>
+  </ul>
+  </li>
+  <li>В связи с удалением отдельных полей, тултип теперь <b>настраивается отдельно</b>.</li>
+</ul>
+
+<p>По любым проблемам, связанным с миграцией, не стесняйтесь оставлять здесь комментарий.</p>
