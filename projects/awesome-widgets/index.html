@@ -1,8 +1,8 @@
 ---
 hastr: true
 layout: project
-title: py-text-monitor
-short: pytextmonitor
+title: Awesome Widgets
+short: awesome-widgets
 tags: python, kde, qt, linux, system, awesome
 hasgui: true
 hasdocs: false
@@ -16,13 +16,13 @@ license: GPLv3
 links:
     - Plasmoid page on <a href="http://kde-look.org/content/show.php/Py+Text+Monitor?content=157124" title="kde-look">kde-look.org</a>
     - DataEngine page on <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773" title="kde-look">kde-look.org</a>
-    - Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-pytextmonitor" title="AUR">AUR package</a>
+    - Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-awesome-widgets" title="AUR">AUR package</a>
 ---
 <!-- info block -->
 <h2><a href="#information" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Information</h2>
-<p>A minimalistic Plasmoid script written on <code>Python2</code>. It looks like widgets in <a href="http://awesome.naquadah.org/" title="Awesome Homepage">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines" title="Developers tutorial">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
+<p>A collection  of minimalistic Plasmoids written on <code>CPP</code>. It looks like widgets in <a href="http://awesome.naquadah.org/" title="Awesome Homepage">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines" title="Developers tutorial">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
 
-<p><b>NOTE:</b> <a href="https://github.com/arcan1s/pytextmonitor/issues/14" title="Ticket">LOOKING FOR TRANSLATORS!</a></p>
+<p><b>NOTE:</b> <a href="https://github.com/arcan1s/awesome-widgets/issues/14" title="Ticket">LOOKING FOR TRANSLATORS!</a></p>
 
 <h3><a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
@@ -37,7 +37,7 @@ links:
 </ul>
 
 <h3><a href="#changelog" class="anchor" id="changelog"><span class="octicon octicon-link"></span></a>Changelog</h3>
-<p><a href="https://github.com/arcan1s/pytextmonitor/blob/master/CHANGELOG" title="GitHub">CHANGELOG</a></p>
+<p><a href="https://github.com/arcan1s/awesome-widgets/blob/master/CHANGELOG" title="GitHub">CHANGELOG</a></p>
 <!-- end of info block -->
 
 <!-- install block -->
@@ -45,7 +45,7 @@ links:
 
 <h3><a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Instruction</h3>
 <ul>
-  <li>Download an <a href="https://github.com/arcan1s/pytextmonitor/releases" title="GitHub">archive</a> with latest version of source files.</li>
+  <li>Download an <a href="https://github.com/arcan1s/awesome-widgets/releases" title="GitHub">archive</a> with latest version of source files.</li>
   <li>Extract it and install:
 
 {% highlight bash %}
@@ -77,22 +77,20 @@ sudo make install
   <li>lm_sensors</li>
   <li>automoc4 <i>(make)</i></li>
   <li>cmake <i>(make)</i></li>
-  <li>net-tools <i>(optional, for popup messages)</i></li>
-  <li>sysstat <i>(optional, for popup messages)</i></li>
   <li>hddtemp <i>(optional, for HDD temperature monitor)</i></li>
-  <li>one of supported music player - <a href="http://amarok.kde.org/" title="Amarok Homepage">amarok</a>, <a href="http://www.clementine-player.org/" title="Clementine Homepage">clementine</a>, <a href="http://www.musicpd.org/" title="mpd Homepage">mpd</a> or <a href="http://qmmp.ylsoftware.com/" title="qmmp Homepage">qmmp</a> <i>(optional, for music player monitor)</i>
+  <li>one of supported music player <i>(optional, for music player monitor)</i></li>
   <li>proprietary video driver <i>(optional, for GPU monitor)</i></li>
 </ul>
 <!-- end of install block -->
 
 <!-- howto block -->
 <h2><a href="#howto" class="anchor" id="howto"><span class="octicon octicon-link"></span></a>How to use</h2>
-<p>Open your Plasma widgetes and select <code>Py Text Monitor</code>.</p>
+<p>Open your Plasma widgetes and select <code>Awesome Widget</code>.</p>
 
 <h3><a href="#tips" class="anchor" id="tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
-<p>You may use different colors for labels. Just put label text into html code. See <a href="https://github.com/arcan1s/pytextmonitor/issues/9" title="GitHub">issue</a> for more details.</p>
+<p>You may use different colors for labels. Just put label text into html code. See <a href="https://github.com/arcan1s/awesome-widgets/issues/9" title="GitHub">issue</a> for more details.</p>
 
-<p>Numbering of elements of temperature, HDD usage, HDD speed, HDD temperature refers to elements order from second tab (<i>Advanced settings</i>). You should add item to the required listWidget first. And the first element in the listWidget will be <code>$tag0</code>. See <a href="https://github.com/arcan1s/pytextmonitor/issues/17" title="GitHub">issue</a> for more details.</p>
+<p>Numbering of elements of temperature, HDD usage, HDD speed, HDD temperature refers to elements order from second tab (<i>Advanced settings</i>). You should select an item to the required listWidget first. And the first selected element in the listWidget will be <code>$tag0$</code>. See <a href="https://github.com/arcan1s/awesome-widgets/issues/17" title="GitHub">issue</a> for more details.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
@@ -103,6 +101,14 @@ sudo make install
 
 <h4><a href="#deoptions" class="anchor" id="deoptions"><span class="octicon octicon-link"></span></a>DataEngine options</h4>
 <table>
+  <tr>
+    <th>AC</th>
+    <td>File with AC information. The file (<code>/sys/class/power_supply/AC/online</code> by default) should contain <code>1</code> if AC is online.</td>
+  </tr>
+  <tr>
+    <th>BATTERY</th>
+    <td>File with battery information. The file (<code>/sys/class/power_supply/BAT0/capacity</code> by default) should contain only battery charge in percent.</td>
+  </tr>
   <tr>
     <th>CUSTOM</th>
     <td>Custom commands to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>. Separator is <code>@@</code>.</td>
@@ -146,229 +152,260 @@ sudo make install
 </table>
 
 <h3><a href="#widconf" class="anchor" id="widconf"><span class="octicon octicon-link"></span></a>Widget configuration</h3>
-<p>For edited output you must open Settings window and setup output format in lines. Label order will changed if you change slider position. HTML tags in label work normally.<br>
-<b>NOTE</b> You do not may set to show <code>$cpu</code> in swap label for example. <b><code>$cpu</code> will work only in cpu label.</b></p>
+<p>For edited output you must open Settings window and setup output format. HTML tags work normally.</p>
 
 <p>Available flags are in the table below.<br>
 <b>NOTE</b> The numbering of all arrays in variables starts at 0.</p>
 <table>
   <tr>
     <th rowspan="5">Time label</th>
-    <td><code>$time</code></td>
+    <td><code>$time$</code></td>
     <td>Time in default format. For example, <code>fri Nov 6 04:48:01 2013</code>.</td>
   </tr>
   <tr>
-    <td><code>$isotime</code></td>
+    <td><code>$isotime$</code></td>
     <td>Time in ISO format.</td>
   </tr>
   <tr>
-    <td><code>$shorttime</code></td>
+    <td><code>$shorttime$</code></td>
     <td>Time in short locale format.</td>
   </tr>
   <tr>
-    <td><code>$longtime</code></td>
+    <td><code>$longtime$</code></td>
     <td>Time in long locale format.</td>
   </tr>
   <tr>
-    <td><code>$custom</code></td>
+    <td><code>$ctime$</code></td>
     <td>Will enable custom time format.</td>
   </tr>
   <tr>
     <th rowspan="2">Uptime label</th>
-    <td><code>$uptime</code></td>
+    <td><code>$uptime$</code></td>
     <td>System uptime, <code>---d--h--m</code>.</td>
   </tr>
   <tr>
-    <td><code>$custom</code></td>
+    <td><code>$cuptime$</code></td>
     <td>Will enable custom uptime format.</td>
   </tr>
   <tr>
     <th rowspan="2">CPU label</th>
-    <td><code>$cpu</code></td>
+    <td><code>$cpu$</code></td>
     <td>Total load CPU, %, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$cpuN</code></td>
+    <td><code>$cpuN$</code></td>
     <td>Load CPU for core N, %, <code>-----</code>.</td>
   </tr>
   <tr>
     <th rowspan="2">CPU clock label</th>
-    <td><code>$cpucl</code></td>
+    <td><code>$cpucl$</code></td>
     <td>Average CPU clock, MHz, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$cpuclN</code></td>
+    <td><code>$cpuclN$</code></td>
     <td>CPU clock for core N, MHz, <code>----</code>.</td>
   </tr>
   <tr>
     <th rowspan="1">Temperature label</th>
-    <td><code>$tempN</code></td>
-    <td>Temperature for device N, &deg;C, <code>----</code>. For example, <code>$temp0</code>.</td>
+    <td><code>$tempN$</code></td>
+    <td>Temperature for device N, &deg;C, <code>----</code>. For example, <code>$temp0$</code>.</td>
   </tr>
   <tr>
     <th rowspan="1">GPU label</th>
-    <td><code>$gpu</code></td>
+    <td><code>$gpu$</code></td>
     <td>GPU usage, %, <code>-----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</td>
   </tr>
   <tr>
     <th rowspan="1">GPU temperature label</th>
-    <td><code>$gputemp</code></td>
+    <td><code>$gputemp$</code></td>
     <td>GPU temperature, &deg;C, <code>----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</td>
   </tr>
   <tr>
-    <th rowspan="5">Memory label</th>
-    <td><code>$mem</code></td>
+    <th rowspan="9">Memory label</th>
+    <td><code>$mem$</code></td>
     <td>Memory usage, %, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memmb</code></td>
+    <td><code>$memmb$</code></td>
     <td>Memory usage, MB, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memgb</code></td>
+    <td><code>$memgb$</code></td>
     <td>Memory usage, GB, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memtotmb</code></td>
+    <td><code>$memfreemb$</code></td>
+    <td>Free memory, MB, <code>-----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$memfreegb$</code></td>
+    <td>Free memory, GB, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$memtotmb$</code></td>
     <td>RAM, MB, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memtotgb</code></td>
+    <td><code>$memtotgb$</code></td>
     <td>RAM, GB, <code>----</code>.</td>
   </tr>
   <tr>
-    <th rowspan="5">Swap label</th>
-    <td><code>$swap</code></td>
+    <td><code>$memusedmb$</code></td>
+    <td>Used and cached memory, MB, <code>-----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$memusedgb$</code></td>
+    <td>Used and cached memory, GB, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <th rowspan="7">Swap label</th>
+    <td><code>$swap$</code></td>
     <td>Swap usage, %, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$swapmb</code></td>
+    <td><code>$swapmb$</code></td>
     <td>Swap usage, MB, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$swapgb</code></td>
+    <td><code>$swapgb$</code></td>
     <td>Swap usage, GB, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$swaptotmb</code></td>
+    <td><code>$swapfreemb$</code></td>
+    <td>Free swap, MB, <code>-----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$swapfreegb$</code></td>
+    <td>Free swap, GB, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$swaptotmb$</code></td>
     <td>Swap, MB, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$swaptotgb</code></td>
+    <td><code>$swaptotgb$</code></td>
     <td>Swap, GB, <code>----</code>.</td>
   </tr>
   <tr>
-    <th rowspan="5">HDD usage label</th>
-    <td><code>$hddN</code></td>
-    <td>Usage for mount point N, %, <code>-----</code>. For example <code>$hdd0</code>.</td>
+    <th rowspan="7">HDD usage label</th>
+    <td><code>$hddN$</code></td>
+    <td>Usage for mount point N, %, <code>-----</code>. For example <code>$hdd0$</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddmbN</code></td>
-    <td>Usage for mount point N, MB, <code>-----</code>. For example <code>$hddmb0</code>.</td>
+    <td><code>$hddmbN$</code></td>
+    <td>Usage for mount point N, MB, <code>-----</code>. For example <code>$hddmb0$</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddgbN</code></td>
-    <td>Usage for mount point N, GB, <code>-----</code>. For example <code>$hddgb0</code>.</td>
+    <td><code>$hddgbN$</code></td>
+    <td>Usage for mount point N, GB, <code>-----</code>. For example <code>$hddgb0$</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddtotmbN</code></td>
-    <td>Total size of mount point N, MB, <code>-----</code>. For example <code>$hddtotmb0</code>.</td>
+    <td><code>$hddfreembN$</code></td>
+    <td>Free space for mount point N, MB, <code>-----</code>. For example <code>$hddfreemb0$</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddtotgbN</code></td>
-    <td>Total size of mount point N, GB, <code>-----</code>. For example <code>$hddtotgb0</code>.</td>
+    <td><code>$hddfreegbN$</code></td>
+    <td>Free space for mount point N, GB, <code>-----</code>. For example <code>$hddfreegb0$</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$hddtotmbN$</code></td>
+    <td>Total size of mount point N, MB, <code>-----</code>. For example <code>$hddtotmb0$</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$hddtotgbN$</code></td>
+    <td>Total size of mount point N, GB, <code>-----</code>. For example <code>$hddtotgb0$</code>.</td>
   </tr>
   <tr>
     <th rowspan="2">HDD speed label</th>
-    <td><code>$hddrN</code></td>
-    <td>Read speed of disk N, KB/s, <code>-----</code>. For example <code>$hddr0</code>.</td>
+    <td><code>$hddrN$</code></td>
+    <td>Read speed of disk N, KB/s, <code>-----</code>. For example <code>$hddr0$</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddwN</code></td>
-    <td>Write speed of disk N, KB/s, <code>-----</code>. For example <code>$hddw0</code>.</td>
+    <td><code>$hddwN$</code></td>
+    <td>Write speed of disk N, KB/s, <code>-----</code>. For example <code>$hddw0$</code>.</td>
   </tr>
   <tr>
     <th rowspan="1">HDD temperature label</th>
-    <td><code>$hddtempN</code></td>
-    <td>Temperature for HDD N, &deg;C, <code>----</code>. For example <code>$hddtemp0</code>. <code>hddtemp</code> must be installed.</td>
+    <td><code>$hddtempN$</code></td>
+    <td>Temperature for HDD N, &deg;C, <code>----</code>. For example <code>$hddtemp0$</code>. <code>hddtemp</code> must be installed.</td>
   </tr>
   <tr>
     <th rowspan="3">Network label</th>
-    <td><code>$down</code></td>
+    <td><code>$down$</code></td>
     <td>Download speed, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$up</code></td>
+    <td><code>$up$</code></td>
     <td>Upload speed, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$netdev</code></td>
+    <td><code>$netdev$</code></td>
     <td>Current network device.</td>
   </tr>
   <tr>
     <th rowspan="2">Battery label</th>
-    <td><code>$bat</code></td>
+    <td><code>$bat$</code></td>
     <td>Battery charge, %, <code>---</code>.</td>
   </tr>
   <tr>
-    <td><code>$ac</code></td>
+    <td><code>$ac$</code></td>
     <td>Status of AC device. Returns <code>(*)</code> if AC device is online or <code>( )</code> if offline.</td>
   </tr>
   <tr>
     <th rowspan="5">Music player label</th>
-    <td><code>$album</code></td>
+    <td><code>$album$</code></td>
     <td>Current song album. One of supported music players must be installed.</td>
   </tr>
   <tr>
-    <td><code>$artist</code></td>
+    <td><code>$artist$</code></td>
     <td>Current song artist. One of supported music players must be installed.</td>
   </tr>
   <tr>
-    <td><code>$progress</code></td>
-    <td>Current song progress. One of supported music players must be installed.</td>
-  </tr>
-  <tr>
-    <td><code>$time</code></td>
+    <td><code>$duration$</code></td>
     <td>Current song duration. One of supported music players must be installed.</td>
   </tr>
   <tr>
-    <td><code>$title</code></td>
+    <td><code>$progress$</code></td>
+    <td>Current song progress. One of supported music players must be installed.</td>
+  </tr>
+  <tr>
+    <td><code>$title$</code></td>
     <td>Current song title. One of supported music players must be installed.</td>
   </tr>
   <tr>
     <th rowspan="3">Process label</th>
-    <td><code>$ps</code></td>
+    <td><code>$ps$</code></td>
     <td>List of running processes comma separated.</td>
   </tr>
   <tr>
-    <td><code>$pscount</code></td>
+    <td><code>$pscount$</code></td>
     <td>Number of running processes.</td>
   </tr>
   <tr>
-    <td><code>$pstotal</code></td>
+    <td><code>$pstotal$</code></td>
     <td>Total number of processes.</td>
   </tr>
   <tr>
     <th rowspan="1">Package manager label</th>
-    <td><code>$pkgcountN</code></td>
+    <td><code>$pkgcountN$</code></td>
     <td>Number of packages, which available to upgrade for command N.</td>
   </tr>
   <tr>
     <th rowspan="1">Custom label</th>
-    <td><code>$customN</code></td>
-    <td>Get output from custom command N. For example <code>$custom0</code>.</td>
+    <td><code>$customN$</code></td>
+    <td>Get output from custom command N. For example <code>$custom0$</code>.</td>
   </tr>
   <tr>
     <th rowspan="3">Desktop label</th>
-    <td><code>$name</code></td>
+    <td><code>$desktop$</code></td>
     <td>Name of the current desktop.</td>
   </tr>
   <tr>
-    <td><code>$number</code></td>
+    <td><code>$ndesktop$</code></td>
     <td>Number of the current desktop.</td>
   </tr>
   <tr>
-    <td><code>$total</code></td>
+    <td><code>$tdesktops$</code></td>
     <td>Total number of desktops.</td>
   </tr>
 </table>
@@ -385,67 +422,67 @@ sudo make install
 <p><b>Custom time format:</b></p>
 <table>
   <tr>
-    <td><code>$dddd</code></td>
+    <td><code>$dddd$</code></td>
     <td>Weekday in long format.</td>
   </tr>
   <tr>
-    <td><code>$ddd</code></td>
+    <td><code>$ddd$</code></td>
     <td>Weekday in short format.</td>
   </tr>
   <tr>
-    <td><code>$dd</code></td>
+    <td><code>$dd$</code></td>
     <td>Day.</td>
   </tr>
   <tr>
-    <td><code>$d</code></td>
+    <td><code>$d$</code></td>
     <td>Day without zero.</td>
   </tr>
   <tr>
-    <td><code>$MMMM</code></td>
+    <td><code>$MMMM$</code></td>
     <td>Month in long format.</td>
   </tr>
   <tr>
-    <td><code>$MMM</code></td>
+    <td><code>$MMM$</code></td>
     <td>Month in short format.</td>
   </tr>
   <tr>
-    <td><code>$MM</code></td>
+    <td><code>$MM$</code></td>
     <td>Month.</td>
   </tr>
   <tr>
-    <td><code>$M</code></td>
+    <td><code>$M$</code></td>
     <td>Month without zero.</td>
   </tr>
   <tr>
-    <td><code>$yyyy</code></td>
+    <td><code>$yyyy$</code></td>
     <td>Year.</td>
   </tr>
   <tr>
-    <td><code>$yy</code></td>
+    <td><code>$yy$</code></td>
     <td>Year in short format.</td>
   </tr>
   <tr>
-    <td><code>$hh</code></td>
+    <td><code>$hh$</code></td>
     <td>Hours.</td>
   </tr>
   <tr>
-    <td><code>$h</code></td>
+    <td><code>$h$</code></td>
     <td>Hours without zero.</td>
   </tr>
   <tr>
-    <td><code>$mm</code></td>
+    <td><code>$mm$</code></td>
     <td>Minutes.</td>
   </tr>
   <tr>
-    <td><code>$m</code></td>
+    <td><code>$m$</code></td>
     <td>Minutes without zero.</td>
   </tr>
   <tr>
-    <td><code>$ss</code></td>
+    <td><code>$ss$</code></td>
     <td>Seconds.</td>
   </tr>
   <tr>
-    <td><code>$s</code></td>
+    <td><code>$s$</code></td>
     <td>Seconds without zero.</td>
   </tr>
 </table>
@@ -453,58 +490,56 @@ sudo make install
 <p><b>Custom uptime format:</b></p>
 <table>
   <tr>
-    <td><code>$dd</code></td>
+    <td><code>$dd$</code></td>
     <td>Uptime days.</td>
   </tr>
   <tr>
-    <td><code>$d</code></td>
+    <td><code>$d$</code></td>
     <td>Uptime days without zero.</td>
   </tr>
   <tr>
-    <td><code>$hh</code></td>
+    <td><code>$hh$</code></td>
     <td>Uptime hours.</td>
   </tr>
   <tr>
-    <td><code>$h</code></td>
+    <td><code>$h$</code></td>
     <td>Uptime hours without zero.</td>
   </tr>
   <tr>
-    <td><code>$mm</code></td>
+    <td><code>$mm$</code></td>
     <td>Uptime minutes.</td>
   </tr>
   <tr>
-    <td><code>$m</code></td>
+    <td><code>$m$</code></td>
     <td>Uptime minutes without zero.</td>
   </tr>
 </table>
 
-<p><b>Temperature units:</b> Select units for temperature. Available units are Celsius, Farenheit and Kelvin.</p>
+<p><b>Temperature units:</b> Select units for temperature. Available units are Celsius, Farenheit, Kelvin, Reaumur, cm^-1, kJ/mol, kcal/mol.</p>
 
-<p><b>Temperature devices:</b> List of devices, which will be observed in temperature label (combo box items come from <code>sensors</code>). List widget is editable, delete key will remove current item.</p>
+<p><b>Temperature devices:</b> List of devices, which will be observed in temperature label (combo box items come from <code>sensors</code>). List widget is editable.</p>
 
-<p><b>Mount points:</b> List of mount points, which will be observed in HDD label (combo box items come from <code>mount</code>). List widget is editable, delete key will remove current item.</p>
+<p><b>Mount points:</b> List of mount points, which will be observed in HDD label (combo box items come from <code>mount</code>). List widget is editable.</p>
 
-<p><b>HDDs (speed):</b> List of hard disk devices, which will be observed in HDD speed label (combo box items come from DataEngine). List widget is editable, delete key will remove current item.</p>
+<p><b>HDDs (speed):</b> List of hard disk devices, which will be observed in HDD speed label (combo box items come from DataEngine). List widget is editable.</p>
 
-<p><b>HDDs (temperature):</b> List of hard disk devices, which will be observed in HDD temperature label (combo box items come from <code>find</code>). List widget is editable, delete key will remove current item.</p>
+<p><b>HDDs (temperature):</b> List of hard disk devices, which will be observed in HDD temperature label (combo box items come from <code>find</code>). List widget is editable.</p>
 
-<p><b>Network directory:</b> Path to directory, which contains network devices information. Default is <code>/sys/class/net</code>. It is required for auto select of network device.</p>
-
-<p><b>Network device:</b> Use specified device as active. Combo box items come from <b>network directory</b>. This option will disable auto select network device.</p>
-
-<p><b>Battery device:</b> File with battery information. The file (<code>/sys/class/power_supply/BAT0/capacity</code> by default) should contain only battery charge in percent.</p>
+<p><b>Network device:</b> Use specified device as active. This option will disable auto select network device.</p>
 
 <p><b>AC online tag:</b> Line which will be shown when AC is online. Default is <code>(*)</code>.</p>
 
 <p><b>AC offline tag:</b> Line which will be shown when AC is offline. Default is <code>( )</code>.</p>
 
-<p><b>AC device:</b> File with AC information. The file (<code>/sys/class/power_supply/AC/online</code> by default) should contain <code>1</code> if AC is online.</p>
-
 <h4><a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Tooltips</h4>
 <p>Since version 1.7.0 CPU, CPU clock, memory, swap and network labels support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
 
 <h4><a href="#deguiconf" class="anchor" id="deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
-<p><b>Custom command:</b> <i><b>NOTE</b> this label may cause the computer freeze.</i> Commands, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
+<p><b>AC device:</b> File with AC information. The file (<code>/sys/class/power_supply/AC/online</code> by default) should contain <code>1</code> if AC is online.</p>
+
+<p><b>Battery device:</b> File with battery information. The file (<code>/sys/class/power_supply/BAT0/capacity</code> by default) should contain only battery charge in percent.</p>
+
+<p><b>Custom command:</b> Commands, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
 
 <p><b>Desktop cmd:</b> Type a command which will be run for desktop DataEngine. Default is <code>qdbus org.kde.kwin /KWin currentDesktop</code>.</p>
 
@@ -517,6 +552,8 @@ sudo make install
 <p><b>MPD address:</b> Address of MPD server. Default is <code>localhost</code>.</p>
 
 <p><b>MPD port:</b> Port of MPD server. Default is <code>6600</code>.</p>
+
+<p><b>MPRIS:</b> Select MPRIS player name. <code>auto</code> will enable auto selection. Default is <code>auto</code>.</p>
 
 <p><b>Package manager:</b> List of commands, which will be run. Number of null lines is a number of unneeded lines. Defaults are:</p>
 <table>
@@ -559,10 +596,10 @@ sudo make install
 
 <p><b>Music player:</b> Select one of supported music playes for player label.</p>
 
-<h3><a href="#desktoppanel" class="anchor" id="desktoppanel"><span class="octicon octicon-link"></span></a>PTM desktop panel</h3>
-<p>Since version 1.11.0 PyTextMonitor provides a minimalistic panel for monitoring on desktops written on <code>C++</code>. And yes, it looks like the same panel in Awesome.</p>
+<h3><a href="#desktoppanel" class="anchor" id="desktoppanel"><span class="octicon octicon-link"></span></a>Desktop Panel</h3>
+<p>Since version 1.11.0 it provides a minimalistic panel for monitoring on desktops written on <code>C++</code>. And yes, it looks like the same panel in Awesome.</p>
 
-<h4><a href="#ptmdpconf" class="anchor" id="ptmdpconf"><span class="octicon octicon-link"></span></a>Desktop panel configuration</h4>
+<h4><a href="#dpconf" class="anchor" id="dpconf"><span class="octicon octicon-link"></span></a>Desktop panel configuration</h4>
 <p><b>Enable background: </b> Uncheck to disable default background and set transparent one.</p>
 
 <p><b>Vertical layout:</b> Use vertical layout instead of horizontal one.</p>
@@ -574,24 +611,24 @@ sudo make install
 <p><b>Pattern tags</b></p>
 <table>
   <tr>
-    <td><code>$mark</code></td>
+    <td><code>$mark$</code></td>
     <td>Show mark if this desktop is active.</td>
   </tr>
   <tr>
-    <td><code>$name</code></td>
+    <td><code>$name$</code></td>
     <td>Name of the desktop.</td>
   </tr>
   <tr>
-    <td><code>$number</code></td>
+    <td><code>$number$</code></td>
     <td>Number of the desktop.</td>
   </tr>
   <tr>
-    <td><code>$total</code></td>
+    <td><code>$total$</code></td>
     <td>Total number of desktops.</td>
   </tr>
 </table>
 
-<p><b>Command:</b> Type command which will be run on left click on the selected desktop. Available variables are same as for pattern. Default is <code>dbus org.kde.kwin /KWin setCurrentDesktop $number</code>.</p>
+<p><b>Command:</b> Type command which will be run on left click on the selected desktop. Available variables are same as for pattern. Default is <code>dbus org.kde.kwin /KWin setCurrentDesktop $number$</code>.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
@@ -600,24 +637,24 @@ sudo make install
 <h2><a href="#screenshots" class="anchor" id="screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
 <div class="thumbnails">
   {% assign scrdesc = "Widget (clickable)" %}
-  {% assign scrname = "pytextmonitor_widget" %}
+  {% assign scrname = "awesomewidgets_widget" %}
   {% include prj_scr.html %}
   {% assign scrdesc = "Configuration window" %}
-  {% assign scrname = "pytextmonitor_config_01" %}
+  {% assign scrname = "awesomewidgets_config_01" %}
   {% include prj_scr.html %}
   {% assign scrdesc = "Configuration window" %}
-  {% assign scrname = "pytextmonitor_config_02" %}
+  {% assign scrname = "awesomewidgets_config_02" %}
   {% include prj_scr.html %}
   {% assign scrdesc = "Configuration window" %}
-  {% assign scrname = "pytextmonitor_config_03" %}
+  {% assign scrname = "awesomewidgets_config_03" %}
   {% include prj_scr.html %}
   {% assign scrdesc = "Configuration window" %}
-  {% assign scrname = "pytextmonitor_config_04" %}
+  {% assign scrname = "awesomewidgets_config_04" %}
   {% include prj_scr.html %}
   {% assign scrdesc = "Configuration window" %}
-  {% assign scrname = "pytextmonitor_config_05" %}
+  {% assign scrname = "awesomewidgets_config_05" %}
   {% include prj_scr.html %}
   {% assign scrdesc = "Tooltips" %}
-  {% assign scrname = "pytextmonitor_tooltips" %}
+  {% assign scrname = "awesomewidgets_tooltips" %}
   {% include prj_scr.html %}
 </div>
