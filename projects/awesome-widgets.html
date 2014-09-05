@@ -158,7 +158,7 @@ sudo make install
 <b>NOTE</b> The numbering of all arrays in variables starts at 0.</p>
 <table>
   <tr>
-    <th rowspan="5">Time label</th>
+    <th rowspan="5">Time</th>
     <td><code>$time$</code></td>
     <td>Time in default format. For example, <code>fri Nov 6 04:48:01 2013</code>.</td>
   </tr>
@@ -179,7 +179,7 @@ sudo make install
     <td>Will enable custom time format.</td>
   </tr>
   <tr>
-    <th rowspan="2">Uptime label</th>
+    <th rowspan="2">Uptime</th>
     <td><code>$uptime$</code></td>
     <td>System uptime, <code>---d--h--m</code>.</td>
   </tr>
@@ -197,7 +197,7 @@ sudo make install
     <td>Load CPU for core N, %, <code>-----</code>.</td>
   </tr>
   <tr>
-    <th rowspan="2">CPU clock label</th>
+    <th rowspan="2">CPU clock</th>
     <td><code>$cpucl$</code></td>
     <td>Average CPU clock, MHz, <code>----</code>.</td>
   </tr>
@@ -206,22 +206,22 @@ sudo make install
     <td>CPU clock for core N, MHz, <code>----</code>.</td>
   </tr>
   <tr>
-    <th rowspan="1">Temperature label</th>
+    <th rowspan="1">Temperature</th>
     <td><code>$tempN$</code></td>
     <td>Temperature for device N, &deg;C, <code>----</code>. For example, <code>$temp0$</code>.</td>
   </tr>
   <tr>
-    <th rowspan="1">GPU label</th>
+    <th rowspan="1">GPU</th>
     <td><code>$gpu$</code></td>
     <td>GPU usage, %, <code>-----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</td>
   </tr>
   <tr>
-    <th rowspan="1">GPU temperature label</th>
+    <th rowspan="1">GPU temperature</th>
     <td><code>$gputemp$</code></td>
     <td>GPU temperature, &deg;C, <code>----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</td>
   </tr>
   <tr>
-    <th rowspan="9">Memory label</th>
+    <th rowspan="9">Memory</th>
     <td><code>$mem$</code></td>
     <td>Memory usage, %, <code>-----</code>.</td>
   </tr>
@@ -258,7 +258,7 @@ sudo make install
     <td>Used and cached memory, GB, <code>----</code>.</td>
   </tr>
   <tr>
-    <th rowspan="7">Swap label</th>
+    <th rowspan="7">Swap</th>
     <td><code>$swap$</code></td>
     <td>Swap usage, %, <code>-----</code>.</td>
   </tr>
@@ -287,7 +287,7 @@ sudo make install
     <td>Swap, GB, <code>----</code>.</td>
   </tr>
   <tr>
-    <th rowspan="7">HDD usage label</th>
+    <th rowspan="7">HDD usage</th>
     <td><code>$hddN$</code></td>
     <td>Usage for mount point N, %, <code>-----</code>. For example <code>$hdd0$</code>.</td>
   </tr>
@@ -316,7 +316,7 @@ sudo make install
     <td>Total size of mount point N, GB, <code>-----</code>. For example <code>$hddtotgb0$</code>.</td>
   </tr>
   <tr>
-    <th rowspan="2">HDD speed label</th>
+    <th rowspan="2">HDD speed</th>
     <td><code>$hddrN$</code></td>
     <td>Read speed of disk N, KB/s, <code>-----</code>. For example <code>$hddr0$</code>.</td>
   </tr>
@@ -325,12 +325,12 @@ sudo make install
     <td>Write speed of disk N, KB/s, <code>-----</code>. For example <code>$hddw0$</code>.</td>
   </tr>
   <tr>
-    <th rowspan="1">HDD temperature label</th>
+    <th rowspan="1">HDD temperature</th>
     <td><code>$hddtempN$</code></td>
     <td>Temperature for HDD N, &deg;C, <code>----</code>. For example <code>$hddtemp0$</code>. <code>hddtemp</code> must be installed.</td>
   </tr>
   <tr>
-    <th rowspan="3">Network label</th>
+    <th rowspan="3">Network</th>
     <td><code>$down$</code></td>
     <td>Download speed, KB/s, <code>----</code>.</td>
   </tr>
@@ -343,7 +343,7 @@ sudo make install
     <td>Current network device.</td>
   </tr>
   <tr>
-    <th rowspan="2">Battery label</th>
+    <th rowspan="2">Battery</th>
     <td><code>$bat$</code></td>
     <td>Battery charge, %, <code>---</code>.</td>
   </tr>
@@ -352,7 +352,7 @@ sudo make install
     <td>Status of AC device. Returns <code>(*)</code> if AC device is online or <code>( )</code> if offline.</td>
   </tr>
   <tr>
-    <th rowspan="5">Music player label</th>
+    <th rowspan="5">Music player</th>
     <td><code>$album$</code></td>
     <td>Current song album. One of supported music players must be installed.</td>
   </tr>
@@ -373,7 +373,7 @@ sudo make install
     <td>Current song title. One of supported music players must be installed.</td>
   </tr>
   <tr>
-    <th rowspan="3">Process label</th>
+    <th rowspan="3">Process</th>
     <td><code>$ps$</code></td>
     <td>List of running processes comma separated.</td>
   </tr>
@@ -386,17 +386,17 @@ sudo make install
     <td>Total number of processes.</td>
   </tr>
   <tr>
-    <th rowspan="1">Package manager label</th>
+    <th rowspan="1">Package manager</th>
     <td><code>$pkgcountN$</code></td>
     <td>Number of packages, which available to upgrade for command N.</td>
   </tr>
   <tr>
-    <th rowspan="1">Custom label</th>
+    <th rowspan="1">Custom</th>
     <td><code>$customN$</code></td>
     <td>Get output from custom command N. For example <code>$custom0$</code>.</td>
   </tr>
   <tr>
-    <th rowspan="3">Desktop label</th>
+    <th rowspan="3">Desktop</th>
     <td><code>$desktop$</code></td>
     <td>Name of the current desktop.</td>
   </tr>
@@ -532,7 +532,7 @@ sudo make install
 <p><b>AC offline tag:</b> Line which will be shown when AC is offline. Default is <code>( )</code>.</p>
 
 <h4><a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Tooltips</h4>
-<p>Since version 1.7.0 CPU, CPU clock, memory, swap, network and battery labels support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
+<p>Since version 1.7.0 CPU, CPU clock, memory, swap, network and battery support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
 
 <h4><a href="#deguiconf" class="anchor" id="deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
 <p><b>AC device:</b> File with AC information. The file (<code>/sys/class/power_supply/AC/online</code> by default) should contain <code>1</code> if AC is online.</p>
