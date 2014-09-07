@@ -90,7 +90,7 @@ sudo make install
 <h3><a href="#tips" class="anchor" id="tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
 <p>You may use different colors for labels. Just put label text into html code. See <a href="https://github.com/arcan1s/awesome-widgets/issues/9" title="GitHub">issue</a> for more details.</p>
 
-<p>Numbering of elements of temperature, HDD usage, HDD speed, HDD temperature refers to elements order from second tab (<i>Advanced settings</i>). You should select an item to the required listWidget first. And the first selected element in the listWidget will be <code>$tag0$</code>. See <a href="https://github.com/arcan1s/awesome-widgets/issues/17" title="GitHub">issue</a> for more details.</p>
+<p>Numbering of elements of temperature, HDD usage, HDD speed, HDD temperature refers to elements order from second tab (<i>Advanced settings</i>). You should select an item to the required listWidget first. And the first selected element in the listWidget will be <code>$tag0</code>. See <a href="https://github.com/arcan1s/awesome-widgets/issues/17" title="GitHub">issue</a> for more details.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
@@ -159,253 +159,253 @@ sudo make install
 <table>
   <tr>
     <th rowspan="5">Time</th>
-    <td><code>$time$</code></td>
+    <td><code>$time</code></td>
     <td>Time in default format. For example, <code>fri Nov 6 04:48:01 2013</code>.</td>
   </tr>
   <tr>
-    <td><code>$isotime$</code></td>
+    <td><code>$isotime</code></td>
     <td>Time in ISO format.</td>
   </tr>
   <tr>
-    <td><code>$shorttime$</code></td>
+    <td><code>$shorttime</code></td>
     <td>Time in short locale format.</td>
   </tr>
   <tr>
-    <td><code>$longtime$</code></td>
+    <td><code>$longtime</code></td>
     <td>Time in long locale format.</td>
   </tr>
   <tr>
-    <td><code>$ctime$</code></td>
+    <td><code>$ctime</code></td>
     <td>Will enable custom time format.</td>
   </tr>
   <tr>
     <th rowspan="2">Uptime</th>
-    <td><code>$uptime$</code></td>
+    <td><code>$uptime</code></td>
     <td>System uptime, <code>---d--h--m</code>.</td>
   </tr>
   <tr>
-    <td><code>$cuptime$</code></td>
+    <td><code>$cuptime</code></td>
     <td>Will enable custom uptime format.</td>
   </tr>
   <tr>
     <th rowspan="2">CPU label</th>
-    <td><code>$cpu$</code></td>
+    <td><code>$cpu</code></td>
     <td>Total load CPU, %, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$cpuN$</code></td>
+    <td><code>$cpuN</code></td>
     <td>Load CPU for core N, %, <code>-----</code>.</td>
   </tr>
   <tr>
     <th rowspan="2">CPU clock</th>
-    <td><code>$cpucl$</code></td>
+    <td><code>$cpucl</code></td>
     <td>Average CPU clock, MHz, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$cpuclN$</code></td>
+    <td><code>$cpuclN</code></td>
     <td>CPU clock for core N, MHz, <code>----</code>.</td>
   </tr>
   <tr>
     <th rowspan="1">Temperature</th>
-    <td><code>$tempN$</code></td>
-    <td>Temperature for device N, &deg;C, <code>----</code>. For example, <code>$temp0$</code>.</td>
+    <td><code>$tempN</code></td>
+    <td>Temperature for device N, <code>----</code>. For example, <code>$temp0</code>.</td>
   </tr>
   <tr>
     <th rowspan="1">GPU</th>
-    <td><code>$gpu$</code></td>
+    <td><code>$gpu</code></td>
     <td>GPU usage, %, <code>-----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</td>
   </tr>
   <tr>
     <th rowspan="1">GPU temperature</th>
-    <td><code>$gputemp$</code></td>
-    <td>GPU temperature, &deg;C, <code>----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</td>
+    <td><code>$gputemp</code></td>
+    <td>GPU temperature, <code>----</code>. <code>aticonfig</code> or <code>nvidia-smi</code> must be installed.</td>
   </tr>
   <tr>
     <th rowspan="9">Memory</th>
-    <td><code>$mem$</code></td>
+    <td><code>$mem</code></td>
     <td>Memory usage, %, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memmb$</code></td>
+    <td><code>$memmb</code></td>
     <td>Memory usage, MB, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memgb$</code></td>
+    <td><code>$memgb</code></td>
     <td>Memory usage, GB, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memfreemb$</code></td>
+    <td><code>$memfreemb</code></td>
     <td>Free memory, MB, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memfreegb$</code></td>
+    <td><code>$memfreegb</code></td>
     <td>Free memory, GB, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memtotmb$</code></td>
+    <td><code>$memtotmb</code></td>
     <td>RAM, MB, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memtotgb$</code></td>
+    <td><code>$memtotgb</code></td>
     <td>RAM, GB, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memusedmb$</code></td>
+    <td><code>$memusedmb</code></td>
     <td>Used and cached memory, MB, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$memusedgb$</code></td>
+    <td><code>$memusedgb</code></td>
     <td>Used and cached memory, GB, <code>----</code>.</td>
   </tr>
   <tr>
     <th rowspan="7">Swap</th>
-    <td><code>$swap$</code></td>
+    <td><code>$swap</code></td>
     <td>Swap usage, %, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$swapmb$</code></td>
+    <td><code>$swapmb</code></td>
     <td>Swap usage, MB, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$swapgb$</code></td>
+    <td><code>$swapgb</code></td>
     <td>Swap usage, GB, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$swapfreemb$</code></td>
+    <td><code>$swapfreemb</code></td>
     <td>Free swap, MB, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$swapfreegb$</code></td>
+    <td><code>$swapfreegb</code></td>
     <td>Free swap, GB, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$swaptotmb$</code></td>
+    <td><code>$swaptotmb</code></td>
     <td>Swap, MB, <code>-----</code>.</td>
   </tr>
   <tr>
-    <td><code>$swaptotgb$</code></td>
+    <td><code>$swaptotgb</code></td>
     <td>Swap, GB, <code>----</code>.</td>
   </tr>
   <tr>
     <th rowspan="7">HDD usage</th>
-    <td><code>$hddN$</code></td>
-    <td>Usage for mount point N, %, <code>-----</code>. For example <code>$hdd0$</code>.</td>
+    <td><code>$hddN</code></td>
+    <td>Usage for mount point N, %, <code>-----</code>. For example <code>$hdd0</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddmbN$</code></td>
-    <td>Usage for mount point N, MB, <code>-----</code>. For example <code>$hddmb0$</code>.</td>
+    <td><code>$hddmbN</code></td>
+    <td>Usage for mount point N, MB, <code>-----</code>. For example <code>$hddmb0</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddgbN$</code></td>
-    <td>Usage for mount point N, GB, <code>-----</code>. For example <code>$hddgb0$</code>.</td>
+    <td><code>$hddgbN</code></td>
+    <td>Usage for mount point N, GB, <code>-----</code>. For example <code>$hddgb0</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddfreembN$</code></td>
-    <td>Free space for mount point N, MB, <code>-----</code>. For example <code>$hddfreemb0$</code>.</td>
+    <td><code>$hddfreembN</code></td>
+    <td>Free space for mount point N, MB, <code>-----</code>. For example <code>$hddfreemb0</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddfreegbN$</code></td>
-    <td>Free space for mount point N, GB, <code>-----</code>. For example <code>$hddfreegb0$</code>.</td>
+    <td><code>$hddfreegbN</code></td>
+    <td>Free space for mount point N, GB, <code>-----</code>. For example <code>$hddfreegb0</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddtotmbN$</code></td>
-    <td>Total size of mount point N, MB, <code>-----</code>. For example <code>$hddtotmb0$</code>.</td>
+    <td><code>$hddtotmbN</code></td>
+    <td>Total size of mount point N, MB, <code>-----</code>. For example <code>$hddtotmb0</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddtotgbN$</code></td>
-    <td>Total size of mount point N, GB, <code>-----</code>. For example <code>$hddtotgb0$</code>.</td>
+    <td><code>$hddtotgbN</code></td>
+    <td>Total size of mount point N, GB, <code>-----</code>. For example <code>$hddtotgb0</code>.</td>
   </tr>
   <tr>
     <th rowspan="2">HDD speed</th>
-    <td><code>$hddrN$</code></td>
-    <td>Read speed of disk N, KB/s, <code>-----</code>. For example <code>$hddr0$</code>.</td>
+    <td><code>$hddrN</code></td>
+    <td>Read speed of disk N, KB/s, <code>-----</code>. For example <code>$hddr0</code>.</td>
   </tr>
   <tr>
-    <td><code>$hddwN$</code></td>
-    <td>Write speed of disk N, KB/s, <code>-----</code>. For example <code>$hddw0$</code>.</td>
+    <td><code>$hddwN</code></td>
+    <td>Write speed of disk N, KB/s, <code>-----</code>. For example <code>$hddw0</code>.</td>
   </tr>
   <tr>
     <th rowspan="1">HDD temperature</th>
-    <td><code>$hddtempN$</code></td>
-    <td>Temperature for HDD N, &deg;C, <code>----</code>. For example <code>$hddtemp0$</code>. <code>hddtemp</code> must be installed.</td>
+    <td><code>$hddtempN</code></td>
+    <td>Temperature for HDD N, <code>----</code>. For example <code>$hddtemp0</code>. <code>hddtemp</code> must be installed.</td>
   </tr>
   <tr>
     <th rowspan="3">Network</th>
-    <td><code>$down$</code></td>
+    <td><code>$down</code></td>
     <td>Download speed, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$up$</code></td>
+    <td><code>$up</code></td>
     <td>Upload speed, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
-    <td><code>$netdev$</code></td>
+    <td><code>$netdev</code></td>
     <td>Current network device.</td>
   </tr>
   <tr>
     <th rowspan="2">Battery</th>
-    <td><code>$bat$</code></td>
+    <td><code>$bat</code></td>
     <td>Battery charge, %, <code>---</code>.</td>
   </tr>
   <tr>
-    <td><code>$ac$</code></td>
+    <td><code>$ac</code></td>
     <td>Status of AC device. Returns <code>(*)</code> if AC device is online or <code>( )</code> if offline.</td>
   </tr>
   <tr>
     <th rowspan="5">Music player</th>
-    <td><code>$album$</code></td>
+    <td><code>$album</code></td>
     <td>Current song album. One of supported music players must be installed.</td>
   </tr>
   <tr>
-    <td><code>$artist$</code></td>
+    <td><code>$artist</code></td>
     <td>Current song artist. One of supported music players must be installed.</td>
   </tr>
   <tr>
-    <td><code>$duration$</code></td>
+    <td><code>$duration</code></td>
     <td>Current song duration. One of supported music players must be installed.</td>
   </tr>
   <tr>
-    <td><code>$progress$</code></td>
+    <td><code>$progress</code></td>
     <td>Current song progress. One of supported music players must be installed.</td>
   </tr>
   <tr>
-    <td><code>$title$</code></td>
+    <td><code>$title</code></td>
     <td>Current song title. One of supported music players must be installed.</td>
   </tr>
   <tr>
     <th rowspan="3">Process</th>
-    <td><code>$ps$</code></td>
+    <td><code>$ps</code></td>
     <td>List of running processes comma separated.</td>
   </tr>
   <tr>
-    <td><code>$pscount$</code></td>
+    <td><code>$pscount</code></td>
     <td>Number of running processes.</td>
   </tr>
   <tr>
-    <td><code>$pstotal$</code></td>
+    <td><code>$pstotal</code></td>
     <td>Total number of processes.</td>
   </tr>
   <tr>
     <th rowspan="1">Package manager</th>
-    <td><code>$pkgcountN$</code></td>
+    <td><code>$pkgcountN</code></td>
     <td>Number of packages, which available to upgrade for command N.</td>
   </tr>
   <tr>
     <th rowspan="1">Custom</th>
-    <td><code>$customN$</code></td>
-    <td>Get output from custom command N. For example <code>$custom0$</code>.</td>
+    <td><code>$customN</code></td>
+    <td>Get output from custom command N. For example <code>$custom0</code>.</td>
   </tr>
   <tr>
     <th rowspan="3">Desktop</th>
-    <td><code>$desktop$</code></td>
+    <td><code>$desktop</code></td>
     <td>Name of the current desktop.</td>
   </tr>
   <tr>
-    <td><code>$ndesktop$</code></td>
+    <td><code>$ndesktop</code></td>
     <td>Number of the current desktop.</td>
   </tr>
   <tr>
-    <td><code>$tdesktops$</code></td>
+    <td><code>$tdesktops</code></td>
     <td>Total number of desktops.</td>
   </tr>
 </table>
@@ -422,67 +422,67 @@ sudo make install
 <p><b>Custom time format:</b></p>
 <table>
   <tr>
-    <td><code>$dddd$</code></td>
+    <td><code>$dddd</code></td>
     <td>Weekday in long format.</td>
   </tr>
   <tr>
-    <td><code>$ddd$</code></td>
+    <td><code>$ddd</code></td>
     <td>Weekday in short format.</td>
   </tr>
   <tr>
-    <td><code>$dd$</code></td>
+    <td><code>$dd</code></td>
     <td>Day.</td>
   </tr>
   <tr>
-    <td><code>$d$</code></td>
+    <td><code>$d</code></td>
     <td>Day without zero.</td>
   </tr>
   <tr>
-    <td><code>$MMMM$</code></td>
+    <td><code>$MMMM</code></td>
     <td>Month in long format.</td>
   </tr>
   <tr>
-    <td><code>$MMM$</code></td>
+    <td><code>$MMM</code></td>
     <td>Month in short format.</td>
   </tr>
   <tr>
-    <td><code>$MM$</code></td>
+    <td><code>$MM</code></td>
     <td>Month.</td>
   </tr>
   <tr>
-    <td><code>$M$</code></td>
+    <td><code>$M</code></td>
     <td>Month without zero.</td>
   </tr>
   <tr>
-    <td><code>$yyyy$</code></td>
+    <td><code>$yyyy</code></td>
     <td>Year.</td>
   </tr>
   <tr>
-    <td><code>$yy$</code></td>
+    <td><code>$yy</code></td>
     <td>Year in short format.</td>
   </tr>
   <tr>
-    <td><code>$hh$</code></td>
+    <td><code>$hh</code></td>
     <td>Hours.</td>
   </tr>
   <tr>
-    <td><code>$h$</code></td>
+    <td><code>$h</code></td>
     <td>Hours without zero.</td>
   </tr>
   <tr>
-    <td><code>$mm$</code></td>
+    <td><code>$mm</code></td>
     <td>Minutes.</td>
   </tr>
   <tr>
-    <td><code>$m$</code></td>
+    <td><code>$m</code></td>
     <td>Minutes without zero.</td>
   </tr>
   <tr>
-    <td><code>$ss$</code></td>
+    <td><code>$ss</code></td>
     <td>Seconds.</td>
   </tr>
   <tr>
-    <td><code>$s$</code></td>
+    <td><code>$s</code></td>
     <td>Seconds without zero.</td>
   </tr>
 </table>
@@ -490,27 +490,27 @@ sudo make install
 <p><b>Custom uptime format:</b></p>
 <table>
   <tr>
-    <td><code>$dd$</code></td>
+    <td><code>$dd</code></td>
     <td>Uptime days.</td>
   </tr>
   <tr>
-    <td><code>$d$</code></td>
+    <td><code>$d</code></td>
     <td>Uptime days without zero.</td>
   </tr>
   <tr>
-    <td><code>$hh$</code></td>
+    <td><code>$hh</code></td>
     <td>Uptime hours.</td>
   </tr>
   <tr>
-    <td><code>$h$</code></td>
+    <td><code>$h</code></td>
     <td>Uptime hours without zero.</td>
   </tr>
   <tr>
-    <td><code>$mm$</code></td>
+    <td><code>$mm</code></td>
     <td>Uptime minutes.</td>
   </tr>
   <tr>
-    <td><code>$m$</code></td>
+    <td><code>$m</code></td>
     <td>Uptime minutes without zero.</td>
   </tr>
 </table>
@@ -611,24 +611,24 @@ sudo make install
 <p><b>Pattern tags</b></p>
 <table>
   <tr>
-    <td><code>$mark$</code></td>
+    <td><code>$mark</code></td>
     <td>Show mark if this desktop is active.</td>
   </tr>
   <tr>
-    <td><code>$name$</code></td>
+    <td><code>$name</code></td>
     <td>Name of the desktop.</td>
   </tr>
   <tr>
-    <td><code>$number$</code></td>
+    <td><code>$number</code></td>
     <td>Number of the desktop.</td>
   </tr>
   <tr>
-    <td><code>$total$</code></td>
+    <td><code>$total</code></td>
     <td>Total number of desktops.</td>
   </tr>
 </table>
 
-<p><b>Command:</b> Type command which will be run on left click on the selected desktop. Available variables are same as for pattern. Default is <code>dbus org.kde.kwin /KWin setCurrentDesktop $number$</code>.</p>
+<p><b>Command:</b> Type command which will be run on left click on the selected desktop. Available variables are same as for pattern. Default is <code>dbus org.kde.kwin /KWin setCurrentDesktop $number</code>.</p>
 
 <p><b>Panel toggle:</b> Select panels which will be set hidden on hotkey.</p>
 <!-- end of config block -->
