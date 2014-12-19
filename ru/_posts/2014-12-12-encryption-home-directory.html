@@ -1,0 +1,172 @@
+---
+category: ru
+type: paper
+hastr: true
+layout: paper
+tags: linux, systemd, ecryptfs
+title: Как зашифровать хомяк и не об%$#аться. For dummies
+short: ecnryption-home-directory
+description: <figure class="img"><img src="/resources/papers/single-door.jpg" alt="single-door"></figure>Статья посвящена шифрованию домашнего каталога с использованием ecryptfs и настройке автомонтирования посредством systemd с использованием ключа на флешке.
+---
+<h2><a href="#preparation" class="anchor" id="preparation"><span class="octicon octicon-link"></span></a>Шаг 0: Подготовка</h2>
+<ol>
+  <li>Разлогинились пользователем. То есть совсем-совсем.</li>
+  <li>Зашли под root в tty. Дальнейшие действия описаны от него.</li>
+  <li>Передвинули наш хомяк и создали пустую директорию (<code>s/$USER/имя пользователя/</code>):
+
+{% highlight bash %}
+mv /home/{$USER,$USER-org}
+mkdir /home/$USER
+chmod 700 /home/$USER
+chown $USER:users /home/$USER
+{% endhighlight %}
+
+  </li>
+</ol>
+
+<h2><a href="#step1" class="anchor" id="step1"><span class="octicon octicon-link"></span></a>Шаг 1: Шифрование</h2>
+<p>Самое распространенное решение в интернетах - воспользоваться автоматическими тулзами. Однако в нашем случае они не подходят, так как нам необходимо импортировать сигнатуру ключа / пароля, что при данном решении невозможно (или у автора руки кривые).</p>
+
+<p>Делается шифрование следующим образом (lol):</p>
+
+{% highlight bash %}
+mount -t ecryptfs /home/$USER /home/$USER
+{% endhighlight %}
+
+<p>В процессе он у нас задаст несколько вопросов (я предлагаю первое монтирование делать в интерактивном режиме). Ответы можно взять примерно такие (в комментариях показано, что эти опции делают), обратите внимание, что если вы что то измените, то изменится и некоторые строчки далее:</p>
+
+{% highlight bash %}
+# ключ или сертификат. Второе надежнее, но до тех пор пока не потеряете %)
+Select key type to use for newly created files:
+ 1) passphrase
+ 2) openssl
+Selection: 1
+# пароль
+Passphrase:
+# шифрование, ставим берем дефолт
+Select cipher:
+ 1) aes: blocksize = 16; min keysize = 16; max keysize = 32
+ 2) blowfish: blocksize = 8; min keysize = 16; max keysize = 56
+ 3) des3_ede: blocksize = 8; min keysize = 24; max keysize = 24
+ 4) twofish: blocksize = 16; min keysize = 16; max keysize = 32
+ 5) cast6: blocksize = 16; min keysize = 16; max keysize = 32
+ 6) cast5: blocksize = 8; min keysize = 5; max keysize = 16
+Selection [aes]: 1
+# размер ключа, берем дефолт
+Select key bytes:
+ 1) 16
+ 2) 32
+ 3) 24
+Selection [16]: 1
+# разрешать читать/писать в нешифрованные файлы в точке монтирования
+Enable plaintext passthrough (y/n) [n]: n
+# включить шифрование имен файлов
+Enable filename encryption (y/n) [n]: y
+Filename Encryption Key (FNEK) Signature [360d0573e701851e]:
+# многабукафниасилил
+Attempting to mount with the following options:
+  ecryptfs_unlink_sigs
+  ecryptfs_fnek_sig=360d0573e701851e
+  ecryptfs_key_bytes=16
+  ecryptfs_cipher=aes
+  ecryptfs_sig=360d0573e701851e
+WARNING: Based on the contents of [/root/.ecryptfs/sig-cache.txt],
+it looks like you have never mounted with this key
+before. This could mean that you have typed your
+passphrase wrong.
+
+# подтверждаем, выходим
+Would you like to proceed with the mount (yes/no)? : yes
+Would you like to append sig [360d0573e701851e] to
+[/root/.ecryptfs/sig-cache.txt]
+in order to avoid this warning in the future (yes/no)? : yes
+Successfully appended new sig to user sig cache file
+Mounted eCryptfs
+{% endhighlight %}
+
+<p>Далее просто копируем файлы из родного хомяка:</p>
+
+{% highlight bash %}
+cp -a /home/$USER-org/. /home/$USER
+{% endhighlight %}
+
+<h2><a href="#step2" class="anchor" id="step2"><span class="octicon octicon-link"></span></a>Шаг 2: Автомонтирование с systemd</h2>
+<p>Создадим файл на флешке (я использовал microSD) со следующим содержанием (пароль только поставьте свой):</p>
+
+{% highlight bash %}
+passphrase_passwd=someverystronguniqpassword
+{% endhighlight %}
+
+<p>Добавим автомонтирование флешки (направление <code>/mnt/key</code>) в <code>fstab</code> с опцией <code>ro</code>, например так:</p>
+
+{% highlight bash %}
+UUID=dc3ecb41-bc40-400a-b6bf-65c5beeb01d7    /mnt/key ext2     ro,defaults                            0 0
+{% endhighlight %}
+
+<p>Теперь настроим монтирование хомяка. Опции монтирования можно подглядеть как то так:</p>
+
+{% highlight bash %}
+mount | grep ecryptfs
+{% endhighlight %}
+
+<p>Однако замечу, что там указаны не все опции, необходимо добавить также <code>key</code>, <code>no_sig_cache</code>, <code>ecryptfs_passthrough</code>. Таким образом, для systemd mount-юнит выглядит примерно так (любители shell-простыней смогут написать свой демон, потому что через <code>fstab</code> не сработает просто так (см. ниже)).</p>
+
+{% highlight bash %}
+# cat /etc/systemd/system/home-$USER.mount
+[Unit]
+Before=local-fs.target
+After=mnt-key.mount
+
+[Mount]
+What=/home/$USER
+Where=/home/$USER
+Type=ecryptfs
+Options=rw,nosuid,nodev,relatime,key=passphrase:passphrase_passwd_file=/mnt/key/keyfile,no_sig_cache,ecryptfs_fnek_sig=XXXXX,ecryptfs_sig=XXXXX,ecryptfs_cipher=aes,ecryptfs_key_bytes=16,ecryptfs_passthrough=n,ecryptfs_unlink_sigs
+
+[Install]
+WantedBy=local-fs.target
+{% endhighlight %}
+
+<p><code>XXXXX</code> нужно заменить на сигнатуру из опций, с которыми сейчас смонтирована директория. Также нужно вставить имя пользователя и отредактировать путь к файлу с паролем (и имя mount-юнита), если это необходимо. Автозагрука:</p>
+
+{% highlight bash %}
+systemctl enable home-$USER.mount
+{% endhighlight %}
+
+<p>Сервис для отмонтирования флешки, когда она не нужна будет:</p>
+
+{% highlight bash %}
+# cat /etc/systemd/system/umount-key.service
+[Unit]
+Description=Unmount key card
+Before=local-fs.target
+After=home-arcanis.mount
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/umount /mnt/key
+
+[Install]
+WantedBy=local-fs.target
+{% endhighlight %}
+
+<p>Включаем:</p>
+
+{% highlight bash %}
+systemctl enable umount-key.service
+{% endhighlight %}
+
+<p>Перезагружаемся, если все ок, удаляем бекап. Если нет - значит что то где то неправильно сделали, восстанавливаем из режима восстановления.</p>
+
+<h2><a href="#whynotfstab" class="anchor" id="whynotfstab"><span class="octicon octicon-link"></span></a>Почему не fstab?</h2>
+<p>В моем случае, мне не получилось заставить флешку монтироваться раньше. Таким образом на загрузке я попадал в консоль восстановления из которой нужно было просто продолжить загрузку. Существующие в интернете методы предлагают два возможных варианта:</p>
+
+<ul>
+  <li>Создать запись с опцией noauto, потом монтировать через специальную запись в <code>rc.local</code>.</li>
+  <li>Создать запись с опцией nofail, потом перемонтировать все разделы через <code>rc.local</code>.</li>
+</ul>
+
+<p>Оба варианта меня не устроили в виду их костыльности.</p>
+
+<h2><a href="#whynotpam" class="anchor" id="whynotpam"><span class="octicon octicon-link"></span></a>Почему не pam?</h2>
+<p>Другое распространенное предложение - монтировать через запись в настройках pam. Мне этот вариант не подходит, так как у меня авторизация беспарольная по отпечатку пальца.</p>

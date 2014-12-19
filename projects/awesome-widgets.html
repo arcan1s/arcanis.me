@@ -87,7 +87,7 @@ sudo make install
 
 <!-- howto block -->
 <h2><a href="#howto" class="anchor" id="howto"><span class="octicon octicon-link"></span></a>How to use</h2>
-<p>Open your Plasma widgetes and select <code>Awesome Widget</code>.</p>
+<p>Open your Plasma widgets and select <code>Awesome Widget</code>.</p>
 
 <h3><a href="#tips" class="anchor" id="tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
 <p>You may use different colors for labels. Just put label text into html code. See <a href="https://github.com/arcan1s/awesome-widgets/issues/9" title="GitHub">issue</a> for more details.</p>
@@ -106,14 +106,6 @@ sudo make install
   <tr>
     <th>ACPIPATH</th>
     <td>Path to ACPI devices. Default is <code>/sys/class/power_supply/</code>.</td>
-  </tr>
-  <tr>
-    <th>CUSTOM</th>
-    <td>Custom commands to run. Default is <code>wget -qO- http://ifconfig.me/ip</code>. Separator is <code>@@</code>.</td>
-  </tr>
-  <tr>
-    <th>DESKTOPCMD</th>
-    <td>Command which defines the current desktop. Default is <code>qdbus org.kde.kwin /KWin currentDesktop</code>.</td>
   </tr>
   <tr>
     <th>GPUDEV</th>
@@ -534,15 +526,13 @@ sudo make install
 
 <p><b>AC offline tag:</b> Line which will be shown when AC is offline. Default is <code>( )</code>.</p>
 
+<p><b>Check updates:</b> Check updates on load. Default is <code>true</code>.</p>
+
 <h4><a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Tooltips</h4>
 <p>Since version 1.7.0 CPU, CPU clock, memory, swap, network and battery support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
 
 <h4><a href="#deguiconf" class="anchor" id="deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
 <p><b>ACPI path:</b> Path to ACPI devices. The file <code>/sys/class/power_supply/</code>.</p>
-
-<p><b>Custom command:</b> Commands, which will be run for custom label. For example, <code>wget -qO- http://ifconfig.me/ip</code> will return external IP.</p>
-
-<p><b>Desktop cmd:</b> Type a command which will be run for desktop DataEngine. Default is <code>qdbus org.kde.kwin /KWin currentDesktop</code>.</p>
 
 <p><b>GPU device:</b> Select one of supported GPU devices. <code>auto</code> will enable auto selection, <code>disable</code> will disable all GPU monitors. Default is <code>auto</code>.</p>
 
@@ -605,7 +595,11 @@ sudo make install
 
 <p><b>Vertical layout:</b> Use vertical layout instead of horizontal one.</p>
 
-<p><b>Add stretch:</b> Add stretch (spacer) to the selected side of the widget.</p>
+<p><b>Enable tooltip:</b> Check to enable preview on selected destkop. Default is <code>true</code>. Also you show specify type of preview, default is <code>Windows</code>.</p>
+
+<p><b>Tooltip width:</b> Using tooltip width in px. Default is <code>200px</code>.</p>
+
+<p><b>Color of window borders:</b> Color of window contours which are used in "Contours preview". Default is <code>#ffffff</code>.</p>
 
 <p><b>Mark:</b> Type symbol (or string) which will be shown if this desktop is active now.</p>
 
@@ -614,6 +608,10 @@ sudo make install
   <tr>
     <td><code>$mark</code></td>
     <td>Show mark if this desktop is active.</td>
+  </tr>
+  <tr>
+    <td><code>$fullmark</code></td>
+    <td>The same as <code>$mark</code>, but shows empty space too.</td>
   </tr>
   <tr>
     <td><code>$name</code></td>
@@ -628,8 +626,6 @@ sudo make install
     <td>Total number of desktops.</td>
   </tr>
 </table>
-
-<p><b>Command:</b> Type command which will be run on left click on the selected desktop. Available variables are same as for pattern. Default is <code>dbus org.kde.kwin /KWin setCurrentDesktop $number</code>.</p>
 
 <p><b>Panel toggle:</b> Select panels which will be set hidden on hotkey.</p>
 <!-- end of config block -->

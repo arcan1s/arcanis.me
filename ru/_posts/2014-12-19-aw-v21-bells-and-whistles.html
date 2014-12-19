@@ -1,0 +1,138 @@
+---
+category: ru
+type: paper
+hastr: true
+layout: paper
+tags: awesome-widgets, pytextmonitor
+title: Awesome Widgets 2.1 - свистелки и перделки
+short: aw-v21-bells-and-whistles
+description: Данная статья посвящена обсуждению настройки своих скриптов и графических баров в новой версии Awesome Widgets (2.1).
+---
+<h2><a href="#intro" class="anchor" id="intro"><span class="octicon octicon-link"></span></a>Введение</h2>
+<p>Для начала, я настоятельно рекомендую для после обновления <b>не открывая настроек виджета</b> скопировать в безопасное место файл <code>$HOME/.kde4/share/config/extsysmon.conf</code>, так как старые настройки кастомных скриптов теперь несовместимы. Вообще, следует заметить, что обе новых фичи можно настраивать и из графического интерфейса, однако я опишу, как это делается простым редактированием desktop файлов.</p>
+
+<h2><a href="#bars" class="anchor" id="bars"><span class="octicon octicon-link"></span></a>Бары</h2>
+<p>Бары хранятся в двух директориях: <code>/usr/share/apps/plasma_applet_awesome-widget/desktops/</code> и <code>$HOME/.kde4/share/apps/plasma_applet_awesome-widget/desktops/</code> (пути могут немного отличаться в зависимости от используемого дистрибутива). Настройки в домашней директории перезаписывают глобальные настройки. Файлы настроек имеют следующие поля:</p>
+
+<table>
+  <tr>
+    <th>Поле</th>
+    <th>Обязательное</th>
+    <th>Значение</th>
+    <th>По-умолчанию</th>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td>да</td>
+    <td>имя бара. Должно иметь вид <code>barN</code> и быть уникальным</td>
+    <td>none</td>
+  </tr>
+  <tr>
+    <th>Comment</th>
+    <td>нет</td>
+    <td>комментарий</td>
+    <td>empty</td>
+  </tr>
+  <tr>
+    <th>X-AW-Value</th>
+    <td>да</td>
+    <td>значение бара. Доступны теги <code>cpu*</code>, <code>gpu</code>, <code>mem</code>, <code>swap</code>, <code>hdd*</code>, <code>bat</code></td>
+    <td>cpu</td>
+  </tr>
+  <tr>
+    <th>X-AW-ActiveColor</th>
+    <td>да</td>
+    <td>заполнение активной части в формате <code>R,G,B,A</code></td>
+    <td>0,0,0,130</td>
+  </tr>
+  <tr>
+    <th>X-AW-InactiveColor</th>
+    <td>да</td>
+    <td>заполнение неактивной части в формате <code>R,G,B,A</code></td>
+    <td>255,255,255,130</td>
+  </tr>
+  <tr>
+    <th>X-AW-Type</th>
+    <td>да</td>
+    <td>тип бара. Поддерживаемые типы <code>Horizontal</code>, <code>Vertical</code>, <code>Circle</code></td>
+    <td>Horizontal</td>
+  </tr>
+  <tr>
+    <th>X-AW-Direction</th>
+    <td>да</td>
+    <td>направление заполнения. Доступны варианты <code>LeftToRight</code>, <code>RightToLeft</code></td>
+    <td>LeftToRight</td>
+  </tr>
+  <tr>
+    <th>X-AW-Height</th>
+    <td>да</td>
+    <td>высота в пикселях</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <th>X-AW-Width</th>
+    <td>да</td>
+    <td>ширина в пикселях</td>
+    <td>100</td>
+  </tr>
+</table>
+
+<h2><a href="#scripts" class="anchor" id="scripts"><span class="octicon octicon-link"></span></a>Скрипты</h2>
+<p>Скрипты хранятся в двух директориях: <code>/usr/share/apps/plasma_engine_extsysmon/scripts/</code> и <code>$HOME/.kde4/share/apps/pplasma_engine_extsysmon/scripts/</code> (пути могут немного отличаться в зависимости от используемого дистрибутива). Настройки в домашней директории перезаписывают глобальные настройки. Для того, чтобы активировать скрипт необходимо прописать нужный тег в поле вывода. Файлы настроек имеют следующие поля:</p>
+
+<table>
+  <tr>
+    <th>Поле</th>
+    <th>Обязательное</th>
+    <th>Значение</th>
+    <th>По-умолчанию</th>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td>да</td>
+    <td>имя скрипта</td>
+    <td>none</td>
+  </tr>
+  <tr>
+    <th>Comment</th>
+    <td>нет</td>
+    <td>комментарий</td>
+    <td>empty</td>
+  </tr>
+  <tr>
+    <th>Exec</th>
+    <td>да</td>
+    <td>путь к исполняемому файлу</td>
+    <td>/usr/bin/true</td>
+  </tr>
+  <tr>
+    <th>X-AW-Prefix</th>
+    <td>нет</td>
+    <td>префикс к исполняемому файлу. Обычно не требуется, однако в отдельных случаях может потребоваться явно указать путь, например, к используемому интерпретатору</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>X-AW-Active</th>
+    <td>нет</td>
+    <td>активен или нет данный скрипт</td>
+    <td>true</td>
+  </tr>
+  <tr>
+    <th>X-AW-Output</th>
+    <td>нет</td>
+    <td>имеет ли данный скрипт сообщения в консоль. Полезно выставить в <code>false</code>, если вы хотите использовать скрипт, как аналог задач в cron</td>
+    <td>true</td>
+  </tr>
+  <tr>
+    <th>X-AW-Redirect</th>
+    <td>нет</td>
+    <td>перенаправление потоков сообщений. Доступны варианты <code>stderr2stdout</code>, <code>nothing</code>, <code>stdout2stderr</code>. stderr доступен, если запустить с <code>DEBUG=yes</code></td>
+    <td>nothing</td>
+  </tr>
+  <tr>
+    <th>X-AW-Interval</th>
+    <td>да</td>
+    <td>интервал запуска скрипта в стандартных интервалах обновления виджета</td>
+    <td>1</td>
+  </tr>
+</table>
