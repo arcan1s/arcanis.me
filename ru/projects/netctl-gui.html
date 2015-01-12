@@ -20,7 +20,7 @@ links:
 ---
 <!-- info block -->
 <h2><a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p>Графическая оболочка для <code>netctl</code> (набор скриптов для поднятия сети в Arch'е). Написана на <code>CPP</code> с использованием библиотеки <code>Qt4</code>. На текущим момент умеет работать с профилями, в том числе создавать новые, а также умеет подключаться к WiFi. Также предоставляет библиотеку для взаимодействия с netctl и виджет и DataEngine для KDE.</p>
+<p>Графическая оболочка для <code>netctl</code> (набор скриптов для поднятия сети в Arch'е). Написана на <code>C++</code> с использованием библиотеки <code>Qt</code>. На текущим момент умеет работать с профилями, в том числе создавать новые, а также умеет подключаться к WiFi. Также предоставляет библиотеку для взаимодействия с netctl и виджет и DataEngine для KDE.</p>
 
 <p><b>ВНИМАНИЕ:</b> <a href="https://github.com/arcan1s/netctl-gui/issues/3" title="Тикет">НУЖНЫ ПЕРЕВОДЧИКИ!</a></p>
 
@@ -121,6 +121,7 @@ sudo make install
       <li><code>-DDBUS_SYSTEMCONF_PATH=/etc/dbus-1/system.d/</code> - путь к системный файлам конфигурации DBus</li>
       <li><code>-DSYSTEMD_SERVICE_PATH=lib/systemd/system</code> - путь к сервису systemd</li>
       <li><code>-DUSE_CAPABILITIES:BOOL=0</code> - не использовать setcap, чтобы дать необходимые привилегии хелперу</li>
+      <li><code>-DBUILD_KDE4:BOOL=1</code> - собирать виджет под KDE4 вместо KF5</li>
       <li><code>-DUSE_QT5:BOOL=0</code> - использовать Qt4 вместо Qt5</li>
     </ul></li>
   </ul></li>
@@ -134,7 +135,8 @@ sudo make install
   <li>automoc4 <i>(make)</i></li>
   <li>cmake <i>(make)</i></li>
   <li>qt5-tools <i>(make, если используется Qt5)</i></li>
-  <li>kdebase-workspace <i>(опционально, виджет)</i></li>
+  <li>kdebase-workspace <i>(опционально, KDE4 виджет)</i></li>
+  <li>plasma-frameworks <i>(опционально, KF5 виджет)</i></li>
   <li>sudo <i>(опционально, поддержка sudo)</i></li>
   <li>wpa_supplicant <i>(опционально, поддержка WiFi)</i></li>
 </ul>
@@ -151,8 +153,14 @@ sudo make install
 <ul>
   <li><code>$HOME/.config/netctl-gui.conf</code> - пользовательские настройки GUI/хелпера</li>
   <li><code>/etc/netctl-gui.conf</code> - системные настройки хелпера</li>
-  <li><code>$KDEHOME/share/config/netctl.conf</code> - пользовательские настройки DataEngine</li>
-  <li><code>$KDESYSTEM/share/config/netctl.conf</code> - системные настройки DataEngine</li>
+  <ul>
+    <li><code>$KDEHOME/share/config/plasma-dataengine-netctl.conf</code> - пользовательские настройки DataEngine</li>
+    <li><code>$KDESYSTEM/share/config/plasma-dataengine-netctl.conf</code> - системные настройки DataEngine</li>
+  </ul>
+  <ul>
+    <li><code>$HOME/.config/plasma-dataengine-netctl.conf</code> - пользовательские настройки DataEngine</li>
+    <li><code>/etc/xdg/plasma-dataengine-netctl.conf</code> - системные настройки DataEngine</li>
+  </ul>
 </ul>
 
 <p>Для настройки виджета и DataEngine рекомендуется использовать графический интерфейс. Все настройки графического интерфейса хранятся в <code>$HOME/.config/netctl-gui.conf</code>. Для редактирования настоятельно рекомендуется использовать графический интерфейс.</p>
