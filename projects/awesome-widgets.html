@@ -27,6 +27,7 @@ links:
 <p>A collection  of minimalistic Plasmoids written on <code>CPP</code>. It looks like widgets in <a href="http://awesome.naquadah.org/" title="Awesome Homepage">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines" title="Developers tutorial">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
 
 <p><b>NOTE:</b> <a href="https://github.com/arcan1s/awesome-widgets/issues/14" title="Ticket">LOOKING FOR TRANSLATORS!</a></p>
+<p><b>PLASMA 5 COMPATIBLE!</b></p>
 
 <h3><a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Developers and contributors</h3>
 <ul>
@@ -55,32 +56,23 @@ links:
 {% highlight bash %}
 cd /where/is/applet/
 mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` ../
-make
-make install
-{% endhighlight %}
-
-For global installation type:
-
-{% highlight bash %}
-cd /where/is/applet/
-mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` ../
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ../
 make
 sudo make install
 {% endhighlight %}
 
+  <b>NOTE:</b> on Plasma 5 it may require <code>-DKDE_INSTALL_USE_QT_SYS_PATHS=ON</code> flag
   </li>
 </ul>
 
 <h3><a href="#dependencies" class="anchor" id="dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
 <p>I want note that all were tested on latest version of dependencies.</p>
 <ul>
-  <li>kdebase-workspace</li>
-  <li>lm_sensors</li>
-  <li>automoc4 <i>(make)</i></li>
+  <li>kdebase-workspace (<i>if KDE4 is used</i>) <b>or</b> plasma-framework (<i>if KF5 is used</i>)</li>
+  <li>lm_sensors (<i>KDE4 build only</i>)</li>
+  <li>automoc4 (<i>if KDE4 is used</i>) <b>or</b> extra-cmake-modules (<i>if KF5 is used</i>) <i>(make)</i></li>
   <li>cmake <i>(make)</i></li>
-  <li>hddtemp <i>(optional, for HDD temperature monitor)</i></li>
+  <li>hddtemp <b>or</b> smartmontools <i>(optional, for HDD temperature monitor)</i></li>
   <li>one of supported music player <i>(optional, for music player monitor)</i></li>
   <li>proprietary video driver <i>(optional, for GPU monitor)</i></li>
 </ul>
@@ -93,14 +85,14 @@ sudo make install
 <h3><a href="#tips" class="anchor" id="tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
 <p>You may use different colors for labels. Just put label text into html code. See <a href="https://github.com/arcan1s/awesome-widgets/issues/9" title="GitHub">issue</a> for more details.</p>
 
-<p>Numbering of elements of temperature, HDD usage, HDD speed, HDD temperature refers to elements order from second tab (<i>Advanced settings</i>). You should select an item to the required listWidget first. And the first selected element in the listWidget will be <code>$tag0</code>. See <a href="https://github.com/arcan1s/awesome-widgets/issues/17" title="GitHub">issue</a> for more details.</p>
+<p><i>KDE4:</i> Numbering of elements of temperature, HDD usage, HDD speed, HDD temperature refers to elements order from second tab (<i>Advanced settings</i>). You should select an item to the required listWidget first. And the first selected element in the listWidget will be <code>$tag0</code>. See <a href="https://github.com/arcan1s/awesome-widgets/issues/17" title="GitHub">issue</a> for more details.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
 <h2><a href="#config" class="anchor" id="config"><span class="octicon octicon-link"></span></a>Configuration</h2>
 
 <h3><a href="#deconf" class="anchor" id="deconf"><span class="octicon octicon-link"></span></a>DataEngine configuration</h3>
-<p>You may edit DataEngine configuration. It is <code>/usr/share/config/extsysmon.conf</code> or <code>$HOME/.kde4/share/config/extsysmon.conf</code> depending on the type of installation. Uncomment needed line and edit it.</p>
+<p>You may edit DataEngine configuration. It is <code>/etc/xdg/plasma-dataengine-extsysmon.conf</code> and <code>$HOME/.config/plasma-dataengine-extsysmon.conf</code>. Uncomment needed line and edit it.</p>
 
 <h4><a href="#deoptions" class="anchor" id="deoptions"><span class="octicon octicon-link"></span></a>DataEngine options</h4>
 <table>
@@ -118,7 +110,7 @@ sudo make install
   </tr>
   <tr>
     <th>HDDTEMPCMD</th>
-    <td>A command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>.</td>
+    <td>A command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>. Supported applications are <code>hddtemp</code> and <code>smartmontools</code>.</td>
   </tr>
   <tr>
     <th>MPDADDRESS</th>
@@ -129,16 +121,8 @@ sudo make install
     <td>MPD host port. Default is <code>6600</code>.</td>
   </tr>
   <tr>
-    <th>PKGCMD</th>
-    <td>Commands to run for package manager, comma separated.</td>
-  </tr>
-  <tr>
-    <th>PKGNULL</th>
-    <td>Number of null lines for commands, comma separated.</td>
-  </tr>
-  <tr>
     <th>PLAYER</th>
-    <td>Set music player. Supported players are amarok, clementine, mpd, qmmp.</td>
+    <td>Set music player. Supported players are mpd and MPRIS/DBus supported.</td>
   </tr>
 </table>
 
@@ -326,13 +310,21 @@ sudo make install
     <td>Temperature for HDD N, <code>----</code>. For example <code>$hddtemp0</code>. <code>hddtemp</code> must be installed.</td>
   </tr>
   <tr>
-    <th rowspan="3">Network</th>
+    <th rowspan="5">Network</th>
     <td><code>$down</code></td>
-    <td>Download speed, KB/s, <code>----</code>.</td>
+    <td>Download speed for active device, KB/s, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$downN</code></td>
+    <td>Download speed for device N, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$up</code></td>
-    <td>Upload speed, KB/s, <code>----</code>.</td>
+    <td>Upload speed for active device, KB/s, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$upN</code></td>
+    <td>Upload speed for device N, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$netdev</code></td>
@@ -413,7 +405,7 @@ sudo make install
 <h4><a href="#advanced" class="anchor" id="advanced"><span class="octicon octicon-link"></span></a>Advanced settings</h4>
 <p><b>Enable background:</b> Uncheck to disable default background and set transparent one.</p>
 
-<p><b>Enable popup:</b> Uncheck box if you do not use popup messages.</p>
+<p><b>Enable popup:</b> Uncheck box if you do not want popup messages on system events.</p>
 
 <p><b>Custom time format:</b></p>
 <table>
@@ -513,15 +505,15 @@ sudo make install
 
 <p><b>Temperature units:</b> Select units for temperature. Available units are Celsius, Farenheit, Kelvin, Reaumur, cm^-1, kJ/mol, kcal/mol.</p>
 
-<p><b>Temperature devices:</b> List of devices, which will be observed in temperature label (combo box items come from <code>sensors</code>). List widget is editable.</p>
+<p><i>KDE4</i> <b>Temperature devices:</b> List of devices, which will be observed in temperature label (combo box items come from <code>sensors</code>). List widget is editable.</p>
 
-<p><b>Mount points:</b> List of mount points, which will be observed in HDD label (combo box items come from <code>mount</code>). List widget is editable.</p>
+<p><i>KDE4</i> <b>Mount points:</b> List of mount points, which will be observed in HDD label (combo box items come from <code>mount</code>). List widget is editable.</p>
 
-<p><b>HDDs (speed):</b> List of hard disk devices, which will be observed in HDD speed label (combo box items come from DataEngine). List widget is editable.</p>
+<p><i>KDE4</i> <b>HDDs (speed):</b> List of hard disk devices, which will be observed in HDD speed label (combo box items come from DataEngine). List widget is editable.</p>
 
-<p><b>HDDs (temperature):</b> List of hard disk devices, which will be observed in HDD temperature label (combo box items come from <code>find</code>). List widget is editable.</p>
+<p><i>KDE4</i> <b>HDDs (temperature):</b> List of hard disk devices, which will be observed in HDD temperature label (combo box items come from <code>find</code>). List widget is editable.</p>
 
-<p><b>Network device:</b> Use specified device as active. This option will disable auto select network device.</p>
+<p><i>KDE4</i> <b>Network device:</b> Use specified device as active. This option will disable auto select network device.</p>
 
 <p><b>AC online tag:</b> Line which will be shown when AC is online. Default is <code>(*)</code>.</p>
 
@@ -547,45 +539,6 @@ sudo make install
 
 <p><b>MPRIS:</b> Select MPRIS player name. <code>auto</code> will enable auto selection. Default is <code>auto</code>.</p>
 
-<p><b>Package manager:</b> List of commands, which will be run. Number of null lines is a number of unneeded lines. Defaults are:</p>
-<table>
-  <tr>
-    <th>Distro</th>
-    <th>Command</th>
-    <th>Number</th>
-  </tr>
-  <tr>
-    <td>Arch</td>
-    <td><code>pacman -Qu</code></td>
-    <td><code>0</code></td>
-  </tr>
-  <tr>
-    <td>Debian</td>
-    <td><code>apt-show-versions -u -b</code></td>
-    <td><code>0</code></td>
-  </tr>
-  <tr>
-    <td>Ubuntu</td>
-    <td><code>aptitude search '~U'</code></td>
-    <td><code>0</code></td>
-  </tr>
-  <tr>
-    <td>Fedora</td>
-    <td><code>yum list updates</code></td>
-    <td><code>3</code></td>
-  </tr>
-  <tr>
-    <td>FreeBSD</td>
-    <td><code>pkg_version -I -l '&lt;'</code></td>
-    <td><code>0</code></td>
-  </tr>
-  <tr>
-    <td>Mandriva</td>
-    <td><code>urpmq --auto-select</code></td>
-    <td><code>0</code></td>
-  </tr>
-</table>
-
 <p><b>Music player:</b> Select one of supported music playes for player label.</p>
 
 <h3><a href="#desktoppanel" class="anchor" id="desktoppanel"><span class="octicon octicon-link"></span></a>Desktop Panel</h3>
@@ -596,7 +549,7 @@ sudo make install
 
 <p><b>Vertical layout:</b> Use vertical layout instead of horizontal one.</p>
 
-<p><b>Enable tooltip:</b> Check to enable preview on selected destkop. Default is <code>true</code>. Also you show specify type of preview, default is <code>Windows</code>.</p>
+<p><b>Enable tooltip:</b> Check to enable preview on selected destkop. Default is <code>true</code>. Also you show specify type of preview, default is <code>windows</code>.</p>
 
 <p><b>Tooltip width:</b> Using tooltip width in px. Default is <code>200px</code>.</p>
 
@@ -608,11 +561,7 @@ sudo make install
 <table>
   <tr>
     <td><code>$mark</code></td>
-    <td>Show mark if this desktop is active.</td>
-  </tr>
-  <tr>
-    <td><code>$fullmark</code></td>
-    <td>The same as <code>$mark</code>, but shows empty space too.</td>
+    <td>Show mark if this desktop is active. Shows spaces in other way.</td>
   </tr>
   <tr>
     <td><code>$name</code></td>
@@ -628,7 +577,7 @@ sudo make install
   </tr>
 </table>
 
-<p><b>Panel toggle:</b> Select panels which will be set hidden on hotkey.</p>
+<p><i>KDE4 (see <a href="http://mail.kde.org/pipermail/plasma-devel/2015-February/039027.html" title="Mailing list">this thread</a>)</i> <b>Panel toggle:</b> Select panels which will be set hidden on hotkey.</p>
 <!-- end of config block -->
 
 <!-- gui block -->

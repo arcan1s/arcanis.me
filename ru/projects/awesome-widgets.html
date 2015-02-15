@@ -28,6 +28,7 @@ links:
 <p>Набор минималистичных пламоидов, написанных на <code>CPP</code>. Они выглядят, как виджеты в <a href="http://awesome.naquadah.org/" title="Домашняя страница Awesome">Awesome WM</a>. Мои плазмоиды хорошо и легко настраиваются и не засоряют Ваш KDE. Также данный пакет имеет дополнительный <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines" title="Мануал для разработчиков">DataEngine</a>, который написан на <code>CPP</code> (старые версии были написаны на <code>Python2</code>).</p>
 
 <p><b>ВНИМАНИЕ:</b> <a href="https://github.com/arcan1s/awesome-widgets/issues/14" title="Тикет">НУЖНЫ ПЕРЕВОДЧИКИ!</a></p>
+<p><b>Совместим с Plasma 5!</b></p>
 
 <h3><a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
@@ -56,32 +57,23 @@ links:
 {% highlight bash %}
 cd /путь/к/извлеченным/файлам/
 mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --localprefix` -DCMAKE_BUILD_TYPE=Release ../
-make
-make install
-{% endhighlight %}
-
-Для глобальной установки наберите:
-
-{% highlight bash %}
-cd /путь/к/извлеченным/файлам/
-mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` ../
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ../
 make
 sudo make install
 {% endhighlight %}
 
+  <b>ВНИМАНИЕ:</b> С Plasma 5 также может потребоваться флаг <code>-DKDE_INSTALL_USE_QT_SYS_PATHS=ON</code>
   </li>
 </ul>
 
 <h3><a href="#dependencies" class="anchor" id="dependencies"><span class="octicon octicon-link"></span></a>Зависимости</h3>
 <p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
-  <li>kdebase-workspace</li>
-  <li>lm_sensors</li>
-  <li>automoc4 <i>(make)</i></li>
+  <li>kdebase-workspace (<i>если используется KDE4</i>) <b>или</b> plasma-framework (<i>если используется KF5</i>)</li>
+  <li>lm_sensors (<i>только сборка для KDE4</i>)</li>
+  <li>automoc4 (<i>если используется KDE4</i>) <b>или</b> extra-cmake-modules (<i>если используется KF5</i>) <i>(make)</i></li>
   <li>cmake <i>(make)</i></li>
-  <li>hddtemp <i>(опционально, для контроля за температурой HDD)</i></li>
+  <li>hddtemp <b>или</b> smartmontools <i>(опционально, для контроля за температурой HDD)</i></li>
   <li>один из поддерживаемых музыкальных плееров <i>(опционально, для контроля за музыкальным плеером)</i></li>
   <li>проприетарный видеодрайвер <i>(опционально, для контроля за GPU)</i></li>
 </ul>
@@ -94,14 +86,14 @@ sudo make install
 <h3><a href="#tips" class="anchor" id="tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
 <p>Вы можете использовать различные цвета в полях. Просто вставьте нужный текст в html код. Смотри <a href="https://github.com/arcan1s/awesome-widgets/issues/9" title="GitHub">вопрос</a> для более подробной информации.</p>
 
-<p>Нумерация элементов в полях температура, использование HDD, скорость HDD, температура HDD ссылается на порядок элементов во второй вкладке (<i>Расширенные настройки</i>). Вы должны сначала выделить требуемые элементы в нужном listWidget. И первый выделенный элемент в listWdiget будет связан c <code>$tag0</code>. Смотри <a href="https://github.com/arcan1s/awesome-widgets/issues/17" title="GitHub">вопрос</a> для более подробной информации.</p>
+<p><i>KDE4:</i> Нумерация элементов в полях температура, использование HDD, скорость HDD, температура HDD ссылается на порядок элементов во второй вкладке (<i>Расширенные настройки</i>). Вы должны сначала выделить требуемые элементы в нужном listWidget. И первый выделенный элемент в listWdiget будет связан c <code>$tag0</code>. Смотри <a href="https://github.com/arcan1s/awesome-widgets/issues/17" title="GitHub">вопрос</a> для более подробной информации.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
 <h2><a href="#config" class="anchor" id="config"><span class="octicon octicon-link"></span></a>Настройка</h2>
 
 <h3><a href="#deconf" class="anchor" id="deconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h3>
-<p>Вы можете отредактировать настройки DataEngine, которые хранятся в <code>/usr/share/config/extsysmon.conf</code> или <code>$HOME/.kde4/share/config/extsysmon.conf</code> в зависимости от типа установки. Раскомментируйте необходимые строчки и отредактируйте их.</p>
+<p>Вы можете отредактировать настройки DataEngine, которые хранятся в <code>/etc/xdg/plasma-dataengine-extsysmon.conf</code> и <code>$HOME/.config/plasma-dataengine-extsysmon.conf</code>. Раскомментируйте необходимые строчки и отредактируйте их.</p>
 
 <h4><a href="#deoptions" class="anchor" id="deoptions"><span class="octicon octicon-link"></span></a>Опции DataEngine</h4>
 <table>
@@ -119,7 +111,7 @@ sudo make install
   </tr>
   <tr>
     <th>HDDTEMPCMD</th>
-    <td>Команда, которая будет запущена для hddtemp. По умолчанию <code>sudo hddtemp</code>.</td>
+    <td>Команда, которая будет запущена для hddtemp. По умолчанию <code>sudo hddtemp</code>. Поддерживаемые приложения - <code>hddtemp</code> и <code>smartmontools</code>.</td>
   </tr>
   <tr>
     <th>MPDADDRESS</th>
@@ -130,16 +122,8 @@ sudo make install
     <td>Адрес MPD хоста. По умолчанию <code>6600</code>.</td>
   </tr>
   <tr>
-    <th>PKGCMD</th>
-    <td>Команды, которые будут запущены для пакетного менеджера, разделенные запятой.</td>
-  </tr>
-  <tr>
-    <th>PKGNULL</th>
-    <td>Число пустых строк для команд, разделенные запятой.</td>
-  </tr>
-    <tr>
     <th>PLAYER</th>
-    <td>Устанавливает музыкальный плеер. Поддерживаемые плееры: amarok, clementine, mpd, qmmp.</td>
+    <td>Устанавливает музыкальный плеер. Поддерживаемые плееры: mpd и с поддержкой MPRIS/DBus.</td>
   </tr>
 </table>
 
@@ -327,13 +311,21 @@ sudo make install
     <td>Температура HDD с номером N, <code>----</code>. Пример <code>$hddtemp0</code>. <code>hddtemp</code> должен быть установлен.</td>
   </tr>
   <tr>
-    <th rowspan="3">Сеть</th>
+    <th rowspan="5">Сеть</th>
     <td><code>$down</code></td>
-    <td>Скорость загрузки, KB/s, <code>----</code>.</td>
+    <td>Скорость загрузки активного устройства, KB/s, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$downN</code></td>
+    <td>Скорость загрузки устройства N, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$up</code></td>
-    <td>Скорость отдачи, KB/s, <code>----</code>.</td>
+    <td>Скорость отдачи активного устройства, KB/s, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$up</code></td>
+    <td>Скорость отдачи устройства N, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$netdev</code></td>
@@ -414,7 +406,7 @@ sudo make install
 <h4><a href="#advanced" class="anchor" id="advanced"><span class="octicon octicon-link"></span></a>Расширенные настройки</h4>
 <p><b>Включить фон:</b> Снимите галочку, чтобы отключить стандартный фон виджета и установить прозрачный.</p>
 
-<p><b>Включить всплывающие сообщения:</b> Нажмите на чекбокс, если вы не используете всплывающие сообщения.</p>
+<p><b>Включить всплывающие сообщения:</b> Нажмите на чекбокс, если вы не хотите всплывающих сообщений на системные события.</p>
 
 <p><b>Свой формат времени:</b></p>
 <table>
@@ -514,15 +506,15 @@ sudo make install
 
 <p><b>Температурные единицы:</b> Выберете единицы температуры. Доступные единицы следующие: Цельсий, Фаренгейт и Кельвин.</p>
 
-<p><b>Датчики температуры:</b> Список датчиков, которые будут наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>sensors</code>). Содержимое виджета редактируемо.</p>
+<p><i>KDE4</i> <b>Датчики температуры:</b> Список датчиков, которые будут наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>sensors</code>). Содержимое виджета редактируемо.</p>
 
-<p><b>Точки монтирования: </b> Список точек монтирования, которые будут наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>mount</code>). Содержимое виджета редактируемо.</p>
+<p><i>KDE4</i> <b>Точки монтирования: </b> Список точек монтирования, которые будут наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>mount</code>). Содержимое виджета редактируемо.</p>
 
-<p><b>HDD (скорость):</b> Список HDD, скорость которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из DataEngine). Содержимое виджета редактируемо.</p>
+<p><i>KDE4</i> <b>HDD (скорость):</b> Список HDD, скорость которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из DataEngine). Содержимое виджета редактируемо.</p>
 
-<p><b>HDD (температура):</b> Список HDD, температура которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>find</code>). Содержимое виджета редактируемо.</p>
+<p><i>KDE4</i> <b>HDD (температура):</b> Список HDD, температура которых будет наблюдаться в соответствующем поле (содержимое комбо-бокса заполнятся из <code>find</code>). Содержимое виджета редактируемо.</p>
 
-<p><b>Сетевой интерфейс:</b> Использовать указанный интерфейс, как активный. Эта опция отключит автоматический выбор сетевого интерфейса.</p>
+<p><i>KDE4</i> <b>Сетевой интерфейс:</b> Использовать указанный интерфейс, как активный. Эта опция отключит автоматический выбор сетевого интерфейса.</p>
 
 <p><b>AC online тег:</b> Строка, которая будет показана, когда AC онлайн. По умолчанию <code>(*)</code>.</p>
 
@@ -548,45 +540,6 @@ sudo make install
 
 <p><b>MPRIS:</b> Выберете имя плеера MPRIS. <code>auto</code> включит автоматическое определение плеера. По умолчанию <code>auto</code>.</p>
 
-<p><b>Пакетный менеджер:</b> Список команд, которые будут запущены. Число пустых строк - это число ненужных при подсчете строк. Параметры по умолчанию:</p>
-<table>
-  <tr>
-    <th>Дистрибутив</th>
-    <th>Команда</th>
-    <th>Число</th>
-  </tr>
-  <tr>
-    <td>Arch</td>
-    <td><code>pacman -Qu</code></td>
-    <td><code>0</code></td>
-  </tr>
-  <tr>
-    <td>Debian</td>
-    <td><code>apt-show-versions -u -b</code></td>
-    <td><code>0</code></td>
-  </tr>
-  <tr>
-    <td>Ubuntu</td>
-    <td><code>aptitude search '~U'</code></td>
-    <td><code>0</code></td>
-  </tr>
-  <tr>
-    <td>Fedora</td>
-    <td><code>yum list updates</code></td>
-    <td><code>3</code></td>
-  </tr>
-  <tr>
-    <td>FreeBSD</td>
-    <td><code>pkg_version -I -l '&lt;'</code></td>
-    <td><code>0</code></td>
-  </tr>
-  <tr>
-    <td>Mandriva</td>
-    <td><code>urpmq --auto-select</code></td>
-    <td><code>0</code></td>
-  </tr>
-</table>
-
 <p><b>Музыкальный плеер:</b> Выберете один из поддерживаемых музыкальных плееров для соответствующего поля.</p>
 
 <h3><a href="#desktoppanel" class="anchor" id="desktoppanel"><span class="octicon octicon-link"></span></a>Desktop panel</h3>
@@ -609,11 +562,7 @@ sudo make install
 <table>
   <tr>
     <td><code>$mark</code></td>
-    <td>Показать метку, если данный рабочий стол активен.</td>
-  </tr>
-  <tr>
-    <td><code>$fullmark</code></td>
-    <td>Также, как и <code>$mark</code>, но показывать пустое место.</td>
+    <td>Показать метку, если данный рабочий стол активен. Иначе показывает пробелы</td>
   </tr>
   <tr>
     <td><code>$name</code></td>
@@ -629,7 +578,7 @@ sudo make install
   </tr>
 </table>
 
-<p><b>Скрытие панелей:</b> Выберите панели, которые будут скрыты при нажатии на горячую клавишу.</p>
+<p><i>KDE4 (смотри <a href="http://mail.kde.org/pipermail/plasma-devel/2015-February/039027.html" title="Mailing list">здесь</a>)</i> <b>Скрытие панелей:</b> Выберите панели, которые будут скрыты при нажатии на горячую клавишу.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
