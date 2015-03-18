@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['description',['description',['../structnetctl_profile_info.html#a84940ffe2484fb0e34d8d02de76aaa66',1,'netctlProfileInfo']]]
+  ['current',['current',['../structnetctl_current.html#a7d0b332356f039c63de1253caca79a56',1,'netctlCurrent']]]
 ];

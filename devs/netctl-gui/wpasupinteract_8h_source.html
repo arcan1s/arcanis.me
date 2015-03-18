@@ -25,7 +25,7 @@
   <td id="projectlogo"><img alt="Logo" src="icon.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">netctlgui
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">1.4.1</span>
    </div>
    <div id="projectbrief">Qt library which interacts with netctl</div>
   </td>
@@ -64,6 +64,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -117,77 +118,93 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">class </span><a class="code" href="class_netctl.html">Netctl</a>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">class </span><a class="code" href="class_netctl_profile.html">NetctlProfile</a>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html">   51</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#afff424704334890c6cb1ce4908ead22b">   53</a></span>&#160;    QString <a class="code" href="structnetctl_wifi_info.html#afff424704334890c6cb1ce4908ead22b">name</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#ab515de4719f4c498a41c99cb04883db9">   54</a></span>&#160;    QString <a class="code" href="structnetctl_wifi_info.html#ab515de4719f4c498a41c99cb04883db9">security</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#a89771b5abe65323af38f16a9ead49de6">   55</a></span>&#160;    QString <a class="code" href="structnetctl_wifi_info.html#a89771b5abe65323af38f16a9ead49de6">signal</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#ade128da4a99e22b8194d9f55c5fbc051">   56</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structnetctl_wifi_info.html#ade128da4a99e22b8194d9f55c5fbc051">active</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#ab56d1ca1abc45a552f9f9bacab9dfe7c">   57</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structnetctl_wifi_info.html#ab56d1ca1abc45a552f9f9bacab9dfe7c">exists</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;} <a class="code" href="structnetctl_wifi_info.html">netctlWifiInfo</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_wpa_sup.html">   63</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_wpa_sup.html">WpaSup</a> : <span class="keyword">public</span> QObject</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_wpa_sup.html#ae236c442ef55fa5d4a7c03e2f29800d5">WpaSup</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> debugCmd = <span class="keyword">false</span>,</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="keyword">const</span> QMap&lt;QString, QString&gt; settings = QMap&lt;QString, QString&gt;());</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="class_wpa_sup.html#afc8195f5c6d44a43b015cb28d73f9a6b">~WpaSup</a>();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// general information</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"></span>    QString <a class="code" href="class_wpa_sup.html#aeee13eea7764376e8f154fce610872b3">existentProfile</a>(<span class="keyword">const</span> QString essid);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">static</span> QMap&lt;QString, QString&gt; <a class="code" href="class_wpa_sup.html#ab60ec6f1349b09dbdeca9e359dc6a355">getRecommendedConfiguration</a>();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_wpa_sup.html#a84e2b4cb1d25d21379e0fc860a7fb9a4">isProfileActive</a>(<span class="keyword">const</span> QString essid);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_wpa_sup.html#aebc870feafdc0acdee5d9007627ba3d8">isProfileExists</a>(<span class="keyword">const</span> QString essid);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">// functions</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment"></span>    QList&lt;netctlWifiInfo&gt; <a class="code" href="class_wpa_sup.html#abf3330fca9041e2cb149dec3da01b46e">scanWifi</a>();</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_wpa_sup.html#abe6865d3fc907dedf0d6eb485123ef0b">startWpaSupplicant</a>();</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_wpa_sup.html#ae8ebd534cad9715c62a6af766be57051">stopWpaSupplicant</a>();</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="class_netctl.html">Netctl</a> *netctlCommand = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="class_netctl_profile.html">NetctlProfile</a> *netctlProfile = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">bool</span> debug = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">bool</span> useSuid = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    QString ctrlDir = QString(<span class="stringliteral">&quot;/run/wpa_supplicant_netctl-gui&quot;</span>);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    QString ctrlGroup = QString(<span class="stringliteral">&quot;users&quot;</span>);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    QString pidFile = QString(<span class="stringliteral">&quot;/run/wpa_supplicant_netctl-gui.pid&quot;</span>);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    QString sudoCommand = QString(<span class="stringliteral">&quot;/usr/bin/kdesu&quot;</span>);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    QString wpaCliPath = QString(<span class="stringliteral">&quot;/usr/bin/wpa_cli&quot;</span>);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    QString wpaDrivers = QString(<span class="stringliteral">&quot;nl80211,wext&quot;</span>);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    QString wpaSupPath = QString(<span class="stringliteral">&quot;/usr/bin/wpa_supplicant&quot;</span>);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="comment">// functions</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment"></span>    QString getWpaCliOutput(<span class="keyword">const</span> QString commandLine);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordtype">bool</span> waitForProcess(<span class="keyword">const</span> <span class="keywordtype">int</span> sec);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">bool</span> wpaCliCall(<span class="keyword">const</span> QString commandLine);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;};</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* WPASUPINTERACT_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="class_wpa_sup_html_aebc870feafdc0acdee5d9007627ba3d8"><div class="ttname"><a href="class_wpa_sup.html#aebc870feafdc0acdee5d9007627ba3d8">WpaSup::isProfileExists</a></div><div class="ttdeci">bool isProfileExists(const QString essid)</div><div class="ttdoc">method which checks profile existence by ESSID </div></div>
-<div class="ttc" id="structnetctl_wifi_info_html_ab56d1ca1abc45a552f9f9bacab9dfe7c"><div class="ttname"><a href="structnetctl_wifi_info.html#ab56d1ca1abc45a552f9f9bacab9dfe7c">netctlWifiInfo::exists</a></div><div class="ttdeci">bool exists</div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:57</div></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cd">   49</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cd">PointType</a> {</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda462dda4f944885cb56063ba563bc7d3d">   50</a></span>&#160;    <a class="code" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda462dda4f944885cb56063ba563bc7d3d">None</a> = 0,</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cdaa29ab8acf44824e01c63375240b82d37">   51</a></span>&#160;    <a class="code" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cdaa29ab8acf44824e01c63375240b82d37">TwoG</a>,</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda772d4d94d646aa501e6e0a0775cc80a7">   52</a></span>&#160;    <a class="code" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda772d4d94d646aa501e6e0a0775cc80a7">FiveG</a>,</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda0c5f94310288ccb7e911fbd2a2949e55">   53</a></span>&#160;    <a class="code" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda0c5f94310288ccb7e911fbd2a2949e55">TwoAndFiveG</a></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html">   76</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#abb58ae919bf50c736bafb8b1e8abd7d7">   78</a></span>&#160;    QList&lt;int&gt; <a class="code" href="structnetctl_wifi_info.html#abb58ae919bf50c736bafb8b1e8abd7d7">frequencies</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#a711525800f6320e352f98424392455e7">   79</a></span>&#160;    QStringList <a class="code" href="structnetctl_wifi_info.html#a711525800f6320e352f98424392455e7">macs</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#afff424704334890c6cb1ce4908ead22b">   80</a></span>&#160;    QString <a class="code" href="structnetctl_wifi_info.html#afff424704334890c6cb1ce4908ead22b">name</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#ab515de4719f4c498a41c99cb04883db9">   81</a></span>&#160;    QString <a class="code" href="structnetctl_wifi_info.html#ab515de4719f4c498a41c99cb04883db9">security</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#a89771b5abe65323af38f16a9ead49de6">   82</a></span>&#160;    <span class="keywordtype">int</span> signal = 0;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#accb09c4e5de7a7b3754722ae818e6594">   83</a></span>&#160;    <a class="code" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cd">PointType</a> type = <a class="code" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda462dda4f944885cb56063ba563bc7d3d">PointType::None</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#ade128da4a99e22b8194d9f55c5fbc051">   84</a></span>&#160;    <span class="keywordtype">bool</span> active = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="structnetctl_wifi_info.html#ab56d1ca1abc45a552f9f9bacab9dfe7c">   85</a></span>&#160;    <span class="keywordtype">bool</span> exists = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;} <a class="code" href="structnetctl_wifi_info.html">netctlWifiInfo</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="class_wpa_sup.html">   91</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_wpa_sup.html">WpaSup</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_wpa_sup.html#ae236c442ef55fa5d4a7c03e2f29800d5">WpaSup</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> debugCmd = <span class="keyword">false</span>,</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    <span class="keyword">const</span> QMap&lt;QString, QString&gt; settings = QMap&lt;QString, QString&gt;());</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="class_wpa_sup.html#afc8195f5c6d44a43b015cb28d73f9a6b">~WpaSup</a>();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">// general information</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment"></span>    QString <a class="code" href="class_wpa_sup.html#aeee13eea7764376e8f154fce610872b3">existentProfile</a>(<span class="keyword">const</span> QString essid);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">static</span> QMap&lt;QString, QString&gt; <a class="code" href="class_wpa_sup.html#ab60ec6f1349b09dbdeca9e359dc6a355">getRecommendedConfiguration</a>();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_wpa_sup.html#a84e2b4cb1d25d21379e0fc860a7fb9a4">isProfileActive</a>(<span class="keyword">const</span> QString essid);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    Q_DECL_DEPRECATED <span class="keywordtype">bool</span> <a class="code" href="class_wpa_sup.html#aed74fa2220e55ab0c4306adc8280c0a4">isProfileExists</a>(<span class="keyword">const</span> QString essid);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="comment">// functions</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment"></span>    <a class="code" href="structnetctl_wifi_info.html">netctlWifiInfo</a> <a class="code" href="class_wpa_sup.html#ad0c4e4f16aea2857776adb18cc113f44">current</a>();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    QList&lt;netctlWifiInfo&gt; <a class="code" href="class_wpa_sup.html#abf3330fca9041e2cb149dec3da01b46e">scanWifi</a>();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_wpa_sup.html#abe6865d3fc907dedf0d6eb485123ef0b">startWpaSupplicant</a>();</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_wpa_sup.html#ae8ebd534cad9715c62a6af766be57051">stopWpaSupplicant</a>();</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <a class="code" href="class_netctl.html">Netctl</a> *netctlCommand = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <a class="code" href="class_netctl_profile.html">NetctlProfile</a> *netctlProfile = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">bool</span> debug = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordtype">bool</span> useSuid = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    QString ctrlDir = QString(<span class="stringliteral">&quot;/run/wpa_supplicant&quot;</span>);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    QString ctrlGroup = QString(<span class="stringliteral">&quot;users&quot;</span>);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    QString pidFile = QString(<span class="stringliteral">&quot;/run/wpa_supplicant_$i.pid&quot;</span>);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    QString sudoCommand = QString(<span class="stringliteral">&quot;/usr/bin/kdesu&quot;</span>);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    QString wpaCliPath = QString(<span class="stringliteral">&quot;/usr/bin/wpa_cli&quot;</span>);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    QString wpaDrivers = QString(<span class="stringliteral">&quot;nl80211,wext&quot;</span>);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    QString wpaSupPath = QString(<span class="stringliteral">&quot;/usr/bin/wpa_supplicant&quot;</span>);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment">// functions</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment"></span>    QString getWpaCliOutput(<span class="keyword">const</span> QString commandLine);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordtype">bool</span> waitForProcess(<span class="keyword">const</span> <span class="keywordtype">int</span> sec);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordtype">bool</span> wpaCliCall(<span class="keyword">const</span> QString commandLine);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;};</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* WPASUPINTERACT_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="wpasupinteract_8h_html_a18ab7b7b419342201c07425bdcd420cda0c5f94310288ccb7e911fbd2a2949e55"><div class="ttname"><a href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda0c5f94310288ccb7e911fbd2a2949e55">TwoAndFiveG</a></div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:53</div></div>
 <div class="ttc" id="class_wpa_sup_html_ae8ebd534cad9715c62a6af766be57051"><div class="ttname"><a href="class_wpa_sup.html#ae8ebd534cad9715c62a6af766be57051">WpaSup::stopWpaSupplicant</a></div><div class="ttdeci">bool stopWpaSupplicant()</div><div class="ttdoc">method which send TERMINATE signal to wpa_supplicant </div></div>
+<div class="ttc" id="class_wpa_sup_html_ad0c4e4f16aea2857776adb18cc113f44"><div class="ttname"><a href="class_wpa_sup.html#ad0c4e4f16aea2857776adb18cc113f44">WpaSup::current</a></div><div class="ttdeci">netctlWifiInfo current()</div><div class="ttdoc">method which returns active point information </div></div>
 <div class="ttc" id="class_wpa_sup_html_abf3330fca9041e2cb149dec3da01b46e"><div class="ttname"><a href="class_wpa_sup.html#abf3330fca9041e2cb149dec3da01b46e">WpaSup::scanWifi</a></div><div class="ttdeci">QList&lt; netctlWifiInfo &gt; scanWifi()</div><div class="ttdoc">method which scans WiFi networks </div></div>
 <div class="ttc" id="class_wpa_sup_html_ae236c442ef55fa5d4a7c03e2f29800d5"><div class="ttname"><a href="class_wpa_sup.html#ae236c442ef55fa5d4a7c03e2f29800d5">WpaSup::WpaSup</a></div><div class="ttdeci">WpaSup(const bool debugCmd=false, const QMap&lt; QString, QString &gt; settings=QMap&lt; QString, QString &gt;())</div><div class="ttdoc">WpaSup class constructor. </div></div>
-<div class="ttc" id="structnetctl_wifi_info_html_afff424704334890c6cb1ce4908ead22b"><div class="ttname"><a href="structnetctl_wifi_info.html#afff424704334890c6cb1ce4908ead22b">netctlWifiInfo::name</a></div><div class="ttdeci">QString name</div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:53</div></div>
-<div class="ttc" id="structnetctl_wifi_info_html_ab515de4719f4c498a41c99cb04883db9"><div class="ttname"><a href="structnetctl_wifi_info.html#ab515de4719f4c498a41c99cb04883db9">netctlWifiInfo::security</a></div><div class="ttdeci">QString security</div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:54</div></div>
+<div class="ttc" id="class_wpa_sup_html_aed74fa2220e55ab0c4306adc8280c0a4"><div class="ttname"><a href="class_wpa_sup.html#aed74fa2220e55ab0c4306adc8280c0a4">WpaSup::isProfileExists</a></div><div class="ttdeci">Q_DECL_DEPRECATED bool isProfileExists(const QString essid)</div><div class="ttdoc">method which checks profile existence by ESSID </div></div>
+<div class="ttc" id="structnetctl_wifi_info_html_abb58ae919bf50c736bafb8b1e8abd7d7"><div class="ttname"><a href="structnetctl_wifi_info.html#abb58ae919bf50c736bafb8b1e8abd7d7">netctlWifiInfo::frequencies</a></div><div class="ttdeci">QList&lt; int &gt; frequencies</div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:78</div></div>
+<div class="ttc" id="structnetctl_wifi_info_html_afff424704334890c6cb1ce4908ead22b"><div class="ttname"><a href="structnetctl_wifi_info.html#afff424704334890c6cb1ce4908ead22b">netctlWifiInfo::name</a></div><div class="ttdeci">QString name</div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:80</div></div>
+<div class="ttc" id="structnetctl_wifi_info_html_ab515de4719f4c498a41c99cb04883db9"><div class="ttname"><a href="structnetctl_wifi_info.html#ab515de4719f4c498a41c99cb04883db9">netctlWifiInfo::security</a></div><div class="ttdeci">QString security</div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:81</div></div>
 <div class="ttc" id="class_netctl_profile_html"><div class="ttname"><a href="class_netctl_profile.html">NetctlProfile</a></div><div class="ttdoc">The NetctlProfile class interacts with netctl profiles. </div><div class="ttdef"><b>Definition:</b> netctlprofile.h:37</div></div>
+<div class="ttc" id="wpasupinteract_8h_html_a18ab7b7b419342201c07425bdcd420cdaa29ab8acf44824e01c63375240b82d37"><div class="ttname"><a href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cdaa29ab8acf44824e01c63375240b82d37">TwoG</a></div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:51</div></div>
+<div class="ttc" id="wpasupinteract_8h_html_a18ab7b7b419342201c07425bdcd420cda772d4d94d646aa501e6e0a0775cc80a7"><div class="ttname"><a href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda772d4d94d646aa501e6e0a0775cc80a7">FiveG</a></div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:52</div></div>
 <div class="ttc" id="class_wpa_sup_html_a84e2b4cb1d25d21379e0fc860a7fb9a4"><div class="ttname"><a href="class_wpa_sup.html#a84e2b4cb1d25d21379e0fc860a7fb9a4">WpaSup::isProfileActive</a></div><div class="ttdeci">bool isProfileActive(const QString essid)</div><div class="ttdoc">method which checks profile status by ESSID </div></div>
-<div class="ttc" id="class_netctl_html"><div class="ttname"><a href="class_netctl.html">Netctl</a></div><div class="ttdoc">The Netctl class interacts with netctl. </div><div class="ttdef"><b>Definition:</b> netctlinteract.h:59</div></div>
+<div class="ttc" id="class_netctl_html"><div class="ttname"><a href="class_netctl.html">Netctl</a></div><div class="ttdoc">The Netctl class interacts with netctl. </div><div class="ttdef"><b>Definition:</b> netctlinteract.h:71</div></div>
+<div class="ttc" id="wpasupinteract_8h_html_a18ab7b7b419342201c07425bdcd420cd"><div class="ttname"><a href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cd">PointType</a></div><div class="ttdeci">PointType</div><div class="ttdoc">WiFi point type. </div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:49</div></div>
 <div class="ttc" id="class_wpa_sup_html_afc8195f5c6d44a43b015cb28d73f9a6b"><div class="ttname"><a href="class_wpa_sup.html#afc8195f5c6d44a43b015cb28d73f9a6b">WpaSup::~WpaSup</a></div><div class="ttdeci">~WpaSup()</div><div class="ttdoc">WpaSup class destructor. </div></div>
 <div class="ttc" id="class_wpa_sup_html_aeee13eea7764376e8f154fce610872b3"><div class="ttname"><a href="class_wpa_sup.html#aeee13eea7764376e8f154fce610872b3">WpaSup::existentProfile</a></div><div class="ttdeci">QString existentProfile(const QString essid)</div><div class="ttdoc">method which gets profile name by ESSID </div></div>
+<div class="ttc" id="wpasupinteract_8h_html_a18ab7b7b419342201c07425bdcd420cda462dda4f944885cb56063ba563bc7d3d"><div class="ttname"><a href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda462dda4f944885cb56063ba563bc7d3d">None</a></div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:50</div></div>
+<div class="ttc" id="structnetctl_wifi_info_html_a711525800f6320e352f98424392455e7"><div class="ttname"><a href="structnetctl_wifi_info.html#a711525800f6320e352f98424392455e7">netctlWifiInfo::macs</a></div><div class="ttdeci">QStringList macs</div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:79</div></div>
 <div class="ttc" id="class_wpa_sup_html_abe6865d3fc907dedf0d6eb485123ef0b"><div class="ttname"><a href="class_wpa_sup.html#abe6865d3fc907dedf0d6eb485123ef0b">WpaSup::startWpaSupplicant</a></div><div class="ttdeci">bool startWpaSupplicant()</div><div class="ttdoc">method which calls wpa_supplicant </div></div>
-<div class="ttc" id="structnetctl_wifi_info_html_a89771b5abe65323af38f16a9ead49de6"><div class="ttname"><a href="structnetctl_wifi_info.html#a89771b5abe65323af38f16a9ead49de6">netctlWifiInfo::signal</a></div><div class="ttdeci">QString signal</div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:55</div></div>
-<div class="ttc" id="class_wpa_sup_html"><div class="ttname"><a href="class_wpa_sup.html">WpaSup</a></div><div class="ttdoc">The WpaSup class interacts with wpa_supplicant. </div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:63</div></div>
-<div class="ttc" id="structnetctl_wifi_info_html"><div class="ttname"><a href="structnetctl_wifi_info.html">netctlWifiInfo</a></div><div class="ttdoc">WiFi information structure. </div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:51</div></div>
-<div class="ttc" id="structnetctl_wifi_info_html_ade128da4a99e22b8194d9f55c5fbc051"><div class="ttname"><a href="structnetctl_wifi_info.html#ade128da4a99e22b8194d9f55c5fbc051">netctlWifiInfo::active</a></div><div class="ttdeci">bool active</div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:56</div></div>
+<div class="ttc" id="class_wpa_sup_html"><div class="ttname"><a href="class_wpa_sup.html">WpaSup</a></div><div class="ttdoc">The WpaSup class interacts with wpa_supplicant. </div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:91</div></div>
+<div class="ttc" id="structnetctl_wifi_info_html"><div class="ttname"><a href="structnetctl_wifi_info.html">netctlWifiInfo</a></div><div class="ttdoc">WiFi information structure. </div><div class="ttdef"><b>Definition:</b> wpasupinteract.h:76</div></div>
 <div class="ttc" id="class_wpa_sup_html_ab60ec6f1349b09dbdeca9e359dc6a355"><div class="ttname"><a href="class_wpa_sup.html#ab60ec6f1349b09dbdeca9e359dc6a355">WpaSup::getRecommendedConfiguration</a></div><div class="ttdeci">static QMap&lt; QString, QString &gt; getRecommendedConfiguration()</div><div class="ttdoc">method which check system configuration and return recommended values to keys </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 12 2015 19:03:45 for netctlgui by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 18 2015 03:33:16 for netctlgui by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

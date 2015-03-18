@@ -25,7 +25,7 @@
   <td id="projectlogo"><img alt="Logo" src="icon.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">netctlgui
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">1.4.1</span>
    </div>
    <div id="projectbrief">Qt library which interacts with netctl</div>
   </td>
@@ -98,15 +98,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:abb58ae919bf50c736bafb8b1e8abd7d7"><td class="memItemLeft" align="right" valign="top">QList&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_wifi_info.html#abb58ae919bf50c736bafb8b1e8abd7d7">frequencies</a></td></tr>
+<tr class="separator:abb58ae919bf50c736bafb8b1e8abd7d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a711525800f6320e352f98424392455e7"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_wifi_info.html#a711525800f6320e352f98424392455e7">macs</a></td></tr>
+<tr class="separator:a711525800f6320e352f98424392455e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afff424704334890c6cb1ce4908ead22b"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_wifi_info.html#afff424704334890c6cb1ce4908ead22b">name</a></td></tr>
 <tr class="separator:afff424704334890c6cb1ce4908ead22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab515de4719f4c498a41c99cb04883db9"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_wifi_info.html#ab515de4719f4c498a41c99cb04883db9">security</a></td></tr>
 <tr class="separator:ab515de4719f4c498a41c99cb04883db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89771b5abe65323af38f16a9ead49de6"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_wifi_info.html#a89771b5abe65323af38f16a9ead49de6">signal</a></td></tr>
+<tr class="memitem:a89771b5abe65323af38f16a9ead49de6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_wifi_info.html#a89771b5abe65323af38f16a9ead49de6">signal</a> = 0</td></tr>
 <tr class="separator:a89771b5abe65323af38f16a9ead49de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade128da4a99e22b8194d9f55c5fbc051"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_wifi_info.html#ade128da4a99e22b8194d9f55c5fbc051">active</a></td></tr>
+<tr class="memitem:accb09c4e5de7a7b3754722ae818e6594"><td class="memItemLeft" align="right" valign="top"><a class="el" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cd">PointType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_wifi_info.html#accb09c4e5de7a7b3754722ae818e6594">type</a> = <a class="el" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda462dda4f944885cb56063ba563bc7d3d">PointType::None</a></td></tr>
+<tr class="separator:accb09c4e5de7a7b3754722ae818e6594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade128da4a99e22b8194d9f55c5fbc051"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_wifi_info.html#ade128da4a99e22b8194d9f55c5fbc051">active</a> = false</td></tr>
 <tr class="separator:ade128da4a99e22b8194d9f55c5fbc051"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab56d1ca1abc45a552f9f9bacab9dfe7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_wifi_info.html#ab56d1ca1abc45a552f9f9bacab9dfe7c">exists</a></td></tr>
+<tr class="memitem:ab56d1ca1abc45a552f9f9bacab9dfe7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_wifi_info.html#ab56d1ca1abc45a552f9f9bacab9dfe7c">exists</a> = false</td></tr>
 <tr class="separator:ab56d1ca1abc45a552f9f9bacab9dfe7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -117,7 +123,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">netctlWifiInfo::active</td>
+          <td class="memname">netctlWifiInfo::active = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -130,11 +136,37 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">netctlWifiInfo::exists</td>
+          <td class="memname">netctlWifiInfo::exists = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>whether associated profile exists </p>
+
+</div>
+</div>
+<a class="anchor" id="abb58ae919bf50c736bafb8b1e8abd7d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">netctlWifiInfo::frequencies</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>point frequencies </p>
+
+</div>
+</div>
+<a class="anchor" id="a711525800f6320e352f98424392455e7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">netctlWifiInfo::macs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>point MAC addresses </p>
 
 </div>
 </div>
@@ -169,11 +201,24 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">netctlWifiInfo::signal</td>
+          <td class="memname">netctlWifiInfo::signal = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Wifi point signal </p>
+
+</div>
+</div>
+<a class="anchor" id="accb09c4e5de7a7b3754722ae818e6594"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">netctlWifiInfo::type = <a class="el" href="wpasupinteract_8h.html#a18ab7b7b419342201c07425bdcd420cda462dda4f944885cb56063ba563bc7d3d">PointType::None</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WiFi point type </p>
 
 </div>
 </div>
@@ -183,7 +228,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 12 2015 19:03:46 for netctlgui by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 18 2015 03:33:16 for netctlgui by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

@@ -25,7 +25,7 @@
   <td id="projectlogo"><img alt="Logo" src="icon.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">netctlgui
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">1.4.1</span>
    </div>
    <div id="projectbrief">Qt library which interacts with netctl</div>
   </td>
@@ -102,10 +102,18 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a98e421d12f0ec50b44128fd699e44d7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84940ffe2484fb0e34d8d02de76aaa66"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_profile_info.html#a84940ffe2484fb0e34d8d02de76aaa66">description</a></td></tr>
 <tr class="separator:a84940ffe2484fb0e34d8d02de76aaa66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47e7ded5f519327191f8040294d67568"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_profile_info.html#a47e7ded5f519327191f8040294d67568">active</a></td></tr>
+<tr class="memitem:a762a2c6a117472619570c6b2d559b574"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_profile_info.html#a762a2c6a117472619570c6b2d559b574">essid</a></td></tr>
+<tr class="separator:a762a2c6a117472619570c6b2d559b574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83bc4288ee6bec838312a0f2cbe01dac"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_profile_info.html#a83bc4288ee6bec838312a0f2cbe01dac">interface</a></td></tr>
+<tr class="separator:a83bc4288ee6bec838312a0f2cbe01dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd2ef4ae4f409455a5ae517d0b3376a5"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_profile_info.html#afd2ef4ae4f409455a5ae517d0b3376a5">type</a></td></tr>
+<tr class="separator:afd2ef4ae4f409455a5ae517d0b3376a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47e7ded5f519327191f8040294d67568"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_profile_info.html#a47e7ded5f519327191f8040294d67568">active</a> = false</td></tr>
 <tr class="separator:a47e7ded5f519327191f8040294d67568"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8173b10891448af2843c02e6b8532584"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_profile_info.html#a8173b10891448af2843c02e6b8532584">enabled</a></td></tr>
+<tr class="memitem:a8173b10891448af2843c02e6b8532584"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_profile_info.html#a8173b10891448af2843c02e6b8532584">enabled</a> = false</td></tr>
 <tr class="separator:a8173b10891448af2843c02e6b8532584"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa4a71cb3a3243a6395d9820078d038e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetctl_profile_info.html#aaa4a71cb3a3243a6395d9820078d038e">netctlAuto</a> = false</td></tr>
+<tr class="separator:aaa4a71cb3a3243a6395d9820078d038e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>netctl profile information structure </p>
@@ -115,7 +123,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">netctlProfileInfo::active</td>
+          <td class="memname">netctlProfileInfo::active = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -141,11 +149,37 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">netctlProfileInfo::enabled</td>
+          <td class="memname">netctlProfileInfo::enabled = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>whether profile is enabled </p>
+
+</div>
+</div>
+<a class="anchor" id="a762a2c6a117472619570c6b2d559b574"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">netctlProfileInfo::essid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ESSID if any </p>
+
+</div>
+</div>
+<a class="anchor" id="a83bc4288ee6bec838312a0f2cbe01dac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">netctlProfileInfo::interface</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>profile interface </p>
 
 </div>
 </div>
@@ -162,13 +196,39 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aaa4a71cb3a3243a6395d9820078d038e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">netctlProfileInfo::netctlAuto = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>whether profile is from netctl-auto </p>
+
+</div>
+</div>
+<a class="anchor" id="afd2ef4ae4f409455a5ae517d0b3376a5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">netctlProfileInfo::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>profile type </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="netctlinteract_8h_source.html">netctlinteract.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 12 2015 19:03:46 for netctlgui by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 18 2015 03:33:16 for netctlgui by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
