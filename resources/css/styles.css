@@ -42,7 +42,7 @@
   height: auto !important;
   padding: 0;
   color: #222222;
-	font: 13px/1.5 "Liberation Serif", Helvetica, Arial, sans-serif;
+	font: 13px/1.5 "Liberation Sans", Helvetica, Arial, sans-serif;
 }
 
 /* in-text images */
@@ -133,7 +133,7 @@ figure.img figcaption {
 
 body {
   padding: 50px;
-  font: 14px/1.5 "Liberation Serif", Helvetica, Arial, sans-serif;
+  font: 14px/1.5 "Liberation Sans", Helvetica, Arial, sans-serif;
   color: #555555;
   background: #eaeaea
 }
