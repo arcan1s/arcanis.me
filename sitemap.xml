@@ -10,52 +10,52 @@ projects:
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://arcanis.name/</loc>
+    <loc>{{ site.url }}</loc>
   </url>
   <url>
-    <loc>http://arcanis.name/ru/</loc>
+    <loc>{{ site.url }}ru/</loc>
   </url>
   <url>
-    <loc>http://arcanis.name/about/</loc>
+    <loc>{{ site.url }}about/</loc>
   </url>
   <url>
-    <loc>http://arcanis.name/ru/about/</loc>
+    <loc>{{ site.url }}ru/about/</loc>
   </url>
   <url>
-    <loc>http://arcanis.name/authors/</loc>
+    <loc>{{ site.url }}authors/</loc>
   </url>
   <url>
-    <loc>http://arcanis.name/ru/authors/</loc>
+    <loc>{{ site.url }}ru/authors/</loc>
   </url>
   <url>
-    <loc>http://arcanis.name/blog/</loc>
+    <loc>{{ site.url }}blog/</loc>
   </url>
   <url>
-    <loc>http://arcanis.name/ru/blog/</loc>
+    <loc>{{ site.url }}ru/blog/</loc>
   </url>
   <url>
-    <loc>http://arcanis.name/blog/archive/</loc>
+    <loc>{{ site.url }}blog/archive/</loc>
   </url>
   <url>
-    <loc>http://arcanis.name/ru/blog/archive/</loc>
+    <loc>{{ site.url }}ru/blog/archive/</loc>
   </url>
 {% for post in site.posts %}
   <url>
-    <loc>http://arcanis.name{{ post.url }}</loc>
+    <loc>{{ site.url }}{{ post.url }}</loc>
   </url>
 {% endfor %}
   <url>
-    <loc>http://arcanis.name/projects/</loc>
+    <loc>{{ site.url }}projects/</loc>
   </url>
   <url>
-    <loc>http://arcanis.name/ru/projects/</loc>
+    <loc>{{ site.url }}ru/projects/</loc>
   </url>
 {% for proj in page.projects %}
   <url>
-    <loc>http://arcanis.name/projects/{{ proj }}/</loc>
+    <loc>{{ site.url }}projects/{{ proj }}/</loc>
   </url>
   <url>
-    <loc>http://arcanis.name/ru/projects/{{ proj }}/</loc>
+    <loc>{{ site.url }}ru/projects/{{ proj }}/</loc>
   </url>
 {% endfor %}
 </urlset>

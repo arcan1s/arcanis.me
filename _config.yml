@@ -26,7 +26,8 @@ safe:        false
 host:        0.0.0.0
 port:        4000
 baseurl:     /
-url:         http://arcanis.name
+url:         https://arcanis.name
+enforce_ssl: arcanis.name
 lsi:         false
 
 maruku:

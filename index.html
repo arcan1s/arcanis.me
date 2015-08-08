@@ -23,7 +23,7 @@ title: arcanis' homepage
           </span>
         </label>
         <p class="view"><a href="/projects/" title="Projects">Projects</a><br>
-        <a href="http://repo.arcanis.name/" title="Repository">Repository</a><br>
+        <a href="https://repo.arcanis.name/" title="Repository">Repository</a><br>
         <p class="view"><a href="/about" title="About">About me</a></p>
 
         {% include cse.html %}
@@ -34,7 +34,7 @@ title: arcanis' homepage
       if (window.location.replace) window.location.replace(dest)
       else window.location=dest
     }
-    if (document.referrer != "http://arcanis.name/ru/") {
+    if (document.referrer != "{{ site.url }}ru/") {
       var languageinfo=navigator.language? navigator.language : navigator.userLanguage
       if (languageinfo.substr(0,2) == "ru") redirectpage("/ru/")
     }

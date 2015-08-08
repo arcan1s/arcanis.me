@@ -1,3 +1,3 @@
 User-agent: *
 Disallow: /devs
-Sitemap: http://arcanis.name/sitemap.xml
+Sitemap: https://arcanis.name/sitemap.xml
