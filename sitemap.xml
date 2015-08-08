@@ -10,34 +10,34 @@ projects:
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>{{ site.url }}</loc>
+    <loc>{{ site.url }}/</loc>
   </url>
   <url>
-    <loc>{{ site.url }}ru/</loc>
+    <loc>{{ site.url }}/ru/</loc>
   </url>
   <url>
-    <loc>{{ site.url }}about/</loc>
+    <loc>{{ site.url }}/about/</loc>
   </url>
   <url>
-    <loc>{{ site.url }}ru/about/</loc>
+    <loc>{{ site.url }}/ru/about/</loc>
   </url>
   <url>
-    <loc>{{ site.url }}authors/</loc>
+    <loc>{{ site.url }}/authors/</loc>
   </url>
   <url>
-    <loc>{{ site.url }}ru/authors/</loc>
+    <loc>{{ site.url }}/ru/authors/</loc>
   </url>
   <url>
-    <loc>{{ site.url }}blog/</loc>
+    <loc>{{ site.url }}/blog/</loc>
   </url>
   <url>
-    <loc>{{ site.url }}ru/blog/</loc>
+    <loc>{{ site.url }}/ru/blog/</loc>
   </url>
   <url>
-    <loc>{{ site.url }}blog/archive/</loc>
+    <loc>{{ site.url }}/blog/archive/</loc>
   </url>
   <url>
-    <loc>{{ site.url }}ru/blog/archive/</loc>
+    <loc>{{ site.url }}/ru/blog/archive/</loc>
   </url>
 {% for post in site.posts %}
   <url>
@@ -45,17 +45,17 @@ projects:
   </url>
 {% endfor %}
   <url>
-    <loc>{{ site.url }}projects/</loc>
+    <loc>{{ site.url }}/projects/</loc>
   </url>
   <url>
-    <loc>{{ site.url }}ru/projects/</loc>
+    <loc>{{ site.url }}/ru/projects/</loc>
   </url>
 {% for proj in page.projects %}
   <url>
-    <loc>{{ site.url }}projects/{{ proj }}/</loc>
+    <loc>{{ site.url }}/projects/{{ proj }}/</loc>
   </url>
   <url>
-    <loc>{{ site.url }}ru/projects/{{ proj }}/</loc>
+    <loc>{{ site.url }}/ru/projects/{{ proj }}/</loc>
   </url>
 {% endfor %}
 </urlset>

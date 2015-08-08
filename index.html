@@ -34,7 +34,7 @@ title: arcanis' homepage
       if (window.location.replace) window.location.replace(dest)
       else window.location=dest
     }
-    if (document.referrer != "{{ site.url }}ru/") {
+    if (document.referrer != "{{ site.url }}/ru/") {
       var languageinfo=navigator.language? navigator.language : navigator.userLanguage
       if (languageinfo.substr(0,2) == "ru") redirectpage("/ru/")
     }
