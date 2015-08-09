@@ -1,7 +1,7 @@
 source:      .
-destination: ./_site
-plugins:     ./_plugins
-layouts:     ./_layouts
+destination: _site
+plugins:     _plugins
+layouts:     _layouts
 include:     ['.htaccess']
 exclude:     ['.gitignore','Gemfile','Gemfile.lock','README.md']
 keep_files:  ['.git','.svn']
