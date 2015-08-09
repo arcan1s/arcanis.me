@@ -123,7 +123,7 @@ sudo make install
   </tr>
   <tr>
     <th>PLAYER</th>
-    <td>Устанавливает музыкальный плеер. Поддерживаемые плееры: mpd и с поддержкой MPRIS/DBus.</td>
+    <td>Устанавливает музыкальный плеер. Поддерживаемые плееры: mpd и с поддержкой MPRIS/DBus. <code>disable</code> отключит данный монитор.</td>
   </tr>
 </table>
 
@@ -162,6 +162,19 @@ sudo make install
   <tr>
     <td><code>$cuptime</code></td>
     <td>Cпециальный формат аптайма.</td>
+  </tr>
+  <tr>
+    <th rowspan="3">Средняя загрузка</th>
+    <td><code>$la1</code></td>
+    <td>Средняя загрузка за 1 минуту, <code>-----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$la5</code></td>
+    <td>Средняя загрузка за 5 минут, <code>-----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$la15</code></td>
+    <td>Средняя загрузка за 15 минут, <code>-----</code>.</td>
   </tr>
   <tr>
     <th rowspan="2">CPU</th>
@@ -397,17 +410,62 @@ sudo make install
     <td>Общее число рабочих столов.</td>
   </tr>
   <tr>
-    <th rowspan="3">Котировки</th>
+    <th rowspan="9">Котировки</th>
     <td><code>$askN</code></td>
     <td>Получить аск по тикеру N. Например, <code>$ask0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$askchgN</code></td>
+    <td>Абсолютное изменение аск по тикеру N. Например, <code>$askchg0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$percaskchgN</code></td>
+    <td>Изменение аск по тикеру N, %. Например, <code>$percaskchg0</code>.</td>
   </tr>
   <tr>
     <td><code>$bidN</code></td>
     <td>Получить бид по тикеру N. Например, <code>$bid0</code>.</td>
   </tr>
   <tr>
+    <td><code>$bidchgN</code></td>
+    <td>Абсолютное изменение бид по тикеру N. Например, <code>$bidchg0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$percbidchgN</code></td>
+    <td>Изменение бид по тикеру N, %. Например, <code>$percbidchg0</code>.</td>
+  </tr>
+  <tr>
     <td><code>$priceN</code></td>
-    <td>Получить среднее между бидом и аском по тикеру N. Например, <code>$price0</code>.</td>
+    <td>Получить цену по тикеру N. Например, <code>$price0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$pricechgN</code></td>
+    <td>Абсолютное изменение цены по тикеру N. Например, <code>$pricechg0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$percpricechgN</code></td>
+    <td>Изменение цены по тикеру N, %. Например, <code>$percpricechg0</code>.</td>
+  </tr>
+  <tr>
+    <th rowspan="5">Погода</th>
+    <td><code>$weatherIdN</code></td>
+    <td>Численное ID погоды. Например <code>$weatherId0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$weatherN</code></td>
+    <td>UTF символ для соответствующего ID. Например <code>$weather0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$humidityN</code></td>
+    <td>Влажность, %. Например <code>$humidity0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$pressureN</code></td>
+    <td>Давление, бар. Например <code>$pressure0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$temperatureN</code></td>
+    <td>Температура. Humidity <code>$temperature0</code>.</td>
   </tr>
 </table>
 

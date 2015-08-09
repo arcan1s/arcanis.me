@@ -122,7 +122,7 @@ sudo make install
   </tr>
   <tr>
     <th>PLAYER</th>
-    <td>Set music player. Supported players are mpd and MPRIS/DBus supported.</td>
+    <td>Set music player. Supported players are mpd and MPRIS/DBus supported. <code>disable</code> will disable this monitor.</td>
   </tr>
 </table>
 
@@ -163,7 +163,20 @@ sudo make install
     <td>Will enable custom uptime format.</td>
   </tr>
   <tr>
-    <th rowspan="2">CPU label</th>
+    <th rowspan="3">Load average</th>
+    <td><code>$la1</code></td>
+    <td>Load average over 1 min, <code>-----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$la5</code></td>
+    <td>Load average over 5 min, <code>-----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$la15</code></td>
+    <td>Load average over 15 min, <code>-----</code>.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">CPU</th>
     <td><code>$cpu</code></td>
     <td>Total load CPU, %, <code>-----</code>.</td>
   </tr>
@@ -396,17 +409,62 @@ sudo make install
     <td>Total number of desktops.</td>
   </tr>
   <tr>
-    <th rowspan="3">Quotes</th>
+    <th rowspan="9">Quotes</th>
     <td><code>$askN</code></td>
     <td>Get ask for ticker N. For example <code>$ask0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$askchgN</code></td>
+    <td>Get absolute ask change for ticker N. For example <code>$askchg0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$percaskchgN</code></td>
+    <td>Get ask change for ticker N, %. For example <code>$percaskchg0</code>.</td>
   </tr>
   <tr>
     <td><code>$bidN</code></td>
     <td>Get bid for ticker N. For example <code>$bid0</code>.</td>
   </tr>
   <tr>
+    <td><code>$bidchgN</code></td>
+    <td>Get absolute bid change for ticker N, %. For example <code>$bidchg0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$percbidchgN</code></td>
+    <td>Get bid change for ticker N. For example <code>$percbidchg0</code>.</td>
+  </tr>
+  <tr>
     <td><code>$priceN</code></td>
-    <td>Get average between bid and ask for ticker N. For example <code>$price0</code>.</td>
+    <td>Get price for ticker N. For example <code>$price0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$pricechgN</code></td>
+    <td>Get absolute price change for ticker N. For example <code>$pricechg0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$percaskchgN</code></td>
+    <td>Get price change for ticker N, %. For example <code>$percpricechg0</code>.</td>
+  </tr>
+  <tr>
+    <th rowspan="5">Weather</th>
+    <td><code>$weatherIdN</code></td>
+    <td>Numerical weather ID. For example <code>$weatherId0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$weatherN</code></td>
+    <td>UTF symbol for weather ID. For example <code>$weather0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$humidityN</code></td>
+    <td>Humidity, %. For example <code>$humidity0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$pressureN</code></td>
+    <td>Pressure, bars. For example <code>$pressure0</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$temperatureN</code></td>
+    <td>Temperature. For example <code>$temperature0</code>.</td>
   </tr>
 </table>
 
@@ -547,7 +605,7 @@ sudo make install
 
 <p><b>MPRIS:</b> Select MPRIS player name. <code>auto</code> will enable auto selection. Default is <code>auto</code>.</p>
 
-<p><b>Music player:</b> Select one of supported music playes for player label.</p>
+<p><b>Music player:</b> Select one of supported music players for player label.</p>
 
 <h3><a href="#desktoppanel" class="anchor" id="desktoppanel"><span class="octicon octicon-link"></span></a>Desktop Panel</h3>
 <p>Since version 1.11.0 it provides a minimalistic panel for monitoring on desktops written on <code>C++</code>. And yes, it looks like the same panel in Awesome.</p>

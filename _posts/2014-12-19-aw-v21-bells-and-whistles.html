@@ -75,6 +75,12 @@ description: The paper deals with settings of a custom scripts and graphical bar
     <td>width, pixels</td>
     <td>100</td>
   </tr>
+  <tr>
+    <th>X-AW-Number</th>
+    <td>yes</td>
+    <td>unique number which will be associated with the bar. The property has been introduced to provide compatibility with others items. Should be the same as number in Name is</td>
+    <td>number from Name</td>
+  </tr>
 </table>
 
 <h2><a href="#quotes" class="anchor" id="quotes"><span class="octicon octicon-link"></span></a>Quotes</h2>
@@ -156,7 +162,7 @@ description: The paper deals with settings of a custom scripts and graphical bar
   <tr>
     <th>X-AW-Prefix</th>
     <td>no</td>
-    <td>prefix to executable file. Usually it's not required, but in other you may want to specify interpretor for example.</td>
+    <td>prefix to executable file. Usually it's not required, but in other you may want to specify interpretor for example</td>
     <td></td>
   </tr>
   <tr>
@@ -247,6 +253,66 @@ description: The paper deals with settings of a custom scripts and graphical bar
     <th>X-AW-Number</th>
     <td>yes</td>
     <td>unique number which will be associated with the upgrade script</td>
+    <td>random number which is less than 1000</td>
+  </tr>
+</table>
+
+<h2><a href="#weather" class="anchor" id="weather"><span class="octicon octicon-link"></span></a>Weather</h2>
+<p>Weathers are stored in the two directories: <code>/usr/share/awesomewidgets/weather/</code> and <code>$HOME/.local/share/awesomewidgets/weather/</code> (path may be differ in depend from your distro). Settings in the home directory have a higher priority that global ones. The weather uses data and API from <a href="http://openweathermap.org/" title="OpenWeatherMap site">OpenWeatherMap</a>. Configuration files have the following fields:</p>
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Required</th>
+    <th>Value</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td>yes</td>
+    <td>weather name</td>
+    <td>none</td>
+  </tr>
+  <tr>
+    <th>Comment</th>
+    <td>no</td>
+    <td>comment</td>
+    <td>empty</td>
+  </tr>
+  <tr>
+    <th>X-AW-City</th>
+    <td>yes</td>
+    <td>City</td>
+    <td>London</td>
+  </tr>
+  <tr>
+    <th>X-AW-Country</th>
+    <td>yes</td>
+    <td>Two-letter country code</td>
+    <td>uk</td>
+  </tr>
+  <tr>
+    <th>X-AW-TS</th>
+    <td>yes</td>
+    <td>Time to which weather should be. <code>0</code> is a current weather, <code>1</code> - weather 3 hours later, etc</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <th>X-AW-Active</th>
+    <td>no</td>
+    <td>whether or not the monitor is active</td>
+    <td>true</td>
+  </tr>
+  <tr>
+    <th>X-AW-Interval</th>
+    <td>no</td>
+    <td>update interval in standard widget intervals</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th>X-AW-Number</th>
+    <td>да</td>
+    <td>unique number which will be associated with the upgrade weather</td>
     <td>random number which is less than 1000</td>
   </tr>
 </table>
