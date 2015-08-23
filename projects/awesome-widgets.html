@@ -19,8 +19,9 @@ links:
     - DataEngine page on <a href="http://kde-look.org/content/show.php/Extended+Systemmonitor+DataEngine?content=158773" title="kde-look">kde-look.org</a>
     - Archlinux <a href="https://aur.archlinux.org/packages/kdeplasma-applets-awesome-widgets" title="AUR">AUR package</a>
     - <a href="http://software.opensuse.org/package/plasma5-awesome-widgets" title="openSUSE">openSUSE package</a> (thanks to Kott)
+    - <a href="https://github.com/arcan1s/awesome-widgets/releases" title="Ubuntu">Ubuntu package</a>
     - <a href="/en/2014/09/04/migration-to-v2/" title="Migration">Migration to version 2.0</a>
-    - <a href="/en/2014/12/19/aw-v21-bells-and-whistles/" title="Scripts and bars">Scripts and bars</a>
+    - <a href="/en/2014/12/19/aw-v21-bells-and-whistles/" title="ExtItems">Extensions</a>
 ---
 <!-- info block -->
 <h2><a href="#information" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Information</h2>
@@ -61,16 +62,15 @@ make
 sudo make install
 {% endhighlight %}
 
-  <b>NOTE:</b> on Plasma 5 it may require <code>-DKDE_INSTALL_USE_QT_SYS_PATHS=ON</code> flag
+  <b>NOTE:</b> on Plasma 5 it very likely require <code>-DKDE_INSTALL_USE_QT_SYS_PATHS=ON</code> flag
   </li>
 </ul>
 
 <h3><a href="#dependencies" class="anchor" id="dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
 <p>I want note that all were tested on latest version of dependencies.</p>
 <ul>
-  <li>kdebase-workspace (<i>if KDE4 is used</i>) <b>or</b> plasma-framework (<i>if KF5 is used</i>)</li>
-  <li>lm_sensors (<i>KDE4 build only</i>)</li>
-  <li>automoc4 (<i>if KDE4 is used</i>) <b>or</b> extra-cmake-modules (<i>if KF5 is used</i>) <i>(make)</i></li>
+  <li>plasma-framework</li>
+  <li>extra-cmake-modules <i>(make)</i></li>
   <li>cmake <i>(make)</i></li>
   <li>hddtemp <b>or</b> smartmontools <i>(optional, for HDD temperature monitor)</i></li>
   <li>one of supported music player <i>(optional, for music player monitor)</i></li>
@@ -84,8 +84,6 @@ sudo make install
 
 <h3><a href="#tips" class="anchor" id="tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
 <p>You may use different colors for labels. Just put label text into html code. See <a href="https://github.com/arcan1s/awesome-widgets/issues/9" title="GitHub">issue</a> for more details.</p>
-
-<p><i><font color="#FF0000">KDE4</font></i> Numbering of elements of temperature, HDD usage, HDD speed, HDD temperature refers to elements order from second tab (<i>Advanced settings</i>). You should select an item to the required listWidget first. And the first selected element in the listWidget will be <code>$tag0</code>. See <a href="https://github.com/arcan1s/awesome-widgets/issues/17" title="GitHub">issue</a> for more details.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
@@ -318,21 +316,53 @@ sudo make install
     <td>Temperature for HDD N, <code>----</code>. For example <code>$hddtemp0</code>. <code>hddtemp</code> must be installed.</td>
   </tr>
   <tr>
-    <th rowspan="5">Network</th>
+    <th rowspan="13">Network</th>
     <td><code>$down</code></td>
+    <td>Download speed for active device, KB/s or MB/s, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$downkb</code></td>
     <td>Download speed for active device, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
+    <td><code>$downunits</code></td>
+    <td>Download speed units for active device, <code>----</code>.</td>
+  </tr>
+  <tr>
     <td><code>$downN</code></td>
+    <td>Download speed for device N, KB/s or MB/s, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$downkbN</code></td>
     <td>Download speed for device N, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
+    <td><code>$downunitsN</code></td>
+    <td>Download speed units for device N, <code>----</code>.</td>
+  </tr>
+  <tr>
     <td><code>$up</code></td>
+    <td>Upload speed for active device, KB/s or MB/s, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$upkb</code></td>
     <td>Upload speed for active device, KB/s, <code>----</code>.</td>
   </tr>
   <tr>
+    <td><code>$upunits</code></td>
+    <td>Upload speed units for active device, <code>----</code>.</td>
+  </tr>
+  <tr>
     <td><code>$upN</code></td>
+    <td>Upload speed for device N, KB/s or MB/s, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$upkbN</code></td>
     <td>Upload speed for device N, KB/s, <code>----</code>.</td>
+  </tr>
+  <tr>
+    <td><code>$upunitsN</code></td>
+    <td>Upload speed units for device N, <code>----</code>.</td>
   </tr>
   <tr>
     <td><code>$netdev</code></td>
@@ -468,10 +498,54 @@ sudo make install
   </tr>
 </table>
 
-<h4><a href="#advanced" class="anchor" id="advanced"><span class="octicon octicon-link"></span></a>Advanced settings</h4>
-<p><b>Enable background:</b> Uncheck to disable default background and set transparent one.</p>
+<h4><a href="#lambda" class="anchor" id="lambda"><span class="octicon octicon-link"></span></a>Lambda functions</h4>
+<p>Since version 2.4.1 the main widgets supports lambda functions, which are calculated at runtime. It may be declared by using <code>$&#123;&#123; &#125;&#125;</code> construction, e.g.:</p>
 
-<p><b>Enable popup:</b> Uncheck box if you do not want popup messages on system events.</p>
+{% highlight javascript %}
+{% raw %}${{{% endraw %}
+function three()
+{
+    return 1+2;
+}
+three()
+{% raw %}}}{% endraw %}
+{% endhighlight %}
+
+<p>A functions inside will be interpret as JavaScript ones, any variables from main body is supported, e.g.:</p>
+
+{% highlight javascript %}
+{% raw %}${{{% endraw %}
+function colorCpu()
+{
+    if ($cpu > 90.0)
+        return "<span style=\"color:#ff0000;\">$cpu</span>"
+    else
+        return "$cpu"
+}
+colorCpu()
+{% raw %}}}{% endraw %}
+{% endhighlight %}
+
+<p>will show <code>$cpu</code> value in red if it is more than 90.0, otherwise it will be shown in default colour. Any calculations are also supported, e.g.:</p>
+
+{% highlight javascript %}
+{% raw %}${{{% endraw %}
+$down - $up
+{% raw %}}}{% endraw %}
+{% endhighlight %}
+
+<p>will show difference between download and upload speed. Thus this feature may be used for example to show any custom values which will be calculated in runtime and to show different information depending on some conditions. But please keep in mind that such runtime calculation may increase CPU load.</p>
+
+<h4><a href="#advanced" class="anchor" id="advanced"><span class="octicon octicon-link"></span></a>Advanced settings</h4>
+<p><b>Widget height:</b> Disable automatic widget height definition and set it to this value. Default is <code>0</code> (auto).</p>
+
+<p><b>Widget width:</b> Disable automatic widget width definition and set it to this value. Default is <code>0</code> (auto).</p>
+
+<p><b>Enable background:</b> Uncheck to disable default background and set transparent one. Default is <code>true</code>.</p>
+
+<p><b>Wrap new lines:</b> Replace <code>\n</code> to <code><br></code>. Default is <code>false</code>.</p>
+
+<p><b>Enable popup:</b> Uncheck box if you do not want popup messages on system events. Default is <code>true</code>.</p>
 
 <p><b>Custom time format:</b></p>
 <table>
@@ -524,6 +598,14 @@ sudo make install
     <td>Hours without zero.</td>
   </tr>
   <tr>
+    <td><code>$HH</code></td>
+    <td>Hours in 24-hours format.</td>
+  </tr>
+  <tr>
+    <td><code>$H</code></td>
+    <td>Hours in 24-hours format without zero.</td>
+  </tr>
+  <tr>
     <td><code>$mm</code></td>
     <td>Minutes.</td>
   </tr>
@@ -538,6 +620,18 @@ sudo make install
   <tr>
     <td><code>$s</code></td>
     <td>Seconds without zero.</td>
+  </tr>
+  <tr>
+    <td><code>$t</code></td>
+    <td>Timezone name.</td>
+  </tr>
+  <tr>
+    <td><code>$a</code>/<code>$ap</code></td>
+    <td>am or pm.</td>
+  </tr>
+  <tr>
+    <td><code>$A</code>/<code>$AP</code></td>
+    <td>AM or PM.</td>
   </tr>
 </table>
 
@@ -571,24 +665,16 @@ sudo make install
 
 <p><b>Temperature units:</b> Select units for temperature. Available units are Celsius, Farenheit, Kelvin, Reaumur, cm^-1, kJ/mol, kcal/mol.</p>
 
-<p><i><font color="#FF0000">KDE4</font></i> <b>Temperature devices:</b> List of devices, which will be observed in temperature label (combo box items come from <code>sensors</code>). List widget is editable.</p>
-
-<p><i><font color="#FF0000">KDE4</font></i> <b>Mount points:</b> List of mount points, which will be observed in HDD label (combo box items come from <code>mount</code>). List widget is editable.</p>
-
-<p><i><font color="#FF0000">KDE4</font></i> <b>HDDs (speed):</b> List of hard disk devices, which will be observed in HDD speed label (combo box items come from DataEngine). List widget is editable.</p>
-
-<p><i><font color="#FF0000">KDE4</font></i> <b>HDDs (temperature):</b> List of hard disk devices, which will be observed in HDD temperature label (combo box items come from <code>find</code>). List widget is editable.</p>
-
-<p><i><font color="#FF0000">KDE4</font></i> <b>Network device:</b> Use specified device as active. This option will disable auto select network device.</p>
-
 <p><b>AC online tag:</b> Line which will be shown when AC is online. Default is <code>(*)</code>.</p>
 
 <p><b>AC offline tag:</b> Line which will be shown when AC is offline. Default is <code>( )</code>.</p>
 
 <p><b>Check updates:</b> Check updates on load. Default is <code>true</code>.</p>
 
+<p><b>Translate strings:</b> Translate strings tags. Default is <code>true</code>.</p>
+
 <h4><a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Tooltips</h4>
-<p>Since version 1.7.0 CPU, CPU clock, memory, swap, network and battery support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colors of graphs are configurable too.</p>
+<p>Since version 1.7.0 CPU, CPU clock, memory, swap, network and battery support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colours of graphs are configurable too.</p>
 
 <h4><a href="#deguiconf" class="anchor" id="deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
 <p><b>ACPI path:</b> Path to ACPI devices. The file <code>/sys/class/power_supply/</code>.</p>
@@ -597,7 +683,7 @@ sudo make install
 
 <p><b>HDD:</b> Select one of HDDs for HDD temperature monitor. <code>all</code> will enable monitor for all devices, <code>disable</code> will disable HDD temperature monitor. Default is <code>all</code>.</p>
 
-<p><b>hddtemp cmd:</b> Type a command which will be run for hddtemp DataEngine. Default is <code>sudo hddtemp</code>.</p>
+<p><b>hddtemp cmd:</b> Type a command which will be run for hddtemp DataEngine. Default is <code>sudo smartctl -a</code>.</p>
 
 <p><b>MPD address:</b> Address of MPD server. Default is <code>localhost</code>.</p>
 
@@ -611,15 +697,19 @@ sudo make install
 <p>Since version 1.11.0 it provides a minimalistic panel for monitoring on desktops written on <code>C++</code>. And yes, it looks like the same panel in Awesome.</p>
 
 <h4><a href="#dpconf" class="anchor" id="dpconf"><span class="octicon octicon-link"></span></a>Desktop panel configuration</h4>
-<p><b>Enable background: </b> Uncheck to disable default background and set transparent one.</p>
+<p><b>Widget height:</b> Disable automatic widget height definition and set it to this value. Default is <code>0</code> (auto).</p>
 
-<p><b>Vertical layout:</b> Use vertical layout instead of horizontal one.</p>
+<p><b>Widget width:</b> Disable automatic widget width definition and set it to this value. Default is <code>0</code> (auto).</p>
 
 <p><b>Enable tooltip:</b> Check to enable preview on selected destkop. Default is <code>true</code>. Also you show specify type of preview, default is <code>windows</code>.</p>
 
 <p><b>Tooltip width:</b> Using tooltip width in px. Default is <code>200px</code>.</p>
 
-<p><b>Color of window borders:</b> Color of window contours which are used in "Contours preview". Default is <code>#ffffff</code>.</p>
+<p><b>Color of tooltip:</b> Color which is used in some tooltip types. Default is <code>#ffffff</code>.</p>
+
+<p><b>Enable background: </b> Uncheck to disable default background and set transparent one. Default is <code>true</code>.</p>
+
+<p><b>Vertical layout:</b> Use vertical layout instead of horizontal one. Default is <code>false</code>.</p>
 
 <p><b>Mark:</b> Type symbol (or string) which will be shown if this desktop is active now.</p>
 
@@ -642,8 +732,6 @@ sudo make install
     <td>Total number of desktops.</td>
   </tr>
 </table>
-
-<p><i><font color="#FF0000">KDE4</font> (see <a href="http://mail.kde.org/pipermail/plasma-devel/2015-February/039027.html" title="Mailing list">this thread</a>)</i> <b>Panel toggle:</b> Select panels which will be set hidden on hotkey.</p>
 <!-- end of config block -->
 
 <!-- gui block -->
