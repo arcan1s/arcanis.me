@@ -11,8 +11,11 @@ description: The paper deals with settings of a custom scripts and graphical bar
 <h2><a href="#intro" class="anchor" id="intro"><span class="octicon octicon-link"></span></a>Introduction</h2>
 <p>For a start it is highly recommended copy file <code>$HOME/.kde4/share/config/extsysmon.conf</code> after widget update before you open widget settings, because old and new script settings are incompatible. Also I should note that these features can be configured from graphical interface, but I will describe how it can be done by simply editing the desktop file.</p>
 
+<h2><a href="#general" class="anchor" id="general"><span class="octicon octicon-link"></span></a>General</h2>
+<p>Items are stored in the two directories: <code>/usr/share/awesomewidgets/%TYPE%/</code> and <code>$HOME/.local/share/awesomewidgets/%TYPE%/</code> (path may be differ in depend from your distro). Settings in the home directory have a higher priority that global ones.</p>
+
 <h2><a href="#bars" class="anchor" id="bars"><span class="octicon octicon-link"></span></a>Bars</h2>
-<p>Bars are stored in the two directories: <code>/usr/share/awesomewidgets/desktops/</code> and <code>$HOME/.local/share/awesomewidgets/desktops/</code> (path may be differ in depend from your distro). Settings in the home directory have a higher priority that global ones. Configuration files have the following fields:</p>
+<p>Directory is <code>desktops</code>, configuration files have the following fields:</p>
 
 <table>
   <tr>
@@ -84,7 +87,7 @@ description: The paper deals with settings of a custom scripts and graphical bar
 </table>
 
 <h2><a href="#quotes" class="anchor" id="quotes"><span class="octicon octicon-link"></span></a>Quotes</h2>
-<p>Quotes are stored in the two directories: <code>/usr/share/awesomewidgets/quotes/</code> and <code>$HOME/.local/share/awesomewidgets/quotes/</code> (path may be differ in depend from your distro). Settings in the home directory have a higher priority that global ones. Configuration files have the following fields:</p>
+<p>Directory is <code>quotes</code>, configuration files have the following fields:</p>
 
 <table>
   <tr>
@@ -132,7 +135,7 @@ description: The paper deals with settings of a custom scripts and graphical bar
 </table>
 
 <h2><a href="#scripts" class="anchor" id="scripts"><span class="octicon octicon-link"></span></a>Scripts</h2>
-<p>Scripts are stored in the two directories: <code>/usr/share/awesomewidgets/scripts/</code> and <code>$HOME/.local/share/awesomewidgets/scripts/</code> (path may be differ in depend from your distro). Settings in the home directory have a higher priority that global ones. Configuration files have the following fields:</p>
+<p>Directory is <code>scripts</code>, configuration files have the following fields:</p>
 
 <table>
   <tr>
@@ -204,7 +207,7 @@ description: The paper deals with settings of a custom scripts and graphical bar
 </table>
 
 <h2><a href="#upgrade" class="anchor" id="upgrade"><span class="octicon octicon-link"></span></a>Upgrade</h2>
-<p>Scripts are stored in the two directories: <code>/usr/share/awesomewidgets/upgrade/</code> and <code>$HOME/.local/share/awesomewidgets/upgrade/</code> (path may be differ in depend from your distro). Settings in the home directory have a higher priority that global ones. Configuration files have the following fields:</p>
+<p>Directory is <code>upgrade</code>, configuration files have the following fields:</p>
 
 <table>
   <tr>
@@ -264,7 +267,7 @@ description: The paper deals with settings of a custom scripts and graphical bar
 </table>
 
 <h2><a href="#weather" class="anchor" id="weather"><span class="octicon octicon-link"></span></a>Weather</h2>
-<p>Weathers are stored in the two directories: <code>/usr/share/awesomewidgets/weather/</code> and <code>$HOME/.local/share/awesomewidgets/weather/</code> (path may be differ in depend from your distro). Settings in the home directory have a higher priority that global ones. The weather uses data and API from <a href="http://openweathermap.org/" title="OpenWeatherMap site">OpenWeatherMap</a>. Configuration files have the following fields:</p>
+<p>The weather uses data and API from <a href="http://openweathermap.org/" title="OpenWeatherMap site">OpenWeatherMap</a>. Directory is <code>weather</code>, configuration files have the following fields:</p>
 
 <table>
   <tr>
