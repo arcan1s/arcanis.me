@@ -14,6 +14,7 @@ developers:
     - underr (перевод на бразильский португальский)
     - Виктор Слободян (перевод на украинский)
     - Lemueler (перевод на китайский)
+    - Heimen Stoffels (перевод на голландский)
 license: GPLv3
 links:
     - Страница плазмоида на <a href="http://kde-look.org/content/show.php/Awesome+Widgets?content=157124" title="kde-look">kde-look.org</a>
@@ -26,7 +27,7 @@ links:
 ---
 <!-- info block -->
 <h2><a href="#information" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p>Набор минималистичных пламоидов, написанных на <code>CPP</code>. Они выглядят, как виджеты в <a href="http://awesome.naquadah.org/" title="Домашняя страница Awesome">Awesome WM</a>. Мои плазмоиды хорошо и легко настраиваются и не засоряют Ваш KDE. Также данный пакет имеет дополнительный <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines" title="Мануал для разработчиков">DataEngine</a>, который написан на <code>CPP</code> (старые версии были написаны на <code>Python2</code>).</p>
+<p>Набор минималистичных легко настраиваемых пламоидов, написанных на <code>C++/Qt</code>. Они выглядят, как виджеты в <a href="http://awesome.naquadah.org/" title="Домашняя страница Awesome">Awesome WM</a>. Также пакет предоставляет дополнительный системный <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines" title="Мануал для разработчиков">DataEngine</a>.</p>
 
 <p><b>ВНИМАНИЕ:</b> <a href="https://github.com/arcan1s/awesome-widgets/issues/14" title="Тикет">НУЖНЫ ПЕРЕВОДЧИКИ!</a></p>
 <p><b>Совместим с Plasma 5!</b></p>
@@ -63,7 +64,7 @@ make
 sudo make install
 {% endhighlight %}
 
-  <b>ВНИМАНИЕ:</b> С Plasma 5, вероятно, потребуется флаг <code>-DKDE_INSTALL_USE_QT_SYS_PATHS=ON</code>
+  <b>ВНИМАНИЕ:</b> Для Plasma 5, вероятно, потребуется флаг <code>-DKDE_INSTALL_USE_QT_SYS_PATHS=ON</code>
   </li>
 </ul>
 
@@ -71,8 +72,8 @@ sudo make install
 <p>Все было протестировано на последних версиях зависимостей.</p>
 <ul>
   <li>plasma-framework</li>
-  <li>extra-cmake-modules <i>(make)</i></li>
   <li>cmake <i>(make)</i></li>
+  <li>extra-cmake-modules <i>(make)</i></li>
   <li>hddtemp <b>или</b> smartmontools <i>(опционально, для контроля за температурой HDD)</i></li>
   <li>один из поддерживаемых музыкальных плееров <i>(опционально, для контроля за музыкальным плеером)</i></li>
   <li>проприетарный видеодрайвер <i>(опционально, для контроля за GPU)</i></li>
@@ -84,7 +85,7 @@ sudo make install
 <p>Откройте список виджетов Plasma и выберете <code>Awesome Widget</code>.</p>
 
 <h3><a href="#tips" class="anchor" id="tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
-<p>Вы можете использовать различные цвета в полях. Просто вставьте нужный текст в html код. Смотри <a href="https://github.com/arcan1s/awesome-widgets/issues/9" title="GitHub">вопрос</a> для более подробной информации.</p>
+<p>Вы можете использовать несколько цветов в тексте. Просто вставьте нужный текст в html код. Смотри <a href="https://github.com/arcan1s/awesome-widgets/issues/9" title="GitHub">вопрос</a> для более подробной информации.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
@@ -109,7 +110,7 @@ sudo make install
   </tr>
   <tr>
     <th>HDDTEMPCMD</th>
-    <td>Команда, которая будет запущена для hddtemp. По умолчанию <code>sudo hddtemp</code>. Поддерживаемые приложения - <code>hddtemp</code> и <code>smartmontools</code>.</td>
+    <td>Команда, которая будет запущена для hddtemp. По умолчанию <code>sudo smartctl -a</code>. Поддерживаемые приложения - <code>hddtemp</code> и <code>smartmontools</code>.</td>
   </tr>
   <tr>
     <th>MPDADDRESS</th>
@@ -126,9 +127,9 @@ sudo make install
 </table>
 
 <h3><a href="#widconf" class="anchor" id="widconf"><span class="octicon octicon-link"></span></a>Настройка виджета</h3>
-<p>Для настройки внешнего вида Вы должны открыть окно настроек и установить требуемый формат. HTML теги обрабатываются корректно.</p>
+<p>Для настройки внешнего вида Вы должны открыть окно настроек и установить требуемый формат текста. HTML теги обрабатываются корректно.</p>
 
-<p>Доступные флаги в таблице ниже.<br>
+<p>Доступные флаги приведены в таблице ниже.<br>
 <b>ЗАМЕЧАНИЕ</b> Нумерация всех массивов в переменных начинается с 0.</p>
 <table>
   <tr>
@@ -150,7 +151,7 @@ sudo make install
   </tr>
   <tr>
     <td><code>$ctime</code></td>
-    <td>Cпециальный формат времени.</td>
+    <td>Специальный формат времени.</td>
   </tr>
   <tr>
     <th rowspan="2">Время работы</th>
@@ -159,7 +160,7 @@ sudo make install
   </tr>
   <tr>
     <td><code>$cuptime</code></td>
-    <td>Cпециальный формат аптайма.</td>
+    <td>Специальный формат аптайма.</td>
   </tr>
   <tr>
     <th rowspan="3">Средняя загрузка</th>
@@ -499,8 +500,8 @@ sudo make install
   </tr>
 </table>
 
-<h4><a href="#lambda" class="anchor" id="lambda"><span class="octicon octicon-link"></span></a>Лябмда функции</h4>
-<p>Начиная с версии 2.4.1 основной виджет поддерживает лямбда выражения, которые рассчитываются в рантайме. Они объявляются использованием конструкции <code>$&#123;&#123; &#125;&#125;</code>, например:</p>
+<h4><a href="#lambda" class="anchor" id="lambda"><span class="octicon octicon-link"></span></a>Лямбда функции</h4>
+<p>Начиная с версии 2.4.1 основной виджет поддерживает лямбда выражения, которые рассчитываются в рантайме. Они объявляются использованием конструкции <code>$&#123;&#123; &#125;&#125;</code>:</p>
 
 {% highlight javascript %}
 {% raw %}${{{% endraw %}
@@ -512,7 +513,7 @@ three()
 {% raw %}}}{% endraw %}
 {% endhighlight %}
 
-<p>Функции внутри будут интерпретированы, как JavaScript, любая переменная из основного набора поддерживается, например:</p>
+<p>Функции внутри будут интерпретированы, как JavaScript, любая переменная из основного набора поддерживается. Так, функция:</p>
 
 {% highlight javascript %}
 {% raw %}${{{% endraw %}
@@ -527,7 +528,7 @@ colorCpu()
 {% raw %}}}{% endraw %}
 {% endhighlight %}
 
-<p>покажет значение <code>$cpu</code> красным, если оно больше 90.0, иначе - покажет цветом по-умолчанию. Также поддерживаются произвольные вычисления, например:</p>
+<p>покажет значение <code>$cpu</code> красным, если оно больше 90.0, иначе - покажет цветом по-умолчанию. Также поддерживаются произвольные вычисления:</p>
 
 {% highlight javascript %}
 {% raw %}${{{% endraw %}
@@ -542,11 +543,11 @@ $down - $up
 
 <p><b>Ширина виджета:</b> Отключит автоматическое определение ширины виджета и установит ее в данное значение. По умолчанию <code>0</code> (автоматически).</p>
 
-<p><b>Заменить символ перевода строки:</b> Заменить <code>\n</code> на <code><br></code>. По умолчанию <code>false</code>.</p>
+<p><b>Заменить символ перевода строки:</b> Заменить <code>\n</code> на <code>&#60;br&#62;</code>. По умолчанию <code>false</code>.</p>
 
 <p><b>Включить фон:</b> Снимите галочку, чтобы отключить стандартный фон виджета и установить прозрачный. По умолчанию <code>true</code>.</p>
 
-<p><b>Включить всплывающие сообщения:</b> Нажмите на чекбокс, если вы не хотите всплывающих сообщений на системные события. По умолчанию <code>true</code>.</p>
+<p><b>Включить всплывающие сообщения:</b> Снимите галочку, если вы не хотите всплывающих сообщений на системные события. По умолчанию <code>true</code>.</p>
 
 <p><b>Свой формат времени:</b></p>
 <table>
@@ -675,7 +676,7 @@ $down - $up
 <p><b>Переводить строки:</b> Переводить или нет строковые теги. По умолчанию <code>true</code>.</p>
 
 <h4><a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Тултипы</h4>
-<p>Начиная с версии 1.7.0, поля CPU, частота CPU, память, swap, сеть и батарея поддерживают графический тултип (всплывающая подсказка). Чтобы включить их, просто сделайте требуемые чекбоксы полностью чекнутыми. Число хранимых значений может быть установлено во вкладке. Цвета графиков настраиваются тоже.</p>
+<p>Начиная с версии 1.7.0, поля CPU, частота CPU, память, swap, сеть и батарея поддерживают графический тултип (всплывающая подсказка). Чтобы включить их, просто поставьте нужные галочки. Число хранимых значений может быть установлено во вкладке. Также есть возможность настроить цвета графиков.</p>
 
 <h4><a href="#deguiconf" class="anchor" id="deguiconf"><span class="octicon octicon-link"></span></a>Настройка DataEngine</h4>
 <p><b>Устройства ACPI:</b> Путь к устройствам ACPI. По умолчанию <code>/sys/class/power_supply/</code>.</p>
@@ -695,7 +696,7 @@ $down - $up
 <p><b>Музыкальный плеер:</b> Выберете один из поддерживаемых музыкальных плееров для соответствующего поля.</p>
 
 <h3><a href="#desktoppanel" class="anchor" id="desktoppanel"><span class="octicon octicon-link"></span></a>Desktop panel</h3>
-<p>Начиная с версии 1.11.0 виджеты предоставляют минималистичную панель для мониторинга за рабочими столами, написанный на <code>C++</code>. И да, он выглядит, как аналогичная панель в Awesome.</p>
+<p>Начиная с версии 1.11.0 виджеты предоставляют панель для мониторинга за рабочими столами. И да, он выглядит, как аналогичная панель в Awesome.</p>
 
 <h4><a href="#dpconf" class="anchor" id="dpconf"><span class="octicon octicon-link"></span></a>Настройка Desktop panel</h4>
 <p><b>Высота виджета:</b> Отключит автоматическое определение высоты виджета и установит ее в данное значение. По умолчанию <code>0</code> (автоматически).</p>

@@ -13,6 +13,7 @@ developers:
     - underr (Brazillian Portuguese translation)
     - Виктор Слободян (Ukrainian translation)
     - Lemueler (Chinese translation)
+    - Heimen Stoffels (Dutch translation)
 license: GPLv3
 links:
     - Plasmoid page on <a href="http://kde-look.org/content/show.php/Awesome+Widgets?content=157124" title="kde-look">kde-look.org</a>
@@ -25,7 +26,7 @@ links:
 ---
 <!-- info block -->
 <h2><a href="#information" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Information</h2>
-<p>A collection  of minimalistic Plasmoids written on <code>CPP</code>. It looks like widgets in <a href="http://awesome.naquadah.org/" title="Awesome Homepage">Awesome WM</a>. My plasmoid is highly and easily configurable and does not clutter your KDE system. Also this packages has an additional <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines" title="Developers tutorial">DataEngine</a> written on <code>CPP</code> (old version was written on <code>Python2</code>).</p>
+<p>A collection  of minimalistic easily configurable Plasmoids written on <code>C++/Qt</code>. They look like widgets in <a href="http://awesome.naquadah.org/" title="Awesome Homepage">Awesome WM</a>. Also this packages has an additional system <a href="http://techbase.kde.org/Development/Tutorials/Plasma/DataEngines" title="Developers tutorial">DataEngine</a>.</p>
 
 <p><b>NOTE:</b> <a href="https://github.com/arcan1s/awesome-widgets/issues/14" title="Ticket">LOOKING FOR TRANSLATORS!</a></p>
 <p><b>PLASMA 5 COMPATIBLE!</b></p>
@@ -70,8 +71,8 @@ sudo make install
 <p>I want note that all were tested on latest version of dependencies.</p>
 <ul>
   <li>plasma-framework</li>
-  <li>extra-cmake-modules <i>(make)</i></li>
   <li>cmake <i>(make)</i></li>
+  <li>extra-cmake-modules <i>(make)</i></li>
   <li>hddtemp <b>or</b> smartmontools <i>(optional, for HDD temperature monitor)</i></li>
   <li>one of supported music player <i>(optional, for music player monitor)</i></li>
   <li>proprietary video driver <i>(optional, for GPU monitor)</i></li>
@@ -83,7 +84,7 @@ sudo make install
 <p>Open your Plasma widgets and select <code>Awesome Widget</code>.</p>
 
 <h3><a href="#tips" class="anchor" id="tips"><span class="octicon octicon-link"></span></a>Tips & tricks</h3>
-<p>You may use different colors for labels. Just put label text into html code. See <a href="https://github.com/arcan1s/awesome-widgets/issues/9" title="GitHub">issue</a> for more details.</p>
+<p>You may use different colours inside. Just put label text into html code. See <a href="https://github.com/arcan1s/awesome-widgets/issues/9" title="GitHub">issue</a> for more details.</p>
 <!-- end of howto block -->
 
 <!-- config block -->
@@ -499,7 +500,7 @@ sudo make install
 </table>
 
 <h4><a href="#lambda" class="anchor" id="lambda"><span class="octicon octicon-link"></span></a>Lambda functions</h4>
-<p>Since version 2.4.1 the main widgets supports lambda functions, which are calculated at runtime. It may be declared by using <code>$&#123;&#123; &#125;&#125;</code> construction, e.g.:</p>
+<p>Since version 2.4.1 the main widgets supports lambda functions, which are calculated at runtime. It may be declared by using <code>$&#123;&#123; &#125;&#125;</code> construction:</p>
 
 {% highlight javascript %}
 {% raw %}${{{% endraw %}
@@ -511,7 +512,7 @@ three()
 {% raw %}}}{% endraw %}
 {% endhighlight %}
 
-<p>A functions inside will be interpret as JavaScript ones, any variables from main body is supported, e.g.:</p>
+<p>A functions inside will be interpret as JavaScript ones, any variables from main body is supported, thus the following function:</p>
 
 {% highlight javascript %}
 {% raw %}${{{% endraw %}
@@ -526,7 +527,7 @@ colorCpu()
 {% raw %}}}{% endraw %}
 {% endhighlight %}
 
-<p>will show <code>$cpu</code> value in red if it is more than 90.0, otherwise it will be shown in default colour. Any calculations are also supported, e.g.:</p>
+<p>will show <code>$cpu</code> value in red if it is more than 90.0, otherwise it will be shown in default colour. Any calculations are also supported:</p>
 
 {% highlight javascript %}
 {% raw %}${{{% endraw %}
@@ -543,7 +544,7 @@ $down - $up
 
 <p><b>Enable background:</b> Uncheck to disable default background and set transparent one. Default is <code>true</code>.</p>
 
-<p><b>Wrap new lines:</b> Replace <code>\n</code> to <code><br></code>. Default is <code>false</code>.</p>
+<p><b>Wrap new lines:</b> Replace <code>\n</code> to <code>&#60;br&#62;</code>. Default is <code>false</code>.</p>
 
 <p><b>Enable popup:</b> Uncheck box if you do not want popup messages on system events. Default is <code>true</code>.</p>
 
@@ -674,7 +675,7 @@ $down - $up
 <p><b>Translate strings:</b> Translate strings tags. Default is <code>true</code>.</p>
 
 <h4><a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Tooltips</h4>
-<p>Since version 1.7.0 CPU, CPU clock, memory, swap, network and battery support graphical tooltip. To enable them just make the needed checkboxes a fully checked. The number of stored values can be set in the tab. Colours of graphs are configurable too.</p>
+<p>Since version 1.7.0 CPU, CPU clock, memory, swap, network and battery support graphical tooltip. To enable them just select required fields. The number of stored values can be set in the tab. Colours of the graphs are configurable too.</p>
 
 <h4><a href="#deguiconf" class="anchor" id="deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings</h4>
 <p><b>ACPI path:</b> Path to ACPI devices. The file <code>/sys/class/power_supply/</code>.</p>
@@ -694,18 +695,18 @@ $down - $up
 <p><b>Music player:</b> Select one of supported music players for player label.</p>
 
 <h3><a href="#desktoppanel" class="anchor" id="desktoppanel"><span class="octicon octicon-link"></span></a>Desktop Panel</h3>
-<p>Since version 1.11.0 it provides a minimalistic panel for monitoring on desktops written on <code>C++</code>. And yes, it looks like the same panel in Awesome.</p>
+<p>Since version 1.11.0 it provides a minimalistic panel for monitoring on desktops. And yes, it looks like the same panel in Awesome.</p>
 
 <h4><a href="#dpconf" class="anchor" id="dpconf"><span class="octicon octicon-link"></span></a>Desktop panel configuration</h4>
 <p><b>Widget height:</b> Disable automatic widget height definition and set it to this value. Default is <code>0</code> (auto).</p>
 
 <p><b>Widget width:</b> Disable automatic widget width definition and set it to this value. Default is <code>0</code> (auto).</p>
 
-<p><b>Enable tooltip:</b> Check to enable preview on selected destkop. Default is <code>true</code>. Also you show specify type of preview, default is <code>windows</code>.</p>
+<p><b>Enable tooltip:</b> Check to enable preview on selected desktop. Default is <code>true</code>. Also you show specify type of preview, default is <code>windows</code>.</p>
 
 <p><b>Tooltip width:</b> Using tooltip width in px. Default is <code>200px</code>.</p>
 
-<p><b>Color of tooltip:</b> Color which is used in some tooltip types. Default is <code>#ffffff</code>.</p>
+<p><b>Color of tooltip:</b> Colour which is used in some tooltip types. Default is <code>#ffffff</code>.</p>
 
 <p><b>Enable background: </b> Uncheck to disable default background and set transparent one. Default is <code>true</code>.</p>
 
