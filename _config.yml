@@ -29,7 +29,7 @@ port:        4000
 baseurl:     /
 url:         https://arcanis.name
 enforce_ssl: arcanis.name
-lsi:         true
+lsi:         false
 
 maruku:
   use_tex:    false
