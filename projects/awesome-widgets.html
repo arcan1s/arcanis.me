@@ -123,6 +123,10 @@ sudo make install
     <th>PLAYER</th>
     <td>Set music player. Supported players are mpd and MPRIS/DBus supported. <code>disable</code> will disable this monitor.</td>
   </tr>
+  <tr>
+    <th>PLAYERSYMBOLS</th>
+    <td>Select symbols count for dynamic player tags. Default is <code>10</code>.</td>
+  </tr>
 </table>
 
 <h3><a href="#widconf" class="anchor" id="widconf"><span class="octicon octicon-link"></span></a>Widget configuration</h3>
@@ -388,8 +392,24 @@ sudo make install
     <td>Current song album. One of supported music players must be installed.</td>
   </tr>
   <tr>
+    <td><code>$dalbum</code></td>
+    <td>Current song album with fixed symbols count shown as a running line.</td>
+  </tr>
+  <tr>
+    <td><code>$salbum</code></td>
+    <td>Current song album with fixed symbols count shown with three dots at the end.</td>
+  </tr>
+  <tr>
     <td><code>$artist</code></td>
     <td>Current song artist. One of supported music players must be installed.</td>
+  </tr>
+  <tr>
+    <td><code>$dartist</code></td>
+    <td>Current song artist with fixed symbols count shown as a running line.</td>
+  </tr>
+  <tr>
+    <td><code>$sartist</code></td>
+    <td>Current song artist with fixed symbols count shown with three dots at the end.</td>
   </tr>
   <tr>
     <td><code>$duration</code></td>
@@ -402,6 +422,14 @@ sudo make install
   <tr>
     <td><code>$title</code></td>
     <td>Current song title. One of supported music players must be installed.</td>
+  </tr>
+  <tr>
+    <td><code>$dtitle</code></td>
+    <td>Current song title with fixed symbols count shown as a running line.</td>
+  </tr>
+  <tr>
+    <td><code>$stitle</code></td>
+    <td>Current song title with fixed symbols count shown with three dots at the end.</td>
   </tr>
   <tr>
     <th rowspan="3">Process</th>
@@ -693,6 +721,8 @@ $down - $up
 <p><b>MPRIS:</b> Select MPRIS player name. <code>auto</code> will enable auto selection. Default is <code>auto</code>.</p>
 
 <p><b>Music player:</b> Select one of supported music players for player label.</p>
+
+<p><b>Player symbol count:</b> Symbol count for dynamic player tags.</p>
 
 <h3><a href="#desktoppanel" class="anchor" id="desktoppanel"><span class="octicon octicon-link"></span></a>Desktop Panel</h3>
 <p>Since version 1.11.0 it provides a minimalistic panel for monitoring on desktops. And yes, it looks like the same panel in Awesome.</p>
