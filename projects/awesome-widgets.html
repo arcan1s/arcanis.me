@@ -563,7 +563,23 @@ $down - $up
 {% raw %}}}{% endraw %}
 {% endhighlight %}
 
-<p>will show difference between download and upload speed. Thus this feature may be used for example to show any custom values which will be calculated in runtime and to show different information depending on some conditions. But please keep in mind that such runtime calculation may increase CPU load.</p>
+<p>will show difference between download and upload speed. Another feature provided by lambda functions is <code>$this</code> value which returns the last value of the lambda function. Here is a little more complicated example which will show running line "Artist - Title" with length less or equal than 20 symbols:</p>
+
+{% highlight javascript %}
+{% raw %}${{{% endraw %}
+function runningLine() {
+    var current = "$artist - $title";
+    var index = current.indexOf("$this");
+    if (("$this" == "") || ((index + 20 + 1) > current.length))
+        return current.substring(0, 20);
+    else
+        return current.substring(index + 1, index + 20 + 1);
+}
+runningLine()
+{% raw %}}}{% endraw %}
+{% endhighlight %}
+
+<p>Thus this feature may be used for example to show any custom values which will be calculated in runtime and to show different information depending on some conditions. But please keep in mind that such runtime calculation may increase CPU load.</p>
 
 <h4><a href="#advanced" class="anchor" id="advanced"><span class="octicon octicon-link"></span></a>Advanced settings</h4>
 <p><b>Widget height:</b> Disable automatic widget height definition and set it to this value. Default is <code>0</code> (auto).</p>
