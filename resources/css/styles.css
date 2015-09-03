@@ -131,6 +131,22 @@ figure.img figcaption {
   font-style: normal;
 }
 
+h1 .octicon-link, h2 .octicon-link, h3 .octicon-link, h4 .octicon-link, h5 .octicon-link, h6 .octicon-link {
+	display: none;
+	color: #222222;
+	vertical-align: middle;
+}
+
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor{
+	padding-left: 8px;
+	margin-left: -24px;
+	text-decoration: none;
+}
+
+h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link {
+	display: inline-block;
+}
+
 body {
   padding: 50px;
   font: 14px/1.5 "Liberation Sans", Helvetica, Arial, sans-serif;
