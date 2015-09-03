@@ -137,394 +137,492 @@ sudo make install
 <b>ЗАМЕЧАНИЕ</b> Нумерация всех массивов в переменных начинается с 0.</p>
 <table>
   <tr>
+    <th>Тип</th>
+    <th>Тег</th>
+    <th>Описание</th>
+    <th>Введен</th>
+  </tr>
+  <tr>
     <th rowspan="5">Время</th>
     <td><code>$time</code></td>
     <td>Время в стандартном формате. Например, <code>fri Nov 6 04:48:01 2013</code>.</td>
+    <td>1.5.1</td>
   </tr>
   <tr>
     <td><code>$isotime</code></td>
     <td>Время в формате ISO.</td>
+    <td>1.5.2</td>
   </tr>
   <tr>
     <td><code>$shorttime</code></td>
     <td>Время в коротком формате локали.</td>
+    <td>1.5.2</td>
   </tr>
   <tr>
     <td><code>$longtime</code></td>
     <td>Время в длинном формате локали.</td>
+    <td>1.5.2</td>
   </tr>
   <tr>
     <td><code>$ctime</code></td>
     <td>Специальный формат времени.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <th rowspan="2">Время работы</th>
     <td><code>$uptime</code></td>
     <td>Системный аптайм, <code>---d--h--m</code>.</td>
+    <td></td>
   </tr>
   <tr>
     <td><code>$cuptime</code></td>
     <td>Специальный формат аптайма.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <th rowspan="3">Средняя загрузка</th>
     <td><code>$la1</code></td>
     <td>Средняя загрузка за 1 минуту, <code>-----</code>.</td>
+    <td>2.4.0</td>
   </tr>
   <tr>
     <td><code>$la5</code></td>
     <td>Средняя загрузка за 5 минут, <code>-----</code>.</td>
+    <td>2.4.0</td>
   </tr>
   <tr>
     <td><code>$la15</code></td>
     <td>Средняя загрузка за 15 минут, <code>-----</code>.</td>
+    <td>2.4.0</td>
   </tr>
   <tr>
     <th rowspan="2">CPU</th>
     <td><code>$cpu</code></td>
     <td>Полная загрузка CPU, %, <code>-----</code>.</td>
+    <td></td>
   </tr>
   <tr>
     <td><code>$cpuN</code></td>
     <td>Загрузка CPU для ядра N, %, <code>-----</code>.</td>
+    <td>1.7.0</td>
   </tr>
   <tr>
     <th rowspan="2">Частота CPU</th>
     <td><code>$cpucl</code></td>
     <td>Средняя частота CPU, МГц, <code>----</code>.</td>
+    <td>1.1.2</td>
   </tr>
   <tr>
     <td><code>$cpuclN</code></td>
     <td>Частота CPU для ядра N, МГц, <code>----</code>.</td>
+    <td>1.7.0</td>
   </tr>
   <tr>
     <th rowspan="1">Температура</th>
     <td><code>$tempN</code></td>
     <td>Температура для датчика N, <code>----</code>. Пример: <code>$temp0</code></td>
+    <td></td>
   </tr>
   <tr>
     <th rowspan="1">GPU</th>
     <td><code>$gpu</code></td>
     <td>Использование GPU, %, <code>-----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</td>
+    <td>1.3.2</td>
   </tr>
   <tr>
     <th rowspan="1">Температура GPU</th>
     <td><code>$gputemp</code></td>
     <td>Температура GPU, <code>----</code>. <code>aticonfig</code> или <code>nvidia-smi</code> должны быть установлены.</td>
+    <td>1.3.2</td>
   </tr>
   <tr>
     <th rowspan="9">Память</th>
     <td><code>$mem</code></td>
     <td>Использование RAM, %, <code>-----</code>.</td>
+    <td></td>
   </tr>
   <tr>
     <td><code>$memmb</code></td>
     <td>Использование RAM, MB, <code>-----</code>.</td>
+    <td>1.1.1</td>
   </tr>
   <tr>
     <td><code>$memgb</code></td>
     <td>Использование RAM, GB, <code>----</code>.</td>
+    <td>1.7.3</td>
   </tr>
   <tr>
     <td><code>$memfreemb</code></td>
     <td>Свободная RAM, MB, <code>-----</code>.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <td><code>$memfreegb</code></td>
     <td>Свободная RAM, GB, <code>----</code>.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <td><code>$memtotmb</code></td>
     <td>RAM, MB, <code>-----</code>.</td>
+    <td>1.10.0</td>
   </tr>
   <tr>
     <td><code>$memtotgb</code></td>
     <td>RAM, GB, <code>----</code>.</td>
+    <td>1.10.0</td>
   </tr>
   <tr>
     <td><code>$memusedmb</code></td>
     <td>Занятая и кэшированная RAM, MB, <code>-----</code>.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <td><code>$memusedgb</code></td>
     <td>Занятая и кэшированная RAM, GB, <code>----</code>.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <th rowspan="7">Swap</th>
     <td><code>$swap</code></td>
     <td>Использование swap, %, <code>-----</code>.</td>
+    <td></td>
   </tr>
   <tr>
     <td><code>$swapmb</code></td>
     <td>Использование swap, MB, <code>-----</code>.</td>
+    <td>1.1.1</td>
   </tr>
   <tr>
     <td><code>$swapgb</code></td>
     <td>Использование swap, GB, <code>----</code>.</td>
+    <td>1.7.3</td>
   </tr>
   <tr>
     <td><code>$swapfreemb</code></td>
     <td>Свободный swap, MB, <code>-----</code>.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <td><code>$swapfreegb</code></td>
     <td>Свободный swap, GB, <code>----</code>.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <td><code>$swaptotmb</code></td>
     <td>swap, MB, <code>-----</code>.</td>
+    <td>1.10.0</td>
   </tr>
   <tr>
     <td><code>$swaptotgb</code></td>
     <td>swap, GB, <code>----</code>.</td>
+    <td>1.10.0</td>
   </tr>
   <tr>
     <th rowspan="7">HDD</th>
     <td><code>$hddN</code></td>
     <td>Занятость точки монтирования N, %, <code>-----</code>. Пример: <code>$hdd0</code>.</td>
+    <td>1.3.2</td>
   </tr>
   <tr>
     <td><code>$hddmbN</code></td>
     <td>Занятость точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddmb0</code>.</td>
+    <td>1.8.0</td>
   </tr>
   <tr>
     <td><code>$hddgbN</code></td>
     <td>Занятость точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddgb0</code>.</td>
+    <td>1.8.0</td>
   </tr>
   <tr>
     <td><code>$hddfreembN</code></td>
     <td>Свободное место точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddfreemb0</code>.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <td><code>$hddfreegbN</code></td>
     <td>Свободное место точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddfreegb0</code>.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <td><code>$hddtotmbN</code></td>
     <td>Размер точки монтирования N, MB, <code>-----</code>. Пример: <code>$hddtotmb0</code>.</td>
+    <td>1.10.0</td>
   </tr>
   <tr>
     <td><code>$hddtotgbN</code></td>
     <td>Размер точки монтирования N, GB, <code>-----</code>. Пример: <code>$hddtotgb0</code>.</td>
+    <td>1.10.0</td>
   </tr>
   <tr>
     <th rowspan="2">Скорость HDD</th>
     <td><code>$hddrN</code></td>
     <td>Скорость записи диска N, KB/s, <code>-----</code>. Пример: <code>$hddr0</code>.</td>
+    <td>1.9.0</td>
   </tr>
   <tr>
     <td><code>$hddwN</code></td>
     <td>Скорость чтения диска N, KB/s, <code>-----</code>. Пример: <code>$hddw0</code>.</td>
+    <td>1.9.0</td>
   </tr>
   <tr>
     <th rowspan="1">Температура HDD</th>
     <td><code>$hddtempN</code></td>
-    <td>Температура HDD с номером N, <code>----</code>. Пример <code>$hddtemp0</code>. <code>hddtemp</code> должен быть установлен.</td>
+    <td>Температура HDD с номером N, <code>----</code>. Пример <code>$hddtemp0</code>. <code>hddtemp</code> или <code>smartmontools</code> должен быть установлен.</td>
+    <td>1.7.0</td>
   </tr>
   <tr>
     <th rowspan="13">Сеть</th>
     <td><code>$down</code></td>
     <td>Скорость загрузки активного устройства, KB/s или MB/s, <code>----</code>.</td>
+    <td>1.7.0</td>
   </tr>
   <tr>
     <td><code>$downkb</code></td>
     <td>Скорость загрузки активного устройства, KB/s, <code>----</code>.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$downunits</code></td>
     <td>Единицы скорости загрузки активного устройства, <code>----</code>.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$downN</code></td>
     <td>Скорость загрузки устройства N, KB/s или MB/s, <code>----</code>.</td>
+    <td>2.2.0</td>
   </tr>
   <tr>
     <td><code>$downkbN</code></td>
     <td>Скорость загрузки устройства N, KB/s, <code>----</code>.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$downunitsN</code></td>
     <td>Единицы cкорости загрузки устройства N, <code>----</code>.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$up</code></td>
     <td>Скорость отдачи активного устройства, KB/s или MB/s, <code>----</code>.</td>
+    <td>1.7.0</td>
   </tr>
   <tr>
     <td><code>$upkb</code></td>
     <td>Скорость отдачи активного устройства, KB/s, <code>----</code>.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$upunits</code></td>
     <td>Единицы скорости отдачи активного устройства, <code>----</code>.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$upN</code></td>
     <td>Скорость отдачи устройства N, KB/s или MB/s, <code>----</code>.</td>
+    <td>2.2.0</td>
   </tr>
   <tr>
     <td><code>$upkbN</code></td>
     <td>Скорость отдачи устройства N, KB/s, <code>----</code>.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$upunitsN</code></td>
     <td>Единицы скорости отдачи устройства N, <code>----</code>.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$netdev</code></td>
     <td>Текущее устройство.</td>
+    <td>1.1.1</td>
   </tr>
   <tr>
     <th rowspan="3">Батарея</th>
     <td><code>$bat</code></td>
     <td>Средний заряд батареи, %, <code>---</code>.</td>
+    <td></td>
   </tr>
   <tr>
     <td><code>$batN</code></td>
     <td>Заряд батареи N, %, <code>---</code>.</td>
+    <td>2.0.3</td>
   </tr>
   <tr>
     <td><code>$ac</code></td>
     <td>Статус зарядного устройства. Возвращает <code>(*)</code>, если устройство подключено, или <code>( )</code>, если нет.</td>
+    <td></td>
   </tr>
   <tr>
     <th rowspan="11">Музыкальный плеер</th>
     <td><code>$album</code></td>
     <td>Альбом текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</td>
+    <td>1.5.3</td>
   </tr>
   <tr>
     <td><code>$dalbum</code></td>
     <td>Альбом текущей песни с фиксированным количеством символов, показывающийся, как бегущая строка.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$salbum</code></td>
-    <td>Альбом текущей песни с фиксированным количеством символов, показывающийся с троеточием на конце.</td>
+    <td>Альбом текущей песни с фиксированным количеством символов, показывающийся с многоточием на конце.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$artist</code></td>
     <td>Исполнитель текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</td>
+    <td>1.5.0</td>
   </tr>
   <tr>
     <td><code>$dartist</code></td>
     <td>Исполнитель текущей песни с фиксированным количеством символов, показывающийся, как бегущая строка.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$sartist</code></td>
-    <td>Исполнитель текущей песни с фиксированным количеством символов, показывающийся с троеточием на конце.</td>
+    <td>Исполнитель текущей песни с фиксированным количеством символов, показывающийся с многоточием на конце.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$duration</code></td>
     <td>Длительность текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <td><code>$progress</code></td>
     <td>Прогресс текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</td>
+    <td>1.5.3</td>
   </tr>
   <tr>
     <td><code>$title</code></td>
     <td>Название текущей песни. Один из поддерживаемых музыкальных плееров должен быть установлен.</td>
+    <td>1.5.0</td>
   </tr>
   <tr>
     <td><code>$dtitle</code></td>
     <td>Название текущей песни с фиксированным количеством символов, показывающийся, как бегущая строка.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <td><code>$stitle</code></td>
-    <td>Название текущей песни с фиксированным количеством символов, показывающийся с троеточием на конце.</td>
+    <td>Название текущей песни с фиксированным количеством символов, показывающийся с многоточием на конце.</td>
+    <td>2.4.1</td>
   </tr>
   <tr>
     <th rowspan="3">Процессы</th>
     <td><code>$ps</code></td>
     <td>Список запущенных процессов, разделенных запятой.</td>
+    <td>1.8.0</td>
   </tr>
   <tr>
     <td><code>$pscount</code></td>
     <td>Число запущенных процессов.</td>
+    <td>1.8.0</td>
   </tr>
   <tr>
     <td><code>$pstotal</code></td>
     <td>Общее число процессов.</td>
+    <td>1.8.0</td>
   </tr>
   <tr>
     <th rowspan="1">Пакетный менеджер</th>
     <td><code>$pkgcountN</code></td>
     <td>Число пакетов, доступных для обновления, для команды N.</td>
+    <td>1.8.0</td>
   </tr>
   <tr>
     <th rowspan="1">Своя команда</th>
     <td><code>$customN</code></td>
     <td>Получить данные из указанной команды N. Например, <code>$custom0</code>.</td>
+    <td>1.9.0</td>
   </tr>
   <tr>
     <th rowspan="3">Рабочий стол</th>
     <td><code>$desktop</code></td>
     <td>Имя текущего рабочего стола.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <td><code>$ndesktop</code></td>
     <td>Номер текущего рабочего стола.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <td><code>$tdesktops</code></td>
     <td>Общее число рабочих столов.</td>
+    <td>2.0.0</td>
   </tr>
   <tr>
     <th rowspan="9">Котировки</th>
     <td><code>$askN</code></td>
     <td>Получить аск по тикеру N. Например, <code>$ask0</code>.</td>
+    <td>2.2.2</td>
   </tr>
   <tr>
     <td><code>$askchgN</code></td>
     <td>Абсолютное изменение аск по тикеру N. Например, <code>$askchg0</code>.</td>
+    <td>2.2.2</td>
   </tr>
   <tr>
     <td><code>$percaskchgN</code></td>
     <td>Изменение аск по тикеру N, %. Например, <code>$percaskchg0</code>.</td>
+    <td>2.2.2</td>
   </tr>
   <tr>
     <td><code>$bidN</code></td>
     <td>Получить бид по тикеру N. Например, <code>$bid0</code>.</td>
+    <td>2.2.2</td>
   </tr>
   <tr>
     <td><code>$bidchgN</code></td>
     <td>Абсолютное изменение бид по тикеру N. Например, <code>$bidchg0</code>.</td>
+    <td>2.2.2</td>
   </tr>
   <tr>
     <td><code>$percbidchgN</code></td>
     <td>Изменение бид по тикеру N, %. Например, <code>$percbidchg0</code>.</td>
+    <td>2.2.2</td>
   </tr>
   <tr>
     <td><code>$priceN</code></td>
     <td>Получить цену по тикеру N. Например, <code>$price0</code>.</td>
+    <td>2.2.2</td>
   </tr>
   <tr>
     <td><code>$pricechgN</code></td>
     <td>Абсолютное изменение цены по тикеру N. Например, <code>$pricechg0</code>.</td>
+    <td>2.2.2</td>
   </tr>
   <tr>
     <td><code>$percpricechgN</code></td>
     <td>Изменение цены по тикеру N, %. Например, <code>$percpricechg0</code>.</td>
+    <td>2.2.2</td>
   </tr>
   <tr>
     <th rowspan="5">Погода</th>
     <td><code>$weatherIdN</code></td>
     <td>Численное ID погоды. Например <code>$weatherId0</code>.</td>
+    <td>2.4.0</td>
   </tr>
   <tr>
     <td><code>$weatherN</code></td>
-    <td>UTF символ для соответствующего ID. Например <code>$weather0</code>.</td>
+    <td>Статус погоды. Например <code>$weather0</code>.</td>
+    <td>2.4.0</td>
   </tr>
   <tr>
     <td><code>$humidityN</code></td>
     <td>Влажность, %. Например <code>$humidity0</code>.</td>
+    <td>2.4.0</td>
   </tr>
   <tr>
     <td><code>$pressureN</code></td>
     <td>Давление, бар. Например <code>$pressure0</code>.</td>
+    <td>2.4.0</td>
   </tr>
   <tr>
     <td><code>$temperatureN</code></td>
     <td>Температура. Humidity <code>$temperature0</code>.</td>
+    <td>2.4.0</td>
   </tr>
 </table>
 
