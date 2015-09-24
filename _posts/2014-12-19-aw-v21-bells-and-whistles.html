@@ -57,7 +57,7 @@ description: The paper deals with settings of a custom scripts and graphical bar
   <tr>
     <th>X-AW-Type</th>
     <td>yes</td>
-    <td>bar type. The following types are supported <code>Horizontal</code>, <code>Vertical</code>, <code>Circle</code></td>
+    <td>bar type. The following types are supported <code>Horizontal</code>, <code>Vertical</code>, <code>Circle</code>, <code>Graph</code></td>
     <td>Horizontal</td>
   </tr>
   <tr>
@@ -165,7 +165,7 @@ description: The paper deals with settings of a custom scripts and graphical bar
   <tr>
     <th>X-AW-Prefix</th>
     <td>no</td>
-    <td>prefix to executable file. Usually it's not required, but in other you may want to specify interpretor for example</td>
+    <td>prefix to executable file. Usually it's not required, but in other you may want to specify interpreter for example</td>
     <td></td>
   </tr>
   <tr>
@@ -175,15 +175,9 @@ description: The paper deals with settings of a custom scripts and graphical bar
     <td>true</td>
   </tr>
   <tr>
-    <th>X-AW-Output</th>
-    <td>no</td>
-    <td>whether or not the script has output to console. You may set it to <code>false</code> if you want use the script as cron jobs</td>
-    <td>true</td>
-  </tr>
-  <tr>
     <th>X-AW-Redirect</th>
     <td>no</td>
-    <td>stream redirection. The following variants are available <code>stderr2stdout</code>, <code>nothing</code>, <code>stdout2stderr</code>. stderr will be enabled, if you run application with <code>DEBUG=yes</code></td>
+    <td>stream redirection. The following variants are available <code>stderr2stdout</code>, <code>nothing</code>, <code>stdout2stderr</code>, <code>swap</code>. stderr will be available, if you run application in the debug mode</td>
     <td>nothing</td>
   </tr>
   <tr>
@@ -237,7 +231,7 @@ description: The paper deals with settings of a custom scripts and graphical bar
   <tr>
     <th>X-AW-Filter</th>
     <td>no</td>
-    <td>the regexp which will be applied to command output. If set <code>X-AW-Null</code> will be ignored.</td>
+    <td>the regexp which will be applied to command output. If set <code>X-AW-Null</code> will be ignored</td>
     <td></td>
   </tr>
   <tr>
@@ -326,7 +320,7 @@ description: The paper deals with settings of a custom scripts and graphical bar
   </tr>
   <tr>
     <th>X-AW-Number</th>
-    <td>да</td>
+    <td>yes</td>
     <td>unique number which will be associated with the upgrade weather</td>
     <td>random number which is less than 1000</td>
   </tr>

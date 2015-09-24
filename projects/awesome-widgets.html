@@ -566,15 +566,27 @@ $down - $up
 <p>will show difference between download and upload speed. Thus this feature may be used for example to show any custom values which will be calculated in runtime and to show different information depending on some conditions. But please keep in mind that such runtime calculation may increase CPU load.</p>
 
 <h4><a href="#advanced" class="anchor" id="advanced"><span class="octicon octicon-link"></span></a>Advanced settings</h4>
+<p><b>Enable background:</b> Uncheck to disable default background and set transparent one. Default is <code>true</code>.</p>
+
+<p><b>Translate strings:</b> Translate strings tags. Default is <code>true</code>.</p>
+
+<p><b>Wrap new lines:</b> Replace <code>\n</code> to <code>&#60;br&#62;</code>. Default is <code>false</code>.</p>
+
+<p><b>Word wrap:</b> Enable word wrap. Default is <code>false</code>.</p>
+
+<p><b>Enable popup:</b> Uncheck box if you do not want popup messages on system events. Default is <code>true</code>.</p>
+
+<p><b>Check updates:</b> Check updates on load. Default is <code>true</code>.</p>
+
 <p><b>Widget height:</b> Disable automatic widget height definition and set it to this value. Default is <code>0</code> (auto).</p>
 
 <p><b>Widget width:</b> Disable automatic widget width definition and set it to this value. Default is <code>0</code> (auto).</p>
 
-<p><b>Enable background:</b> Uncheck to disable default background and set transparent one. Default is <code>true</code>.</p>
+<p><b>Update interval:</b> Widget update interval. Default is <code>1000</code>.</p>
 
-<p><b>Wrap new lines:</b> Replace <code>\n</code> to <code>&#60;br&#62;</code>. Default is <code>false</code>.</p>
+<p><b>Queue limit:</b> Use thread pool with this maximum thread counts. <code>0</code> means CPU ideal thread count. Default is <code>0</code>.</p>
 
-<p><b>Enable popup:</b> Uncheck box if you do not want popup messages on system events. Default is <code>true</code>.</p>
+<p><b>Temperature units:</b> Select units for temperature. Available units are Celsius, Farenheit, Kelvin, Reaumur, cm^-1, kJ/mol, kcal/mol.</p>
 
 <p><b>Custom time format:</b></p>
 <table>
@@ -692,15 +704,9 @@ $down - $up
   </tr>
 </table>
 
-<p><b>Temperature units:</b> Select units for temperature. Available units are Celsius, Farenheit, Kelvin, Reaumur, cm^-1, kJ/mol, kcal/mol.</p>
-
 <p><b>AC online tag:</b> Line which will be shown when AC is online. Default is <code>(*)</code>.</p>
 
 <p><b>AC offline tag:</b> Line which will be shown when AC is offline. Default is <code>( )</code>.</p>
-
-<p><b>Check updates:</b> Check updates on load. Default is <code>true</code>.</p>
-
-<p><b>Translate strings:</b> Translate strings tags. Default is <code>true</code>.</p>
 
 <h4><a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Tooltips</h4>
 <p>Since version 1.7.0 CPU, CPU clock, memory, swap, network and battery support graphical tooltip. To enable them just select required fields. The number of stored values can be set in the tab. Colours of the graphs are configurable too.</p>
@@ -714,35 +720,35 @@ $down - $up
 
 <p><b>hddtemp cmd:</b> Type a command which will be run for hddtemp DataEngine. Default is <code>sudo smartctl -a</code>.</p>
 
-<p><b>MPD address:</b> Address of MPD server. Default is <code>localhost</code>.</p>
-
-<p><b>MPD port:</b> Port of MPD server. Default is <code>6600</code>.</p>
-
-<p><b>MPRIS:</b> Select MPRIS player name. <code>auto</code> will enable auto selection. Default is <code>auto</code>.</p>
+<p><b>Player symbol count:</b> Symbol count for dynamic player tags.</p>
 
 <p><b>Music player:</b> Select one of supported music players for player label.</p>
 
-<p><b>Player symbol count:</b> Symbol count for dynamic player tags.</p>
+<p><b>MPRIS:</b> Select MPRIS player name. <code>auto</code> will enable auto selection. Default is <code>auto</code>.</p>
+
+<p><b>MPD address:</b> Address of MPD server. Default is <code>localhost</code>.</p>
+
+<p><b>MPD port:</b> Port of MPD server. Default is <code>6600</code>.</p>
 
 <h3><a href="#desktoppanel" class="anchor" id="desktoppanel"><span class="octicon octicon-link"></span></a>Desktop Panel</h3>
 <p>Since version 1.11.0 it provides a minimalistic panel for monitoring on desktops. And yes, it looks like the same panel in Awesome.</p>
 
 <h4><a href="#dpconf" class="anchor" id="dpconf"><span class="octicon octicon-link"></span></a>Desktop panel configuration</h4>
-<p><b>Widget height:</b> Disable automatic widget height definition and set it to this value. Default is <code>0</code> (auto).</p>
-
-<p><b>Widget width:</b> Disable automatic widget width definition and set it to this value. Default is <code>0</code> (auto).</p>
-
-<p><b>Enable tooltip:</b> Check to enable preview on selected desktop. Default is <code>true</code>. Also you show specify type of preview, default is <code>windows</code>.</p>
-
-<p><b>Tooltip width:</b> Using tooltip width in px. Default is <code>200px</code>.</p>
-
-<p><b>Color of tooltip:</b> Colour which is used in some tooltip types. Default is <code>#ffffff</code>.</p>
-
 <p><b>Enable background: </b> Uncheck to disable default background and set transparent one. Default is <code>true</code>.</p>
 
 <p><b>Vertical layout:</b> Use vertical layout instead of horizontal one. Default is <code>false</code>.</p>
 
+<p><b>Widget height:</b> Disable automatic widget height definition and set it to this value. Default is <code>0</code> (auto).</p>
+
+<p><b>Widget width:</b> Disable automatic widget width definition and set it to this value. Default is <code>0</code> (auto).</p>
+
 <p><b>Mark:</b> Type symbol (or string) which will be shown if this desktop is active now.</p>
+
+<p><b>Tooltip type:</b> Select tooltip type. Default is <code>windows</code>.</p>
+
+<p><b>Tooltip width:</b> Using tooltip width in px. Default is <code>200px</code>.</p>
+
+<p><b>Color of tooltip:</b> Colour which is used in some tooltip types. Default is <code>#ffffff</code>.</p>
 
 <p><b>Pattern tags</b></p>
 <table>
