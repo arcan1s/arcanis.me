@@ -14,7 +14,7 @@ links:
 ---
 <!-- info block -->
 <h2><a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Информация</h2>
-<p>Приложение/библиотека, написанное на Qt, которое позволяет пользователям отправлять багрепорт для проектов, расположенных на GitHub. Оно может работать как через <a href="https://github.com" title="GitHub">GitHub</a>, так и через <a href="https://gitreports.com" title="GitReports">GitReports</a>. Работает нормально, однако данное приложение было создано as proof-of-concept.</p>
+<p>Приложение/библиотека, написанное на Qt, которое позволяет пользователям отправлять багрепорт для проектов, расположенных на GitHub. Оно может работать как через <a href="//github.com" title="GitHub">GitHub</a>, так и через <a href="//gitreports.com" title="GitReports">GitReports</a>. Работает нормально, однако данное приложение было создано as proof-of-concept.</p>
 
 <h3><a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Разработчики</h3>
 <ul>
@@ -35,7 +35,7 @@ links:
 <h3><a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Инструкция</h3>
 <h4><a href="#singleapp" class="anchor" id="singleapp"><span class="octicon octicon-link"></span></a>Сборка, как отдельное приложение</h4>
 <ul>
-  <li>Скачайте <a href="https://github.com/arcan1s/reportabug/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</li>
+  <li>Скачайте <a href="//github.com/arcan1s/reportabug/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</li>
   <li>Извлеките из него файлы и настройте под себя.</li>
   <li>Установите приложение:
 
@@ -52,7 +52,7 @@ sudo make install
 
 <h4><a href="#aslibrary" class="anchor" id="aslibrary"><span class="octicon octicon-link"></span></a>Сборка, как библиотека в проекте</h4>
 <ul>
-  <li>Скачайте <a href="https://github.com/arcan1s/reportabug/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</li>
+  <li>Скачайте <a href="//github.com/arcan1s/reportabug/releases" title="GitHub">архив</a> с актуальной версией исходных файлов.</li>
   <li>Извлеките из него файлы и настройте под себя.</li>
   <li>Включите библиотеку в Ваш проект. Например, если Вы используете <code>cmake</code>:
 
@@ -100,23 +100,23 @@ reportWindow->showWindow();
 <!-- howto block -->
 <h2><a href="#howto" class="anchor" id="howto"><span class="octicon octicon-link"></span></a>Использование</h2>
 <h3><a href="#github" class="anchor" id="github"><span class="octicon octicon-link"></span></a>Модуль GitHub</h3>
-<p>Данный модуль создает тикет, используя <a href="https://developer.github.com/v3/issues/" title="Документация">GitHub API</a>. Данный модуль требует авторизации пользователя. Типичный POST запрос выглядит так:</p>
+<p>Данный модуль создает тикет, используя <a href="//developer.github.com/v3/issues/" title="Документация">GitHub API</a>. Данный модуль требует авторизации пользователя. Типичный POST запрос выглядит так:</p>
 
 {% highlight bash %}
 curl -X POST -u user:pass -d '{"title":"A new bug","body":"Some error occurs"}' \
-     https://api.github.com/repos/owner/repo/issues
+     //api.github.com/repos/owner/repo/issues
 {% endhighlight %}
 
 <p>Для того, чтобы отключить данный модуль, используйте <code>-DENABLE_GITHUB=0</code> флаг cmake.</p>
 
-<p>Также данный модуль может отправлять запросы, используя токен разработчика. Пожалуйста, посетите <a href="https://github.com/settings/applications" title="Настройки">данную страницу</a> и сгенерируйте токен. Требуемые права для токена - <b>public_repo</b> (или <b>repo</b>, если Вы используете для приватных репозиториев).<br>
+<p>Также данный модуль может отправлять запросы, используя токен разработчика. Пожалуйста, посетите <a href="//github.com/settings/applications" title="Настройки">данную страницу</a> и сгенерируйте токен. Требуемые права для токена - <b>public_repo</b> (или <b>repo</b>, если Вы используете для приватных репозиториев).<br>
 <b>Имейте в виду, что передача токена в открытом виде может скомпрометировать его!</b></p>
 
 <p>Типичный POST запрос выглядит так:</p>
 
 {% highlight bash %}
 curl -X POST -H "Authorization: token token" -d '{"title":"A new bug","body":"Some error occurs"}' \
-     https://api.github.com/repos/owner/repo/issues
+     //api.github.com/repos/owner/repo/issues
 {% endhighlight %}
 
 <p>Для того, чтобы включить данный модуль, используйте <code>-DOWN_GITHUB_TOKEN=STRING</code> флаг cmake.</p>
@@ -124,7 +124,7 @@ curl -X POST -H "Authorization: token token" -d '{"title":"A new bug","body":"So
 <p>Данный модуль требует наличия в системе <code>QtNetwork</code>.</p>
 
 <h3><a href="#gitreports" class="anchor" id="gitreports"><span class="octicon octicon-link"></span></a>Модуль GitReports</h3>
-<p>Данный модуль создает тикет, используя возможности <a href="https://gitreports.com/about" title="GitReports">GitReports</a>. Пожалуйста, посетите <a href="https://gitreports.com/" title="GitReports">данную страницу</a> и настройте под Ваши репозитории.</p>
+<p>Данный модуль создает тикет, используя возможности <a href="//gitreports.com/about" title="GitReports">GitReports</a>. Пожалуйста, посетите <a href="//gitreports.com/" title="GitReports">данную страницу</a> и настройте под Ваши репозитории.</p>
 
 <p>Для того, чтобы отключить данный модуль, используйте <code>-DENABLE_GITREPORT=0</code> флаг cmake. Данный модуль требует наличия в системе <code>QtNetwork</code> и <code>QtWebKit</code>.</p>
 <!-- end of howto block -->
@@ -146,14 +146,14 @@ curl -X POST -H "Authorization: token token" -d '{"title":"A new bug","body":"So
 <h3><a href="#githubconfig" class="anchor" id="githubconfig"><span class="octicon octicon-link"></span></a>Настройки модуля GitHub</h3>
 <ul>
   <li><code>GITHUB_COMBOBOX</code> - текст модуля в ComboBox.</li>
-  <li><code>ISSUES_URL</code> - URL, в большинстве случаев, не редактируйте его. По умолчанию <code>https://api.github.com/repos/$OWNER/$PROJECT/issues</code>. Доступные теги <code>$PROJECT</code>, <code>$OWNER</code>.</li>
+  <li><code>ISSUES_URL</code> - URL, в большинстве случаев, не редактируйте его. По умолчанию <code>//api.github.com/repos/$OWNER/$PROJECT/issues</code>. Доступные теги <code>$PROJECT</code>, <code>$OWNER</code>.</li>
 </ul>
 
 <h3><a href="#gitreportsconfig" class="anchor" id="gitreportsconfig"><span class="octicon octicon-link"></span></a>Настройки модуля GitReports</h3>
 <ul>
-  <li><code>CAPTCHA_URL</code> - URL капчи, в большинстве случаев, не редактируйте его. По умолчанию <code>https://gitreports.com/simple_captcha?code=</code>.</li>
+  <li><code>CAPTCHA_URL</code> - URL капчи, в большинстве случаев, не редактируйте его. По умолчанию <code>//gitreports.com/simple_captcha?code=</code>.</li>
   <li><code>GITREPORT_COMBOBOX</code> - текст модуля в ComboBox.</li>
-  <li><code>PUBLIC_URL</code> - URL, в большинстве случаев, не редактируйте его. По умолчанию <code>https://gitreports.com/issue/$OWNER/$PROJECT</code>. Доступные теги <code>$PROJECT</code>, <code>$OWNER</code>.</li>
+  <li><code>PUBLIC_URL</code> - URL, в большинстве случаев, не редактируйте его. По умолчанию <code>//gitreports.com/issue/$OWNER/$PROJECT</code>. Доступные теги <code>$PROJECT</code>, <code>$OWNER</code>.</li>
 </ul>
 <!-- end of config block -->
 

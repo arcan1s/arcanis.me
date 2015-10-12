@@ -6,10 +6,10 @@ hastr: true
 tags: archlinux, linux, building, qutim
 title: Building Qutim using Qt5
 short: building-qutim-using-qt5
-description: <a href="http://qutim.org" title="Qutim Homepage">Qutim</a> is a multiprotocol and cross platform messenger. It is written on <code>CPP</code> using Qt library. The project is actively developed. In this paper I will say about building this package in Archlinux using Qt5 library (instead of Qt4 which is used in current AUR packages).
+description: <a href="//qutim.org" title="Qutim Homepage">Qutim</a> is a multiprotocol and cross platform messenger. It is written on <code>CPP</code> using Qt library. The project is actively developed. In this paper I will say about building this package in Archlinux using Qt5 library (instead of Qt4 which is used in current AUR packages).
 ---
 <h2><a href="#problems" class="anchor" id="problems"><span class="octicon octicon-link"></span></a>What's wrong?</h2>
-<p>This package uses <a href="http://qt-project.org/wiki/qbs" title="Wiki">qbs</a> for building, which is a bit strange IMHO. A package, which is necessary for building, is <a href="https://aur.archlinux.org/packages/qbs-git/" title="AUR">in AUR </a>. I recommend to use git version of the package. When I asked Andrea Scarpino (who maintains KDE and Qt packages into the official repos) about qbs, he told me "we will support it in time". And I agree with him, the project seems to be a little unstable.</p>
+<p>This package uses <a href="//qt-project.org/wiki/qbs" title="Wiki">qbs</a> for building, which is a bit strange IMHO. A package, which is necessary for building, is <a href="//aur.archlinux.org/packages/qbs-git/" title="AUR">in AUR </a>. I recommend to use git version of the package. When I asked Andrea Scarpino (who maintains KDE and Qt packages into the official repos) about qbs, he told me "we will support it in time". And I agree with him, the project seems to be a little unstable.</p>
 
 <h2><a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Prepare</h2>
 <p>Install dependences. I had used <code>namcap</code>, so maybe I missed something:</p>
@@ -20,7 +20,7 @@ yaourt -S --asdeps jreen-git qbs-git
 {% endhighlight %}
 
 <h3><a href="#qbs" class="anchor" id="qbs"><span class="octicon octicon-link"></span></a>qbs settings</h3>
-<p>You may read about qbs <a href="http://qt-project.org/wiki/qbs" title="Wiki">on the link</a> or see examples which are provides by the package. qbs uses configuration file that firstly you must create and secondly it is stored in your home directory. In theory a configuration file creating ((<code>~/.config/QtProject/qbs.conf</code>)) looks like this:</p>
+<p>You may read about qbs <a href="//qt-project.org/wiki/qbs" title="Wiki">on the link</a> or see examples which are provides by the package. qbs uses configuration file that firstly you must create and secondly it is stored in your home directory. In theory a configuration file creating ((<code>~/.config/QtProject/qbs.conf</code>)) looks like this:</p>
 
 {% highlight bash %}
 qbs-setup-qt --detect

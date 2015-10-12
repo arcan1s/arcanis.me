@@ -33,12 +33,12 @@ layout: default
         </p>
         <p class="view">
           {% if page.category == "ru" %}
-            <a href="https://github.com/arcan1s/{{ page.short }}/issues" title="Багтрекер">Сообщить о баге</a>
+            <a href="//github.com/arcan1s/{{ page.short }}/issues" title="Багтрекер">Сообщить о баге</a>
             {% if page.hasdocs == true %}
               <br><a href="/devs/{{ page.short }}/" title="Документация">Разработчикам</a>
             {% endif %}
           {% else %}
-            <a href="https://github.com/arcan1s/{{ page.short }}/issues" title="Bugtracker">Report a bug</a>
+            <a href="//github.com/arcan1s/{{ page.short }}/issues" title="Bugtracker">Report a bug</a>
             {% if page.hasdocs == true %}
               <br><a href="/devs/{{ page.short }}/" title="Documentation">For developers</a>
             {% endif %}
@@ -52,13 +52,13 @@ layout: default
 {% if page.category == "ru" %}
   <h2><a href="#links" class="anchor" id="links"><span class="octicon octicon-link"></span></a>Ссылки</h2>
   <ul>
-    <li><a href="https://github.com/arcan1s/{{ page.short }}">Репозиторий на GitHub</a></li>
-    <li><a href="https://github.com/arcan1s/{{ page.short }}/releases">Последний релиз</a></li>
+    <li><a href="//github.com/arcan1s/{{ page.short }}">Репозиторий на GitHub</a></li>
+    <li><a href="//github.com/arcan1s/{{ page.short }}/releases">Последний релиз</a></li>
 {% else %}
   <h2><a href="#links" class="anchor" id="links"><span class="octicon octicon-link"></span></a>Links</h2>
   <ul>
-    <li><a href="https://github.com/arcan1s/{{ page.short }}">GitHub repo</a></li>
-    <li><a href="https://github.com/arcan1s/{{ page.short }}/releases">Latest release</a></li>
+    <li><a href="//github.com/arcan1s/{{ page.short }}">GitHub repo</a></li>
+    <li><a href="//github.com/arcan1s/{{ page.short }}/releases">Latest release</a></li>
 {% endif %}
     {% for link in page.links %}
       <li>{{ link }}</li>
