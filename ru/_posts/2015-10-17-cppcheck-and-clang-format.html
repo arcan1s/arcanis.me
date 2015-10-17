@@ -1,0 +1,161 @@
+---
+category: ru
+type: paper
+hastr: true
+layout: paper
+tags: awesome-widgets, development, c++, cmake
+title: Добавляем cppcheck и clang-format для проекта на cmake
+short: cppcheck-and-clang-format
+description: Небольшое How-To посвященное прикручиванию автоматической проверки стиля, а также статического анализатора к проекту на <code>C++</code>, который использует в качестве системы сборки <code>cmake</code>.
+---
+<h2><a href="#project" class="anchor" id="project"><span class="octicon octicon-link"></span></a>Проект</h2>
+<p>Наш проект имеет следующую структуру:</p>
+
+{% highlight bash %}
+sources/
+|- CMakeLists.txt
+|- 3rdparty/
+|- first_component/
+|- second_component/
+{% endhighlight %}
+
+<p><b>3rdparty</b> - директория с различными дополнительными библиотеками, которую надо исключить из проверок (в дальнейшем соответствует переменной cmake <code>PROJECT_TRDPARTY_DIR</code>). Дополнительно допустим, что у нас, помимо обычных файлов исходного кода (<code>*.cpp</code>, <code>*.h</code>) есть еще какие-либо (например, <code>*.qml</code>).</p>
+
+<p>Дополнительно используемые ниже команды можно вставить в pre-commit hook и невозбранно тролить коллег по ынтырпрайзу, не давая им закоммитить ничего, пока они не научатся читать <code>CONTRIBUTING.md</code>.</p>
+
+<h2><a href="#cppcheck" class="anchor" id="cppcheck"><span class="octicon octicon-link"></span></a>cppcheck</h2>
+<p>Коль скоро нормальных (из коробки) статических анализаторов не завезли в open source будем использовать то, что имеется. Знатоки говорят, что <a href="//cppcheck.sourceforge.net/" title="Сайт cppcheck">cppcheck</a> при должной конфигурации будет лучше, чем любой аналог, но конфигурация его для достаточно большого проекта похожа больше на написание нового проекта. Суть добавления cppheck к проекту сводится к указанию очевидных недоработок в коде и тыканью в <s>лужу</s> них.</p>
+
+<h3><a href="#cppcheck-run" class="anchor" id="cppcheck-run"><span class="octicon octicon-link"></span></a>Общий пример запуска</h3>
+<p>Тут все, казалось бы, очень просто:</p>
+
+{% highlight bash %}
+cppcheck --enable=warning,performance,portability,information,missingInclude --std=c++11 --library=qt.cfg --template="[{severity}][{id}] {message} {callstack} (On {file}:{line})" --verbose --quiet path/to/source/files/or/directory
+{% endhighlight %}
+
+<ul>
+  <li><code>--enable</code> говорит о том, какие уведомления надо включить. Я выключил <code>style</code> (для этого ниже мы заведем <code>clang-format</code>), <code>unusedFunction</code> - выдает false-positive для некоторых мест.</li>
+  <li><code>--std</code> говорит об используемом стандарте.</li>
+  <li><code>--library=qt.cfg</code> некий файл настроек, который говорит о том, что и как надо обрабатывать. Добрые разработчики предлагаю почитать на эту тему <a href="//cppcheck.sourceforge.net/manual.pdf" title="cppcheck мануал">мануал</a>. В данном случае я использовал шаблон из <code>/usr/share/cppcheck/cfg/</code>.</li>
+  <li><code>--template</code> - шаблон строки уведомления.</li>
+  <li><code>---verbose --quiet</code> две противоречащие друг другу опции. Первая включает более информативные сообщения, вторая выключает отчет о прогрессе.</li>
+</ul>
+
+<h3><a href="#cppcheck-cmake" class="anchor" id="cppcheck-cmake"><span class="octicon octicon-link"></span></a>Интеграция с cmake</h3>
+<p>Файл <code>cppcheck.cmake</code> в корне проекта:</p>
+
+{% highlight cmake %}
+# additional target to perform cppcheck run, requires cppcheck
+
+# get all project files
+# HACK this workaround is required to avoid qml files checking ^_^
+file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h)
+foreach (SOURCE_FILE ${ALL_SOURCE_FILES})
+    string(FIND ${SOURCE_FILE} ${PROJECT_TRDPARTY_DIR} PROJECT_TRDPARTY_DIR_FOUND)
+    if (NOT ${PROJECT_TRDPARTY_DIR_FOUND} EQUAL -1)
+        list(REMOVE_ITEM ALL_SOURCE_FILES ${SOURCE_FILE})
+    endif ()
+endforeach ()
+
+add_custom_target(
+        cppcheck
+        COMMAND /usr/bin/cppcheck
+        --enable=warning,performance,portability,information,missingInclude
+        --std=c++11
+        --library=qt.cfg
+        --template="[{severity}][{id}] {message} {callstack} \(On {file}:{line}\)"
+        --verbose
+        --quiet
+        ${ALL_SOURCE_FILES}
+)
+{% endhighlight %}
+
+<p><code>cppcheck</code> умеет рекурсивно директории проверять, однако, на моем примере, мне нужно было пропустить проверку qml-файлов, потому что open source проект, в лучших традициях, сегфолтился на некоторых из них - именно для этого используется поиск исходных файлов с дальнейшим выбрасыванием из них файлов, которые не должны проверяться.</p>
+
+<p>Включаем в проект (<code>CMakeLists.txt</code>)...</p>
+
+{% highlight cmake %}
+include(cppcheck.cmake)
+{% endhighlight %}
+
+<p>...и запускаем:</p>
+
+{% highlight bash %}
+cmake
+make cppcheck
+{% endhighlight %}
+
+<p>Дальше руками вносим необходимые исправления.</p>
+
+<h3><a href="#cppcheck-adds" class="anchor" id="cppcheck-adds"><span class="octicon octicon-link"></span></a>Дополнительно</h3>
+<ul>
+  <li>Можно добавить свои директории для поиска хидеров, используя опцию <code>-I dir</code>.</li>
+  <li>Можно вычеркнуть файлы и/или директории из проверки, используя опцию <code>-i path/to/file/or/directory</code>.</li>
+</ul>
+
+<h2><a href="#clang" class="anchor" id="clang"><span class="octicon octicon-link"></span></a>clang-format</h2>
+<p><a href="//clang.llvm.org/docs/ClangFormat.html" title="Сайт clang-format">clang-format</a> предназначен для автоматического подгона стиля под желаемый или требуемый. Среди аналогов стоит выделить <a href="//astyle.sourceforge.net/" title="Сайт astyle">astyle</a>, который имеет очень скромные возможности, и <a href="//uncrustify.sourceforge.net/" title="Сайт uncrustify">uncrustify</a>, который, наоборот, имеет слишком много опций.</p>
+
+<h3><a href="#clang-run" class="anchor" id="clang-run"><span class="octicon octicon-link"></span></a>Общий пример запуска</h3>
+{% highlight bash %}
+clang-format -i -style=LLVM /path/to/source/files
+{% endhighlight %}
+
+<p>(К сожалению, он <b>не умеет</b> в рекурсивный обход директории.)</p>
+
+<ul>
+  <li><code>-i</code> включает автозамену файлов (в противном случае, результат будет печататься в stdout).</li>
+  <li><code>-style</code> выбор определенного стиля либо из предустановленных, либо из файла (<code>file</code>), см. ниже.</li>
+</ul>
+
+<h3><a href="#clang-cmake" class="anchor" id="clang-cmake"><span class="octicon octicon-link"></span></a>Интеграция с cmake</h3>
+<p>Файл <code>clang-format.cmake</code> в корне проекта:</p>
+
+{% highlight cmake %}
+# additional target to perform clang-format run, requires clang-format
+
+# get all project files
+file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h)
+foreach (SOURCE_FILE ${ALL_SOURCE_FILES})
+    string(FIND ${SOURCE_FILE} ${PROJECT_TRDPARTY_DIR} PROJECT_TRDPARTY_DIR_FOUND)
+    if (NOT ${PROJECT_TRDPARTY_DIR_FOUND} EQUAL -1)
+        list(REMOVE_ITEM ALL_SOURCE_FILES ${SOURCE_FILE})
+    endif ()
+endforeach ()
+
+add_custom_target(
+        clangformat
+        COMMAND /usr/bin/clang-format
+        -style=LLVM
+        -i
+        ${ALL_SOURCE_FILES}
+)
+{% endhighlight %}
+
+<p>Аналогичных способ поиска исходных файлов, как и для <code>cppcheck</code>, поскольку <code>clang-format</code> не умеет в рекурсию.</p>
+
+<p>Включаем в проект (<code>CMakeLists.txt</code>)...</p>
+
+{% highlight cmake %}
+include(clang-format.cmake)
+{% endhighlight %}
+
+<p>...и запускаем:</p>
+
+{% highlight bash %}
+cmake
+make clangformat
+{% endhighlight %}
+
+<p>Никаких дополнительных действий не требуется.</p>
+
+<h3><a href="#clang-adds" class="anchor" id="clang-adds"><span class="octicon octicon-link"></span></a>Дополнительно</h3>
+<ul>
+  <li>Настройка. Можно почитать опции на <a href="//clang.llvm.org/docs/ClangFormat.html" title="Сайт clang-format">официальном сайте</a>. Также можно воспользоваться <a href="//clangformat.com/" title="Сайт">интерактивной утилитой</a> для просмотра опций. Для использования уже готового стиля за базу используем следующую команду:
+
+{% highlight bash %}
+clang-format -style=LLVM -dump-config > .clang-format
+{% endhighlight %}
+
+  Далее редактируется полученный файл <code>.clang-format</code>. Для включения его необходимо передать опцию <code>-style=file</code>, файл должен находиться в одной из родительских директории для каждого файла (например, в корне проекта). Также, можно передать нужные опции прямо в командной строке, например <code>-style="{BasedOnStyle: llvm, IndentWidth: 8}"</code>.</li>
+</ul>
