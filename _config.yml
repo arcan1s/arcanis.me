@@ -17,7 +17,7 @@ relative_permalinks: true
 permalink:     pretty
 paginate_path: 'blog/:num'
 
-markdown:      rdiscount
+markdown:      redcarpet
 markdown_ext:  markdown,mkd,mkdn,md
 textile_ext:   textile
 
@@ -43,7 +43,7 @@ rdiscount:
   extensions: []
 
 redcarpet:
-  extensions: []
+  extensions: ["tables", "autolink", "no_intra_emphasis"]
 
 kramdown:
   auto_ids: true
