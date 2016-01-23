@@ -21,7 +21,7 @@ hastr: true
 <label class="spoiler">
   <input type="checkbox" tabindex="-1">
   <span class="box">
-    <b>{% include longdate_to_ru.html %}</b><br>
+    <b>{% include longdate_to_ru.html %}</b>
     <span class="close" style="float:right;">(скрыть)</span><span class="open" style="float:right;">(показать)</span>
     <span class="spoilerbody">
       {% for post in site.categories.ru %}
@@ -30,10 +30,11 @@ hastr: true
     </span>
   </span>
 </label>
+<br>
 <label class="spoiler">
   <input type="checkbox" tabindex="-1">
   <span class="box">
-    <b>{% include longdate_to_ru.html %}</b><br>
+    <b>{% include longdate_to_ru.html %}</b>
     <span class="close" style="float:right;">(скрыть)</span><span class="open" style="float:right;">(показать)</span>
     <span class="spoilerbody">
         {% endif %}
