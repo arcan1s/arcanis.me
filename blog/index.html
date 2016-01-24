@@ -23,6 +23,6 @@ hastr: true
     <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
   </h2>
   <p><i>{{ post.date | date_to_string }}</i></p>
-<p>{{ post.description }}</p>
+<p>{{ post.excerpt }}</p>
   <p><b>Tags</b>: {{ post.tags }}</p>
 {% endfor %}

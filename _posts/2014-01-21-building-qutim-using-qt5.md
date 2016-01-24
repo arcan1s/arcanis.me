@@ -6,37 +6,43 @@ hastr: true
 tags: archlinux, linux, building, qutim
 title: Building Qutim using Qt5
 short: building-qutim-using-qt5
-description: <a href="//qutim.org" title="Qutim Homepage">Qutim</a> is a multiprotocol and cross platform messenger. It is written on <code>CPP</code> using Qt library. The project is actively developed. In this paper I will say about building this package in Archlinux using Qt5 library (instead of Qt4 which is used in current AUR packages).
 ---
-<h2><a href="#problems" class="anchor" id="problems"><span class="octicon octicon-link"></span></a>What's wrong?</h2>
-<p>This package uses <a href="//qt-project.org/wiki/qbs" title="Wiki">qbs</a> for building, which is a bit strange IMHO. A package, which is necessary for building, is <a href="//aur.archlinux.org/packages/qbs-git/" title="AUR">in AUR </a>. I recommend to use git version of the package. When I asked Andrea Scarpino (who maintains KDE and Qt packages into the official repos) about qbs, he told me "we will support it in time". And I agree with him, the project seems to be a little unstable.</p>
+[Qutim](//qutim.org) is a multiprotocol and cross platform messenger. It is written on `CPP` using Qt library. The project is actively developed. In this paper I will say about building this package in Archlinux using Qt5 library (instead of Qt4 which is used in current AUR packages).
 
-<h2><a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Prepare</h2>
-<p>Install dependences. I had used <code>namcap</code>, so maybe I missed something:</p>
+<!--more-->
 
-{% highlight bash %}
+# <a href="#problems" class="anchor" id="problems"><span class="octicon octicon-link"></span></a>What's wrong?
+
+This package uses [qbs](//qt-project.org/wiki/qbs "Wiki") for building, which is a bit strange IMHO. A package, which is necessary for building, is [in AUR](//aur.archlinux.org/packages/qbs-git/ "AUR") . I recommend to use git version of the package. When I asked Andrea Scarpino (who maintains KDE and Qt packages into the official repos) about qbs, he told me "we will support it in time". And I agree with him, the project seems to be a little unstable.
+
+# <a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Prepare
+
+Install dependences. I had used `namcap`, so maybe I missed something:
+
+```bash
 pacman -Sy --asdeps clang git libc++abi qt5-quick1 qt5-x11extras
 yaourt -S --asdeps jreen-git qbs-git
-{% endhighlight %}
+```
 
-<h3><a href="#qbs" class="anchor" id="qbs"><span class="octicon octicon-link"></span></a>qbs settings</h3>
-<p>You may read about qbs <a href="//qt-project.org/wiki/qbs" title="Wiki">on the link</a> or see examples which are provides by the package. qbs uses configuration file that firstly you must create and secondly it is stored in your home directory. In theory a configuration file creating ((<code>~/.config/QtProject/qbs.conf</code>)) looks like this:</p>
+### <a href="#qbs" class="anchor" id="qbs"><span class="octicon octicon-link"></span></a>qbs settings
 
-{% highlight bash %}
+You may read about qbs [on the link](//qt-project.org/wiki/qbs "Wiki") or see examples which are provides by the package. qbs uses configuration file that firstly you must create and secondly it is stored in your home directory. In theory a configuration file creating (`~/.config/QtProject/qbs.conf`) looks like this:
+
+```bash
 qbs-setup-qt --detect
 qbs-detect-toolchains
-{% endhighlight %}
+```
 
-<p>Firstly we find Qt libraries. Then we find toolchains (such as compilers). And next we must insert a toolchain into Qt profile (for example, we need <code>clang</code> toolchain):</p>
+Firstly we find Qt libraries. Then we find toolchains (such as compilers). And next we must insert a toolchain into Qt profile (for example, we need `clang` toolchain):
 
-{% highlight bash %}
+```bash
 sed 's/clang\\/qt-5-2-0\\/g' -i ~/.config/QtProject/qbs.conf
-{% endhighlight %}
+```
 
-<p>And there are other ways. You may edit the file manually or use  <code>qbs-config-ui</code> or <code>qbs-config</code>.</p>
-<p>So, we have created the configuration file and put it into build directory:</p>
+And there are other ways. You may edit the file manually or use  `qbs-config-ui` or `qbs-config`.
+So, we have created the configuration file and put it into build directory:
 
-{% highlight ini %}
+```ini
 [General]
 
 [Qt]
@@ -70,14 +76,15 @@ qutim\cpp\toolchainInstallPath=/usr/bin
 qutim\qbs\architecture=x86_64
 qutim\qbs\endianness=little
 qutim\qbs\toolchain=clang, llvm, gcc
-{% endhighlight %}
+```
 
-<p><a href="/resources/docs/qutim-qt5-git/qbs-qutim.conf" title="File" type="text/plain">qbs-qutim.conf</a></p>
+[qbs-qutim.conf](/resources/docs/qutim-qt5-git/qbs-qutim.conf "File")
 
-<h3><a href="#patch" class="anchor" id="patch"><span class="octicon octicon-link"></span></a>Patch for sources</h3>
-<p>The first problem is <code>clang</code> (at least in Archlinux):</p>
+### <a href="#patch" class="anchor" id="patch"><span class="octicon octicon-link"></span></a>Patch for sources
 
-{% highlight diff %}
+The first problem is `clang` (at least in Archlinux):
+
+```diff
 diff -ruN qutim.orig/core/libqutim.qbs qutim/core/libqutim.qbs
 --- qutim.orig/core/libqutim.qbs    2014-01-06 15:39:56.000000000 +0400
 +++ qutim/core/libqutim.qbs 2014-01-06 15:44:54.502175067 +0400
@@ -90,11 +97,11 @@ diff -ruN qutim.orig/core/libqutim.qbs qutim/core/libqutim.qbs
              return flags;
          }
 
-{% endhighlight %}
+```
 
-<p>And the second one is Vk plugin:</p>
+And the second one is Vk plugin:
 
-{% highlight diff %}
+```diff
 diff -ruN qutim.orig/protocols/vkontakte/vreen/vreen.qbs qutim/protocols/vkontakte/vreen/vreen.qbs
 --- qutim.orig/protocols/vkontakte/vreen/vreen.qbs  2014-01-06 15:41:42.000000000 +0400
 +++ qutim/protocols/vkontakte/vreen/vreen.qbs   2014-01-06 15:46:47.142178486 +0400
@@ -106,13 +113,13 @@ diff -ruN qutim.orig/protocols/vkontakte/vreen/vreen.qbs qutim/protocols/vkontak
 
      property string vreen_version_major:  1
      property string vreen_version_minor: 9
-{% endhighlight %}
+```
 
-<p><a href="/resources/docs/qutim-qt5-git/qutim-qbs-1.1.patch" title="File" type="text/plain">qutim-qbs-1.1.patch</a></p>
+[qutim-qbs-1.1.patch](/resources/docs/qutim-qt5-git/qutim-qbs-1.1.patch "File")
 
-<h3><a href="#sources" class="anchor" id="sources"><span class="octicon octicon-link"></span></a>Get sources</h3>
+### <a href="#sources" class="anchor" id="sources"><span class="octicon octicon-link"></span></a>Get sources
 
-{% highlight bash %}
+```bash
 # clone repo
 git clone https://github.com/euroelessar/qutim
 # save qbs.conf
@@ -126,28 +133,28 @@ git submodule update --init --recursive
 # patch
 cd ..
 patch -p0 -i qutim-qbs-1.1.patch
-{% endhighlight %}
+```
 
-<h2><a href="#build" class="anchor" id="build"><span class="octicon octicon-link"></span></a>Building</h2>
+## <a href="#build" class="anchor" id="build"><span class="octicon octicon-link"></span></a>Building
 
-{% highlight bash %}
+```bash
 cd qutim
 HOME=$(pwd) qbs -j $(nproc) -d ../build release profile:qutim
-{% endhighlight %}
+```
 
-<p>I want to create a universal recipe for the building, thus we must set <code>$HOME</code> directory. Flag <code>-j</code> means number of jobs, <code>-d</code> means build directory, <code>release</code> means building type (debug, release), <code>profile</code> is used profile, which is described in the configuration file.</p>
+I want to create a universal recipe for the building, thus we must set `$HOME` directory. Flag `-j` means number of jobs, `-d` means build directory, `release` means building type (debug, release), `profile` is used profile, which is described in the configuration file.
 
-<h2><a href="#install" class="anchor" id="install"><span class="octicon octicon-link"></span></a>Installation</h2>
+## <a href="#install" class="anchor" id="install"><span class="octicon octicon-link"></span></a>Installation
 
-{% highlight bash %}
+```bash
 HOME=$(pwd) sudo qbs install -d ../build --install-root "/usr" profile:qutim
-{% endhighlight %}
+```
 
-<p>We must set root directory (<code>--install-root</code>), because without this option the package will be installed into <code>/</code> (<code>/bin</code> and <code>/lib</code>).</p>
+We must set root directory (`--install-root`), because without this option the package will be installed into `/` (`/bin` and `/lib`).
 
-<h2><a href="#pkgbuild" class="anchor" id="pkgbuild"><span class="octicon octicon-link"></span></a>PKGBUILD</h2>
+## <a href="#pkgbuild" class="anchor" id="pkgbuild"><span class="octicon octicon-link"></span></a>PKGBUILD
 
-{% highlight bash %}
+```bash
 pkgname=qutim-qt5-git
 _gitname=qutim
 pkgver=v0.3.1.967.gc56d61e
@@ -198,6 +205,6 @@ package() {
   cd "${srcdir}/${_gitname}"
   HOME="${srcdir}" qbs install -d ../build --install-root "${pkgdir}/usr" profile:qutim
 }
-{% endhighlight %}
+```
 
-<p><a href="/resources/docs/qutim-qt5-git/PKGBUILD" title="File" type="text/plain">PKGBUILD</a></p>
+[PKGBUILD](/resources/docs/qutim-qt5-git/PKGBUILD "File")

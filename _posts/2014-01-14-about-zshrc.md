@@ -6,32 +6,37 @@ hastr: true
 tags: zshrc, configuration, linux
 title: About zshrc
 short: about-zshrc
-description: It is first paper in my blog (I think I need something here for tests =)). There are many similar articles, and I'll not be an exception. I just want to show my <code>.zshrc</code> and explain what it does and why it is needed. Also any comments or additions are welcome. It is a translated paper from Russian (<a href="//archlinux.org.ru/forum/topic/12752/" title="Forum thread">original</a>).
 ---
-<h2><a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Prepare</h2>
-<p>First install recommended minima:</p>
+It is first paper in my blog (I think I need something here for tests =)). There are many similar articles, and I'll not be an exception. I just want to show my `.zshrc` and explain what it does and why it is needed. Also any comments or additions are welcome. It is a translated paper from Russian ([original](//archlinux.org.ru/forum/topic/12752/ "Forum thread")).
 
-{% highlight bash %}
+<!--more-->
+
+## <a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Prepare
+
+First install recommended minima:
+
+```bash
 pacman -Sy pkgfile zsh zsh-completions zsh-syntax-highlighting
-{% endhighlight %}
+```
 
-<p><a href="//www.archlinux.org/packages/pkgfile/" title="Archlinux package">pkgfile</a> is a very useful utility. Also this command will install shell, additional completion and syntax highlighting.</p>
+[pkgfile](//www.archlinux.org/packages/pkgfile/ "Archlinux package") is a very useful utility. Also this command will install shell, additional completion and syntax highlighting.
 
-<h2><a href="#configuration" class="anchor" id="configuration"><span class="octicon octicon-link"></span></a>Shell configuration</h2>
-<p>All options are avaible <a href="//zsh.sourceforge.net/Doc/Release/Options.html" title="zsh documentation">here</a>.</p>
+## <a href="#configuration" class="anchor" id="configuration"><span class="octicon octicon-link"></span></a>Shell configuration
 
-<p>Set history file and number of commands in cache of the current session and in the history file:</p>
+All options are avaible [here](//zsh.sourceforge.net/Doc/Release/Options.html "zsh documentation").
 
-{% highlight bash %}
+Set history file and number of commands in cache of the current session and in the history file:
+
+```bash
 # history
 HISTFILE=~/.zsh_history
 HISTSIZE=500000
 SAVEHIST=500000
-{% endhighlight %}
+```
 
-<p>I can not remember all <code>Ctrl+</code> combinations so I bind keys to its default usages:</p>
+I can not remember all `Ctrl+` combinations so I bind keys to its default usages:
 
-{% highlight bash %}
+```bash
 # bindkeys
 bindkey '^[[A'  up-line-or-search        # up arrow for back-history-search
 bindkey '^[[B'  down-line-or-search      # down arrow for fwd-history-search
@@ -41,106 +46,106 @@ bindkey '\e[3~' delete-char              # del
 bindkey '\e[4~' end-of-line              # end
 bindkey '\e[5~' up-line-or-history       # page-up
 bindkey '\e[6~' down-line-or-history     # page-down
-{% endhighlight %}
+```
 
-<p>But in this case <code>Up</code>/<code>Down</code> arrows are used to navigate through the history based on <b>already entered part</b> of a command. And <code>PgUp</code>/<code>PgDown</code> <b>will ignore</b> already entered part of a command.</p>
+But in this case `Up`/`Down` arrows are used to navigate through the history based on **already entered part** of a command. And `PgUp`/`PgDown` **will ignore** already entered part of a command.
 
-<p>Command autocomplete:</p>
+Command autocomplete:
 
-{% highlight bash %}
+```bash
 # autocomplete
 autoload -U compinit
 compinit
 zstyle ':completion:*' insert-tab false
 zstyle ':completion:*' max-errors 2
-{% endhighlight %}
+```
 
-<p>Full command autocomplete will be enabled. <code>insert-tab false</code> will enable autocomplete for <b>non-entered</b> commands. <code>max-errors</code> sets maximum number of errors that could be corrected.</p>
+Full command autocomplete will be enabled. `insert-tab false` will enable autocomplete for **non-entered** commands. `max-errors` sets maximum number of errors that could be corrected.
 
-<p>Prompt:</p>
+Prompt:
 
-{% highlight bash %}
+```bash
 # promptinit
 autoload -U promptinit
 promptinit
-{% endhighlight %}
+```
 
-<p>Enable colors:</p>
+Enable colors:
 
-{% highlight bash %}
+```bash
 # colors
 autoload -U colors
 colors
-{% endhighlight %}
+```
 
-<p>Here are some other options.</p>
-<p>Change directory without <code>cd</code>:</p>
+Here are some other options.
+Change directory without `cd`:
 
-{% highlight bash %}
+```bash
 # autocd
 setopt autocd
-{% endhighlight %}
+```
 
-<p>Correcting of typos (and question template):</p>
+Correcting of typos (and question template):
 
-{% highlight bash %}
+```bash
 # correct
 setopt CORRECT_ALL
 SPROMPT="Correct '%R' to '%r' ? ([Y]es/[N]o/[E]dit/[A]bort) "
-{% endhighlight %}
+```
 
-<p>Disable f#$%ing beep:</p>
+Disable f#$%ing beep:
 
-{% highlight bash %}
+```bash
 # disable beeps
 unsetopt beep
-{% endhighlight %}
+```
 
-<p>Enable calculator:</p>
+Enable calculator:
 
-{% highlight bash %}
+```bash
 # calc
 autoload zcalc
-{% endhighlight %}
+```
 
-<p>Append history (<b>do not recreate</b> the history file):</p>
+Append history (**do not recreate** the history file):
 
-{% highlight bash %}
+```bash
 # append history
 setopt APPEND_HISTORY
-{% endhighlight %}
+```
 
-<p>Do not save dups to history file:</p>
+Do not save dups to history file:
 
-{% highlight bash %}
+```bash
 # ignore spaces in history
 setopt HIST_IGNORE_ALL_DUPS
-{% endhighlight %}
+```
 
-<p>...and additional spaces:</p>
+...and additional spaces:
 
-{% highlight bash %}
+```bash
 # ignore dups in history
 setopt HIST_IGNORE_SPACE
-{% endhighlight %}
+```
 
-<p>...and blank lines too:</p>
+...and blank lines too:
 
-{% highlight bash %}
+```bash
 # reduce blanks in history
 setopt HIST_REDUCE_BLANKS
-{% endhighlight %}
+```
 
-<p>Enable <code>pkgfile</code>:</p>
+Enable `pkgfile`:
 
-{% highlight bash %}
+```bash
 # pkgfile
 source /usr/share/doc/pkgfile/command-not-found.zsh
-{% endhighlight %}
+```
 
-<h2><a href="#highlighting" class="anchor" id="highlighting"><span class="octicon octicon-link"></span></a>Syntax highlighting</h2>
+## <a href="#highlighting" class="anchor" id="highlighting"><span class="octicon octicon-link"></span></a>Syntax highlighting
 
-{% highlight bash %}
+```bash
 # highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
@@ -185,14 +190,15 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
 #ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 # root example
 #ZSH_HIGHLIGHT_STYLES[root]='bg=red'
-{% endhighlight %}
+```
 
-<p>In first line highlighting is turned on. Next main, brackets and pattern highlighting are turned on. Patterns are set below (<code>rm -rf *</code> in the example). Also <code>root</code> and <code>cursor</code> highlighting may be turned on. Colors syntax is understandable, <code>fg</code> is font color, <code>bg</code> is background color.</p>
+In first line highlighting is turned on. Next main, brackets and pattern highlighting are turned on. Patterns are set below (`rm -rf *` in the example). Also `root` and `cursor` highlighting may be turned on. Colors syntax is understandable, `fg` is font color, `bg` is background color.
 
-<h2><a href="#prompt" class="anchor" id="prompt"><span class="octicon octicon-link"></span></a>$PROMPT and $RPROMPT</h2>
-<p>The general idea is the use single <code>.zshrc</code> for root and normal user:</p>
+## <a href="#prompt" class="anchor" id="prompt"><span class="octicon octicon-link"></span></a>$PROMPT and $RPROMPT
 
-{% highlight bash %}
+The general idea is the use single `.zshrc` for root and normal user:
+
+```bash
 # PROMPT && RPROMPT
 if [[ $EUID == 0 ]]; then
 # [root@host dir]#
@@ -211,11 +217,11 @@ else
 %{$fg_bold[yellow]%}%1/%{$reset_color%}\
 %{$fg_bold[white]%}]$ %{$reset_color%}"
 fi
-{% endhighlight %}
+```
 
-<p><code>fg</code> is font color, <code>bg</code> is background color. <code>_bold</code> and <code>_no_bold</code> regulate the tint. Commands should be in <code>%{ ... %}</code> so they do not appear. Avaible colors are:</p>
+`fg` is font color, `bg` is background color. `_bold` and `_no_bold` regulate the tint. Commands should be in `%{ ... %}` so they do not appear. Avaible colors are:
 
-{% highlight bash %}
+```bash
 black
 red
 green
@@ -224,11 +230,11 @@ blue
 magenta
 cyan
 white
-{% endhighlight %}
+```
 
-<p>Avaible variables are:</p>
+Avaible variables are:
 
-{% highlight bash %}
+```bash
 %n  - the username
 %m  - the computer's hostname (truncated to the first period)
 %M  - the computer's hostname
@@ -241,11 +247,11 @@ white
 %d  - the current working directory
 %~  - the same as %d but if in $HOME, this will be replaced by ~
 %1/ - the same as %d but only last directory
-{% endhighlight %}
+```
 
-<p>RPROMPT (<code>acpi</code> package is necessary):</p>
+RPROMPT (`acpi` package is necessary):
 
-{% highlight bash %}
+```bash
 precmd () {
   # battery charge
   function batcharge {
@@ -268,25 +274,26 @@ $(batcharge)\
 "%{$fg_bold[white]%}[%{$reset_color%}"\
 $returncode\
 "%{$fg_bold[white]%}]%{$reset_color%}"
-{% endhighlight %}
+```
 
-<p>My RPROMPT shows current time, battery change and last returned code. <code>precmd()</code> is necessary for automatic updating. The construct <code>$(if.true.false)</code> is conditional statement in <code>zsh</code>.</p>
+My RPROMPT shows current time, battery change and last returned code. `precmd()` is necessary for automatic updating. The construct `$(if.true.false)` is conditional statement in `zsh`.
 
-<h2><a href="#aliases" class="anchor" id="aliases"><span class="octicon octicon-link"></span></a>Aliases</h2>
-<p><b>Copy only those aliases that you need.</b> If any alias uses application that is not installed it will leads to fail of loading of configuration file.</p>
+## <a href="#aliases" class="anchor" id="aliases"><span class="octicon octicon-link"></span></a>Aliases
 
-<p>Small useful (or maybe not) function:</p>
+**Copy only those aliases that you need.** If any alias uses application that is not installed it will leads to fail of loading of configuration file.
 
-{% highlight bash %}
+Small useful (or maybe not) function:
+
+```bash
 show_which() {
   OUTPUT=$(which $1 | cut -d " " -f7-)
   echo "Running '$OUTPUT'" 1>&2
 }
-{% endhighlight %}
+```
 
-<p>Here is the first group of aliases:</p>
+Here is the first group of aliases:
 
-{% highlight bash %}
+```bash
 ## alias
 # colored grep
 alias grep='grep --colour=auto'
@@ -302,11 +309,11 @@ alias du='show_which du && du -k --total --human-readable'
 # change less and zless to vimpager
 alias less='vimpager'
 alias zless='vimpager'
-{% endhighlight %}
+```
 
-<p>Here are ls aliases (see <a href="//unixhelp.ed.ac.uk/CGI/man-cgi?ls" title="Man page">man ls</a>):</p>
+Here are ls aliases (see [man ls](//unixhelp.ed.ac.uk/CGI/man-cgi?ls "Man page")):
 
-{% highlight bash %}
+```bash
 alias ls='show_which ls && ls --color=auto --group-directories-first'
 alias ll='show_which ll && ls -l --human-readable'
 alias lr='show_which lr && ls --recursive'
@@ -315,11 +322,11 @@ alias lx='show_which lx && ll -X --ignore-backups'
 alias lz='show_which lz && ll -S --reverse'
 alias lt='show_which lt && ll -t --reverse'
 alias lm='show_which lm && la | more'
-{% endhighlight %}
+```
 
-<p>Here are aliases to quick file view from console (just type a file name!):</p>
+Here are aliases to quick file view from console (just type a file name!):
 
-{% highlight bash %}
+```bash
 # alias -s
 alias -s {avi,mpeg,mpg,mov,m2v,mkv}=mpv
 alias -s {mp3,flac}=qmmp
@@ -327,11 +334,11 @@ alias -s {odt,doc,xls,ppt,docx,xlsx,pptx,csv}=libreoffice
 alias -s {pdf}=okular
 autoload -U pick-web-browser
 alias -s {html,htm}=opera
-{% endhighlight %}
+```
 
-<p>Here are "sudo" aliases:</p>
+Here are "sudo" aliases:
 
-{% highlight bash %}
+```bash
 # sudo alias
 if [[ $EUID == 0 ]]; then
   alias fat32mnt='show_which fat32mnt && mount -t vfat -o codepage=866,iocharset=utf8,umask=000'
@@ -351,23 +358,24 @@ else
   alias staging-i686-build='show_which staging-i686-build && sudo staging-i686-build'
   alias staging-x86_64-build='show_which staging-x86_64-build && sudo staging-x86_64-build'
 fi
-{% endhighlight %}
+```
 
-<p>Here are global aliases. If they are enable the command <code>cat foo g bar</code> will be equivalent the command <code>cat foo | grep bar</code>:</p>
+Here are global aliases. If they are enable the command `cat foo g bar` will be equivalent the command `cat foo | grep bar`:
 
-{% highlight bash %}
+```bash
 # global alias
 alias -g g="| grep"
 alias -g l="| less"
 alias -g t="| tail"
 alias -g h="| head"
 alias -g dn="&> /dev/null &"
-{% endhighlight %}
+```
 
-<h2><a href="#functions" class="anchor" id="functions"><span class="octicon octicon-link"></span></a>Functions</h2>
-<p>Here is a special function for <code>xrandr</code>:</p>
+## <a href="#functions" class="anchor" id="functions"><span class="octicon octicon-link"></span></a>Functions
 
-{% highlight bash %}
+Here is a special function for `xrandr`:
+
+```bash
 # function to contorl xrandr
 # EXAMPLE: projctl 1024x768
 projctl () {
@@ -388,11 +396,11 @@ projctl () {
     xrandr --output VGA1 --mode 1366x768 --output LVDS1 --mode 1366x768
   fi
 }
-{% endhighlight %}
+```
 
-<p>Unfortunately I can not remember <code>tar</code> flags thus I use special functions:</p>
+Unfortunately I can not remember `tar` flags thus I use special functions:
 
-{% highlight bash %}
+```bash
 # function to extract archives
 # EXAMPLE: unpack file
 unpack () {
@@ -442,11 +450,11 @@ pack () {
     echo "'$1' is not a valid file"
   fi
 }
-{% endhighlight %}
+```
 
-<p>Here is a special function for <code>su</code>:</p>
+Here is a special function for `su`:
 
-{% highlight bash %}
+```bash
 su () {
   CHECKSU=0
   for FLAG in $*; do
@@ -461,11 +469,11 @@ su () {
     /usr/bin/su $*
   fi
 }
-{% endhighlight %}
+```
 
-<p>Function that replaces original <code>rm</code> command. If you type <code>rm</code> it will be equivalent moving to trash an you can easily restore a file:</p>
+Function that replaces original `rm` command. If you type `rm` it will be equivalent moving to trash an you can easily restore a file:
 
-{% highlight bash %}
+```bash
 rm () {
   # error check
   [ $# -eq 0 ] && { echo "Files are not set!"; return 1 }
@@ -505,11 +513,11 @@ rm () {
     fi
   done
 }
-{% endhighlight %}
+```
 
-<p>Functions with automatic rehash after installing/removing packages are:</p>
+Functions with automatic rehash after installing/removing packages are:
 
-{% highlight bash %}
+```bash
 pacman () {
   /usr/bin/sudo /usr/bin/pacman $* && echo "$*" | grep -q "S\|R\|U" && rehash
 }
@@ -520,14 +528,15 @@ yaourt () {
 yatest () {
   /usr/bin/yaourt --config /etc/pactest.conf $* && echo "$*" | grep -q "S\|R\|U" && rehash
 }
-{% endhighlight %}
+```
 
-<h2><a href="#variables" class="anchor" id="variables"><span class="octicon octicon-link"></span></a>Variables</h2>
-<p>It is recommended to set own variables in <code>~/.zshenv</code>. But I have everything stored in the single file.</p>
+## <a href="#variables" class="anchor" id="variables"><span class="octicon octicon-link"></span></a>Variables
 
-<p>Here are path, mask of new files, editor and pager:</p>
+It is recommended to set own variables in `~/.zshenv`. But I have everything stored in the single file.
 
-{% highlight bash %}
+Here are path, mask of new files, editor and pager:
+
+```bash
 # path
 export PATH="$PATH:$HOME/.local/bin"
 # umask
@@ -535,25 +544,27 @@ umask 022
 # editor
 export EDITOR="vim"
 export PAGER="vimpager"
-{% endhighlight %}
+```
 
-<p>Here is hashes. If they are enable the command <code>~global</code> will be equivalent the command <code>/mnt/global</code>:</p>
+Here is hashes. If they are enable the command `~global` will be equivalent the command `/mnt/global`:
 
-{% highlight bash %}
+```bash
 # hash
 hash -d global=/mnt/global
 hash -d windows=/mnt/windows
 hash -d iso=/mnt/iso
 hash -d u1=/mnt/usbdev1
 hash -d u2=/mnt/usbdev
-{% endhighlight %}
+```
 
-<h2><a href="#screenshot" class="anchor" id="screenshot"><span class="octicon octicon-link"></span></a>Screenshot</h2>
+## <a href="#screenshot" class="anchor" id="screenshot"><span class="octicon octicon-link"></span></a>Screenshot
+
 <div class="thumbnails">
   {% assign scrdesc = "Zsh demonstation" %}
   {% assign scrname = "zshrc_demo" %}
   {% include prj_scr.html %}
 </div>
 
-<h2><a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>File</h2>
-<p><a href="//raw.github.com/arcan1s/dotfiles/master/zshrc" title="GitHub" type="text/plain">Here is</a> my <code>.zshrc</code>.</p>
+## <a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>File
+
+[Here is](//raw.github.com/arcan1s/dotfiles/master/zshrc "GitHub") my `.zshrc`.

@@ -6,20 +6,24 @@ hastr: true
 tags: archlinux, configuration, linux
 title: Creating own repository
 short: creating-custom-repo
-description: It is a short paper devoted to creation own ArchLinux repository.
 ---
-<h2><a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Prepare</h2>
-<p>First find a server and desire to have sex with it. It is recommended to use Archlinux on it, but it is not necessarily - because you may create special root for Archlinux. Also you need two packages, <code>devtools</code> and <code>pacman</code>:</p>
+It is a short paper devoted to creation own ArchLinux repository.
 
-{% highlight bash %}
+<!--more-->
+
+## <a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Prepare
+
+First find a server and desire to have sex with it. It is recommended to use Archlinux on it, but it is not necessarily - because you may create special root for Archlinux. Also you need two packages, `devtools` and `pacman`:
+
+```bash
 pacman -Sy devtools
-{% endhighlight %}
+```
 
-<p><a href="//www.archlinux.org/packages/devtools/" title="Archlinux package">devtools</a> is script set for building automation in the clean chroot. I think most of Arch maintainers use it.</p>
+[devtools](//www.archlinux.org/packages/devtools/ "Archlinux package") is script set for building automation in the clean chroot. I think most of Arch maintainers use it.
 
-<p>Let's create working directories and set colors:</p>
+Let's create working directories and set colors:
 
-{% highlight bash %}
+```bash
 # colors
 if [ ${USECOLOR} == "yes" ]; then
   bblue='\e[1;34m'
@@ -53,39 +57,40 @@ if [ ! -d "${STAGINGDIR}" ]; then
   echo -e "${bwhite}[II] ${bblue}Creating directory ${bwhite}'${STAGINGDIR}'${cclose}"
   mkdir -p "${STAGINGDIR}" || error_mes "unknown"
 fi
-{% endhighlight %}
+```
 
-<p><code>${REPODIR}/{i686,x86_64}</code> are directories for repository, <code>${PREPAREDIR}</code> is directory where compiled packages will be stored, <code>${STAGINGDIR}</code> is one where packages will be built.</p>
+`${REPODIR}/{i686,x86_64}` are directories for repository, `${PREPAREDIR}` is directory where compiled packages will be stored, `${STAGINGDIR}` is one where packages will be built.
 
-<h2><a href="#theory" class="anchor" id="theory"><span class="octicon octicon-link"></span></a>A bit of theory</h2>
-<p>Create directory, share it (using <a href="/en/2014/03/06/site-changes/" title="Site changes paper">ftp</a>, for example). It has two subdirectories - <code>i686</code> and <code>x86_64</code> - for each architecture respectively. And fill them with a set of packages.</p>
+## <a href="#theory" class="anchor" id="theory"><span class="octicon octicon-link"></span></a>A bit of theory
 
-<p>Updating repository may be split into the following steps:</p>
-<ol>
-  <li>Creating PKGBUILDs (or updating them from AUR).</li>
-  <li>Packages building for each architecture in clean chroot.</li>
-  <li>Packages signing.</li>
-  <li>Creating the list of packages.</li>
-  <li>Repository update:
-    <ol><li>Removal old packages from repository.</li>
-    <li>Copying new packages</li>
-    <li>Repository update.</li></ol>
-    </li>
-  <li>Cleaning.</li>
-</ol>
+Create directory, share it (using [ftp](/en/2014/03/06/site-changes/ "Site changes paper"), for example). It has two subdirectories - `i686` and `x86_64` - for each architecture respectively. And fill them with a set of packages.
 
-<h3><a href="#pkgbuild" class="anchor" id="pkgbuild"><span class="octicon octicon-link"></span></a>Creating PKGBUILDs</h3>
-<p>Download source tarballs from AUR:</p>
+Updating repository may be split into the following steps:
 
-{% highlight bash %}
+1. Creating PKGBUILDs (or updating them from AUR).
+2. Packages building for each architecture in clean chroot.
+3. Packages signing.
+4. Creating the list of packages.
+5. Repository update:
+    1. Removal old packages from repository.
+    2. Copying new packages
+    3. Repository update.
+6. Cleaning.
+
+### <a href="#pkgbuild" class="anchor" id="pkgbuild"><span class="octicon octicon-link"></span></a>Creating PKGBUILDs
+
+Download source tarballs from AUR:
+
+```bash
 cd "${STAGINGDIR}"
 yaourt -G package-name
-{% endhighlight %}
+```
 
-<h3><a href="#building" class="anchor" id="building"><span class="octicon octicon-link"></span></a>Packages building</h3>
-<p>Build each package automatically:</p>
+### <a href="#building" class="anchor" id="building"><span class="octicon octicon-link"></span></a>Packages building
 
-{% highlight bash %}
+Build each package automatically:
+
+```bash
 func_build() {
   if [ ${USECOLOR} == "yes" ]; then
     _bblue='\e[1;34m'
@@ -121,19 +126,19 @@ export -f func_build
 echo -e "${bwhite}[II]${cclose} Building packages"
 cd "${STAGINGDIR}"
 /usr/bin/find -name 'PKGBUILD' -type f -execdir /usr/bin/bash -c "func_build "${PREPAREDIR}" "${ROOTDIR}"" \;
-{% endhighlight %}
+```
 
-<p>It is recommended to add the following lines to <code>/etc/sudoers</code>:</p>
+It is recommended to add the following lines to `/etc/sudoers`:
 
-{% highlight bash %}
+```bash
 username ALL=NOPASSWD: /usr/bin/staging-i686-build
 username ALL=NOPASSWD: /usr/bin/staging-x86_64-build
 username ALL=NOPASSWD: /usr/bin/multilib-staging-build
-{% endhighlight %}
+```
 
-<h3><a href="#signing" class="anchor" id="signing"><span class="octicon octicon-link"></span></a>Packages signing</h3>
+### <a href="#signing" class="anchor" id="signing"><span class="octicon octicon-link"></span></a>Packages signing
 
-{% highlight bash %}
+```bash
 # signing
 if [ ${USEGPG} == "yes" ]; then
   echo -e "${bwhite}[II]${cclose} Signing"
@@ -142,34 +147,35 @@ if [ ${USEGPG} == "yes" ]; then
     /usr/bin/gpg -b ${PACKAGE}
   done
 fi
-{% endhighlight %}
+```
 
-<p>It is recommended to configure <a href="//wiki.archlinux.org/index.php/GPG#gpg-agent" title="ArchWiki">gpg-agent</a>.</p>
+It is recommended to configure [gpg-agent](//wiki.archlinux.org/index.php/GPG#gpg-agent "ArchWiki").
 
-<h3><a href="#list" class="anchor" id="list"><span class="octicon octicon-link"></span></a>Creating the list of packages</h3>
+### <a href="#list" class="anchor" id="list"><span class="octicon octicon-link"></span></a>Creating the list of packages
 
-{% highlight bash %}
+```bash
 # creating packages list
 cd "${PREPAREDIR}"
 i686_PACKAGES=$(/usr/bin/find * -name '*-i686.pkg.tar.xz' -o -name '*-any.pkg.tar.xz')
 x86_64_PACKAGES=$(/usr/bin/find * -name '*-x86_64.pkg.tar.xz' -o -name '*-any.pkg.tar.xz')
 echo -e "${bwhite}[II] ${bblue}=>${cclose} i686 packages: \n${bwhite}${i686_PACKAGES}${cclose}"
 echo -e "${bwhite}[II] ${bblue}=>${cclose} x86_64 packages: \n${bwhite}${x86_64_PACKAGES}${cclose}"
-{% endhighlight %}
+```
 
-<h3><a href="#updating" class="anchor" id="updating"><span class="octicon octicon-link"></span></a>Repository update</h3>
-<p>Here is a function for removal packages from database and repository:</p>
+### <a href="#updating" class="anchor" id="updating"><span class="octicon octicon-link"></span></a>Repository update
 
-{% highlight bash %}
+Here is a function for removal packages from database and repository:
+
+```bash
 func_remove() {
   _PACKAGE="$1"
   /usr/bin/rm -f "${_PACKAGE}"{,.sig}
 }
-{% endhighlight %}
+```
 
-<p><code>i686</code> repository update:</p>
+`i686` repository update:
 
-{% highlight bash %}
+```bash
 # updating i686 repo
 echo -e "${bwhite}[II]${cclose} Updating ${bwhite}i686${cclose} repo"
 cd "${REPODIR}/i686"
@@ -184,11 +190,11 @@ for PACKAGE in ${i686_PACKAGES}; do
   /usr/bin/repo-add ${DBNAME}.db.tar.gz "${PACKAGE}"
   /usr/bin/repo-add --files ${DBNAME}.files.tar.gz "${PACKAGE}"
 done
-{% endhighlight %}
+```
 
-<p><code>x86_64</code> repository update:</p>
+`x86_64` repository update:
 
-{% highlight bash %}
+```bash
 # updating x86_64 repo
 echo -e "${bwhite}[II]${cclose} Updating ${bwhite}x86_64${cclose} repo"
 cd "${REPODIR}/x86_64"
@@ -203,22 +209,23 @@ for PACKAGE in ${x86_64_PACKAGES}; do
   /usr/bin/repo-add ${DBNAME}.db.tar.gz "${PACKAGE}"
   /usr/bin/repo-add --files ${DBNAME}.files.tar.gz "${PACKAGE}"
 done
-{% endhighlight %}
+```
 
-<h3><a href="#clear" class="anchor" id="clear"><span class="octicon octicon-link"></span></a>Cleaning</h3>
+### <a href="#clear" class="anchor" id="clear"><span class="octicon octicon-link"></span></a>Cleaning
 
-{% highlight bash %}
+```bash
 # clear
 cd "${PREPAREDIR}"
 /usr/bin/rm -rf *
 cd "${STAGINGDIR}"
 /usr/bin/rm -rf *
-{% endhighlight %}
+```
 
-<h3><a href="#symlinks" class="anchor" id="symlinks"><span class="octicon octicon-link"></span></a>Creating symlinks</h3>
-<p>You may want to create a directory, which will contain symlinks on actual packages with names, which does not contain version:</p>
+### <a href="#symlinks" class="anchor" id="symlinks"><span class="octicon octicon-link"></span></a>Creating symlinks
 
-{% highlight bash %}
+You may want to create a directory, which will contain symlinks on actual packages with names, which does not contain version:
+
+```bash
 # creating symlinks
 if [ ${SYMLINK} == "yes" ]; then
   echo -e "${bwhite}[II]${cclose} Creating symlinks"
@@ -237,15 +244,17 @@ if [ ${SYMLINK} == "yes" ]; then
     /usr/bin/ln -sf "../x86_64/${PACKAGE}" "${PKGNAME}-x86_64.pkg.tar.xz"
   done
 fi
-{% endhighlight %}
+```
 
-<h3><a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>File</h3>
-<p>Here is <a href="//github.com/arcan1s/repo-scripts" title="GitHub">the scripts</a>. Download source tarballs and run script (editing variables if it is necessary).</p>
+### <a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>File
 
-<h2><a href="#using" class="anchor" id="using"><span class="octicon octicon-link"></span></a>Repository usage</h2>
-<p>Just add following lines to <code>/etc/pacman.conf</code>:</p>
+Here is [the scripts](//github.com/arcan1s/repo-scripts "GitHub"). Download source tarballs and run script (editing variables if it is necessary).
 
-{% highlight bash %}
+## <a href="#using" class="anchor" id="using"><span class="octicon octicon-link"></span></a>Repository usage
+
+Just add following lines to `/etc/pacman.conf`:
+
+```bash
 [$REPONAME]
 Server = ftp://$REPOADDRESS/repo/$arch
-{% endhighlight %}
+```

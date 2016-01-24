@@ -6,32 +6,37 @@ layout: paper
 tags: zshrc, настройка, linux
 title: О zshrc
 short: about-zshrc
-description: Это моя первая статья в блоге (я думаю, мне нужно что-нибудь для тестов =)). Существует множество похожих статей и, я думаю, не буду отличаться от большинства. Я просто хочу показать мой <code>.zshrc</code> и объяснить, что в нем есть и зачем оно нужно. Также, любые комментарии или дополнения приветствуются. <a href="//archlinux.org.ru/forum/topic/12752/" title="Тема на форуме">Оригинал</a> статьи.
 ---
-<h2><a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Подготовка</h2>
-<p>Сначала установите необходимый минимум:</p>
+Это моя первая статья в блоге (я думаю, мне нужно что-нибудь для тестов =)). Существует множество похожих статей и, я думаю, не буду отличаться от большинства. Я просто хочу показать мой `.zshrc` и объяснить, что в нем есть и зачем оно нужно. Также, любые комментарии или дополнения приветствуются. [Оригинал](//archlinux.org.ru/forum/topic/12752/ "Тема на форуме") статьи.
 
-{% highlight bash %}
+<!--more-->
+
+## <a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Подготовка
+
+Сначала установите необходимый минимум:
+
+```bash
 pacman -Sy pkgfile zsh zsh-completions zsh-syntax-highlighting
-{% endhighlight %}
+```
 
-<p><a href="//www.archlinux.org/packages/pkgfile/" title="Пакет Archlinux">pkgfile</a> очень полезная утилита. Данная команда также установит шелл, дополнения к нему и подсветку синтаксиса.</p>
+[pkgfile](//www.archlinux.org/packages/pkgfile/ "Пакет Archlinux") очень полезная утилита. Данная команда также установит шелл, дополнения к нему и подсветку синтаксиса.
 
-<h2><a href="#configuration" class="anchor" id="configuration"><span class="octicon octicon-link"></span></a>Настройка шелла</h2>
-<p>Все доступные опции приведены <a href="//zsh.sourceforge.net/Doc/Release/Options.html" title="Документация zsh">здесь</a>.</p>
+## <a href="#configuration" class="anchor" id="configuration"><span class="octicon octicon-link"></span></a>Настройка шелла
 
-<p>Указываем файл с историей, число команд хранящихся в кэше текущего сеанса и число команд, хранящихся в файле:</p>
+Все доступные опции приведены [здесь](//zsh.sourceforge.net/Doc/Release/Options.html "Документация zsh").
 
-{% highlight bash %}
+Указываем файл с историей, число команд хранящихся в кэше текущего сеанса и число команд, хранящихся в файле:
+
+```bash
 # history
 HISTFILE=~/.zsh_history
 HISTSIZE=500000
 SAVEHIST=500000
-{% endhighlight %}
+```
 
-<p>Я не могу запомнить все комбинации <code>Ctrl+</code>, поэтому я назначаю клавиши на их стандартное использование:</p>
+Я не могу запомнить все комбинации `Ctrl+`, поэтому я назначаю клавиши на их стандартное использование:
 
-{% highlight bash %}
+```bash
 # bindkeys
 bindkey '^[[A'  up-line-or-search        # up arrow for back-history-search
 bindkey '^[[B'  down-line-or-search      # down arrow for fwd-history-search
@@ -41,106 +46,106 @@ bindkey '\e[3~' delete-char              # del
 bindkey '\e[4~' end-of-line              # end
 bindkey '\e[5~' up-line-or-history       # page-up
 bindkey '\e[6~' down-line-or-history     # page-down
-{% endhighlight %}
+```
 
-<p>Но здесь важно, что стрелки <code>вверх</code>/<code>вниз</code> служат для навигации по истории с учетом <b>уже введенной части</b> команды. А <code>PgUp</code>/<code>PgDown</code> <b>проигнорируют</b> уже введенную часть команды.</p>
+Но здесь важно, что стрелки `вверх`/`вниз` служат для навигации по истории с учетом **уже введенной части** команды. А `PgUp`/`PgDown` **проигнорируют** уже введенную часть команды.
 
-<p>Автодополнение команд:</p>
+Автодополнение команд:
 
-{% highlight bash %}
+```bash
 # autocomplete
 autoload -U compinit
 compinit
 zstyle ':completion:*' insert-tab false
 zstyle ':completion:*' max-errors 2
-{% endhighlight %}
+```
 
-<p>Подключается полное автодополнение команд. <code>insert-tab false</code> включит автодополнение для <b>невведенной</b> команды (не знаю, зачем). <code>max-errors</code> устанавливает максимальное число опечаток, которые могут быть исправлены.</p>
+Подключается полное автодополнение команд. `insert-tab false` включит автодополнение для **невведенной** команды (не знаю, зачем). `max-errors` устанавливает максимальное число опечаток, которые могут быть исправлены.
 
-<p>Приглашение:</p>
+Приглашение:
 
-{% highlight bash %}
+```bash
 # promptinit
 autoload -U promptinit
 promptinit
-{% endhighlight %}
+```
 
-<p>Включим цвета:</p>
+Включим цвета:
 
-{% highlight bash %}
+```bash
 # colors
 autoload -U colors
 colors
-{% endhighlight %}
+```
 
-<p>Различные опции.</p>
-<p>Смена директории без ввода <code>cd</code>:</p>
+Различные опции.
+Смена директории без ввода `cd`:
 
-{% highlight bash %}
+```bash
 # autocd
 setopt autocd
-{% endhighlight %}
+```
 
-<p>Корректировка опечаток (и шаблон вопроса):</p>
+Корректировка опечаток (и шаблон вопроса):
 
-{% highlight bash %}
+```bash
 # correct
 setopt CORRECT_ALL
 SPROMPT="Correct '%R' to '%r' ? ([Y]es/[N]o/[E]dit/[A]bort) "
-{% endhighlight %}
+```
 
-<p>Отключаем е#$%ую пищалку:</p>
+Отключаем е#$%ую пищалку:
 
-{% highlight bash %}
+```bash
 # disable beeps
 unsetopt beep
-{% endhighlight %}
+```
 
-<p>Включаем калькулятор:</p>
+Включаем калькулятор:
 
-{% highlight bash %}
+```bash
 # calc
 autoload zcalc
-{% endhighlight %}
+```
 
-<p>Дополнение истории (<b>а не перезапись</b> файла):</p>
+Дополнение истории (**а не перезапись** файла):
 
-{% highlight bash %}
+```bash
 # append history
 setopt APPEND_HISTORY
-{% endhighlight %}
+```
 
-<p>Не сохранять дубликаты в историю:</p>
+Не сохранять дубликаты в историю:
 
-{% highlight bash %}
+```bash
 # ignore dups in history
 setopt HIST_IGNORE_ALL_DUPS
-{% endhighlight %}
+```
 
-<p>...и дополнительные пробелы:</p>
+...и дополнительные пробелы:
 
-{% highlight bash %}
+```bash
 # ignore spaces in history
 setopt HIST_IGNORE_SPACE
-{% endhighlight %}
+```
 
-<p>...и пустые линии тоже:</p>
+...и пустые линии тоже:
 
-{% highlight bash %}
+```bash
 # reduce blanks in history
 setopt HIST_REDUCE_BLANKS
-{% endhighlight %}
+```
 
-<p>Включаем <code>pkgfile</code>:</p>
+Включаем `pkgfile`:
 
-{% highlight bash %}
+```bash
 # pkgfile
 source /usr/share/doc/pkgfile/command-not-found.zsh
-{% endhighlight %}
+```
 
-<h2><a href="#highlighting" class="anchor" id="highlighting"><span class="octicon octicon-link"></span></a>Подсветка синтаксиса</h2>
+## <a href="#highlighting" class="anchor" id="highlighting"><span class="octicon octicon-link"></span></a>Подсветка синтаксиса
 
-{% highlight bash %}
+```bash
 # highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
@@ -185,14 +190,15 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'             # конс�
 #ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 # root
 #ZSH_HIGHLIGHT_STYLES[root]='bg=red'
-{% endhighlight %}
+```
 
-<p>В первой строке включаем подсветку. Затем включаем основную подсветку, а также подсветку скобок и шаблонов. Шаблоны указываются ниже (<code>rm -rf *</code> в примере). Также может быть включена подсветка команд от <code>root</code> и курсора <code>cursor</code>. Синтаксис настроек понятен, <code>fg</code> цвет шрифта, <code>bg</code> цвет фона.</p>
+В первой строке включаем подсветку. Затем включаем основную подсветку, а также подсветку скобок и шаблонов. Шаблоны указываются ниже (`rm -rf *` в примере). Также может быть включена подсветка команд от `root` и курсора `cursor`. Синтаксис настроек понятен, `fg` цвет шрифта, `bg` цвет фона.
 
-<h2><a href="#prompt" class="anchor" id="prompt"><span class="octicon octicon-link"></span></a>$PROMPT и $RPROMPT</h2>
-<p>Я хочу использовать один файл <code>.zshrc</code> для рута и обычного пользователя:</p>
+## <a href="#prompt" class="anchor" id="prompt"><span class="octicon octicon-link"></span></a>$PROMPT и $RPROMPT
 
-{% highlight bash %}
+Я хочу использовать один файл `.zshrc` для рута и обычного пользователя:
+
+```bash
 # PROMPT && RPROMPT
 if [[ $EUID == 0 ]]; then
 # [root@host dir]#
@@ -211,11 +217,11 @@ else
 %{$fg_bold[yellow]%}%1/%{$reset_color%}\
 %{$fg_bold[white]%}]$ %{$reset_color%}"
 fi
-{% endhighlight %}
+```
 
-<p><code>fg</code> цвет шрифта, <code>bg</code> цвет фона. <code>_bold</code> и <code>_no_bold</code> регулируют оттенок. Команды должны быть обрамлены в <code>%{ ... %}</code>, чтобы не показывались. Доступные цвета:</p>
+`fg` цвет шрифта, `bg` цвет фона. `_bold` и `_no_bold` регулируют оттенок. Команды должны быть обрамлены в `%{ ... %}`, чтобы не показывались. Доступные цвета:
 
-{% highlight bash %}
+```bash
 black
 red
 green
@@ -224,11 +230,11 @@ blue
 magenta
 cyan
 white
-{% endhighlight %}
+```
 
-<p>Доступные переменные:</p>
+Доступные переменные:
 
-{% highlight bash %}
+```bash
 %n  - имя пользователя
 %m  - хостнейм (выставляется только в начале сессии)
 %M  - хостнейм
@@ -241,11 +247,11 @@ white
 %d  - текущая директория
 %~  - то же, домашняя директория будет заменена на ~
 %1/ - то же, но только последняя директория
-{% endhighlight %}
+```
 
-<p>RPROMPT (необходим пакет <code>acpi</code>):</p>
+RPROMPT (необходим пакет `acpi`):
 
-{% highlight bash %}
+```bash
 precmd () {
   # battery charge
   function batcharge {
@@ -268,25 +274,26 @@ $(batcharge)\
 "%{$fg_bold[white]%}[%{$reset_color%}"\
 $returncode\
 "%{$fg_bold[white]%}]%{$reset_color%}"
-{% endhighlight %}
+```
 
-<p>Мой RPROMPT показывает текущее время, заряд батареи и код возврата последнего приложения. <code>precmd()</code> необходимо для автоматического обновления. Конструкция <code>$(if.true.false)</code> является условным оператором в <code>zsh</code>.</p>
+Мой RPROMPT показывает текущее время, заряд батареи и код возврата последнего приложения. `precmd()` необходимо для автоматического обновления. Конструкция `$(if.true.false)` является условным оператором в `zsh`.
 
-<h2><a href="#aliases" class="anchor" id="aliases"><span class="octicon octicon-link"></span></a>Аллиасы</h2>
-<p><b>Копируйте только те аллиасы, которые Вам необходимы.</b> Если какой-либо аллиас использует приложение, которое не установлено, это приведет к сбою загрузки конфигурационного файла.</p>
+## <a href="#aliases" class="anchor" id="aliases"><span class="octicon octicon-link"></span></a>Аллиасы
 
-<p>Полезная (или не очень) функция:</p>
+**Копируйте только те аллиасы, которые Вам необходимы.** Если какой-либо аллиас использует приложение, которое не установлено, это приведет к сбою загрузки конфигурационного файла.
 
-{% highlight bash %}
+Полезная (или не очень) функция:
+
+```bash
 show_which() {
   OUTPUT=$(which $1 | cut -d " " -f7-)
   echo "Running '$OUTPUT'" 1>&2
 }
-{% endhighlight %}
+```
 
-<p>Первая группа аллиасов:</p>
+Первая группа аллиасов:
 
-{% highlight bash %}
+```bash
 ## alias
 # цветной grep
 alias grep='grep --colour=auto'
@@ -302,11 +309,11 @@ alias du='show_which du && du -k --total --human-readable'
 # замена less и zless на vimpager
 alias less='vimpager'
 alias zless='vimpager'
-{% endhighlight %}
+```
 
-<p>ls аллиасы (смотри <a href="//unixhelp.ed.ac.uk/CGI/man-cgi?ls" title="Мануал">man ls</a>):</p>
+ls аллиасы (смотри [man ls](//unixhelp.ed.ac.uk/CGI/man-cgi?ls "Мануал")):
 
-{% highlight bash %}
+```bash
 alias ls='show_which ls && ls --color=auto --group-directories-first'
 alias ll='show_which ll && ls -l --human-readable'
 alias lr='show_which lr && ls --recursive'
@@ -315,11 +322,11 @@ alias lx='show_which lx && ll -X --ignore-backups'
 alias lz='show_which lz && ll -S --reverse'
 alias lt='show_which lt && ll -t --reverse'
 alias lm='show_which lm && la | more'
-{% endhighlight %}
+```
 
-<p>Аллиасы для быстрого просмотра файлов из консоли (просто набери имя файла!):</p>
+Аллиасы для быстрого просмотра файлов из консоли (просто набери имя файла!):
 
-{% highlight bash %}
+```bash
 # alias -s
 alias -s {avi,mpeg,mpg,mov,m2v,mkv}=mpv
 alias -s {mp3,flac}=qmmp
@@ -327,11 +334,11 @@ alias -s {odt,doc,xls,ppt,docx,xlsx,pptx,csv}=libreoffice
 alias -s {pdf}=okular
 autoload -U pick-web-browser
 alias -s {html,htm}=opera
-{% endhighlight %}
+```
 
-<p>"sudo" аллиасы:</p>
+"sudo" аллиасы:
 
-{% highlight bash %}
+```bash
 # sudo alias
 if [[ $EUID == 0 ]]; then
   alias fat32mnt='show_which fat32mnt && mount -t vfat -o codepage=866,iocharset=utf8,umask=000'
@@ -351,23 +358,24 @@ else
   alias staging-i686-build='show_which staging-i686-build && sudo staging-i686-build'
   alias staging-x86_64-build='show_which staging-x86_64-build && sudo staging-x86_64-build'
 fi
-{% endhighlight %}
+```
 
-<p>Некоторые глобальные аллиасы. Если они включены, команда <code>cat foo g bar</code> будет эквивалентна <code>cat foo | grep bar</code>:</p>
+Некоторые глобальные аллиасы. Если они включены, команда `cat foo g bar` будет эквивалентна `cat foo | grep bar`:
 
-{% highlight bash %}
+```bash
 # global alias
 alias -g g="| grep"
 alias -g l="| less"
 alias -g t="| tail"
 alias -g h="| head"
 alias -g dn="&> /dev/null &"
-{% endhighlight %}
+```
 
-<h2><a href="#functions" class="anchor" id="functions"><span class="octicon octicon-link"></span></a>Функции</h2>
-<p>Специальная функция для <code>xrandr</code>:</p>
+## <a href="#functions" class="anchor" id="functions"><span class="octicon octicon-link"></span></a>Функции
 
-{% highlight bash %}
+Специальная функция для `xrandr`:
+
+```bash
 # function to contorl xrandr
 # EXAMPLE: projctl 1024x768
 projctl () {
@@ -388,11 +396,11 @@ projctl () {
     xrandr --output VGA1 --mode 1366x768 --output LVDS1 --mode 1366x768
   fi
 }
-{% endhighlight %}
+```
 
-<p>К сожалению, я не могу запомнить флаги <code>tar</code>, поэтому я использую специальные функции:</p>
+К сожалению, я не могу запомнить флаги `tar`, поэтому я использую специальные функции:
 
-{% highlight bash %}
+```bash
 # function to extract archives
 # EXAMPLE: unpack file
 unpack () {
@@ -442,11 +450,11 @@ pack () {
     echo "'$1' is not a valid file"
   fi
 }
-{% endhighlight %}
+```
 
-<p>Специальная функция для <code>su</code>:</p>
+Специальная функция для `su`:
 
-{% highlight bash %}
+```bash
 su () {
   CHECKSU=0
   for FLAG in $*; do
@@ -461,11 +469,11 @@ su () {
     /usr/bin/su $*
   fi
 }
-{% endhighlight %}
+```
 
-<p>Функция, которая заменяет оригиналькую команду <code>rm</code>. Если Вы наберете <code>rm</code>, это будет эквивалентно перемещению в корзину, также, Вы можете легко восстановить удаленный файл:</p>
+Функция, которая заменяет оригиналькую команду `rm`. Если Вы наберете `rm`, это будет эквивалентно перемещению в корзину, также, Вы можете легко восстановить удаленный файл:
 
-{% highlight bash %}
+```bash
 rm () {
   # error check
   [ $# -eq 0 ] && { echo "Files are not set!"; return 1 }
@@ -505,11 +513,11 @@ rm () {
     fi
   done
 }
-{% endhighlight %}
+```
 
-<p>Функция для автоматических обновлений путей после установки пакетов:</p>
+Функция для автоматических обновлений путей после установки пакетов:
 
-{% highlight bash %}
+```bash
 pacman () {
   /usr/bin/sudo /usr/bin/pacman $* && echo "$*" | grep -q "S\|R\|U" && rehash
 }
@@ -520,14 +528,15 @@ yaourt () {
 yatest () {
   /usr/bin/yaourt --config /etc/pactest.conf $* && echo "$*" | grep -q "S\|R\|U" && rehash
 }
-{% endhighlight %}
+```
 
-<h2><a href="#variables" class="anchor" id="variables"><span class="octicon octicon-link"></span></a>Переменные</h2>
-<p>Рекомендуется хранить свои переменные в <code>~/.zshenv</code>. Но я все храню в одном файле.</p>
+## <a href="#variables" class="anchor" id="variables"><span class="octicon octicon-link"></span></a>Переменные
 
-<p>Пути, маска создаваемых файлов, редактор и пейджер:</p>
+Рекомендуется хранить свои переменные в `~/.zshenv`. Но я все храню в одном файле.
 
-{% highlight bash %}
+Пути, маска создаваемых файлов, редактор и пейджер:
+
+```bash
 # path
 export PATH="$PATH:$HOME/.local/bin"
 # umask
@@ -535,25 +544,27 @@ umask 022
 # editor
 export EDITOR="vim"
 export PAGER="vimpager"
-{% endhighlight %}
+```
 
-<p>Хэши. Если они включены, команда <code>~global</code> будет эквивалентна команде <code>/mnt/global</code>:</p>
+Хэши. Если они включены, команда `~global` будет эквивалентна команде `/mnt/global`:
 
-{% highlight bash %}
+```bash
 # hash
 hash -d global=/mnt/global
 hash -d windows=/mnt/windows
 hash -d iso=/mnt/iso
 hash -d u1=/mnt/usbdev1
 hash -d u2=/mnt/usbdev2
-{% endhighlight %}
+```
 
-<h2><a href="#screenshot" class="anchor" id="screenshot"><span class="octicon octicon-link"></span></a>Скриншот</h2>
+## <a href="#screenshot" class="anchor" id="screenshot"><span class="octicon octicon-link"></span></a>Скриншот
+
 <div class="thumbnails">
   {% assign scrdesc = "Как оно выглядит" %}
   {% assign scrname = "zshrc_demo" %}
   {% include prj_scr.html %}
 </div>
 
-<h2><a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>Файл</h2>
-<p><a href="//raw.github.com/arcan1s/dotfiles/master/zshrc" title="Github" type="text/plain">Мой</a> <code>.zshrc</code>.</p>
+## <a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>Файл
+
+[Мой](//raw.github.com/arcan1s/dotfiles/master/zshrc "Github") `.zshrc`.
