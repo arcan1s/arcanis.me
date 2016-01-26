@@ -1,0 +1,181 @@
+---
+hastr: true
+layout: project
+title: git-etc
+short: git-etc
+tags: git, python, qt, linux, daemon, system
+hasgui: true
+hasdocs: false
+developers:
+    - Evgeniy Alekseev
+license: GPLv3
+links:
+    - Archlinux <a href="//aur.archlinux.org/packages/git-etc", title="AUR">AUR package</a>
+---
+<!-- info block -->
+## <a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Information
+
+Simple daemon that automatically creates git repository in the given directory and creates commit at the specified time interval.
+
+```bash
+$ git-etc --help
+Simple daemon written on BASH for monitoring changes in files
+
+Usage: git-etc [ -c | --config /etc/git-etc.conf ] [ -h | --help ] [ -v | --version ]
+
+Parametrs:
+  -c  --config      - path to configuration file
+  -h  --help        - show this help and exit
+  -v  --version     - show version and exit
+
+See "man 1 git-etc" for more details
+```
+
+```bash
+$ ctrlconf --help
+GUI for git-etc daemon
+
+Usage: ctrlconf [ --default ] [ -h | --help ] [ -v | --version ]
+
+Additional parametrs:
+      --default     - create default configuration file
+  -h  --help        - show this help and exit
+  -v  --version     - show version and exit
+
+See "man 1 ctrlconf" for more details
+```
+
+### <a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Developers and contributors
+
+{% for devel in page.developers %}
+* {{ devel }}{% endfor %}
+
+### <a href="#license" class="anchor" id="license"><span class="octicon octicon-link"></span></a>License
+
+* {{ page.license }}
+
+<!-- end of info block -->
+
+<!-- install block -->
+## <a href="#install" class="anchor" id="install"><span class="octicon octicon-link"></span></a>Installation
+
+### <a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Instruction
+
+* Download an [archive](//github.com/arcan1s/git-etc/releases "GitHub") with latest version of source files.
+* Extract it and install the application:
+
+    ```bash
+    ./install.sh "/path/to/root"
+    ```
+
+    If you want install it to `/` you must run it as root, e.g.:
+
+    ```bash
+    sudo ./install.sh
+    ```
+
+    If no path is specified it will be installed to `/` by default.
+
+### <a href="#dependencies" class="anchor" id="dependencies"><span class="octicon octicon-link"></span></a>Dependencies
+
+I want note that all were tested on latest version of dependencies.
+
+* Bash (including awk, grep, sed)
+* git
+* python2 *(make)*
+* systemd *(optional, service file)*
+* python2-pyqt4 *(optional, GUI)*
+* xterm *(optional, GUI)*
+
+<!-- end of install block -->
+
+<!-- howto block -->
+## <a href="#howto" class="anchor" id="howto"><span class="octicon octicon-link"></span></a>How to use
+
+If you want to start the daemon into `/etc` just run
+
+```bash
+systemctl start git-etc
+```
+
+If you want to enable daemon autoload run
+
+```bash
+systemctl enable git-etc
+```
+
+But you may change path to configuration file or change parameters. To do it just copy (recommended) the source configuration file to new path
+
+```bash
+cp /etc/git-etc.conf /new/path/to/file/git-etc.conf
+```
+
+and edit it. Then copy the source service file to `/etc`:
+
+```bash
+cp /usr/lib/systemd/system/git-etc.service /etc/systemd/system/git-etc-my-profile.service
+```
+
+Replace following string in the file:
+
+```bash
+ExecStart=/usr/bin/git-etc -c /etc/git-etc.conf
+```
+
+to
+
+```bash
+ExecStart=/usr/bin/git-etc -c /new/path/to/file/git-etc.conf
+```
+<!-- end of howto block -->
+
+<!-- config block -->
+## <a href="#config" class="anchor" id="config"><span class="octicon octicon-link"></span></a>Configuration
+
+All settings are stored in `/etc/git-etc.conf`. After edit them you must restart daemon
+
+```bash
+systemctl restart git-etc
+```
+
+### <a href="#options" class="anchor" id="options"><span class="octicon octicon-link"></span></a>Options
+
+|            |       |
+|------------|-------|
+| DIRECTORY  | Full path to working directory with observed files. Default is `/etc`. |
+| TIMESLEEP  | Time interval between updates, hours. It must be integer and >= 1\. Default is `12`. |
+| IGNORELIST | List of files that will not be observed. Separator is ";;". May be empty. |
+| FORALL     | `1` will enable access for normal user. Default is `1`. |
+<!-- end of config block -->
+
+<!-- gui block -->
+## <a href="#gui" class="anchor" id="gui"><span class="octicon octicon-link"></span></a>Graphical user interface
+
+Control Config (`ctrlconf`) is GUI for `git-etc` daemon written on `Python2/PyQt4`. This application allows you to view a list of commits and changes in files recorded in commit messages. Also, this application allows you to roll back to a specific commit all files (`git reset --hard`) or individual files (`git diff && git apply`). And you may merge old and new configuration files (used two branches repository - master and experimental). The application may need root privileges. Make sure that `sudo` package is installed.
+
+### <a href="#gui_configuration" class="anchor" id="gui_configuration"><span class="octicon octicon-link"></span></a>Configuration
+
+Just run the application and open the settings window from menu!
+
+### <a href="#screenshots" class="anchor" id="screenshots"><span class="octicon octicon-link"></span></a>Screenshots
+
+(Screenshots in Russian, but GUI has English translation.)
+
+<div class="thumbnails">
+  {% assign scrdesc = "Main window" %}
+  {% assign scrname = "git-etc_mainwindow" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "About window" %}
+  {% assign scrname = "git-etc_aboutwindow" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Commit window" %}
+  {% assign scrname = "git-etc_commitwindow" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Merging window" %}
+  {% assign scrname = "git-etc_mergingwindow" %}
+  {% include prj_scr.html %}
+  {% assign scrdesc = "Roll back window" %}
+  {% assign scrname = "git-etc_rollbackwindow" %}
+  {% include prj_scr.html %}
+</div>
+<!-- end of gui block -->

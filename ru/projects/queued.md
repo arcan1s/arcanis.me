@@ -1,0 +1,154 @@
+---
+category: ru
+hastr: true
+layout: project
+title: queued
+short: queued
+tags: linux, shell, демон, система
+hasgui: false
+hasdocs: false
+developers:
+    - Evgeniy Alekseev
+license: GPLv3
+links:
+---
+<!-- info block -->
+## <a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Информация
+
+Демон для запуска задач в очередь вычислений. Был создан, как proof-of-concept.
+
+```bash
+$ queued --help
+Simple daemon written on BASH for starting jobs to queue of calculations
+
+Usage: queued [ -c /etc/queued.conf ] [ -v | --version ] [ -h | --help ]
+Parametrs:
+  -c               PATH     - path to configuration file. Default is '/etc/queued.conf'
+
+  -v   --version            - show version and exit
+  -h   --help               - show this help and exit
+```
+
+```bash
+$ add_queued --help
+add_queued [ -c /etc/queued.conf ] [ -p NUM ] [ -u USER ] [ -h | --help ] /path/to/script
+
+Parameters:
+    -c               PATH     - path to configuration file. Default is '/etc/queued.conf'
+    -p               NUM      - job priority
+    -u               USER     - username
+    -h   --help               - show this help and exit
+```
+
+### <a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Разработчики
+
+{% for devel in page.developers %}
+* {{ devel }}{% endfor %}
+
+### <a href="#license" class="anchor" id="license"><span class="octicon octicon-link"></span></a>Лицензия
+
+* {{ page.license }}
+
+<!-- end of info block -->
+
+<!-- install block -->
+## <a href="#install" class="anchor" id="install"><span class="octicon octicon-link"></span></a>Установка
+
+### <a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Инструкция
+
+* Скачайте [архив](//github.com/arcan1s/queued/releases "GitHub") с актуальной версией исходных файлов.
+* Извлеките из него файлы и установите приложение:
+
+    ```bash
+    ./install.sh "/путь/к/корню/"
+    ```
+
+    Если Вы хотите установить в `/`, Вы должны запустить это, как root:
+
+    ```bash
+    sudo ./install.sh
+    ```
+
+    Если путь не указан, пакет будет установлен в `/`.
+
+### <a href="#dependencies" class="anchor" id="dependencies"><span class="octicon octicon-link"></span></a>Зависимости
+
+Все было протестировано на последних версиях зависимостей.
+
+* Bash (включая awk, grep, sed)
+* systemd *(опционально, service-файл)*
+
+<!-- end of install block -->
+
+<!-- howto block -->
+## <a href="#howto" class="anchor" id="howto"><span class="octicon octicon-link"></span></a>Использование
+
+Если Вы хотите запустить демон, просто запустите
+
+```bash
+systemctl start queued
+```
+
+Если Вы хотите включить автозагрузку демона, запутите
+
+```bash
+systemctl enable queued
+```
+
+Но Вы можете изменить путь к конфигурационному файлу или изменить параметры. Для этого, скопируйте (рекомендуется) исходный конфигурационный файл
+
+```bash
+cp /etc/queued.conf /новый/путь/к/queued.conf
+```
+
+и отредактируйте его. Затем скопируйте исходный service-файл в `/etc`:
+
+```bash
+cp /usr/lib/systemd/system/queued.service /etc/systemd/system/queued-my-profile.service
+```
+
+Замените следующую строку в этом файле:
+
+```bash
+ExecStart=/usr/bin/queued
+```
+
+на
+
+```bash
+ExecStart=/usr/bin/queued -c /path/to/new/queued.conf
+```
+
+### <a href="#adding" class="anchor" id="adding"><span class="octicon octicon-link"></span></a>Добавление задачи
+
+1. Создайте скрипт с командой (например, с именем `script.sh`).
+2. Создайте файл с приоритетом (`script.sh.pr`) для данной задачи, если это необходимо.
+3. Создайте файл с именем пользователя (`script.sh.user`) для данной задачи, если это необходимо
+4. Скопируйте файлы в `$WORKDIR`
+
+Также Вы можете воспользоваться `add_queued`.
+
+## <a href="#configuration" class="anchor" id="configuration"><span class="octicon octicon-link"></span></a>Настройка
+
+Все настройки хранятся в `/etc/queued.conf`. После редактирования, Вы должны перезапустить демон
+
+```bash
+systemctl restart queued
+```
+<!-- end of howto block -->
+
+<!-- config block -->
+### <a href="#options" class="anchor" id="options"><span class="octicon octicon-link"></span></a>Опции
+
+|         |         |
+|---------|---------|
+| WORKDIR | Полный путь к директории с исходными файлами задач. По умолчанию `/var/lib/queued/work`. Эта директория должна содержать исходные скрипты `script-name`, файл с приоритетом (если необходимо) `script-name.pr` и файл с именем пользователя (если необходимо) `script-name.user`. |
+| JOBDIR | Полный путь к директории с запущенными задачами. По умолчанию `/var/lib/queued/job`. Все файлы будут перемещены сюда. |
+| QUEUEFILE | Полный путь к файлу с очередью вычислений. По умолчанию `/var/lib/queued/queue`. |
+| PRIORITY | Стандартный приоритет. По умолчанию `0`. Чем выше значение, тем выше приоритет задачи. |
+| SLEEPTIME | Интервал обновлений в минутах. По умолчанию `5`. |
+| STARTASUSER | Стандартное имя пользователя. По умолчанию `root`. Именно данному пользователю будут принадлежать все созданные файлы. |
+<!-- end of config block -->
+
+<!-- gui block -->
+<!-- end of gui block -->
