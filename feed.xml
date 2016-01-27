@@ -16,6 +16,9 @@
       {% if post.tags contains 'offtop' %}
 <!--               do nothing -->
       {% else %}
+      {% if post.categories contains 'projects' %}
+<!--               do nothing -->
+      {% else %}
         <item>
           <title>{{ post.title | xml_escape }}</title>
           <description>
@@ -25,6 +28,7 @@
           <link>{{ site.url }}{{ post.url }}</link>
           <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
         </item>
+      {% endif %}
       {% endif %}
     {% endfor %}
   </channel>

@@ -1,4 +1,5 @@
 ---
+permalink: ru/projects/awesome-widgets
 category: ru
 hastr: true
 layout: project
@@ -26,9 +27,10 @@ links:
     - <a href="/ru/2014/12/19/aw-v21-bells-and-whistles/" title="Расширения">Расширения</a>
 ---
 <!-- info block -->
-## <a href="#information" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Информация
 
 Набор минималистичных легко настраиваемых пламоидов, написанных на `C++/Qt`. Они выглядят, как виджеты в [Awesome WM](//awesome.naquadah.org/ "Домашняя страница Awesome"). Также пакет предоставляет дополнительный системный [DataEngine](//techbase.kde.org/Development/Tutorials/Plasma/DataEngines "Мануал для разработчиков").
+
+<!--more-->
 
 **ВНИМАНИЕ:** [НУЖНЫ ПЕРЕВОДЧИКИ!](//github.com/arcan1s/awesome-widgets/issues/14 "Тикет")
 

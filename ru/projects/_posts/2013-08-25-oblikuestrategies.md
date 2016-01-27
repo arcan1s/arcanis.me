@@ -1,4 +1,5 @@
 ---
+permalink: ru/projects/oblikuestrategies
 category: ru
 hastr: true
 layout: project
@@ -15,9 +16,10 @@ links:
     - Пакет в <a href="//aur.archlinux.org/packages/kdeplasma-applets-oblikuestrategies" title="AUR">AUR</a>
 ---
 <!-- info block -->
-## <a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Информация
 
 Плазмоид, написанный на `CPP` который показывает случайные карты из Brian Eno и Peter Schmidt's [Oblique Strategies](//en.wikipedia.org/wiki/Oblique_strategies "Wiki"). Это форк [апплета для GNOME](//gnome-look.org/content/show.php/Oblique+Strategies?content=78405 "gnome-look") с некоторыми дополнительными фичами.
+
+<!--more-->
 
 ### <a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Разработчики
 

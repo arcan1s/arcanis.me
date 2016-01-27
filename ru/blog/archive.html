@@ -15,8 +15,12 @@ hastr: true
       <section>
 
 {% for post in site.categories.ru limit:1 %}
-  {% assign month = post.date | date: "%Y" %}
-  {% assign new_month = post.date | date: "%Y" %}
+  {% if post.categories contains 'projects' %}
+<!--               do nothing -->
+  {% else %}
+    {% assign month = post.date | date: "%Y" %}
+    {% assign new_month = post.date | date: "%Y" %}
+  {% endif %}
 {% endfor %}
 <label class="spoiler">
   <input type="checkbox" tabindex="-1">
@@ -25,8 +29,11 @@ hastr: true
     <span class="close" style="float:right;">(скрыть)</span><span class="open" style="float:right;">(показать)</span>
     <span class="spoilerbody">
       {% for post in site.categories.ru %}
-        {% assign new_month = post.date | date: "%Y" %}
-        {% if new_month != month %}
+        {% if post.categories contains 'projects' %}
+<!--               do nothing -->
+        {% else %}
+          {% assign new_month = post.date | date: "%Y" %}
+          {% if new_month != month %}
     </span>
   </span>
 </label>
@@ -37,11 +44,12 @@ hastr: true
     <b>{% include longdate_to_ru.html %}</b>
     <span class="close" style="float:right;">(скрыть)</span><span class="open" style="float:right;">(показать)</span>
     <span class="spoilerbody">
-        {% endif %}
-        {% assign month = post.date | date: "%Y" %}
+          {% endif %}
+          {% assign month = post.date | date: "%Y" %}
         <i>{% include shortdate_to_ru.html %}</i> &raquo;
         <a href="#{{ post.short }}" class="anchor" id="{{ post.short }}"><span class="octicon octicon-link"></span></a>
         <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> ({{ post.tags }})<br>
+        {% endif %}
       {% endfor %}
     </span>
   </span>

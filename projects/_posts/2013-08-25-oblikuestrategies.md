@@ -1,4 +1,5 @@
 ---
+permalink: projects/oblikuestrategies
 hastr: true
 layout: project
 title: Oblikue strategies
@@ -14,9 +15,10 @@ links:
     - Archlinux <a href="//aur.archlinux.org/packages/kdeplasma-applets-oblikuestrategies", title="AUR">AUR package</a>
 ---
 <!-- info block -->
-## <a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Information
 
 Plasmoid written on `CPP` that displays a random draw from Brian Eno and Peter Schmidt's [Oblique Strategies](//en.wikipedia.org/wiki/Oblique_strategies "Wiki"). It is [GNOME applet](//gnome-look.org/content/show.php/Oblique+Strategies?content=78405 "gnome-look") fork with some of special features.
+
+<!--more-->
 
 ### <a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Developers and contributors
 

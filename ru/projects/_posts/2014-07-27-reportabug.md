@@ -1,4 +1,5 @@
 ---
+permalink: ru/projects/reportabug
 category: ru
 hastr: true
 layout: project
@@ -13,9 +14,10 @@ license: LGPLv3
 links:
 ---
 <!-- info block -->
-## <a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Информация
 
 Приложение/библиотека, написанное на Qt, которое позволяет пользователям отправлять багрепорт для проектов, расположенных на GitHub. Оно может работать как через [GitHub](//github.com "GitHub"), так и через [GitReports](//gitreports.com "GitReports"). Работает нормально, однако данное приложение было создано as proof-of-concept.
+
+<!--more-->
 
 ### <a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Разработчики
 

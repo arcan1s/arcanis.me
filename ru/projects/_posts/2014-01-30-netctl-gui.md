@@ -1,4 +1,5 @@
 ---
+permalink: ru/projects/netctl-gui
 category: ru
 hastr: true
 layout: project
@@ -19,9 +20,10 @@ links:
     - <a href="/devs/netctl-gui-security-notes.html" title="Security">Примечания о безопасности</a>
 ---
 <!-- info block -->
-## <a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Информация
 
 Графическая оболочка для `netctl` (набор скриптов для поднятия сети в Arch'е). Написана на `C++` с использованием библиотеки `Qt`. На текущим момент умеет работать с профилями, в том числе создавать новые, а также умеет подключаться к WiFi. Также предоставляет библиотеку для взаимодействия с netctl и виджет и DataEngine для KDE.
+
+<!--more-->
 
 **ВНИМАНИЕ:** [НУЖНЫ ПЕРЕВОДЧИКИ!](//github.com/arcan1s/netctl-gui/issues/3 "Тикет")
 

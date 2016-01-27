@@ -1,4 +1,5 @@
 ---
+permalink: projects/reportabug
 hastr: true
 layout: project
 title: Report a Bug
@@ -12,9 +13,10 @@ license: LGPLv3
 links:
 ---
 <!-- info block -->
-## <a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Information
 
 Qt application/library which allows users to create an issue for projects which are hosted on GitHub. It may work over [GitHub](//github.com "GitHub") or [GitReport](//gitreports.com/ "GitReports"). It works fine, but it was created as proof-of-concept.
+
+<!--more-->
 
 ### <a href="#devel" class="anchor" id="devel"><span class="octicon octicon-link"></span></a>Developers and contributors
 

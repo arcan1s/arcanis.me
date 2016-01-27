@@ -1,4 +1,5 @@
 ---
+permalink: projects/netctl-gui
 hastr: true
 layout: project
 title: Netctl GUI
@@ -18,9 +19,10 @@ links:
     - <a href="/devs/netctl-gui-security-notes.html" title="Security">Security notes</a>
 ---
 <!-- info block -->
-## <a href="#info" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Information
 
 Graphical interface for `netctl` (several scripts for work with network connection in Archlinux). It is written on `C++` using `Qt` library. Now it may work with profiles and may create new profiles. Also it may create a connection to WiFi. Moreover, it provides a Qt library for interaction with netctl and widget and DataEngine for KDE4/KF5.
+
+<!--more-->
 
 **NOTE:** [LOOKING FOR TRANSLATORS!](//github.com/arcan1s/netctl-gui/issues/3 "Ticket")
 

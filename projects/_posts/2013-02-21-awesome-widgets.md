@@ -1,4 +1,5 @@
 ---
+permalink: projects/awesome-widgets
 hastr: true
 layout: project
 title: Awesome Widgets
@@ -25,9 +26,10 @@ links:
     - <a href="/en/2014/12/19/aw-v21-bells-and-whistles/" title="ExtItems">Extensions</a>
 ---
 <!-- info block -->
-## <a href="#information" class="anchor" id="info"><span class="octicon octicon-link"></span></a>Information
 
 A collection of minimalistic easily configurable Plasmoids written on `C++/Qt`. They look like widgets in [Awesome WM](//awesome.naquadah.org/ "Awesome Homepage"). Also this packages has an additional system [DataEngine](//techbase.kde.org/Development/Tutorials/Plasma/DataEngines "Developers tutorial").
+
+<!--more-->
 
 **NOTE:** [LOOKING FOR TRANSLATORS!](//github.com/arcan1s/awesome-widgets/issues/14 "Ticket")
 
