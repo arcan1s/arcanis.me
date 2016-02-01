@@ -7,17 +7,25 @@ tags: awesome-widgets, pytextmonitor
 title: Awesome Widgets - bells and whistles
 short: aw-v21-bells-and-whistles
 ---
-The paper deals with settings of a custom scripts and graphical bars in the new version of Awesome Widgets (2.1).
+The paper deals with settings of a custom scripts and graphical bars in the new
+version of Awesome Widgets (2.1).
 
 <!--more-->
 
 ## <a href="#intro" class="anchor" id="intro"><span class="octicon octicon-link"></span></a>Introduction
 
-For a start it is highly recommended copy file `$HOME/.kde4/share/config/extsysmon.conf` after widget update before you open widget settings, because old and new script settings are incompatible. Also I should note that these features can be configured from graphical interface, but I will describe how it can be done by simply editing the desktop file.
+For a start it is highly recommended copy file `$HOME/.kde4/share/config/extsysmon.conf`
+after widget update before you open widget settings, because old and new script
+settings are incompatible. Also I should note that these features can be
+configured from graphical interface, but I will describe how it can be done by
+simply editing the desktop file.
 
 ## <a href="#general" class="anchor" id="general"><span class="octicon octicon-link"></span></a>General
 
-Items are stored in the two directories: `/usr/share/awesomewidgets/%TYPE%/` and `$HOME/.local/share/awesomewidgets/%TYPE%/` (path may be differ in depend from your distro). Settings in the home directory have a higher priority that global ones.
+Items are stored in the two directories: `/usr/share/awesomewidgets/%TYPE%/` and
+`$HOME/.local/share/awesomewidgets/%TYPE%/` (path may be differ in depend from
+your distro). Settings in the home directory have a higher priority that global
+ones.
 
 ## <a href="#bars" class="anchor" id="bars"><span class="octicon octicon-link"></span></a>Bars
 
@@ -82,7 +90,9 @@ Directory is `upgrade`, configuration files have the following fields:
 
 ## <a href="#weather" class="anchor" id="weather"><span class="octicon octicon-link"></span></a>Weather
 
-The weather uses data and API from [OpenWeatherMap](//openweathermap.org/ "OpenWeatherMap site"). Directory is `weather`, configuration files have the following fields:
+The weather uses data and API from [OpenWeatherMap](//openweathermap.org/
+"OpenWeatherMap site"). Directory is `weather`, configuration files have the
+following fields:
 
 | Field | Required | Value | Default |
 |-------|----------|-------|---------|

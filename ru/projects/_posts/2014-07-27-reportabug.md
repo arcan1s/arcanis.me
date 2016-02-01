@@ -15,7 +15,11 @@ links:
 ---
 <!-- info block -->
 
-Приложение/библиотека, написанное на Qt, которое позволяет пользователям отправлять багрепорт для проектов, расположенных на GitHub. Оно может работать как через [GitHub](//github.com "GitHub"), так и через [GitReports](//gitreports.com "GitReports"). Работает нормально, однако данное приложение было создано as proof-of-concept.
+Приложение/библиотека, написанное на Qt, которое позволяет пользователям
+отправлять багрепорт для проектов, расположенных на GitHub. Оно может работать
+как через [GitHub](//github.com "GitHub"), так и через [GitReports]
+(//gitreports.com "GitReports"). Работает нормально, однако данное приложение
+было создано as proof-of-concept.
 
 <!--more-->
 
@@ -34,9 +38,11 @@ links:
 ## <a href="#install" class="anchor" id="install"><span class="octicon octicon-link"></span></a>Установка
 
 ### <a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Инструкция
-### <a href="#singleapp" class="anchor" id="singleapp"><span class="octicon octicon-link"></span></a>Сборка, как отдельное приложение
 
-* Скачайте [архив](//github.com/arcan1s/reportabug/releases "GitHub") с актуальной версией исходных файлов.
+#### <a href="#singleapp" class="anchor" id="singleapp"><span class="octicon octicon-link"></span></a>Сборка, как отдельное приложение
+
+* Скачайте [архив](//github.com/arcan1s/reportabug/releases "GitHub") с
+актуальной версией исходных файлов.
 * Извлеките из него файлы и настройте под себя.
 * Установите приложение:
 
@@ -48,9 +54,10 @@ links:
     sudo make install
     ```
 
-### <a href="#aslibrary" class="anchor" id="aslibrary"><span class="octicon octicon-link"></span></a>Сборка, как библиотека в проекте
+#### <a href="#aslibrary" class="anchor" id="aslibrary"><span class="octicon octicon-link"></span></a>Сборка, как библиотека в проекте
 
-* Скачайте [архив](//github.com/arcan1s/reportabug/releases "GitHub") с актуальной версией исходных файлов.
+* Скачайте [архив](//github.com/arcan1s/reportabug/releases "GitHub") с
+актуальной версией исходных файлов.
 * Извлеките из него файлы и настройте под себя.
 * Включите библиотеку в Ваш проект. Например, если Вы используете `cmake`:
 
@@ -86,7 +93,8 @@ links:
 * automoc4 *(make)*
 * cmake *(make)*
 * doxygen *(make, документация)*
-* qt5-webkit (если используется Qt5) **или** qtwebkit (если используется Qt4) *(опционально, требуется для модуля GitReports)*
+* qt5-webkit (если используется Qt5) **или** qtwebkit (если используется Qt4)
+*(опционально, требуется для модуля GitReports)*
 
 <!-- end of install block -->
 
@@ -95,16 +103,22 @@ links:
 
 ### <a href="#github" class="anchor" id="github"><span class="octicon octicon-link"></span></a>Модуль GitHub
 
-Данный модуль создает тикет, используя [GitHub API](//developer.github.com/v3/issues/ "Документация"). Данный модуль требует авторизации пользователя. Типичный POST запрос выглядит так:
+Данный модуль создает тикет, используя [GitHub API](//developer.github.com/v3/issues/
+"Документация"). Данный модуль требует авторизации пользователя. Типичный POST
+запрос выглядит так:
 
 ```bash
 curl -X POST -u user:pass -d '{"title":"A new bug","body":"Some error occurs"}' \
      //api.github.com/repos/owner/repo/issues
 ```
 
-Для того, чтобы отключить данный модуль, используйте `-DENABLE_GITHUB=0` флаг cmake.
+Для того, чтобы отключить данный модуль, используйте `-DENABLE_GITHUB=0` флаг
+cmake.
 
-Также данный модуль может отправлять запросы, используя токен разработчика. Пожалуйста, посетите [данную страницу](//github.com/settings/applications "Настройки") и сгенерируйте токен. Требуемые права для токена - **public_repo** (или **repo**, если Вы используете для приватных репозиториев).
+Также данный модуль может отправлять запросы, используя токен разработчика.
+Пожалуйста, посетите [данную страницу](//github.com/settings/applications
+"Настройки") и сгенерируйте токен. Требуемые права для токена - **public_repo**
+(или **repo**, если Вы используете для приватных репозиториев).
 
 **Имейте в виду, что передача токена в открытом виде может скомпрометировать его!**
 
@@ -115,43 +129,61 @@ curl -X POST -H "Authorization: token token" -d '{"title":"A new bug","body":"So
      //api.github.com/repos/owner/repo/issues
 ```
 
-Для того, чтобы включить данный модуль, используйте `-DOWN_GITHUB_TOKEN=STRING` флаг cmake.
+Для того, чтобы включить данный модуль, используйте `-DOWN_GITHUB_TOKEN=STRING`
+флаг cmake.
 
 Данный модуль требует наличия в системе `QtNetwork`.
 
 ### <a href="#gitreports" class="anchor" id="gitreports"><span class="octicon octicon-link"></span></a>Модуль GitReports
 
-Данный модуль создает тикет, используя возможности [GitReports](//gitreports.com/about "GitReports"). Пожалуйста, посетите [данную страницу](//gitreports.com/ "GitReports") и настройте под Ваши репозитории.
+Данный модуль создает тикет, используя возможности [GitReports]
+(//gitreports.com/about "GitReports"). Пожалуйста, посетите [данную страницу]
+(//gitreports.com/ "GitReports") и настройте под Ваши репозитории.
 
-Для того, чтобы отключить данный модуль, используйте `-DENABLE_GITREPORT=0` флаг cmake. Данный модуль требует наличия в системе `QtNetwork` и `QtWebKit`.
+Для того, чтобы отключить данный модуль, используйте `-DENABLE_GITREPORT=0` флаг
+cmake. Данный модуль требует наличия в системе `QtNetwork` и `QtWebKit`.
 
 <!-- end of howto block -->
 
 <!-- config block -->
 ## <a href="#config" class="anchor" id="config"><span class="octicon octicon-link"></span></a>Настройка
 
-Для настройки перед компиляцией отредактируйте хидер `src/config.h`. Также Вы можете подгрузить параметры автоматически, используя массив `params` (необходимые ключи такие же, как и для хидера).
+Для настройки перед компиляцией отредактируйте хидер `src/config.h`. Также Вы
+можете подгрузить параметры автоматически, используя массив `params`
+(необходимые ключи такие же, как и для хидера).
 
 ### <a href="#mainconfig" class="anchor" id="mainconfig"><span class="octicon octicon-link"></span></a>Основные настройки
 
 * `OWNER` - владелец репозитория.
 * `PROJECT` - имя проекта.
 * `TAG_BODY` - тело тикета по умолчанию. Может быть использовано в обоих модулях.
-* `TAG_TITLE` - имя тикета по умолчанию. Может быть использовано только в модуле GitHub.
-* `TAG_ASSIGNEE` - прикрепить тикет к данному аккаунту. Может быть использовано только в модуле GitHub. Данный тег будет работать, только если пользователь имеет права на запись. Если будет пустым, будет проигнорировано.
-* `TAG_LABELS` - установить данные метки тикету. Метки должны быть разделены запятыми. Может быть использовано только в модуле GitHub. Данный тег будет работать, только если пользователь имеет права на запись. Если будет пустым, будет проигнорировано.
-* `TAG_MILESTONE` - установить данную веху тикету. Может быть использовано только в модуле GitHub. Данный тег будет работать, только если пользователь имеет права на запись. Если будет пустым, будет проигнорировано.
+* `TAG_TITLE` - имя тикета по умолчанию. Может быть использовано только в модуле
+GitHub.
+* `TAG_ASSIGNEE` - прикрепить тикет к данному аккаунту. Может быть использовано
+только в модуле GitHub. Данный тег будет работать, только если пользователь имеет
+права на запись. Если будет пустым, будет проигнорировано.
+* `TAG_LABELS` - установить данные метки тикету. Метки должны быть разделены
+запятыми. Может быть использовано только в модуле GitHub. Данный тег будет
+работать, только если пользователь имеет права на запись. Если будет пустым,
+будет проигнорировано.
+* `TAG_MILESTONE` - установить данную веху тикету. Может быть использовано только
+в модуле GitHub. Данный тег будет работать, только если пользователь имеет права
+на запись. Если будет пустым, будет проигнорировано.
 
 ### <a href="#githubconfig" class="anchor" id="githubconfig"><span class="octicon octicon-link"></span></a>Настройки модуля GitHub
 
 * `GITHUB_COMBOBOX` - текст модуля в ComboBox.
-* `ISSUES_URL` - URL, в большинстве случаев, не редактируйте его. По умолчанию `//api.github.com/repos/$OWNER/$PROJECT/issues`. Доступные теги `$PROJECT`, `$OWNER`.
+* `ISSUES_URL` - URL, в большинстве случаев, не редактируйте его. По умолчанию
+`//api.github.com/repos/$OWNER/$PROJECT/issues`. Доступные теги `$PROJECT`,
+`$OWNER`.
 
 ### <a href="#gitreportsconfig" class="anchor" id="gitreportsconfig"><span class="octicon octicon-link"></span></a>Настройки модуля GitReports
 
-* `CAPTCHA_URL` - URL капчи, в большинстве случаев, не редактируйте его. По умолчанию `//gitreports.com/simple_captcha?code=`.
+* `CAPTCHA_URL` - URL капчи, в большинстве случаев, не редактируйте его. По
+умолчанию `//gitreports.com/simple_captcha?code=`.
 * `GITREPORT_COMBOBOX` - текст модуля в ComboBox.
-* `PUBLIC_URL` - URL, в большинстве случаев, не редактируйте его. По умолчанию `//gitreports.com/issue/$OWNER/$PROJECT`. Доступные теги `$PROJECT`, `$OWNER`.
+* `PUBLIC_URL` - URL, в большинстве случаев, не редактируйте его. По умолчанию
+`//gitreports.com/issue/$OWNER/$PROJECT`. Доступные теги `$PROJECT`, `$OWNER`.
 
 <!-- end of config block -->
 

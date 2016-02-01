@@ -12,7 +12,13 @@ I decided to change my site. You may find short list of changes below.
 <!--more-->
 
 ## <a href="#list" class="anchor" id="list"><span class="octicon octicon-link"></span></a>The list of changes:
-* I rented a `arcanis.me` domain. Now I have a normal address, as well as all normal people have it. Small description of how to do it. Firstly, you should rent domain and activate DNS editing (it is called [DNS-master](//www.nic.ru/dns/service/dns_hosting/ "Service page") for Ru-center). I pay about $30 in year. Then you should create CNAME file in your repository; this file has line with your domain name. And finally you should create two DNS records for your domain:
+* I rented a `arcanis.me` domain. Now I have a normal address, as well as all
+normal people have it. Small description of how to do it. Firstly, you should
+rent domain and activate DNS editing (it is called
+[DNS-master](//www.nic.ru/dns/service/dns_hosting/ "Service page") for
+Ru-center). I pay about $30 in year. Then you should create CNAME file in your
+repository; this file has line with your domain name. And finally you should
+create two DNS records for your domain:
 
     ```bash
     @    A   192.30.252.153
@@ -21,7 +27,8 @@ I decided to change my site. You may find short list of changes below.
     www CNAME   @
     ```
 
-    (Symbol `@` means you root domain.) And next wait for two hours. You may find out the result as follows:
+    (Symbol `@` means you root domain.) And next wait for two hours. You may
+find out the result as follows:
 
     ```bash
     $ dig domain.name +nostats +nocomments +nocmd
@@ -33,8 +40,11 @@ I decided to change my site. You may find short list of changes below.
     ...
     ```
 
-* Also I've created [my own repo](ftp://repo.arcanis.me/repo "Repository"), which will contain some AUR packages that I'm using. Support of both architectures is planned.
-* Since the repo requires ftp protocol, I've changed samba shared folders to ftp. The problem of access has been resolved by using mount options:
+* Also I've created [my own repo](ftp://repo.arcanis.me/repo "Repository"),
+which will contain some AUR packages that I'm using. Support of both
+architectures is planned.
+* Since the repo requires ftp protocol, I've changed samba shared folders to
+ftp. The problem of access has been resolved by using mount options:
 
     ```bash
     # only read rights
@@ -44,7 +54,9 @@ I decided to change my site. You may find short list of changes below.
     /home/arcanis/share.fs                      /srv/ftp/share  ext4    defaults,rw   0 0
     ```
 
-    Login on special user and option `anon_world_readable_only=YES` are used for prevent access to the music directory. Also here is my `/etc/vsftpd.conf` configuration file:
+    Login on special user and option `anon_world_readable_only=YES` are used for
+prevent access to the music directory. Also here is my `/etc/vsftpd.conf`
+configuration file:
 
     ```bash
     anonymous_enable=YES
@@ -67,10 +79,12 @@ I decided to change my site. You may find short list of changes below.
     listen=YES
     ```
 
-    Now let's add redirection from `repo.arcanis.me` to the needed IP address. To do this, add the following entry in DNS:
+    Now let's add redirection from `repo.arcanis.me` to the needed IP address.
+To do this, add the following entry in DNS:
 
     ```bash
     repo   A   89.249.170.38
     ```
 
-* Also there are plans to buy a server for compiling packages and hosting the repository, filesharing and backups.
+* Also there are plans to buy a server for compiling packages and hosting the
+repository, filesharing and backups.

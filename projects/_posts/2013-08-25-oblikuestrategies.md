@@ -16,7 +16,10 @@ links:
 ---
 <!-- info block -->
 
-Plasmoid written on `CPP` that displays a random draw from Brian Eno and Peter Schmidt's [Oblique Strategies](//en.wikipedia.org/wiki/Oblique_strategies "Wiki"). It is [GNOME applet](//gnome-look.org/content/show.php/Oblique+Strategies?content=78405 "gnome-look") fork with some of special features.
+Plasmoid written on `CPP` that displays a random draw from Brian Eno and Peter
+Schmidt's [Oblique Strategies](//en.wikipedia.org/wiki/Oblique_strategies "Wiki").
+It is [GNOME applet](//gnome-look.org/content/show.php/Oblique+Strategies?content=78405
+"gnome-look") fork with some of special features.
 
 <!--more-->
 
@@ -36,7 +39,8 @@ Plasmoid written on `CPP` that displays a random draw from Brian Eno and Peter S
 
 ### <a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Instruction
 
-* Download an [archive](//github.com/arcan1s/oblikuestrategies/releases "GitHub") with latest version of source files.
+* Download an [archive](//github.com/arcan1s/oblikuestrategies/releases "GitHub")
+with latest version of source files.
 * Extract it and install the application. For global isntallation type:
 
     ```bash
@@ -63,7 +67,8 @@ Plasmoid written on `CPP` that displays a random draw from Brian Eno and Peter S
     kquitapp plasma-desktop && sleep 2 && plasma-desktop
     ```
 
-    Also you might need to run `kbuildsycoca4` in order to get the `*.desktop` file recognized:
+    Also you might need to run `kbuildsycoca4` in order to get the `*.desktop`
+    file recognized:
 
     ```bash
     kbuildsycoca4 &> /dev/null

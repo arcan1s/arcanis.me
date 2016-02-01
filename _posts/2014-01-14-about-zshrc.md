@@ -7,7 +7,11 @@ tags: zshrc, configuration, linux
 title: About zshrc
 short: about-zshrc
 ---
-It is first paper in my blog (I think I need something here for tests =)). There are many similar articles, and I'll not be an exception. I just want to show my `.zshrc` and explain what it does and why it is needed. Also any comments or additions are welcome. It is a translated paper from Russian ([original](//archlinux.org.ru/forum/topic/12752/ "Forum thread")).
+It is first paper in my blog (I think I need something here for tests =)). There
+are many similar articles, and I'll not be an exception. I just want to show my
+`.zshrc` and explain what it does and why it is needed. Also any comments or
+additions are welcome. It is a translated paper from Russian
+([original](//archlinux.org.ru/forum/topic/12752/ "Forum thread")).
 
 <!--more-->
 
@@ -19,13 +23,17 @@ First install recommended minima:
 pacman -Sy pkgfile zsh zsh-completions zsh-syntax-highlighting
 ```
 
-[pkgfile](//www.archlinux.org/packages/pkgfile/ "Archlinux package") is a very useful utility. Also this command will install shell, additional completion and syntax highlighting.
+[pkgfile](//www.archlinux.org/packages/pkgfile/ "Archlinux package") is a very
+useful utility. Also this command will install shell, additional completion and
+syntax highlighting.
 
 ## <a href="#configuration" class="anchor" id="configuration"><span class="octicon octicon-link"></span></a>Shell configuration
 
-All options are avaible [here](//zsh.sourceforge.net/Doc/Release/Options.html "zsh documentation").
+All options are avaible [here](//zsh.sourceforge.net/Doc/Release/Options.html
+"zsh documentation").
 
-Set history file and number of commands in cache of the current session and in the history file:
+Set history file and number of commands in cache of the current session and in
+the history file:
 
 ```bash
 # history
@@ -34,7 +42,8 @@ HISTSIZE=500000
 SAVEHIST=500000
 ```
 
-I can not remember all `Ctrl+` combinations so I bind keys to its default usages:
+I can not remember all `Ctrl+` combinations so I bind keys to its default
+usages:
 
 ```bash
 # bindkeys
@@ -48,7 +57,9 @@ bindkey '\e[5~' up-line-or-history       # page-up
 bindkey '\e[6~' down-line-or-history     # page-down
 ```
 
-But in this case `Up`/`Down` arrows are used to navigate through the history based on **already entered part** of a command. And `PgUp`/`PgDown` **will ignore** already entered part of a command.
+But in this case `Up`/`Down` arrows are used to navigate through the history
+based on **already entered part** of a command. And `PgUp`/`PgDown` **will
+ignore** already entered part of a command.
 
 Command autocomplete:
 
@@ -60,7 +71,9 @@ zstyle ':completion:*' insert-tab false
 zstyle ':completion:*' max-errors 2
 ```
 
-Full command autocomplete will be enabled. `insert-tab false` will enable autocomplete for **non-entered** commands. `max-errors` sets maximum number of errors that could be corrected.
+Full command autocomplete will be enabled. `insert-tab false` will enable
+autocomplete for **non-entered** commands. `max-errors` sets maximum number of
+errors that could be corrected.
 
 Prompt:
 
@@ -192,7 +205,10 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
 #ZSH_HIGHLIGHT_STYLES[root]='bg=red'
 ```
 
-In first line highlighting is turned on. Next main, brackets and pattern highlighting are turned on. Patterns are set below (`rm -rf *` in the example). Also `root` and `cursor` highlighting may be turned on. Colors syntax is understandable, `fg` is font color, `bg` is background color.
+In first line highlighting is turned on. Next main, brackets and pattern
+highlighting are turned on. Patterns are set below (`rm -rf *` in the example).
+Also `root` and `cursor` highlighting may be turned on. Colors syntax is
+understandable, `fg` is font color, `bg` is background color.
 
 ## <a href="#prompt" class="anchor" id="prompt"><span class="octicon octicon-link"></span></a>$PROMPT and $RPROMPT
 
@@ -219,7 +235,9 @@ else
 fi
 ```
 
-`fg` is font color, `bg` is background color. `_bold` and `_no_bold` regulate the tint. Commands should be in `%{ ... %}` so they do not appear. Avaible colors are:
+`fg` is font color, `bg` is background color. `_bold` and `_no_bold` regulate
+the tint. Commands should be in `%{ ... %}` so they do not appear. Avaible
+colors are:
 
 ```bash
 black
@@ -276,11 +294,14 @@ $returncode\
 "%{$fg_bold[white]%}]%{$reset_color%}"
 ```
 
-My RPROMPT shows current time, battery change and last returned code. `precmd()` is necessary for automatic updating. The construct `$(if.true.false)` is conditional statement in `zsh`.
+My RPROMPT shows current time, battery change and last returned code. `precmd()`
+is necessary for automatic updating. The construct `$(if.true.false)` is
+conditional statement in `zsh`.
 
 ## <a href="#aliases" class="anchor" id="aliases"><span class="octicon octicon-link"></span></a>Aliases
 
-**Copy only those aliases that you need.** If any alias uses application that is not installed it will leads to fail of loading of configuration file.
+**Copy only those aliases that you need.** If any alias uses application that is
+not installed it will leads to fail of loading of configuration file.
 
 Small useful (or maybe not) function:
 
@@ -311,7 +332,8 @@ alias less='vimpager'
 alias zless='vimpager'
 ```
 
-Here are ls aliases (see [man ls](//unixhelp.ed.ac.uk/CGI/man-cgi?ls "Man page")):
+Here are ls aliases (see [man ls](//unixhelp.ed.ac.uk/CGI/man-cgi?ls "Man
+page")):
 
 ```bash
 alias ls='show_which ls && ls --color=auto --group-directories-first'
@@ -360,7 +382,8 @@ else
 fi
 ```
 
-Here are global aliases. If they are enable the command `cat foo g bar` will be equivalent the command `cat foo | grep bar`:
+Here are global aliases. If they are enable the command `cat foo g bar` will be
+equivalent the command `cat foo | grep bar`:
 
 ```bash
 # global alias
@@ -471,7 +494,8 @@ su () {
 }
 ```
 
-Function that replaces original `rm` command. If you type `rm` it will be equivalent moving to trash an you can easily restore a file:
+Function that replaces original `rm` command. If you type `rm` it will be
+equivalent moving to trash an you can easily restore a file:
 
 ```bash
 rm () {
@@ -532,7 +556,8 @@ yatest () {
 
 ## <a href="#variables" class="anchor" id="variables"><span class="octicon octicon-link"></span></a>Variables
 
-It is recommended to set own variables in `~/.zshenv`. But I have everything stored in the single file.
+It is recommended to set own variables in `~/.zshenv`. But I have everything
+stored in the single file.
 
 Here are path, mask of new files, editor and pager:
 
@@ -546,7 +571,8 @@ export EDITOR="vim"
 export PAGER="vimpager"
 ```
 
-Here is hashes. If they are enable the command `~global` will be equivalent the command `/mnt/global`:
+Here is hashes. If they are enable the command `~global` will be equivalent the
+command `/mnt/global`:
 
 ```bash
 # hash

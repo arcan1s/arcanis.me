@@ -21,11 +21,16 @@ links:
 ---
 <!-- info block -->
 
-Графическая оболочка для `netctl` (набор скриптов для поднятия сети в Arch'е). Написана на `C++` с использованием библиотеки `Qt`. На текущим момент умеет работать с профилями, в том числе создавать новые, а также умеет подключаться к WiFi. Также предоставляет библиотеку для взаимодействия с netctl и виджет и DataEngine для KDE.
+Графическая оболочка для `netctl` (набор скриптов для поднятия сети в Arch'е).
+Написана на `C++` с использованием библиотеки `Qt`. На текущим момент умеет
+работать с профилями, в том числе создавать новые, а также умеет подключаться к
+WiFi. Также предоставляет библиотеку для взаимодействия с netctl, виджет и
+DataEngine для KDE.
 
 <!--more-->
 
-**ВНИМАНИЕ:** [НУЖНЫ ПЕРЕВОДЧИКИ!](//github.com/arcan1s/netctl-gui/issues/3 "Тикет")
+**ВНИМАНИЕ:** [НУЖНЫ ПЕРЕВОДЧИКИ!](//github.com/arcan1s/netctl-gui/issues/3
+"Тикет")
 
 ```bash
 $ netctl-gui --help
@@ -92,8 +97,10 @@ netctlgui-helper [ options ]
 
 ### <a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Инструкция
 
-* Скачайте [архив](//github.com/arcan1s/netctl-gui/releases "GitHub") с актуальной версией исходных файлов.
-* Извлеките из него файлы и установите приложение. Если Вы хотите установить в `/`, Вы должны запустить как root:
+* Скачайте [архив](//github.com/arcan1s/netctl-gui/releases "GitHub") с
+актуальной версией исходных файлов.
+* Извлеките из него файлы и установите приложение. Если Вы хотите установить в
+`/`, Вы должны запустить как root:
 
     ```bash
     cd /путь/к/распакованному/архиву
@@ -115,9 +122,11 @@ netctlgui-helper [ options ]
         * `-DBUILD_DOCS:BOOL=0` - не собирать документацию разработчика
         * `-DBUILD_TEST:BOOL=1` - собирать авто тесты для библиотеки и хелпера
     * свойства проекта:
-        * `-DDBUS_SYSTEMCONF_PATH=/etc/dbus-1/system.d/` - путь к системный файлам конфигурации DBus
+        * `-DDBUS_SYSTEMCONF_PATH=/etc/dbus-1/system.d/` - путь к системный
+        файлам конфигурации DBus
         * `-DSYSTEMD_SERVICE_PATH=lib/systemd/system` - путь к сервису systemd
-        * `-DUSE_CAPABILITIES:BOOL=0` - не использовать setcap, чтобы дать необходимые привилегии хелперу
+        * `-DUSE_CAPABILITIES:BOOL=0` - не использовать setcap, чтобы дать
+        необходимые привилегии хелперу
         * `-DBUILD_KDE4:BOOL=1` - собирать виджет под KDE4 вместо KF5
         * `-DUSE_QT5:BOOL=0` - использовать Qt4 вместо Qt5
 
@@ -140,26 +149,34 @@ netctlgui-helper [ options ]
 <!-- howto block -->
 ## <a href="#howto" class="anchor" id="howto"><span class="octicon octicon-link"></span></a>Использование
 
-Просто запустите приложение `netctl-gui`. Если потребуется (и если Вы используете KDE), можете добавить виджет `netctl`, предоставляемый приложением.
+Просто запустите приложение `netctl-gui`. Если потребуется (и если Вы
+используете KDE), можете добавить виджет `netctl`, предоставляемый приложением.
 
 <!-- end of howto block -->
 
 <!-- config block -->
 ## <a href="#config" class="anchor" id="config"><span class="octicon octicon-link"></span></a>Настройка
 
-Рекомендуется использовать графический интерфейс для настройки. Конфигурационные файлы:
+Рекомендуется использовать графический интерфейс для настройки. Конфигурационные
+файлы:
 
 * Графический интерфейс и хелпер
     * `$HOME/.config/netctl-gui.conf` - пользовательские настройки GUI/хелпера
     * `/etc/netctl-gui.conf` - системные настройки хелпера
 * DataEngine (KDE4 версия)
-    * `$KDEHOME/share/config/plasma-dataengine-netctl.conf` - пользовательские настройки DataEngine
-    * `$KDESYSTEM/share/config/plasma-dataengine-netctl.conf` - системные настройки DataEngine
+    * `$KDEHOME/share/config/plasma-dataengine-netctl.conf` - пользовательские
+    настройки DataEngine
+    * `$KDESYSTEM/share/config/plasma-dataengine-netctl.conf` - системные
+    настройки DataEngine
 * DataEngine (KF5 версия)
-    * `$HOME/.config/plasma-dataengine-netctl.conf` - пользовательские настройки DataEngine
+    * `$HOME/.config/plasma-dataengine-netctl.conf` - пользовательские настройки
+    DataEngine
     * `/etc/xdg/plasma-dataengine-netctl.conf` - системные настройки DataEngine
 
-Для настройки виджета и DataEngine рекомендуется использовать графический интерфейс. Все настройки графического интерфейса хранятся в `$HOME/.config/netctl-gui.conf`. Для редактирования настоятельно рекомендуется использовать графический интерфейс.
+Для настройки виджета и DataEngine рекомендуется использовать графический
+интерфейс. Все настройки графического интерфейса хранятся в
+`$HOME/.config/netctl-gui.conf`. Для редактирования настоятельно рекомендуется
+использовать графический интерфейс.
 
 <!-- end of config block -->
 

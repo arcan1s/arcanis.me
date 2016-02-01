@@ -27,11 +27,15 @@ links:
 ---
 <!-- info block -->
 
-A collection of minimalistic easily configurable Plasmoids written on `C++/Qt`. They look like widgets in [Awesome WM](//awesome.naquadah.org/ "Awesome Homepage"). Also this packages has an additional system [DataEngine](//techbase.kde.org/Development/Tutorials/Plasma/DataEngines "Developers tutorial").
+A collection of minimalistic easily configurable Plasmoids written on `C++/Qt`.
+They look like widgets in [Awesome WM](//awesome.naquadah.org/ "Awesome Homepage").
+Also this packages has an additional system [DataEngine]
+(//techbase.kde.org/Development/Tutorials/Plasma/DataEngines "Developers tutorial").
 
 <!--more-->
 
-**NOTE:** [LOOKING FOR TRANSLATORS!](//github.com/arcan1s/awesome-widgets/issues/14 "Ticket")
+**NOTE:** [LOOKING FOR TRANSLATORS!](//github.com/arcan1s/awesome-widgets/issues/14
+"Ticket")
 
 **PLASMA 5 COMPATIBLE!**
 
@@ -55,7 +59,8 @@ A collection of minimalistic easily configurable Plasmoids written on `C++/Qt`. 
 
 ### <a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Instruction
 
-* Download an [archive](//github.com/arcan1s/awesome-widgets/releases "GitHub") with latest version of source files.
+* Download an [archive](//github.com/arcan1s/awesome-widgets/releases "GitHub")
+with latest version of source files.
 * Extract it and install:
 
     ```bash
@@ -66,7 +71,8 @@ A collection of minimalistic easily configurable Plasmoids written on `C++/Qt`. 
     sudo make install
     ```
 
-  **NOTE:** on Plasma 5 it very likely requires `-DKDE_INSTALL_USE_QT_SYS_PATHS=ON` flag
+  **NOTE:** on Plasma 5 it very likely requires `-DKDE_INSTALL_USE_QT_SYS_PATHS=ON`
+  flag.
 
 ### <a href="#dependencies" class="anchor" id="dependencies"><span class="octicon octicon-link"></span></a>Dependencies
 
@@ -88,7 +94,8 @@ Open your Plasma widgets and select `Awesome Widget`.
 
 ### <a href="#tips" class="anchor" id="tips"><span class="octicon octicon-link"></span></a>Tips & tricks
 
-You may use different colours inside. Just put label text into html code. See [issue](//github.com/arcan1s/awesome-widgets/issues/9 "GitHub") for more details.
+You may use different colours inside. Just put label text into html code. See
+[issue](//github.com/arcan1s/awesome-widgets/issues/9 "GitHub") for more details.
 
 <!-- end of howto block -->
 
@@ -97,7 +104,9 @@ You may use different colours inside. Just put label text into html code. See [i
 
 ### <a href="#deconf" class="anchor" id="deconf"><span class="octicon octicon-link"></span></a>DataEngine configuration
 
-You may edit DataEngine configuration. It is `/etc/xdg/plasma-dataengine-extsysmon.conf` and `$HOME/.config/plasma-dataengine-extsysmon.conf`. Uncomment needed line and edit it.
+You may edit DataEngine configuration. It is `/etc/xdg/plasma-dataengine-extsysmon.conf`
+and `$HOME/.config/plasma-dataengine-extsysmon.conf`. Uncomment needed line and
+edit it.
 
 #### <a href="#deoptions" class="anchor" id="deoptions"><span class="octicon octicon-link"></span></a>DataEngine options
 
@@ -114,7 +123,8 @@ You may edit DataEngine configuration. It is `/etc/xdg/plasma-dataengine-extsysm
 
 ### <a href="#widconf" class="anchor" id="widconf"><span class="octicon octicon-link"></span></a>Widget configuration
 
-For edited output you must open Settings window and setup output format. HTML tags work normally.
+For edited output you must open Settings window and setup output format. HTML
+tags work normally.
 
 Available flags are in the table below.
 
@@ -217,7 +227,9 @@ Available flags are in the table below.
 
 ##### <a href="#lambda" class="anchor" id="lambda"><span class="octicon octicon-link"></span></a>Lambda functions
 
-Since version 3.0.0 the main widgets supports lambda functions, which are calculated at runtime. It may be declared by using `{% raw %}${{{% endraw %} {% raw %}}}{% endraw %}` construction:
+Since version 3.0.0 the main widgets supports lambda functions, which are
+calculated at runtime. It may be declared by using `{% raw %}${{{% endraw %}
+{% raw %}}}{% endraw %}` construction:
 
 ```javascript
 {% raw %}${{{% endraw %}
@@ -229,7 +241,8 @@ three()
 {% raw %}}}{% endraw %}
 ```
 
-A functions inside will be interpret as JavaScript ones, any variables from main body is supported, thus the following function:
+A functions inside will be interpret as JavaScript ones, any variables from main
+body is supported, thus the following function:
 
 ```javascript
 {% raw %}${{{% endraw %}
@@ -244,7 +257,8 @@ colorCpu()
 {% raw %}}}{% endraw %}
 ```
 
-will show `$cpu` value in red if it is more than 90.0, otherwise it will be shown in default colour. Any calculations are also supported:
+will show `$cpu` value in red if it is more than 90.0, otherwise it will be shown
+in default colour. Any calculations are also supported:
 
 ```javascript
 {% raw %}${{{% endraw %}
@@ -252,7 +266,10 @@ $down - $up
 {% raw %}}}{% endraw %}
 ```
 
-will show difference between download and upload speed. Another feature provided by lambda functions is `$this` value which returns the last value of the lambda function. Here is a little more complicated example which will show running line "Artist - Title" with length less or equal than 20 symbols:
+will show difference between download and upload speed. Another feature provided
+by lambda functions is `$this` value which returns the last value of the lambda
+function. Here is a little more complicated example which will show running line
+"Artist - Title" with length less or equal than 20 symbols:
 
 ```javascript
 {% raw %}${{{% endraw %}
@@ -268,11 +285,15 @@ runningLine()
 {% raw %}}}{% endraw %}
 ```
 
-Thus this feature may be used for example to show any custom values which will be calculated in runtime and to show different information depending on some conditions. But please keep in mind that such runtime calculation may increase CPU load.
+Thus this feature may be used for example to show any custom values which will
+be calculated in runtime and to show different information depending on some
+conditions. But please keep in mind that such runtime calculation may increase
+CPU load.
 
 ##### <a href="#advanced" class="anchor" id="advanced"><span class="octicon octicon-link"></span></a>Advanced settings
 
-**Enable background:** Uncheck to disable default background and set transparent one. Default is `true`.
+**Enable background:** Uncheck to disable default background and set transparent
+one. Default is `true`.
 
 **Translate strings:** Translate strings tags. Default is `true`.
 
@@ -280,19 +301,24 @@ Thus this feature may be used for example to show any custom values which will b
 
 **Word wrap:** Enable word wrap. Default is `false`.
 
-**Enable popup:** Uncheck box if you do not want popup messages on system events. Default is `true`.
+**Enable popup:** Uncheck box if you do not want popup messages on system events.
+Default is `true`.
 
 **Check updates:** Check updates on load. Default is `true`.
 
-**Widget height:** Disable automatic widget height definition and set it to this value. Default is `0` (auto).
+**Widget height:** Disable automatic widget height definition and set it to this
+value. Default is `0` (auto).
 
-**Widget width:** Disable automatic widget width definition and set it to this value. Default is `0` (auto).
+**Widget width:** Disable automatic widget width definition and set it to this
+value. Default is `0` (auto).
 
 **Update interval:** Widget update interval. Default is `1000`.
 
-**Queue limit:** Use thread pool with this maximum thread counts. `0` means CPU ideal thread count. Default is `0`.
+**Queue limit:** Use thread pool with this maximum thread counts. `0` means CPU
+ideal thread count. Default is `0`.
 
-**Temperature units:** Select units for temperature. Available units are Celsius, Farenheit, Kelvin, Reaumur, cm^-1, kJ/mol, kcal/mol.
+**Temperature units:** Select units for temperature. Available units are Celsius,
+Farenheit, Kelvin, Reaumur, cm^-1, kJ/mol, kcal/mol.
 
 **Custom time format:**
 
@@ -337,48 +363,63 @@ Thus this feature may be used for example to show any custom values which will b
 
 #### <a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Tooltips
 
-Since version 1.7.0 CPU, CPU clock, memory, swap, network and battery support graphical tooltip. To enable them just select required fields. The number of stored values can be set in the tab. Colours of the graphs are configurable too.
+Since version 1.7.0 CPU, CPU clock, memory, swap, network and battery support
+graphical tooltip. To enable them just select required fields. The number of
+stored values can be set in the tab. Colours of the graphs are configurable too.
 
 #### <a href="#deguiconf" class="anchor" id="deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings
 
 **ACPI path:** Path to ACPI devices. The file `/sys/class/power_supply/`.
 
-**GPU device:** Select one of supported GPU devices. `auto` will enable auto selection, `disable` will disable all GPU monitors. Default is `auto`.
+**GPU device:** Select one of supported GPU devices. `auto` will enable auto
+selection, `disable` will disable all GPU monitors. Default is `auto`.
 
-**HDD:** Select one of HDDs for HDD temperature monitor. `all` will enable monitor for all devices, `disable` will disable HDD temperature monitor. Default is `all`.
+**HDD:** Select one of HDDs for HDD temperature monitor. `all` will enable
+monitor for all devices, `disable` will disable HDD temperature monitor. Default
+is `all`.
 
-**hddtemp cmd:** Type a command which will be run for hddtemp DataEngine. Default is `sudo smartctl -a`.
+**hddtemp cmd:** Type a command which will be run for hddtemp DataEngine. Default
+is `sudo smartctl -a`.
 
 **Player symbol count:** Symbol count for dynamic player tags.
 
 **Music player:** Select one of supported music players for player label.
 
-**MPRIS:** Select MPRIS player name. `auto` will enable auto selection. Default is `auto`.
+**MPRIS:** Select MPRIS player name. `auto` will enable auto selection. Default
+is `auto`.
 
 **MPD address:** Address of MPD server. Default is `localhost`.
 
 **MPD port:** Port of MPD server. Default is `6600`.
 
 ### <a href="#desktoppanel" class="anchor" id="desktoppanel"><span class="octicon octicon-link"></span></a>Desktop Panel
-Since version 1.11.0 it provides a minimalistic panel for monitoring on desktops. And yes, it looks like the same panel in Awesome.
+
+Since version 1.11.0 it provides a minimalistic panel for monitoring on desktops.
+And yes, it looks like the same panel in Awesome.
 
 ##### <a href="#dpconf" class="anchor" id="dpconf"><span class="octicon octicon-link"></span></a>Desktop panel configuration
 
-**Enable background:** Uncheck to disable default background and set transparent one. Default is `true`.
+**Enable background:** Uncheck to disable default background and set transparent
+one. Default is `true`.
 
-**Vertical layout:** Use vertical layout instead of horizontal one. Default is `false`.
+**Vertical layout:** Use vertical layout instead of horizontal one. Default is
+`false`.
 
-**Widget height:** Disable automatic widget height definition and set it to this value. Default is `0` (auto).
+**Widget height:** Disable automatic widget height definition and set it to this
+value. Default is `0` (auto).
 
-**Widget width:** Disable automatic widget width definition and set it to this value. Default is `0` (auto).
+**Widget width:** Disable automatic widget width definition and set it to this
+value. Default is `0` (auto).
 
-**Mark:** Type symbol (or string) which will be shown if this desktop is active now.
+**Mark:** Type symbol (or string) which will be shown if this desktop is active
+now.
 
 **Tooltip type:** Select tooltip type. Default is `windows`.
 
 **Tooltip width:** Using tooltip width in px. Default is `200px`.
 
-**Color of tooltip:** Colour which is used in some tooltip types. Default is `#ffffff`.
+**Color of tooltip:** Colour which is used in some tooltip types. Default is
+`#ffffff`.
 
 **Pattern tags**
 

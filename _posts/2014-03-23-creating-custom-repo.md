@@ -13,13 +13,17 @@ It is a short paper devoted to creation own ArchLinux repository.
 
 ## <a href="#prepare" class="anchor" id="prepare"><span class="octicon octicon-link"></span></a>Prepare
 
-First find a server and desire to have sex with it. It is recommended to use Archlinux on it, but it is not necessarily - because you may create special root for Archlinux. Also you need two packages, `devtools` and `pacman`:
+First find a server and desire to have sex with it. It is recommended to use
+Archlinux on it, but it is not necessarily - because you may create special root
+for Archlinux. Also you need two packages, `devtools` and `pacman`:
 
 ```bash
 pacman -Sy devtools
 ```
 
-[devtools](//www.archlinux.org/packages/devtools/ "Archlinux package") is script set for building automation in the clean chroot. I think most of Arch maintainers use it.
+[devtools](//www.archlinux.org/packages/devtools/ "Archlinux package") is script
+set for building automation in the clean chroot. I think most of Arch
+maintainers use it.
 
 Let's create working directories and set colors:
 
@@ -59,11 +63,15 @@ if [ ! -d "${STAGINGDIR}" ]; then
 fi
 ```
 
-`${REPODIR}/{i686,x86_64}` are directories for repository, `${PREPAREDIR}` is directory where compiled packages will be stored, `${STAGINGDIR}` is one where packages will be built.
+`${REPODIR}/{i686,x86_64}` are directories for repository, `${PREPAREDIR}` is
+directory where compiled packages will be stored, `${STAGINGDIR}` is one where
+packages will be built.
 
 ## <a href="#theory" class="anchor" id="theory"><span class="octicon octicon-link"></span></a>A bit of theory
 
-Create directory, share it (using [ftp](/en/2014/03/06/site-changes/ "Site changes paper"), for example). It has two subdirectories - `i686` and `x86_64` - for each architecture respectively. And fill them with a set of packages.
+Create directory, share it (using [ftp](/en/2014/03/06/site-changes/ "Site
+changes paper"), for example). It has two subdirectories - `i686` and `x86_64` -
+for each architecture respectively. And fill them with a set of packages.
 
 Updating repository may be split into the following steps:
 
@@ -149,17 +157,22 @@ if [ ${USEGPG} == "yes" ]; then
 fi
 ```
 
-It is recommended to configure [gpg-agent](//wiki.archlinux.org/index.php/GPG#gpg-agent "ArchWiki").
+It is recommended to configure
+[gpg-agent](//wiki.archlinux.org/index.php/GPG#gpg-agent "ArchWiki").
 
 ### <a href="#list" class="anchor" id="list"><span class="octicon octicon-link"></span></a>Creating the list of packages
 
 ```bash
 # creating packages list
 cd "${PREPAREDIR}"
-i686_PACKAGES=$(/usr/bin/find * -name '*-i686.pkg.tar.xz' -o -name '*-any.pkg.tar.xz')
-x86_64_PACKAGES=$(/usr/bin/find * -name '*-x86_64.pkg.tar.xz' -o -name '*-any.pkg.tar.xz')
-echo -e "${bwhite}[II] ${bblue}=>${cclose} i686 packages: \n${bwhite}${i686_PACKAGES}${cclose}"
-echo -e "${bwhite}[II] ${bblue}=>${cclose} x86_64 packages: \n${bwhite}${x86_64_PACKAGES}${cclose}"
+i686_PACKAGES=$(/usr/bin/find * -name '*-i686.pkg.tar.xz' -o -name
+'*-any.pkg.tar.xz')
+x86_64_PACKAGES=$(/usr/bin/find * -name '*-x86_64.pkg.tar.xz' -o -name
+'*-any.pkg.tar.xz')
+echo -e "${bwhite}[II] ${bblue}=>${cclose} i686 packages:
+\n${bwhite}${i686_PACKAGES}${cclose}"
+echo -e "${bwhite}[II] ${bblue}=>${cclose} x86_64 packages:
+\n${bwhite}${x86_64_PACKAGES}${cclose}"
 ```
 
 ### <a href="#updating" class="anchor" id="updating"><span class="octicon octicon-link"></span></a>Repository update
@@ -223,7 +236,8 @@ cd "${STAGINGDIR}"
 
 ### <a href="#symlinks" class="anchor" id="symlinks"><span class="octicon octicon-link"></span></a>Creating symlinks
 
-You may want to create a directory, which will contain symlinks on actual packages with names, which does not contain version:
+You may want to create a directory, which will contain symlinks on actual
+packages with names, which does not contain version:
 
 ```bash
 # creating symlinks
@@ -248,7 +262,8 @@ fi
 
 ### <a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>File
 
-Here is [the scripts](//github.com/arcan1s/repo-scripts "GitHub"). Download source tarballs and run script (editing variables if it is necessary).
+Here is [the scripts](//github.com/arcan1s/repo-scripts "GitHub"). Download
+source tarballs and run script (editing variables if it is necessary).
 
 ## <a href="#using" class="anchor" id="using"><span class="octicon octicon-link"></span></a>Repository usage
 

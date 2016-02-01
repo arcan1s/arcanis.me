@@ -17,7 +17,11 @@ links:
 ---
 <!-- info block -->
 
-Плазмоид, написанный на `CPP` который показывает случайные карты из Brian Eno и Peter Schmidt's [Oblique Strategies](//en.wikipedia.org/wiki/Oblique_strategies "Wiki"). Это форк [апплета для GNOME](//gnome-look.org/content/show.php/Oblique+Strategies?content=78405 "gnome-look") с некоторыми дополнительными фичами.
+Плазмоид, написанный на `CPP` который показывает случайные карты из Brian Eno и
+Peter Schmidt's [Oblique Strategies](//en.wikipedia.org/wiki/Oblique_strategies
+"Wiki"). Это форк [апплета для GNOME]
+(//gnome-look.org/content/show.php/Oblique+Strategies?content=78405 "gnome-look")
+с некоторыми дополнительными фичами.
 
 <!--more-->
 
@@ -37,7 +41,8 @@ links:
 
 ### <a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Инструкция
 
-* Скачайте [архив](//github.com/arcan1s/oblikuestrategies/releases "GitHub") с актуальной версией исходных файлов.
+* Скачайте [архив](//github.com/arcan1s/oblikuestrategies/releases "GitHub") с
+актуальной версией исходных файлов.
 * Извлеките из него файлы и установите приложение. Для глобальной установки наберите:
 
     ```bash
@@ -64,7 +69,8 @@ links:
     kquitapp plasma-desktop && sleep 2 && plasma-desktop
     ```
 
-    Также Вам может потребоваться запустить `kbuildsycoca4`, чтобы распознать `*.desktop` файл:
+    Также Вам может потребоваться запустить `kbuildsycoca4`, чтобы распознать
+    `*.desktop` файл:
 
     ```bash
     kbuildsycoca4 &> /dev/null

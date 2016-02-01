@@ -20,11 +20,16 @@ links:
 ---
 <!-- info block -->
 
-Graphical interface for `netctl` (several scripts for work with network connection in Archlinux). It is written on `C++` using `Qt` library. Now it may work with profiles and may create new profiles. Also it may create a connection to WiFi. Moreover, it provides a Qt library for interaction with netctl and widget and DataEngine for KDE4/KF5.
+Graphical interface for `netctl` (several scripts for work with network connection
+in Archlinux). It is written on `C++` using `Qt` library. Now it may work with
+profiles and may create new profiles. Also it may create a connection to WiFi.
+Moreover, it provides a Qt library for interaction with netctl and widget and
+DataEngine for KDE4/KF5.
 
 <!--more-->
 
-**NOTE:** [LOOKING FOR TRANSLATORS!](//github.com/arcan1s/netctl-gui/issues/3 "Ticket")
+**NOTE:** [LOOKING FOR TRANSLATORS!](//github.com/arcan1s/netctl-gui/issues/3
+"Ticket")
 
 ```bash
 $ netctl-gui --help
@@ -91,8 +96,10 @@ Options:
 
 ### <a href="#instruction" class="anchor" id="instruction"><span class="octicon octicon-link"></span></a>Instruction
 
-* Download an [archive](//github.com/arcan1s/netctl-gui/releases "GitHub") with latest version of source files.
-* Extract it and install the application. If you want install it into `/`, you should run as root following commands:
+* Download an [archive](//github.com/arcan1s/netctl-gui/releases "GitHub") with
+latest version of source files.
+* Extract it and install the application. If you want install it into `/`, you
+should run as root following commands:
 
     ```bash
     cd /path/to/extracted/archive
@@ -139,21 +146,25 @@ I want note that all were tested on latest version of dependencies.
 <!-- howto block -->
 ## <a href="#howto" class="anchor" id="howto"><span class="octicon octicon-link"></span></a>How to use
 
-Just run application `netctl-gui`. If it is needed (and if you use KDE), you may add widget `netctl`, which provides by the application.
+Just run application `netctl-gui`. If it is needed (and if you use KDE), you may
+add widget `netctl`, which provides by the application.
 
 <!-- end of howto block -->
 
 <!-- config block -->
 ## <a href="#config" class="anchor" id="config"><span class="octicon octicon-link"></span></a>Configuration
 
-It is recommended to use graphical interface for configuration. Configuration files are:
+It is recommended to use graphical interface for configuration. Configuration
+files are:
 
 * UI and helper
     * `$HOME/.config/netctl-gui.conf` - GUI/helper user configuration
     * `/etc/netctl-gui.conf` - helper system-wide configuration
 * DataEngine (KDE4 version)
-    * `$KDEHOME/share/config/plasma-dataengine-netctl.conf` - DataEngine user configuration
-    * `$KDESYSTEM/share/config/plasma-dataengine-netctl.conf` - DataEngine system-wide configuration
+    * `$KDEHOME/share/config/plasma-dataengine-netctl.conf` - DataEngine user
+    configuration
+    * `$KDESYSTEM/share/config/plasma-dataengine-netctl.conf` - DataEngine
+    system-wide configuration
 * DataEngine (KF5 version)
     * `$HOME/.config/plasma-dataengine-netctl.conf` - DataEngine user configuration
     * `/etc/xdg/plasma-dataengine-netctl.conf` - DataEngine system-wide configuration

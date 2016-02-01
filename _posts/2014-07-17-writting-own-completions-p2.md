@@ -7,19 +7,27 @@ tags: linux, development
 title: Writting own Shell completions. Bash
 short: writting-own-completions-p2
 ---
-<figure class="img">![bash_completion](/resources/papers/bash_completion.png)</figure> Some basics of creating a completion files for own application are described in these articles.
+<figure class="img">![bash_completion](/resources/papers/bash_completion.png)</figure>Some
+basics of creating a completion files for own application are described in these
+articles.
 
 <!--more-->
 
 ## <a href="#preamble" class="anchor" id="preamble"><span class="octicon octicon-link"></span></a>Preamble
 
-While developing [one of my projects](/ru/projects/netctl-gui "Netctl-gui project page") I have wanted to add completion files. I have already tried to create these files, but I was too lazy to read some manuals about it.
+While developing [one of my projects](/ru/projects/netctl-gui "Netctl-gui
+project page") I have wanted to add completion files. I have already tried to
+create these files, but I was too lazy to read some manuals about it.
 
 ## <a href="#introduction" class="anchor" id="introduction"><span class="octicon octicon-link"></span></a>Introduction
 
-Bash, [unlike zsh](/ru/2014/07/17/writting-own-completions-p1 "Zsh completions paper"), demands some dirty workarounds for completions. Cursory have Googled, I have not found a more or less normal tutorials, so it is based on the available `pacman` completion files in my system.
+Bash, [unlike zsh](/ru/2014/07/17/writting-own-completions-p1 "Zsh completions
+paper"), demands some dirty workarounds for completions. Cursory have Googled, I
+have not found a more or less normal tutorials, so it is based on the available
+`pacman` completion files in my system.
 
-Lets consider the example of the same my application. I remind you that a part of help message is as follows:
+Lets consider the example of the same my application. I remind you that a part
+of help message is as follows:
 
 ```bash
 netctl-gui [ -h | --help ] [ -e ESSID | --essid ESSID ] [ -с FILE | --config FILE ]
@@ -36,7 +44,10 @@ Here is a flag list:
 
 ## <a href="#file" class="anchor" id="file"><span class="octicon octicon-link"></span></a>The file pattern
 
-Here **all** variables must return an array. And there no specific formats. First we declare the flags and then we describe all other variables. As I am not going to describe the functions in more detail below I remind you that `_netctl_profiles()` should be generated each time:
+Here **all** variables must return an array. And there no specific formats.
+First we declare the flags and then we describe all other variables. As I am not
+going to describe the functions in more detail below I remind you that
+`_netctl_profiles()` should be generated each time:
 
 ```bash
 # variables
@@ -46,14 +57,17 @@ _netctl_gui_tabs=()
 _netctl_profiles() {}
 ```
 
-Then there are main functions, which will be called for completion of specific application. In my case this there is only one applications, so there is only one function:
+Then there are main functions, which will be called for completion of specific
+application. In my case this there is only one applications, so there is only
+one function:
 
 ```bash
 # work block
 _netctl-gui() {}
 ```
 
-And finally again **without isolation in a separate function** we create a dependence "function-application":
+And finally again **without isolation in a separate function** we create a
+dependence "function-application":
 
 ```bash
 complete -F _netctl_gui netctl-gui
@@ -61,7 +75,8 @@ complete -F _netctl_gui netctl-gui
 
 ## <a href="#flags" class="anchor" id="flags"><span class="octicon octicon-link"></span></a>Flags
 
-As it was said above there is no specific format, so all available flags declare by array:
+As it was said above there is no specific format, so all available flags declare
+by array:
 
 ```bash
 _netctl_gui_arglist=(
@@ -99,7 +114,13 @@ _netctl_profiles() {
 
 ## <a href="#body" class="anchor" id="body"><span class="octicon octicon-link"></span></a>Function
 
-The variable `COMPREPLY` responds for completion in Bash. To keep track of the current state function `_get_comp_words_by_ref` must be called with parameters `cur` (current flag) and `prev` (previous flag, it is the state). Also some point for case are needed (variables `want*`). Function `compgen` is used for completion generation. A list of words is given after flag `-W`. (Also there is flag `-F` which requires a function as argument, but it gives warning for me.) The last argument is a current string to which you want to generate completion.
+The variable `COMPREPLY` responds for completion in Bash. To keep track of the
+current state function `_get_comp_words_by_ref` must be called with parameters
+`cur` (current flag) and `prev` (previous flag, it is the state). Also some
+point for case are needed (variables `want*`). Function `compgen` is used for
+completion generation. A list of words is given after flag `-W`. (Also there is
+flag `-F` which requires a function as argument, but it gives warning for me.)
+The last argument is a current string to which you want to generate completion.
 
 So, here is our function:
 
@@ -140,4 +161,7 @@ _netctl_gui() {
 
 ## <a href="#conclusion" class="anchor" id="conclusion"><span class="octicon octicon-link"></span></a>Conclusion
 
-File should be places to `/usr/share/bash-completion/completions/` with any name. You may found the example [in my repository](//raw.githubusercontent.com/arcan1s/netctl-gui/master/sources/gui/bash-completions "File").
+File should be places to `/usr/share/bash-completion/completions/` with any
+name. You may found the example [in my
+repository](//raw.githubusercontent.com/arcan1s/netctl-gui/master/sources/gui/bash-completions
+"File").
