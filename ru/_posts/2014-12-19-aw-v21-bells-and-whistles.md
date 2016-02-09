@@ -46,7 +46,8 @@ short: aw-v21-bells-and-whistles
 
 ## <a href="#quotes" class="anchor" id="quotes"><span class="octicon octicon-link"></span></a>Котировки
 
-Директория называется `quotes`, файлы настроек имеют следующие поля:
+Для получения данных используется API [Yahoo! Finance](//finance.yahoo.com "Сайт
+Yahoo! Finance"). Директория называется `quotes`, файлы настроек имеют следующие поля:
 
 | Поле | Обязательное | Значение | По-умолчанию |
 |------|--------------|----------|--------------|
@@ -90,8 +91,8 @@ short: aw-v21-bells-and-whistles
 
 ## <a href="#weather" class="anchor" id="weather"><span class="octicon octicon-link"></span></a>Погода
 
-Для показа погоды используются данные и API [OpenWeatherMap]
-(//openweathermap.org/ "Сайт OpenWeatherMap"). Директория называется `weather`,
+Для показа погоды используются данные и API [Yahoo! Weather]
+(//weather.yahoo.com/ "Сайт Yahoo! Weather"). Директория называется `weather`,
 файлы настроек имеют следующие поля:
 
 | Поле | Обязательное | Значение | По-умолчанию |

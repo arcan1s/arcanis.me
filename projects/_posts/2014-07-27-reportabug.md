@@ -72,7 +72,7 @@ as proof-of-concept.
 
 * Link your application with this library.
 
-#### <a href="#cmakeflags" class="anchor" id="cmakeflags"><span class="octicon octicon-link"></span></a>Available cmake flags:
+### <a href="#cmakeflags" class="anchor" id="cmakeflags"><span class="octicon octicon-link"></span></a>Available cmake flags:
 
 * `-DBUILD_AS_LIBRARY=0` - build the application but not a library.
 * `-DBUILD_DOCS=1` - build developer documentation.

@@ -46,7 +46,9 @@ Directory is `desktops`, configuration files have the following fields:
 
 ## <a href="#quotes" class="anchor" id="quotes"><span class="octicon octicon-link"></span></a>Quotes
 
-Directory is `quotes`, configuration files have the following fields:
+To provide these data to users [Yahoo! Finance](//finance.yahoo.com/ "Yahoo!
+Finance site") API iis used. Directory is `quotes`, configuration files have the
+following fields:
 
 | Field | Required | Value | Default |
 |-------|----------|-------|---------|
@@ -90,8 +92,8 @@ Directory is `upgrade`, configuration files have the following fields:
 
 ## <a href="#weather" class="anchor" id="weather"><span class="octicon octicon-link"></span></a>Weather
 
-The weather uses data and API from [OpenWeatherMap](//openweathermap.org/
-"OpenWeatherMap site"). Directory is `weather`, configuration files have the
+The weather uses data and API from [Yahoo! Weather](//weather.yahoo.com
+"Yahoo! Weather site"). Directory is `weather`, configuration files have the
 following fields:
 
 | Field | Required | Value | Default |

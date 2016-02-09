@@ -46,10 +46,10 @@ alternative, but its configuration is the same that the new project creation.
 Here it is:
 
 ```bash
-cppcheck --enable=warning,performance,portability,information,missingInclude
---std=c++11 --library=qt.cfg --template="[{severity}][{id}] {message}
-{callstack} (On {file}:{line})" --verbose --quiet
-path/to/source/files/or/directory
+cppcheck --enable=warning,performance,portability,information,missingInclude \
+         --std=c++11 --library=qt.cfg --verbose --quiet \
+         --template="[{severity}][{id}] {message} {callstack} (On {file}:{line})" \
+         path/to/source/files/or/directory
 ```
 
 * `--enable` says which notifications should be enabled. I've disabled `style`

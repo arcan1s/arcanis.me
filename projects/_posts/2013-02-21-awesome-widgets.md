@@ -108,7 +108,7 @@ You may edit DataEngine configuration. It is `/etc/xdg/plasma-dataengine-extsysm
 and `$HOME/.config/plasma-dataengine-extsysmon.conf`. Uncomment needed line and
 edit it.
 
-#### <a href="#deoptions" class="anchor" id="deoptions"><span class="octicon octicon-link"></span></a>DataEngine options
+### <a href="#deoptions" class="anchor" id="deoptions"><span class="octicon octicon-link"></span></a>DataEngine options
 
 |          |           |
 |----------|-----------|
@@ -137,19 +137,19 @@ Available flags are in the table below.
 | `$shorttime` | Time in short locale format. | 1.5.2 |
 | `$longtime` | Time in long locale format. | 1.5.2 |
 | `$ctime` | Will enable custom time format. | 2.0.0 |
-| `$uptime` | System uptime, `---d--h--m`. |
+| `$uptime` | System uptime, `---d--h--m`. ||
 | `$cuptime` | Will enable custom uptime format. | 2.0.0 |
 | `$la1` | Load average over 1 min, `-----`. | 2.4.0 |
 | `$la5` | Load average over 5 min, `-----`. | 2.4.0 |
 | `$la15` | Load average over 15 min, `-----`. | 2.4.0 |
-| `$cpu` | Total load CPU, %, `-----`. |
+| `$cpu` | Total load CPU, %, `-----`. ||
 | `$cpuN` | Load CPU for core N, %, `-----`. | 1.7.0 |
 | `$cpucl` | Average CPU clock, MHz, `----`. | 1.1.2 |
 | `$cpuclN` | CPU clock for core N, MHz, `----`. | 1.7.0 |
-| `$tempN` | Temperature for device N, `----`. For example, `$temp0`. |
+| `$tempN` | Temperature for device N, `----`. For example, `$temp0`. ||
 | `$gpu` | GPU usage, %, `-----`. `aticonfig` or `nvidia-smi` must be installed. | 1.3.2 |
 | `$gputemp` | GPU temperature, `----`. `aticonfig` or `nvidia-smi` must be installed. | 1.3.2 |
-| `$mem` | Memory usage, %, `-----`. |
+| `$mem` | Memory usage, %, `-----`. ||
 | `$memmb` | Memory usage, MB, `-----`. | 1.1.1 |
 | `$memgb` | Memory usage, GB, `----`. | 1.7.3 |
 | `$memfreemb` | Free memory, MB, `-----`. | 2.0.0 |
@@ -158,7 +158,7 @@ Available flags are in the table below.
 | `$memtotgb` | RAM, GB, `----`. | 1.10.0 |
 | `$memusedmb` | Used and cached memory, MB, `-----`. | 2.0.0 |
 | `$memusedgb` | Used and cached memory, GB, `----`. | 2.0.0 |
-| `$swap` | Swap usage, %, `-----`. |
+| `$swap` | Swap usage, %, `-----`. ||
 | `$swapmb` | Swap usage, MB, `-----`. | 1.1.1 |
 | `$swapgb` | Swap usage, GB, `----`. | 1.7.3 |
 | `$swapfreemb` | Free swap, MB, `-----`. | 2.0.0 |
@@ -188,9 +188,9 @@ Available flags are in the table below.
 | `$upkbN` | Upload speed for device N, KB/s, `----`. | 3.0.0 |
 | `$upunitsN` | Upload speed units for device N, `----`. | 3.0.0 |
 | `$netdev` | Current network device. | 1.1.1 |
-| `$bat` | Average battery charge, %, `---`. |
+| `$bat` | Average battery charge, %, `---`. ||
 | `$batN` | Battery N charge, %, `---`. | 2.0.3 |
-| `$ac` | Status of AC device. Returns `(*)` if AC device is online or `( )` if offline. |
+| `$ac` | Status of AC device. Returns `(*)` if AC device is online or `( )` if offline. ||
 | `$album` | Current song album. One of supported music players must be installed. | 1.5.3 |
 | `$dalbum` | Current song album with fixed symbols count shown as a running line. | 3.0.0 |
 | `$salbum` | Current song album with fixed symbols count shown with three dots at the end. | 3.0.0 |
@@ -225,7 +225,7 @@ Available flags are in the table below.
 | `$pressureN` | Pressure, bars. For example `$pressure0`. | 2.4.0 |
 | `$temperatureN` | Temperature. For example `$temperature0`. | 2.4.0 |
 
-##### <a href="#lambda" class="anchor" id="lambda"><span class="octicon octicon-link"></span></a>Lambda functions
+### <a href="#lambda" class="anchor" id="lambda"><span class="octicon octicon-link"></span></a>Lambda and template functions
 
 Since version 3.0.0 the main widgets supports lambda functions, which are
 calculated at runtime. It may be declared by using `{% raw %}${{{% endraw %}
@@ -290,7 +290,38 @@ be calculated in runtime and to show different information depending on some
 conditions. But please keep in mind that such runtime calculation may increase
 CPU load.
 
-##### <a href="#advanced" class="anchor" id="advanced"><span class="octicon octicon-link"></span></a>Advanced settings
+Another feature which has been introduced with 3.1.0 is templates. It works in
+the same way as lambda functions, but are calculated only once (at the start),
+e.g.:
+
+```javascript
+{% raw %}$template{{{% endraw %}
+function three()
+{
+    return 1+2;
+}
+three()
+{% raw %}}}{% endraw %}
+```
+
+will always show `3` and will not be calculated each time.
+
+### <a href="#functions" class="anchor" id="functions"><span class="octicon octicon-link"></span></a>Special functions
+
+To allow some features with lambdas and templates with 3.1.0 has been introduced
+several internal functions. They have the same syntax: `$aw_function<args>{{body}}`.
+where args may be optional. If there are several args they should be comma
+separated. If you want to pass comma as arg use `$,`. Functions will be called
+once and before any actions.
+
+| Function | Description | Args | Body |
+|----------|-------------|------|------|
+| `aw_all` | was introduced for debug purposes, return all keys by regexp in pretty format | (none) | regexp for search |
+| `aw_count` | return count of keys by given regexp | (none) | regexp for search |
+| `aw_keys` | return keys by given regexp joined by separator | separator | regexp for search |
+| `aw_names` | return key names (i.e. without `$`) by given regexp joined by separator | separator | regexp for search |
+
+### <a href="#advanced" class="anchor" id="advanced"><span class="octicon octicon-link"></span></a>Advanced settings
 
 **Enable background:** Uncheck to disable default background and set transparent
 one. Default is `true`.
@@ -305,6 +336,10 @@ one. Default is `true`.
 Default is `true`.
 
 **Check updates:** Check updates on load. Default is `true`.
+
+**Optimize subscription:** Optimize work with DataEngines. Probably you don't
+want change this option despite the fact that one feature will not be available.
+Default is `true`.
 
 **Widget height:** Disable automatic widget height definition and set it to this
 value. Default is `0` (auto).
@@ -361,13 +396,13 @@ Farenheit, Kelvin, Reaumur, cm^-1, kJ/mol, kcal/mol.
 
 **AC offline tag:** Line which will be shown when AC is offline. Default is `( )`.
 
-#### <a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Tooltips
+### <a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Tooltips
 
 Since version 1.7.0 CPU, CPU clock, memory, swap, network and battery support
 graphical tooltip. To enable them just select required fields. The number of
 stored values can be set in the tab. Colours of the graphs are configurable too.
 
-#### <a href="#deguiconf" class="anchor" id="deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings
+### <a href="#deguiconf" class="anchor" id="deguiconf"><span class="octicon octicon-link"></span></a>DataEngine settings
 
 **ACPI path:** Path to ACPI devices. The file `/sys/class/power_supply/`.
 
@@ -397,7 +432,7 @@ is `auto`.
 Since version 1.11.0 it provides a minimalistic panel for monitoring on desktops.
 And yes, it looks like the same panel in Awesome.
 
-##### <a href="#dpconf" class="anchor" id="dpconf"><span class="octicon octicon-link"></span></a>Desktop panel configuration
+### <a href="#dpconf" class="anchor" id="dpconf"><span class="octicon octicon-link"></span></a>Desktop panel configuration
 
 **Enable background:** Uncheck to disable default background and set transparent
 one. Default is `true`.
