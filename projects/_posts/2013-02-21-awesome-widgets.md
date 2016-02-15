@@ -309,7 +309,8 @@ will always show `3` and will not be calculated each time.
 ### <a href="#functions" class="anchor" id="functions"><span class="octicon octicon-link"></span></a>Special functions
 
 To allow some features with lambdas and templates with 3.1.0 has been introduced
-several internal functions. They have the same syntax: `$aw_function<args>{{body}}`.
+several internal functions. They have the same syntax:
+`$aw_function<args>{% raw %}{{{% endraw %}body{% raw %}}}{% endraw %}`.
 where args may be optional. If there are several args they should be comma
 separated. If you want to pass comma as arg use `$,`. Functions will be called
 once and before any actions.
