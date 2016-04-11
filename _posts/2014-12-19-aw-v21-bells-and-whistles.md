@@ -33,16 +33,20 @@ Directory is `desktops`, configuration files have the following fields:
 
 | Field              | Required | Value                            | Default    |
 | -------------------|----------|----------------------------------|------------|
-| Name               | yes      | bar name. It should be as `barN` and should be unique | none |
+| Name               | yes      | bar name                         | none       |
 | Comment            | no       | comment                          | empty      |
-| X-AW-Value         | yes      | bar value. The following tags are available `cpu*`, `gpu`, `mem`, `swap`, `hdd*`, `bat` | cpu |
-| X-AW-ActiveColor   | yes      | active part fill in format `R,G,B,A` | 0,0,0,130 |
-| X-AW-InactiveColor | yes      | inactive part fill in format `R,G,B,A` | 255,255,255,130 |
+| X-AW-Custom        | yes      | does value have custom formula or not, boolean | false |
+| X-AW-Value         | yes      | bar value. The following tags are available `cpu*`, `gpu`, `mem`, `swap`, `hdd*`, `bat`. In case of `X-AW-Custom=true` it uses syntax similar to [lambda functions](/projects/awesome-widgets/#lambda) | cpu |
+| X-AW-Max           | no       | maximal possible value, float    | 100.0      |
+| X-AW-Min           | no       | minimal possible value, float    | 0.0        |
+| X-AW-Count         | no       | points count, used in case of `X-AW-Type=Graph` | 100 |
+| X-AW-ActiveColor   | yes      | active part fill in format `R,G,B,A` or full path to image | 0,0,0,130 |
+| X-AW-InactiveColor | yes      | inactive part fill in format `R,G,B,A` or full path to image | 255,255,255,130 |
 | X-AW-Type          | yes      | bar type. The following types are supported `Horizontal`, `Vertical`, `Circle`, `Graph` | Horizontal |
 | X-AW-Direction     | yes      | the fill direction. The following variants are supported `LeftToRight`, `RightToLeft` | LeftToRight |
 | X-AW-Height        | yes      | height, pixels                   | 100        |
 | X-AW-Width         | yes      | width, pixels                    | 100        |
-| X-AW-Number        | yes      | unique number which will be associated with the bar. The property has been introduced to provide compatibility with others items. Should be the same as number in Name is | number from Name |
+| X-AW-Number        | yes      | unique number which will be associated with the script | random number which is less than 1000 |
 
 ## <a href="#quotes" class="anchor" id="quotes"><span class="octicon octicon-link"></span></a>Quotes
 
@@ -88,7 +92,7 @@ Directory is `upgrade`, configuration files have the following fields:
 | X-AW-Active | no | whether or not the upgrade script is active | true |
 | X-AW-Null | no | the number of lines which should be skipped in output | 0 |
 | X-AW-Interval | no | update interval in standard widget intervals | 1 |
-| X-AW-Number | yes | unique number which will be associated with the upgrade script | random number which is less than 1000 |
+| X-AW-Number | yes | unique number which will be associated with the bar | random number which is less than 1000 |
 
 ## <a href="#weather" class="anchor" id="weather"><span class="octicon octicon-link"></span></a>Weather
 
