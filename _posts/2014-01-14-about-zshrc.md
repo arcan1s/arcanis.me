@@ -332,7 +332,7 @@ alias less='vimpager'
 alias zless='vimpager'
 ```
 
-Here are ls aliases (see [man ls](//unixhelp.ed.ac.uk/CGI/man-cgi?ls "Man
+Here are ls aliases (see [man ls](//man7.org/linux/man-pages/man1/ls.1.html "Man
 page")):
 
 ```bash

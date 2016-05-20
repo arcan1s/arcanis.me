@@ -333,7 +333,7 @@ alias less='vimpager'
 alias zless='vimpager'
 ```
 
-ls аллиасы (смотри [man ls](//unixhelp.ed.ac.uk/CGI/man-cgi?ls "Мануал")):
+ls аллиасы (смотри [man ls](//man7.org/linux/man-pages/man1/ls.1.html "Мануал")):
 
 ```bash
 alias ls='show_which ls && ls --color=auto --group-directories-first'
