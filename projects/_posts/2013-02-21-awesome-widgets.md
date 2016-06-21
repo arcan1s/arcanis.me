@@ -137,6 +137,7 @@ Available flags are in the table below.
 | `$shorttime` | Time in short locale format. | 1.5.2 |
 | `$longtime` | Time in long locale format. | 1.5.2 |
 | `$ctime` | Will enable custom time format. | 2.0.0 |
+| `$tstime` | Curent timestamp | 3.1.2 |
 | `$uptime` | System uptime, `---d--h--m`. ||
 | `$cuptime` | Will enable custom uptime format. | 2.0.0 |
 | `$la1` | Load average over 1 min, `-----`. | 2.4.0 |
@@ -178,15 +179,23 @@ Available flags are in the table below.
 | `$down` | Download speed for active device, KB/s or MB/s, `----`. | 1.7.0 |
 | `$downkb` | Download speed for active device, KB/s, `----`. | 3.0.0 |
 | `$downunits` | Download speed units for active device, `----`. | 3.0.0 |
+| `$downtotal` | Total recieved for active device, MB, `----`. | 3.1.2 |
+| `$downtotalkb` | Total recieved for active device, KB, `----`. | 3.1.2 |
 | `$downN` | Download speed for device N, KB/s or MB/s, `----`. | 2.2.0 |
 | `$downkbN` | Download speed for device N, KB/s, `----`. | 3.0.0 |
 | `$downunitsN` | Download speed units for device N, `----`. | 3.0.0 |
+| `$downtotalN` | Total recieved for device N, MB, `----`. | 3.1.2 |
+| `$downtotalkbN` | Total recieved for device N, KB, `----`. | 3.1.2 |
 | `$up` | Upload speed for active device, KB/s or MB/s, `----`. | 1.7.0 |
 | `$upkb` | Upload speed for active device, KB/s, `----`. | 3.0.0 |
 | `$upunits` | Upload speed units for active device, `----`. | 3.0.0 |
+| `$uptotal` | Total transmitted for active device, MB, `----`. | 3.1.2 |
+| `$uptotalkb` | Total transmitted for active device, KB, `----`. | 3.1.2 |
 | `$upN` | Upload speed for device N, KB/s or MB/s, `----`. | 2.2.0 |
 | `$upkbN` | Upload speed for device N, KB/s, `----`. | 3.0.0 |
 | `$upunitsN` | Upload speed units for device N, `----`. | 3.0.0 |
+| `$uptotalN` | Total transmitted for device N, MB, `----`. | 3.1.2 |
+| `$uptotalkbN` | Total transmitted for device N, KB, `----`. | 3.1.2 |
 | `$netdev` | Current network device. | 1.1.1 |
 | `$bat` | Average battery charge, %, `---`. ||
 | `$batN` | Battery N charge, %, `---`. | 2.0.3 |
