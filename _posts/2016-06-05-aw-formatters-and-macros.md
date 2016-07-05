@@ -66,6 +66,7 @@ Converts any number to string.
 | Field              | Required | Value                            | Default    |
 | -------------------|----------|----------------------------------|------------|
 | X-AW-FillChar      | no       | char to fill number to `X-AW-Width` | (space) |
+| X-AW-ForceWidth    | no       | strip string after `X-AW-Width` | false |
 | X-AW-Format        | no       | Qt specific number format, supported values are `e`, `E`, `f`, `g`, `G` | `f` |
 | X-AW-Multiplier    | no       | float to which value will be multiplied | 1.0 |
 | X-AW-Precision     | no       | show this count of symbols after dot | -1 (as expected) |
