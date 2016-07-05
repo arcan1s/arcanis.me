@@ -35,7 +35,11 @@ fields inside `[Desktop Entry]` section:
 | -------------------|----------|----------------------------------|------------|
 | Name               | yes      | formatter name                   | none       |
 | Comment            | no       | comment                          | empty      |
-| X-AW-Type          | no       | formatter type. The following types are supported: `NoFormat`, `DateTime`, `Float`, `List`, `Script` | NoFormat   |
+| X-AW-ApiVersion    | yes      | API compatibility index. Do not touch it if you don't know what does it mean | 0 |
+| X-AW-Type          | no       | formatter type. The following types are supported: `NoFormat`, `DateTime`, `Float`, `List`, `Script`, `String` | NoFormat   |
+
+Additionaly the following fields will be added by common extesions: `X-AW-Active`,
+`X-AW-Interval`, `X-AW-Number`, but they will be ignored.
 
 Each formatter type has own behaviour and own settings and they are described
 below. Also there are system-wide settings which are stored in `/usr/share/awesomewidgets/formatters/`, system formatters will be overwritten by
@@ -66,7 +70,7 @@ Converts any number to string.
 | X-AW-Multiplier    | no       | float to which value will be multiplied | 1.0 |
 | X-AW-Precision     | no       | show this count of symbols after dot | -1 (as expected) |
 | X-AW-Summand       | no       | float to which value will be increased  | 0.0 |
-| X-AW-Width         | no       | width of the field               | 0 (do not limit) |
+| X-AW-Width         | no       | width of the field, negative means left-alignment | 0 (do not limit) |
 
 Please note that actual formula is `X-AW-Multiplier * value + X-AW-Summand`.
 
@@ -79,6 +83,16 @@ Coverts list of string objects to string.
 | X-AW-Filter        | no       | filter by this regular expression | (empty)   |
 | X-AW-Separator     | no       | use this separator to join strings | (empty   |
 | X-AW-Sort          | no       | boolean, sort or not list        | false      |
+
+## <a href="#formatter-script" class="anchor" id="formatter-script"><span class="octicon octicon-link"></span></a>String formatter
+
+Improved version of `NoFormat`.
+
+| Field              | Required | Value                            | Default    |
+| -------------------|----------|----------------------------------|------------|
+| X-AW-FillChar      | no       | char to fill string to `X-AW-Width` | (space) |
+| X-AW-ForceWidth    | no       | strip string after `X-AW-Width` | false |
+| X-AW-Width         | no       | width of the field, negative means left-alignment | 0 (do not limit) |
 
 ## <a href="#formatter-script" class="anchor" id="formatter-script"><span class="octicon octicon-link"></span></a>Script formatter
 
