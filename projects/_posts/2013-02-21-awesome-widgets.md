@@ -24,6 +24,7 @@ links:
     - <a href="//github.com/arcan1s/awesome-widgets/releases" title="Ubuntu">Ubuntu package</a>
     - <a href="/en/2014/09/04/migration-to-v2/" title="Migration">Migration to version 2.0</a>
     - <a href="/en/2014/12/19/aw-v21-bells-and-whistles/" title="ExtItems">Extensions</a>
+    - <a href="/en/2016/06/05/aw-formatters-and-macros/" title="Formatters and macros">Formatters and macros</a>
 ---
 <!-- info block -->
 
@@ -321,15 +322,18 @@ To allow some features with lambdas and templates with 3.1.0 has been introduced
 several internal functions. They have the same syntax:
 `$aw_function<args>{% raw %}{{{% endraw %}body{% raw %}}}{% endraw %}`.
 where args may be optional. If there are several args they should be comma
-separated. If you want to pass comma as arg use `$,`. Functions will be called
+separated. If you want to pass comma as arg use `$,`. If you want to use double
+brackets inside body screen them by using `$`, e.g. `${`. Functions will be called
 once and before any actions.
 
 | Function | Description | Args | Body |
 |----------|-------------|------|------|
-| `aw_all` | was introduced for debug purposes, return all keys by regexp in pretty format | (none) | regexp for search |
+| `aw_all` | was introduced for debug purposes, return all keys by regexp in pretty format | separator | regexp for search |
 | `aw_count` | return count of keys by given regexp | (none) | regexp for search |
 | `aw_keys` | return keys by given regexp joined by separator | separator | regexp for search |
 | `aw_names` | return key names (i.e. without `$`) by given regexp joined by separator | separator | regexp for search |
+| `aw_macro` | define user macro | macro name, macro arguments if any | macro body |
+| `aw_macro_*` | (* is macro name) call of user defined macro | macro arguments in the same order | ignored |
 
 ### <a href="#advanced" class="anchor" id="advanced"><span class="octicon octicon-link"></span></a>Advanced settings
 
