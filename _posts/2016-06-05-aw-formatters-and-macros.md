@@ -41,11 +41,11 @@ Each formatter type has own behaviour and own settings and they are described
 below. Also there are system-wide settings which are stored in `/usr/share/awesomewidgets/formatters/`, system formatters will be overwritten by
 user defined ones, but formatter settings (i.e. `formatters.ini`) will be appended.
 
-## <a href="#formatter-noformat" class="anchor" id="formatter-noformat"><span class="octicon octicon-link"></span></a>`NoFormat` formatter
+## <a href="#formatter-noformat" class="anchor" id="formatter-noformat"><span class="octicon octicon-link"></span></a>NoFormat formatter
 
 Just puts value as string directly. It has no any special settings.
 
-## <a href="#formatter-datetime" class="anchor" id="formatter-datetime"><span class="octicon octicon-link"></span></a>`DateTime` formatter
+## <a href="#formatter-datetime" class="anchor" id="formatter-datetime"><span class="octicon octicon-link"></span></a>DateTime formatter
 
 Converts `QDateTime` object to string.
 
@@ -55,7 +55,7 @@ Converts `QDateTime` object to string.
 
 Actually it is the same as `$ctime` tag and has the same configuration.
 
-## <a href="#formatter-float" class="anchor" id="formatter-float"><span class="octicon octicon-link"></span></a>`Float` formatter
+## <a href="#formatter-float" class="anchor" id="formatter-float"><span class="octicon octicon-link"></span></a>Float formatter
 
 Converts any number to string.
 
@@ -70,7 +70,7 @@ Converts any number to string.
 
 Please note that actual formula is `X-AW-Multiplier * value + X-AW-Summand`.
 
-## <a href="#formatter-list" class="anchor" id="formatter-list"><span class="octicon octicon-link"></span></a>`List` formatter
+## <a href="#formatter-list" class="anchor" id="formatter-list"><span class="octicon octicon-link"></span></a>List formatter
 
 Coverts list of string objects to string.
 
@@ -80,7 +80,7 @@ Coverts list of string objects to string.
 | X-AW-Separator     | no       | use this separator to join strings | (empty   |
 | X-AW-Sort          | no       | boolean, sort or not list        | false      |
 
-## <a href="#formatter-script" class="anchor" id="formatter-script"><span class="octicon octicon-link"></span></a>`Script` formatter
+## <a href="#formatter-script" class="anchor" id="formatter-script"><span class="octicon octicon-link"></span></a>Script formatter
 
 Uses javascript code to convert value to string. Value will be passed as argument
 to fuction.

@@ -43,11 +43,11 @@ cpu=myformatter
 системные форматеры будут перезаписаны пользовательскими, но настройки (то есть
 `formatters.ini`) будут просто дополнены.
 
-## <a href="#formatter-noformat" class="anchor" id="formatter-noformat"><span class="octicon octicon-link"></span></a>`NoFormat` форматер
+## <a href="#formatter-noformat" class="anchor" id="formatter-noformat"><span class="octicon octicon-link"></span></a>NoFormat форматер
 
 Просто значение конвертирует в строку. Не имеет никаких особых настроек.
 
-## <a href="#formatter-datetime" class="anchor" id="formatter-datetime"><span class="octicon octicon-link"></span></a>`DateTime` форматер
+## <a href="#formatter-datetime" class="anchor" id="formatter-datetime"><span class="octicon octicon-link"></span></a>DateTime форматер
 
 Конвертирует `QDateTime` объект в строку.
 
@@ -57,7 +57,7 @@ cpu=myformatter
 
 Действует аналогично `$ctime` и имеет аналогичную конфигурацию.
 
-## <a href="#formatter-float" class="anchor" id="formatter-float"><span class="octicon octicon-link"></span></a>`Float` форматер
+## <a href="#formatter-float" class="anchor" id="formatter-float"><span class="octicon octicon-link"></span></a>Float форматер
 
 Конвертирует любое число в строку.
 
@@ -72,7 +72,7 @@ cpu=myformatter
 
 Конечное значение будет получено по формуле `X-AW-Multiplier * value + X-AW-Summand`.
 
-## <a href="#formatter-list" class="anchor" id="formatter-list"><span class="octicon octicon-link"></span></a>`List` форматер
+## <a href="#formatter-list" class="anchor" id="formatter-list"><span class="octicon octicon-link"></span></a>List форматер
 
 Конвертирует список строк в строку
 
@@ -82,7 +82,7 @@ cpu=myformatter
 | X-AW-Separator     | нет      | использовать разделитель для объединения | (пусто) |
 | X-AW-Sort          | нет      | сортировать или нет список | false      |
 
-## <a href="#formatter-script" class="anchor" id="formatter-script"><span class="octicon octicon-link"></span></a>`Script` форматер
+## <a href="#formatter-script" class="anchor" id="formatter-script"><span class="octicon octicon-link"></span></a>Script форматер
 
 Использует javascript код для конвертации значения в строку. Значение будет
 передано как аргумент в функцию.
