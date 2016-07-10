@@ -15,6 +15,7 @@ developers:
     - Виктор Слободян (Ukrainian translation)
     - Lemueler (Chinese translation)
     - Heimen Stoffels (Dutch translation)
+    - Mariusz Kocoń (Polish translation)
 license: GPLv3
 links:
     - Plasmoid page on <a href="//kde-look.org/content/show.php/Awesome+Widgets?content=157124" title="kde-look">kde-look.org</a>

@@ -16,6 +16,7 @@ developers:
     - Виктор Слободян (перевод на украинский)
     - Lemueler (перевод на китайский)
     - Heimen Stoffels (перевод на голландский)
+    - Mariusz Kocoń (перевод на польский)
 license: GPLv3
 links:
     - Страница плазмоида на <a href="//kde-look.org/content/show.php/Awesome+Widgets?content=157124" title="kde-look">kde-look.org</a>
