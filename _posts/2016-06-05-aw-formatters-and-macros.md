@@ -127,12 +127,13 @@ The code will be expanded to:
 # <a href="#macros" class="anchor" id="macros"><span class="octicon octicon-link"></span></a>Macros
 
 Another new feature is macros. User may define any own function by using the following
-construction `$aw_macro<my_macro_name,some_arg,another_arg>{{macro body here with $some_arg}}`.
+construction
+`$aw_macro<my_macro_name,some_arg,another_arg>{% raw %}{{{% endraw %}macro body here with $some_arg{% raw %}}}{% endraw %}`.
 
 The first argument is macros name, which is required. Another ones describe arguments
 which will be passed to the macro call. Macro body may have any text (including templates,
 lambdas, etc) and arguments which are defined by using `$`.
 
 To put defined macro to your code use the following construction:
-`$aw_macro_my_macro_name<$cpu,$cpucl>{{}}` (body will be ignored here). In this
+`$aw_macro_my_macro_name<$cpu,$cpucl>{% raw %}{{}}{% endraw %}` (body will be ignored here). In this
 example macro will be expanded to `macro body here with $cpu`.

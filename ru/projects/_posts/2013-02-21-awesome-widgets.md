@@ -26,7 +26,7 @@ links:
     - Пакеты для <a href="//github.com/arcan1s/awesome-widgets/releases" title="Ubuntu">Ubuntu</a>
     - <a href="/ru/2014/09/04/migration-to-v2/" title="Миграция">Миграция на версию 2.0</a>
     - <a href="/ru/2014/12/19/aw-v21-bells-and-whistles/" title="Расширения">Расширения</a>
-    - <a href="/en/2016/06/05/aw-formatters-and-macros/" title="Форматеры и макросы">Форматеры и макросы</a>
+    - <a href="/ru/2016/06/05/aw-formatters-and-macros/" title="Форматеры и макросы">Форматеры и макросы</a>
 ---
 <!-- info block -->
 
