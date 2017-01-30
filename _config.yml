@@ -12,7 +12,8 @@ future:      true
 limit_posts: 0
 highlighter: pygments
 
-relative_permalinks: true
+# dropped in 3.0
+#relative_permalinks: true
 
 permalink:     pretty
 paginate_path: 'blog/:num'
