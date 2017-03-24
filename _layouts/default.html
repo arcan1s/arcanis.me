@@ -28,25 +28,25 @@
       </script>
     <![endif]-->
     {% include google_analytics.html %}
-    {% if page.share == true %}
+    {% if page.share == true or layout.share == true %}
       {% include header_sharethis.html %}
     {% endif %}
   </head>
 
 {{ content }}
 
-{% if page.comment == true %}
+{% if page.comment == true or layout.comment == true %}
   {% include comment.html %}
 {% endif %}
 
       </section>
       <footer>
-        {% if page.back == 1 %}
+        {% if page.back == 1 or layout.back == 1 %}
           {% include footer_back.html %}
-        {% elsif page.back == 2 %}
+        {% elsif page.back == 2 or layout.back == 2 %}
           {% include footer_fullback.html %}
         {% endif %}
-        {% if page.share == true %}
+        {% if page.share == true or layout.share == true %}
           {% include footer_sharethis.html %}
         {% endif %}
         {% include footer_sign.html %}
