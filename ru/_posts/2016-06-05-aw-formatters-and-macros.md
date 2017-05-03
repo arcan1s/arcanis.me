@@ -37,10 +37,11 @@ cpu=myformatter
 | Name               | да       | имя форматера                        | none       |
 | Comment            | нет      | комментарий                          | empty      |
 | X-AW-ApiVersion | да | совместимость API. Не меняйте, если не знаете, что делаете | 0 |
-| X-AW-Type          | нет      | тип форматера. Поддерживаются следующие типы: `NoFormat`, `DateTime`, `Float`, `List`, `Script`, `String` | NoFormat   |
+| X-AW-Type          | нет      | тип форматера. Поддерживаются следующие типы: `NoFormat`, `DateTime`, `Float`, `Json`, `List`, `Script`, `String` | NoFormat   |
 
 Дополнительно следующте поля добавлены для совместимости:: `X-AW-Active`,
-`X-AW-Interval`, `X-AW-Number`, но они будут проигнорированы.
+`X-AW-Interval`, `X-AW-Number`, `X-AW-Schedule`, `X-AW-Socket`, но они будут
+проигнорированы.
 
 Каждый тип форматера имеет свое поведение и свои настройки, которые описаны ниже.
 Также существуют системные настройки, которые хранятся в `/usr/share/awesomewidgets/formatters/`,
@@ -76,6 +77,17 @@ cpu=myformatter
 | X-AW-Width         | нет       | ширина числового поля, отрицательное - выравнивание по левому краю | 0 (не ограничивать) |
 
 Конечное значение будет получено по формуле `X-AW-Multiplier * value + X-AW-Summand`.
+
+## <a href="#formatter-float" class="anchor" id="formatter-float"><span class="octicon octicon-link"></span></a>Json форматер
+
+Извлекает сообщения из JSON.
+
+| Поле               | Обязательное | Значение                         | По-умолчанию |
+| -------------------|--------------|----------------------------------|--------------|
+| X-AW-Path          | да       | путь к значению в JSON | (пусто) |
+
+Путь должен быть разделен точками. Числа в пути будут интерпретированы как индекс
+элемента в массиве.
 
 ## <a href="#formatter-list" class="anchor" id="formatter-list"><span class="octicon octicon-link"></span></a>List форматер
 
@@ -137,6 +149,6 @@ X-AW-HasReturn=false
 шаблоны, лямбды и прочее) и аргументы, определенные используя `$`.
 
 Чтобы вызвать макрос в коде нужно использовать следующую конструкцию:
-`$aw_macro_my_macro_name<$cpu,$cpucl>{% raw %}{{}}{% endraw %}` (тело функции 
-будет проигнорировано здесь). В данном примере, макрос будет развернут в 
+`$aw_macro_my_macro_name<$cpu,$cpucl>{% raw %}{{}}{% endraw %}` (тело функции
+будет проигнорировано здесь). В данном примере, макрос будет развернут в
 `macro body here with $cpu`.

@@ -33,9 +33,10 @@ ones. Common settings for all extensions are:
 | Comment            | no       | comment                          | empty      |
 | X-AW-Active        | no       | whether or not the item is active, N/A for bars | true |
 | X-AW-ApiVersion    | yes      | API compatibility index. Do not touch it if you don't know what does it mean | 0 |
-| X-AW-Interval      | no       | update interval in standard widget intervals, N/A for bars | 1 |
+| X-AW-Interval      | no       | update interval in standard widget intervals, N/A for bars. Will be ignored if any of `X-AW-Schedule` or `X-AW-Socket` set | 1 |
 | X-AW-Number        | yes      | unique number which will be associated with the item | random number which is less than 1000 |
-
+| X-AW-Schedule      | no       | cron-like update schedule. Allowed fields `minutes hours days month weekdays`, allowed additional characters `-`, `*`, `,` | (empty) |
+| X-AW-Socket        | no       | path to socket file. Extension will be activated in case if socket triggered | (empty) |
 
 ## <a href="#bars" class="anchor" id="bars"><span class="octicon octicon-link"></span></a>Bars
 
@@ -64,6 +65,15 @@ following fields:
 | Field | Required | Value | Default |
 |-------|----------|-------|---------|
 | X-AW-Ticker | yes | ticker from Yahoo! Finance system | EURUSD=X |
+
+## <a href="#quotes" class="anchor" id="quotes"><span class="octicon octicon-link"></span></a>Requests
+
+GET requests to external sites. Directory is `requests`, configuration files have
+the following fields:
+
+| Field | Required | Value | Default |
+|-------|----------|-------|---------|
+| X-AW-Url | yes | url for GET request | https://httpbin.org/get |
 
 ## <a href="#scripts" class="anchor" id="scripts"><span class="octicon octicon-link"></span></a>Scripts
 

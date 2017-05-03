@@ -46,6 +46,13 @@ Also this packages has an additional system [DataEngine]
 {% for devel in page.developers %}
 * {{ devel }}{% endfor %}
 
+Special thanks:
+
+* [<img src="/resources/logo_CLion.svg" alt="CLion" style="width: 100px;"/>](//www.jetbrains.com/clion/)
+* [Yahoo! Finance](//finance.yahoo.com/)
+* [Yahoo! Weather](/weather.yahoo.com/)
+* [OpenWeatherMap](//openweathermap.org/)
+
 ### <a href="#license" class="anchor" id="license"><span class="octicon octicon-link"></span></a>License
 
 * {{ page.license }}
@@ -217,6 +224,7 @@ Available flags are in the table below.
 | `$pscount` | Number of running processes. | 1.8.0 |
 | `$pstotal` | Total number of processes. | 1.8.0 |
 | `$pkgcountN` | Number of packages, which available to upgrade for command N. | 1.8.0 |
+| `$responseN` | Web response for url N. | 3.3.0 |
 | `$customN` | Get output from custom command N. For example `$custom0`. | 1.9.0 |
 | `$desktop` | Name of the current desktop. | 2.0.0 |
 | `$ndesktop` | Number of the current desktop. | 2.0.0 |
@@ -410,6 +418,12 @@ Farenheit, Kelvin, Reaumur, cm^-1, kJ/mol, kcal/mol.
 **AC online tag:** Line which will be shown when AC is online. Default is `(*)`.
 
 **AC offline tag:** Line which will be shown when AC is offline. Default is `( )`.
+
+**Enable remote telemetry:** Enable upload of your configuration to remote server.
+
+**History count:** Total count of stored configurations localy.
+
+**Telemetry ID:** Unique client ID used for remote telemetry.
 
 ### <a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Tooltips
 

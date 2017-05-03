@@ -36,10 +36,11 @@ fields inside `[Desktop Entry]` section:
 | Name               | yes      | formatter name                   | none       |
 | Comment            | no       | comment                          | empty      |
 | X-AW-ApiVersion    | yes      | API compatibility index. Do not touch it if you don't know what does it mean | 0 |
-| X-AW-Type          | no       | formatter type. The following types are supported: `NoFormat`, `DateTime`, `Float`, `List`, `Script`, `String` | NoFormat   |
+| X-AW-Type          | no       | formatter type. The following types are supported: `NoFormat`, `DateTime`, `Float`, `Json`, `List`, `Script`, `String` | NoFormat   |
 
 Additionaly the following fields will be added by common extesions: `X-AW-Active`,
-`X-AW-Interval`, `X-AW-Number`, but they will be ignored.
+`X-AW-Interval`, `X-AW-Number`, `X-AW-Schedule`, `X-AW-Socket`, but they will be
+ignored.
 
 Each formatter type has own behaviour and own settings and they are described
 below. Also there are system-wide settings which are stored in `/usr/share/awesomewidgets/formatters/`, system formatters will be overwritten by
@@ -75,6 +76,17 @@ Converts any number to string.
 
 Please note that actual formula is `X-AW-Multiplier * value + X-AW-Summand`.
 
+## <a href="#formatter-float" class="anchor" id="formatter-float"><span class="octicon octicon-link"></span></a>Json formatter
+
+Extracts values from json.
+
+| Field              | Required | Value                            | Default    |
+| -------------------|----------|----------------------------------|------------|
+| X-AW-Path          | yes      | path to json value               | (empty)    |
+
+Path should be separated only by dots. Numbers in path will be interpret as element
+index in array.
+
 ## <a href="#formatter-list" class="anchor" id="formatter-list"><span class="octicon octicon-link"></span></a>List formatter
 
 Coverts list of string objects to string.
@@ -82,7 +94,7 @@ Coverts list of string objects to string.
 | Field              | Required | Value                            | Default    |
 | -------------------|----------|----------------------------------|------------|
 | X-AW-Filter        | no       | filter by this regular expression | (empty)   |
-| X-AW-Separator     | no       | use this separator to join strings | (empty   |
+| X-AW-Separator     | no       | use this separator to join strings | (empty)  |
 | X-AW-Sort          | no       | boolean, sort or not list        | false      |
 
 ## <a href="#formatter-script" class="anchor" id="formatter-script"><span class="octicon octicon-link"></span></a>String formatter

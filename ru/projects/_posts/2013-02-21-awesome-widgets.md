@@ -48,6 +48,13 @@ Awesome"). Также пакет предоставляет дополнител
 {% for devel in page.developers %}
 * {{ devel }}{% endfor %}
 
+Отдельное спасибо:
+
+* [<img src="/resources/logo_CLion.svg" alt="CLion" style="width: 100px;"/>](//www.jetbrains.com/clion/)
+* [Yahoo! Finance](//finance.yahoo.com/)
+* [Yahoo! Weather](/weather.yahoo.com/)
+* [OpenWeatherMap](//openweathermap.org/)
+
 ### <a href="#license" class="anchor" id="license"><span class="octicon octicon-link"></span></a>Лицензия
 
 * {{ page.license }}
@@ -223,6 +230,7 @@ html код. Смотри [вопрос](//github.com/arcan1s/awesome-widgets/is
 | `$pscount` | Число запущенных процессов. | 1.8.0 |
 | `$pstotal` | Общее число процессов. | 1.8.0 |
 | `$pkgcountN` | Число пакетов, доступных для обновления, для команды N. | 1.8.0 |
+| `$responseN` | Ответ на веб запрос к URL N. | 3.3.0 |
 | `$customN` | Получить данные из указанной команды N. Например, `$custom0`. | 1.9.0 |
 | `$desktop` | Имя текущего рабочего стола. | 2.0.0 |
 | `$ndesktop` | Номер текущего рабочего стола. | 2.0.0 |
@@ -421,6 +429,15 @@ three()
 
 **AC offline тег:** Строка, которая будет показана, когда AC оффлайн. По
 умолчанию `( )`.
+
+**Включить удаленную телеметрию:** Включить загрузку конфигурации на удаленный
+сервер.
+
+**Количество истории:** Общее количество конфигураций, которые будут сохранены
+локально
+
+**ID телеметрии:** Уникальный идентификатор клиента для загрузки на удаленный
+сервер.
 
 ### <a href="#tooltips" class="anchor" id="tooltips"><span class="octicon octicon-link"></span></a>Тултипы
 
