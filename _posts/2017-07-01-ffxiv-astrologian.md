@@ -14,6 +14,8 @@ how to play as astrologian. In other hand I hope some experienced users may find
 useful some tips as well. Please note I'm not going to describe each skill, so
 for descriptions and so on please follow [the link](http://na.finalfantasyxiv.com/jobguide/astrologian/).
 
+<!--more-->
+
 # Disclamer
 
 As I said this guide does not explain _each_ skill, just does some core skills
