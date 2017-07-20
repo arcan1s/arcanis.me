@@ -7,12 +7,12 @@ tags: ffxiv, astrologian
 title: FFXIV Astrologian guide
 short: ffxiv-astrologian
 ---
-This is small paper describes how to play astrologian. Astrologian is stance
-based healer, which can play-main healer role as well as off-healer one. This
-guide aims to help mostly new users which just got job crystal and have no idea
-how to play as astrologian. In other hand I hope some experienced users may find
-useful some tips as well. Please note I'm not going to describe each skill, so
-for descriptions and so on please follow [the link](http://na.finalfantasyxiv.com/jobguide/astrologian/).
+Astrologian is stance based healer, which can play-main healer role as well as
+off-healer one. This guide aims mostly to help new users which just got job
+crystal and have no idea how to play as astrologian. In other hand I hope some
+experienced users may find useful some tips as well. Please note I'm not going
+to describe each skill, so for descriptions and so on please follow
+[the link](http://na.finalfantasyxiv.com/jobguide/astrologian/).
 
 <!--more-->
 
@@ -20,8 +20,14 @@ for descriptions and so on please follow [the link](http://na.finalfantasyxiv.co
 
 As I said this guide does not explain _each_ skill, just does some core skills
 and their basic usage, so please read skills descriptions first. Also it is not
-the best guide, but it is just one of point-of-views by raiding healer. Have fun
-and leave comments under paper. Guide is actual for 4.05.
+the best guide, but it is just one of point-of-views by raiding healer. This guide
+does not teach you how to play in casual content (like usual 4-ppl dunges), it
+aims mostly how to play in end-game content. No pictures (yet?).
+
+Guide is actual for 4.05.
+
+Special thanks to Nan Talion (Odin) for reading this template and pointing out
+some shortcomings and vaguenesses.
 
 **NOTE** this guide is currently under development.
 
@@ -31,12 +37,12 @@ Astrologian has two stances:
 
 * Diurnal Sect
 
-  Your stance when you are going to play as HoT-based healer, busts your healing
+  Your stance when you are going to play as HoT-based healer, boosts your healing
   potency by 10% and adds HoT effects to Aspected skills.
 
 * Nocturnal Sect
 
-  Your stance when you are going to play as shielding healer. busts your healing
+  Your stance when you are going to play as shielding healer. boosts your healing
   potency by 15% and adds shielding effect to Aspected skills.
 
 # Healing efficiency
@@ -71,8 +77,8 @@ You can see than Benefic - Benefic II window is 50-70%, it depends on several
 factors: for example, if you need to heal target as soon as possible you would
 prefer Benefic II. Just try to use Benefic II on as low HP as you (and tank)
 comfortable - for example, I found that during dancing on Susano Extreme Benefic
-is more than enough despite the fact that lightning deals damage on about 50% of
-DPS' HP.
+is more than enough despite the fact that lightning deals damage which is more
+than 50% of DPS' HP.
 
 ## oGCD skills
 
@@ -81,7 +87,8 @@ DPS' HP.
   * potency: from 400
   * comment: main oGCD healing skill; as soon as it is scales on target's HP
   should be never used if HP is above 50%. Obviously it should be never used
-  _after_ Benefics
+  _after_ Benefics (exceptions are healing WAR/DRK after their Holmgang/Living
+  Dead in which I prefer Benefic->Essential Dignity->Benefic II combination).
 
 * Collective Unconscious
 
@@ -116,7 +123,7 @@ General rule - use them by CD.
   * base HPS (for all targets): 416
   * efficiency: 0.29
   * comment: should be used when you need to heal someone as soon as possible,
-  you might wanna keep up it on tanks
+  you might wanna keep it up on tanks
 
 * Aspected Helios/Nocturnal
 
@@ -149,9 +156,9 @@ which is the best).
 
 # Core mechanics
 
-Actually astrologian not only healer (I think it is even _not_ healer), but it is
-party buffer. Each buff can be improved by Royal Road. The following table
-represents basic card usage in my opinion
+Actually astrologian is not only healer (I think it is even _not_ healer), but
+it is party buffer. Each buff can be improved by Royal Road. The following table
+represents basic card usage in my opinion.
 
 * Arrow
 
@@ -198,7 +205,8 @@ represents basic card usage in my opinion
 * Spear
 
   * any DPS is OK with this buff currently, but better use it to jobs which have
-  crit-based traits - for example, BRD or MNK
+  crit-based traits - for example, BRD or MNK. Note that it still has less time
+  than Balance or Arrow.
   * enhanced: mostly jobs with crit-based traits, not such good choice for Time
   Dilation as Enhanced Balance is.
   * expanded: alternative to AoE Balance
@@ -220,12 +228,14 @@ Short notes:
 sec left. If you have drawn one and you see no usages in more than 15 sec - try
 to convert or hold it (or withdrawal it if no choices).
 * Additional note to previous one: never let drawn card fade out.
+* In general Balance is still better than Arrow, because Arrow does not boost
+DoTs and oGCD skills. In other hand priority of Balance and Spear is questionable.
 
 ## Minor Arcana
 
 * Never hold it. Lady of Crowns is a good oGCD alternative to Benefic II.
 * If you don't see usage for current card in 10-15 sec, and can't or don't want
-to hold it or Royal Road - convert it to Minor Arcana.
+to hold it or Royal Road it - convert to Minor Arcana.
 
 ## Lightspeed
 
@@ -239,6 +249,13 @@ Situational skill which should be used when you need to heal several targets,
 usually the best target is tanking player (during add in A11S, while dancing on
 Susano EX and so on). Almost useless when you want to increase potency of healing
 to single target.
+
+## Time Dilation
+
+Should be only used to prolong card buffs, but it would be cool if you will prolong
+other buffs (like Aspected spells) as well. Better usage is to prolong Enhanced
+card versions, but please note that prolonged buff will not be stacked with your
+Draw CD anymore.
 
 ## Collective Unconscious
 
@@ -291,6 +308,8 @@ used if you are going to spam heal.
 
 ## Situational
 
+* Break - the only one usage if you need to Heavy targets, for example, orbs in
+A6S. Mostly useless for DPS.
 * Protect - by the way, you can cast Protect and replace it by another skill.
 Usually one healer in party is enough to have it.
 * Esuna - has no application in savages and extremes, but sometimes may be useful
@@ -301,7 +320,6 @@ Susano Extreme.
 
 ## Trash
 
-* Break
 * Surecast
 
 # The best opener deck
@@ -314,7 +332,7 @@ Susano Extreme.
 Never use Sleeve Draw for your opener, let party wait for your deck, trust me,
 they wanna have good numbers during opener. Expanded Balance should be followed
 by Celestial Opposition. Balance can be replaced by Arrow or Spear, but they are
-not so best as Balance is.
+not so good as Balance is.
 
 # Potions and food
 
@@ -330,8 +348,6 @@ to up crit and spell speed.
 Being a healer you must maximize your DPS and minimize your HPS. It also should
 be accompanied by 99% uptime (when you cast anything). General tips are:
 
-* Combust II should be always up. Good time to use it - while you are moving -
-you can't cast anything with castbar, whereas Combust II is insta-cast.
 * Never heal to 100%. The only one possible exception is healing tanks before
 tank buster (I'm not talking about doing mechanics here - like Doom, or Living
 Dead). Good choice is Aspected Helios with HoT effect. You are good if your
@@ -348,7 +364,13 @@ teach them to heal themselves.
 * In other hand if you are off healer - healing is not your issue. Ask when your
 co-healer needs help, and cast some Helios. But shielding tank on tank buster is
 usually mandatory in this case. If someone dies you are responsible for ressurection.
-* If you have more than 1.5 sec free - cast Malefic II. You probably don't wanna
+* As I said - know the fight. You don't need to heal party right after they got
+damage, usually you can wait several GCD (or use Aspected Helios/Diurnal). If
+they don't do mechanics they will die in this case of course, but it is not your
+issue ("dead DPS has zero DPS" ©).
+* Combust II should be always up. Good time to use it - while you are moving -
+you can't cast anything with castbar, whereas Combust II has insta-cast.
+* If you have more than 1.5 sec free - cast Malefic III. You probably don't wanna
 cast it too much having Lightspeed.
 * For adds in savage content (like A12S) you can use Gravity, it can be
 accompanied by Swiftcast by the way.
