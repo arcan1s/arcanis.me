@@ -168,7 +168,9 @@ represents basic card usage in my opinion.
   with these resources (TP for physical jobs, MP for casters). _Does not_
   increase DoTs potency. May has some other usages, for example, my co-healer
   found it is useful if you need to ressurect several people in limited time with
-  no Lightspeed and Swiftcast cooldown
+  no Lightspeed and Swiftcast cooldown (To be honest in my opinion it is trash
+  uses anyway: Enhanced Arrow gives you 20% of 8 sec base cooldown which is
+  still too low.)
   * enhanced: not the best combination, in my opinion the best usage is to buff
   BLM
   * expanded: alternative to AoE Balance
@@ -334,6 +336,25 @@ they wanna have good numbers during opener. Expanded Balance should be followed
 by Celestial Opposition. Balance can be replaced by Arrow or Spear, but they are
 not so good as Balance is.
 
+# Gearing and melding
+
+In general you might want to prioritize stats in the following order:
+
+Mind >> Crit Hit >> Determination ~ Spell Speed > Piety
+
+* Some people [say](http://dtguilds.enjin.com/davidsastguide) that until you get
+Crit Hit more than 2700, Determination is better. I cannot verify or deny it
+because have no ability to do precise metering. In general Crit Hit is better
+than Determination at least because of Lightspeed procs.
+* Another question is Determination vs Spell Speed. Before 4.0 usually Spell Speed
+and Determination had close values of stat weights. I would recommend you to
+prioritize Spell Speed over Determination as soon as it allows you to be more
+mobile.
+* You should get Piety as much as you are comfortable. But it should has the
+lowest priority. Try to use some Ethers.
+* You _can_ meld Direct Hit (healers gear does not have it itself), but it does
+not affect your healing potency, so I would prefer Crit Hit.
+
 # Potions and food
 
 Get some good HQ Ether potions and Mind ones. Ether can be used to restore your
@@ -353,10 +374,16 @@ tank buster (I'm not talking about doing mechanics here - like Doom, or Living
 Dead). Good choice is Aspected Helios with HoT effect. You are good if your
 overheal is below 20-30% (some overheal is allowed because of HoT effects or if
 you are going to shield members with full HP).
+* The previous mean that in general you don't need to keep tank's HP full. 50%
+and no tank buster expected? Okay, no heal for you then. Good example is Susano
+Extreme first phase - the only one skill I used to heal MT is Essential Dignity
+and Aspected Benefic sometimes.
 * Know fight and your cast time, try to heal tank right after tank buster. It
 means that you need to start casting Benefic (II) during tank buster cast, not
 after. Same for AoE healing.
 * Use Benefic for spamming. It is more efficient and has Benefic II proc.
+* Check if you have Benefic II proc, critical healing with Benefic II is cool.
+(but don't use it if you can heal just by Benefic).
 * If you are main healier - your goal is to heal party, don't hope and don't
 trust your co-healer, if someone died because of lack of healing - it is your
 fault. In other hand if someone got additional damage because of mechanics -
