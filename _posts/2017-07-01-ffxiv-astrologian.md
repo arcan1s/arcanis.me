@@ -66,6 +66,14 @@ means that a healer uses too much mana and generates too much agro. Both can
 potentially cause a wipe if a healer runs out of mana or steals agro from tanks.
 * Shield is a buff that, if applied preventively, reduces the damage received by
 a target by shield’s potency.
+* Main-healer, off-healer - no, it does not depend on your current stance. Some
+people [say](https://www.reddit.com/r/ffxiv/comments/4u9cwk/in_raid_content_can_a_whm_put_out_more_dps_than_a/d5o3ej0/?context=3)
+that there are no main-healers and off-healers, but in general they are doing it
+wrong. Off-healer means that they heals from time to time, while main-healer deals
+damage from time to time, i.e. _any healer should deal damage_. Moverover current
+content mostly allows statics to be almost solo healed even with damaging
+"main-healer" (and yes, I'm talking about casual statics), especially if we are
+talking about SCH-AST combination because of fairy.
 
 # Stances
 
