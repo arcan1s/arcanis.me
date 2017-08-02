@@ -485,3 +485,42 @@ you can't cast anything with castbar, whereas Combust II has insta-cast.
 to cast it too much having Lightspeed.
 * For adds in savage content (like A12S) you can use Gravity, it can be
 accompanied by Swiftcast by the way.
+
+# Heal and resurrection order
+
+In short - it depends.
+
+## Resurrection
+
+Several rules first:
+
+* Don't cast resurrection until you have less than 50% HP. This rule is valid
+for LB3.
+* Don't cast slow resurrection until whole party have about full HP.
+* Don't cast slow resurrection until moving phases. This rule is valid for LB3.
+* Usually if more than 3 people died (and at least 2 of them are DPS'es) and
+you have LB3 ready - you can use it.
+
+1. Resurrect main-tank as soon as possible. You might be next in aggro list, trust
+me, you don't want to die.
+2. Resurrect jobs which are required by mechanics (e.g. caster/range LB).
+3. If several people died prioritize resurrection for DPS jobs which can resurrect
+too (RDM, SMN, especially RDM).
+4. If you need MP here and caster or range DPS can give it to you - resurrect them.
+5. Resurrect other DPS'es, you might want to prioritize people who does more
+damage.
+6. If you can heal solo (you should be able at least to do it) - resurrect your
+co-healer one of last, or don't resurrect at all. In my practice I had several
+A10S kills, when my co-healer was died during all fight after tractor. Exception:
+you might want to resurrect your healer for shields.
+7. Resurrect off-tank last unless you need them for tank swap or add.
+
+## Healing
+
+1. Heal yourself. Really, if you will die - whole party will die.
+2. Heal tank which receives damage at the moment, don't waste MP to heal another
+tank as soon as possible.
+3. Heal party member which can be required by mechanics (e.g. caster/range LB).
+4. Heal people with debuffs (like vulnerability up or after death).
+4. Heal DPS. Does not matter how bad gear they have, they should have same priority.
+5. Heal co-healer.
