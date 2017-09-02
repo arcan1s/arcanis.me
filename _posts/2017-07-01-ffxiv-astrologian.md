@@ -392,7 +392,8 @@ Susano Extreme.
 
 ## Trash
 
-* Surecast
+* Surecast - despite the fact that some tactics mean that healer should have
+this skill (hello, Omega V4 Savage) I would recommend to avoid using it.
 
 # The best opener deck
 
