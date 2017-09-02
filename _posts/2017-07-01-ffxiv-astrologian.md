@@ -199,9 +199,9 @@ General rule - never spam any of it.
 * As far as you can see Diurnal sect is more powerfull for healing abilities than
 Nocturnal (but I'm not taking into account difference in healing power though).
 * Benefic is more efficient than Benefic II (by healing and MP usage), but
-requires additional GCD, which can be used to ~~pew-pew~~ deal damage.
-* Helios is as good as Aspected Helios/Diurnal is (unlike WHM, whose Cure III is
-the best).
+requires additional GCD, which can be used to ~pew-pew~ deal damage.
+* Helios is not as good as Aspected Helios/Diurnal is (unlike WHM, whose Cure III
+is the best).
 * Aspected Benefic/Diurnal is even better than Benefic II.
 
 # Core mechanics
