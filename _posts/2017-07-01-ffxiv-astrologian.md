@@ -40,6 +40,7 @@ template and pointing out some shortcomings and vaguenesses.
 * Jul 20 2017: initial version
 * Jul 21 2017: add gear information
 * Jul 29 2017: add Marisha's remarks
+* Sep 04 2017: small fixes, pointed out on reddit
 
 # Terms and concepts
 
@@ -416,7 +417,7 @@ Mind >> Crit Hit >> Determination ~ Spell Speed > Piety
 * Some people [say](http://dtguilds.enjin.com/davidsastguide) that until you get
 Crit Hit more than 2700, Determination is better. I cannot verify or deny it
 because have no ability to do precise metering. In general Crit Hit is better
-than Determination at least because of Lightspeed procs.
+than Determination at least because of Lightspeed and Benefic procs.
 * Another question is Determination vs Spell Speed. Before 4.0 usually Spell Speed
 and Determination had close values of stat weights. I would recommend you to
 prioritize Spell Speed over Determination as it allows you to be more mobile.
@@ -433,7 +434,8 @@ But as Piety it is better be replaced as soon as you are comfortable.
 
 Get some good HQ Ether potions and Mind ones. Ether can be used to restore your
 MP (it is probably not so actual with 4.0, but still useful sometimes, for example
-right after ressurection). Mind potions is a good alternative to Largesse.
+right after ressurection). Mind potions is a good alternative to Largesse (and
+later during kills it can be used as usual DPS busting potion).
 
 In other hand you can choose any food you like and comfortable. I would prefer
 to up Crit Hit and Spell Speed.
