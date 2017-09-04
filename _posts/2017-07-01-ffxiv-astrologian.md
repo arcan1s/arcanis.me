@@ -412,12 +412,14 @@ not so good as Balance is.
 
 In general you might want to prioritize stats in the following order:
 
-Mind >> Crit Hit >> Determination ~ Spell Speed > Piety
+Mind >> Crit Hit > Determination ~ Spell Speed > Piety
 
 * Some people [say](http://dtguilds.enjin.com/davidsastguide) that until you get
 Crit Hit more than 2700, Determination is better. I cannot verify or deny it
 because have no ability to do precise metering. In general Crit Hit is better
-than Determination at least because of Lightspeed and Benefic procs.
+than Determination at least because of Benefic procs. For low Crit Hit rates and
+if you don't have jobs which buff you Crit Hit, you might want to prioritize
+Determination though.
 * Another question is Determination vs Spell Speed. Before 4.0 usually Spell Speed
 and Determination had close values of stat weights. I would recommend you to
 prioritize Spell Speed over Determination as it allows you to be more mobile.
