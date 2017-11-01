@@ -28,12 +28,10 @@ This guide does not teach you how to play in casual content (like usual 4-ppl
 dungeons), but you can certainly use all advises and raiding practices in
 casual content. No pictures (yet?).
 
-The guide is actual for 4.05.
+The guide is actual for 4.11.
 
 Special thanks to Nan Talion (Odin) and Marisha White (Odin) for reading this
 template and pointing out some shortcomings and vaguenesses.
-
-**NOTE** this guide is currently under development.
 
 # Changelog
 
@@ -224,7 +222,7 @@ The following table represents basic card usage.
   for BLM, not a bad for other casters (including healers). Please note that
   frequent usage on resource limited jobs (like physical DPS) may cause issues
   with these resources (TP for physical jobs, MP for casters). _Does not_
-  increase DoTs potency. May has some other usages, for example, my co-healer
+  increase DoTs potency.It may have some other usages, for example, my co-healer
   found it is useful if you need to resurrect several people in limited amount of
   time with no Lightspeed and Swiftcast off cooldown (To be honest in my opinion
   it is trash uses anyway: Enhanced Arrow gives you 20% of 8 sec base cooldown
