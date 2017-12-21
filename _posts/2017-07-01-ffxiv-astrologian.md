@@ -28,7 +28,7 @@ This guide does not teach you how to play in casual content (like usual 4-ppl
 dungeons), but you can certainly use all advises and raiding practices in
 casual content. No pictures (yet?).
 
-The guide is actual for 4.11.
+The guide is actual for 4.18.
 
 Special thanks to Nan Talion (Odin) and Marisha White (Odin) for reading this
 template and pointing out some shortcomings and vaguenesses.
@@ -39,6 +39,7 @@ template and pointing out some shortcomings and vaguenesses.
 * Jul 21 2017: add gear information
 * Jul 29 2017: add Marisha's remarks
 * Sep 04 2017: small fixes, pointed out on reddit
+* Dec 21 2017: small fixes
 
 # Terms and concepts
 
@@ -414,8 +415,7 @@ Mind >> Crit Hit > Determination ~ Spell Speed > Piety
 
 * Some people [say](http://dtguilds.enjin.com/davidsastguide) that until you get
 Crit Hit more than 2700, Determination is better. I cannot verify or deny it
-because have no ability to do precise metering. In general Crit Hit is better
-than Determination at least because of Benefic procs. For low Crit Hit rates and
+because have no ability to do precise metering. For low Crit Hit rates and
 if you don't have jobs which buff you Crit Hit, you might want to prioritize
 Determination though.
 * Another question is Determination vs Spell Speed. Before 4.0 usually Spell Speed
@@ -423,7 +423,8 @@ and Determination had close values of stat weights. I would recommend you to
 prioritize Spell Speed over Determination as it allows you to be more mobile.
 * You should get Piety as much as you are comfortable. But it should have the
 lowest priority. Try to use some Ethers. Piety is also depends on your party,
-their experience and their equipment.
+their experience and their equipment. (To be honest piety remarks were added
+after talking with others healers, personally I never melded it at all.)
 * You _can_ meld Direct Hit (healers gear does not have it itself), but it does
 not affect your healing potency, so I would prefer Crit Hit.
 * During savage progression I would recommend you to consider melding of some
