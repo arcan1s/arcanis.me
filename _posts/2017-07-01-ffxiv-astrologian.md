@@ -28,7 +28,7 @@ This guide does not teach you how to play in casual content (like usual 4-ppl
 dungeons), but you can certainly use all advises and raiding practices in
 casual content. No pictures (yet?).
 
-The guide is actual for 4.18.
+The guide is actual for 4.2.
 
 Special thanks to Nan Talion (Odin) and Marisha White (Odin) for reading this
 template and pointing out some shortcomings and vaguenesses.
@@ -40,6 +40,7 @@ template and pointing out some shortcomings and vaguenesses.
 * Jul 29 2017: add Marisha's remarks
 * Sep 04 2017: small fixes, pointed out on reddit
 * Dec 21 2017: small fixes
+* Mar 6, 2018: add video, small fixes
 
 # Terms and concepts
 
@@ -58,7 +59,7 @@ average. In this guide we are using the following formulae:
   So, for example Helios (base cast and recast times are 2.5 sec) affects 8 players
   and have potency 300: `(300 * 8) / 2.5 = 960`.
 
-* oGKD skills are skills that are instant and don’t trigger global skills
+* oGCD skills are skills that are instant and don’t trigger global skills
 cooldown.
 * Overhealing is healing a target when it’s HP is already full. You can’t evade
 it altogether, but general consensus is that too much overhealing is bad. It
@@ -109,7 +110,7 @@ in raid.
   * potency: 650
   * base HPS (for all targets): 260
   * efficiency: 0.24
-  * comment: main skill if targets HP is below 60-70%
+  * commentomment: main skill if targets HP is below 60-70%
 
 * Helios
 
@@ -123,11 +124,10 @@ of which skill to use depends on several factors. If you need to heal a target t
 full HP as soon as possible, you will generally prefer Benefic II. But a tank
 with 50% HP and a mage with 50% HP are two very different things because they
 have very different HP pool. So using Benefic I for a mage might be more than enough.
-It leads us to a very interesting thing: experimenting with our skills. Just try
-to use Benefic II on as low HP as you (and tank) are comfortable. For example, I
-found that during active movement and mechanics avoidance phases (also referred
-as "dancing") on Susano Extreme Benefic I is more than enough despite the fact
-that lightning damage is more than 50% of DPS' HP.
+Just try to use Benefic II on as low HP as you (and tank) are comfortable. For
+example, I found that during active movement and mechanics avoidance phases (also
+referred as "dancing") on Susano Extreme Benefic I is more than enough despite
+the fact that lightning damage is more than 50% of DPS' HP.
 
 ## oGCD skills
 
@@ -265,8 +265,7 @@ The following table represents basic card usage.
   * any party member is good with this buff currently, but better use it on jobs
   which have crit-based traits - for example, BRD or MNK. Additionally, it is the
   only card that can increase healing power as it increases crit chance (it is
-  especially noticeable for scholars or crit-stacking AST or WHM). Note that it
-  still has less time than Balance or Arrow.
+  especially noticeable for scholars or crit-stacking AST or WHM)
   * enhanced: mostly jobs with crit-based traits, not such good choice for Time
   Dilation as Enhanced Balance is.
   * expanded: alternative to AoE Balance
@@ -389,11 +388,9 @@ in casual content. You should have it if there is Doom debuff (like Omega V4).
 Usually one healer in party is enough to have it.
 * Rescue - just move knockbacked target to you. The one of usage examples is
 Susano Extreme.
-
-## Trash
-
 * Surecast - despite the fact that some tactics mean that healer should have
-this skill (hello, Omega V4 Savage) I would recommend to avoid using it.
+this skill (hello, Omega V4/8 Savage) I would recommend to avoid using it. But
+it really helps in some cases.
 
 # The best opener deck
 
@@ -436,7 +433,7 @@ But as Piety it is better be replaced as soon as you are comfortable.
 Get some good HQ Ether potions and Mind ones. Ether can be used to restore your
 MP (it is probably not so actual with 4.0, but still useful sometimes, for example
 right after ressurection). Mind potions is a good alternative to Largesse (and
-later during kills it can be used as usual DPS busting potion).
+later during kills it can be used as usual DPS boosting potion).
 
 In other hand you can choose any food you like and comfortable. I would prefer
 to up Crit Hit and Spell Speed.
@@ -528,3 +525,9 @@ tank as soon as possible.
 4. Heal people with debuffs (like vulnerability up or after death).
 4. Heal DPS. Does not matter how bad gear they have, they should have same priority.
 5. Heal co-healer.
+
+# Own wipes
+
+* O4S first kill as healer
+
+  <iframe width="480" height="270" src="https://www.youtube.com/embed/yxMLCt1uWJk"></iframe>

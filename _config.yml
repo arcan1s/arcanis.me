@@ -10,7 +10,7 @@ whitelist:   ['jekyll-pagination']
 
 future:      true
 limit_posts: 0
-highlighter: pygments
+highlighter: rouge
 
 permalink:     pretty
 paginate_path: 'blog/:num'
