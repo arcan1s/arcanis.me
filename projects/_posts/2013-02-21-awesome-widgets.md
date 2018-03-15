@@ -29,9 +29,9 @@ links:
 ---
 <!-- info block -->
 
-A collection of minimalistic easily configurable Plasmoids written on `C++/Qt`.
-They look like widgets in [Awesome WM](//awesome.naquadah.org/ "Awesome Homepage").
-Also this packages has an additional system [DataEngine]
+A collection of minimalistic easily configurable Plasmoids written on `C++/Qt`,
+which look like widgets in [Awesome WM](//awesome.naquadah.org/ "Awesome Homepage").
+Also it provides additional system [DataEngine]
 (//techbase.kde.org/Development/Tutorials/Plasma/DataEngines "Developers tutorial").
 
 <!--more-->
@@ -114,7 +114,7 @@ You may use different colours inside. Just put label text into html code. See
 ### <a href="#deconf" class="anchor" id="deconf"><span class="octicon octicon-link"></span></a>DataEngine configuration
 
 You may edit DataEngine configuration. It is `/etc/xdg/plasma-dataengine-extsysmon.conf`
-and `$HOME/.config/plasma-dataengine-extsysmon.conf`. Uncomment needed line and
+and `$HOME/.config/plasma-dataengine-extsysmon.conf`. Uncomment required line and
 edit it.
 
 ### <a href="#deoptions" class="anchor" id="deoptions"><span class="octicon octicon-link"></span></a>DataEngine options
@@ -132,7 +132,7 @@ edit it.
 
 ### <a href="#widconf" class="anchor" id="widconf"><span class="octicon octicon-link"></span></a>Widget configuration
 
-For edited output you must open Settings window and setup output format. HTML
+To edit output you need open Settings window and specify output format. HTML
 tags work normally.
 
 Available flags are in the table below.
@@ -246,7 +246,7 @@ Available flags are in the table below.
 
 ### <a href="#lambda" class="anchor" id="lambda"><span class="octicon octicon-link"></span></a>Lambda and template functions
 
-Since version 3.0.0 the main widgets supports lambda functions, which are
+Since version 3.0.0 the main widget supports lambda functions, which are
 calculated at runtime. It may be declared by using `{% raw %}${{{% endraw %}
 {% raw %}}}{% endraw %}` construction:
 
@@ -260,7 +260,7 @@ three()
 {% raw %}}}{% endraw %}
 ```
 
-A functions inside will be interpret as JavaScript ones, any variables from main
+A functions inside will be interpreted as JavaScript ones, any variables from main
 body is supported, thus the following function:
 
 ```javascript
@@ -310,7 +310,7 @@ conditions. But please keep in mind that such runtime calculation may increase
 CPU load.
 
 Another feature which has been introduced with 3.1.0 is templates. It works in
-the same way as lambda functions, but are calculated only once (at the start),
+the same way as lambda functions, but they are calculated only once (at the start),
 e.g.:
 
 ```javascript
@@ -327,8 +327,8 @@ will always show `3` and will not be calculated each time.
 
 ### <a href="#functions" class="anchor" id="functions"><span class="octicon octicon-link"></span></a>Special functions
 
-To allow some features with lambdas and templates with 3.1.0 has been introduced
-several internal functions. They have the same syntax:
+To allow some features with lambdas and templates several internal functions
+have been introduced with 3.1.0. They have the same syntax:
 `$aw_function<args>{% raw %}{{{% endraw %}body{% raw %}}}{% endraw %}`.
 where args may be optional. If there are several args they should be comma
 separated. If you want to pass comma as arg use `$,`. If you want to use double
@@ -458,7 +458,7 @@ is `auto`.
 
 ### <a href="#desktoppanel" class="anchor" id="desktoppanel"><span class="octicon octicon-link"></span></a>Desktop Panel
 
-Since version 1.11.0 it provides a minimalistic panel for monitoring on desktops.
+Since version 1.11.0 it provides a minimalistic panel to control destops.
 And yes, it looks like the same panel in Awesome.
 
 ### <a href="#dpconf" class="anchor" id="dpconf"><span class="octicon octicon-link"></span></a>Desktop panel configuration
