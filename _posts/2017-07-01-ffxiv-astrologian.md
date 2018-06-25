@@ -28,7 +28,7 @@ This guide does not teach you how to play in casual content (like usual 4-ppl
 dungeons), but you can certainly use all advises and raiding practices in
 casual content. No pictures (yet?).
 
-The guide is actual for 4.2.
+The guide is actual for 4.3.
 
 Special thanks to Nan Talion (Odin) and Marisha White (Odin) for reading this
 template and pointing out some shortcomings and vaguenesses.
@@ -41,6 +41,7 @@ template and pointing out some shortcomings and vaguenesses.
 * Sep 04 2017: small fixes, pointed out on reddit
 * Dec 21 2017: small fixes
 * Mar 6, 2018: add video, small fixes
+* Jun 25, 2018: late 4.3 update
 
 # Terms and concepts
 
@@ -127,7 +128,9 @@ have very different HP pool. So using Benefic I for a mage might be more than en
 Just try to use Benefic II on as low HP as you (and tank) are comfortable. For
 example, I found that during active movement and mechanics avoidance phases (also
 referred as "dancing") on Susano Extreme Benefic I is more than enough despite
-the fact that lightning damage is more than 50% of DPS' HP.
+the fact that lightning damage is more than 50% of DPS' HP. Also note cast time
+of Benefic II - it is the same as cast time of Benefic is, so basically it allows
+you to be more mobile than other healers are.
 
 ## oGCD skills
 
@@ -178,15 +181,15 @@ General rule - use them as soon as they are up when appropriate.
 * Aspected Helios/Nocturnal
 
   * potency: 150 (150 + 150 * 1.5 = 375 with shields)
-  * base HPS (for all targets): 400 (1000)
-  * efficiency: 0.22 (0.56)
+  * base HPS (for all targets): 480 (1200)
+  * efficiency: 0.27 (0.67)
   * comment: should be only used to mitigate incoming party damage
 
 * Aspected Helios/Diurnal
 
   * potency: 200 + 40 * (30 / 3) = 600
-  * base HPS (for all targets): 1600
-  * efficiency: 0.89
+  * base HPS (for all targets): 1920
+  * efficiency: 1.07
   * comment: in general you want to keep it up for party members after incoming
   AoE damage leaving about 80% on each party member, for example it was my main
   skill during first phase of A10S and A11S. Avoid use it if party's HP is about
@@ -200,9 +203,12 @@ General rule - never spam any of it.
 Nocturnal (but I'm not taking into account difference in healing power though).
 * Benefic is more efficient than Benefic II (by healing and MP usage), but
 requires additional GCD, which can be used to ~pew-pew~ deal damage.
-* Helios is not as good as Aspected Helios/Diurnal is (unlike WHM, whose Cure III
-is the best).
+* Helios is not as good as Aspected Helios (with any stance) is (unlike WHM,
+whose Cure III is the best).
 * Aspected Benefic/Diurnal is even better than Benefic II.
+* Again, as with Benefic II note that astrologian's Aspected Helios is faster than
+WHM analogue Medica II and it has cast time equals to recast one. Adjust if you
+need to.
 
 # Core mechanics
 
@@ -281,7 +287,7 @@ The following table represents basic card usage.
 
 Short notes:
 
-* None of these rules (expect for Expanded Ewer/Spire) are mandatory.
+* None of these rules (except for Expanded Ewer/Spire) are mandatory.
 * Never use macros for cards.
 * Be sure that card is in CD or you have drawn a card and it is more than 15-20
 sec left. If you have drawn one and you see no usages in more than 15 sec - try
@@ -300,7 +306,9 @@ to hold it or Royal Road it - convert to Minor Arcana.
 
 * Very useful when you need to heal and move at the same time.
 * Very useful when you need to spam healing and want to safe some MP.
-* Should be _never_ used when you are DPSing.
+* And now say f*ck you white mage and stack it with Gravity or Malefic. Note that
+in case if Gravity it will also increases your DPS, because usual Gravity cast
+time is more than recast one.
 
 ## Synastry
 
@@ -323,6 +331,8 @@ best usages is on rephases (if there is incoming damage of course), because it
 can be extended by Celestial Opposition with damage buffs after (in this case be
 sure that you have already drawn card and ready to buff party). Please note that
 you need some time to buff being applied, so you need to stay for several seconds.
+Also it has the stronges HoT potency, so you might want to use it just because
+you want to DPS more.
 
 ## Celestial Opposition
 
@@ -416,8 +426,7 @@ because have no ability to do precise metering. For low Crit Hit rates and
 if you don't have jobs which buff you Crit Hit, you might want to prioritize
 Determination though.
 * Another question is Determination vs Spell Speed. Before 4.0 usually Spell Speed
-and Determination had close values of stat weights. I would recommend you to
-prioritize Spell Speed over Determination as it allows you to be more mobile.
+and Determination had close values of stat weights. My own choice is Spell Speed.
 * You should get Piety as much as you are comfortable. But it should have the
 lowest priority. Try to use some Ethers. Piety is also depends on your party,
 their experience and their equipment. (To be honest piety remarks were added
