@@ -28,6 +28,18 @@ title: arcanis' homepage
 
         {% include cse.html %}
       </header>
+<!-- redirection to russian page -->
+  <script type="text/javascript">
+    function redirectpage(dest) {
+      if (window.location.replace) window.location.replace(dest)
+      else window.location = dest
+    }
+    if (document.referrer != "{{ site.url }}/ru/") {
+      var languageinfo = navigator.language ? navigator.language : navigator.userLanguage
+      if (languageinfo.substr(0,2) == "ru") redirectpage("/ru/")
+    }
+  </script>
+<!-- redirection to russian page -->
       <section>
 
 <h3><a href="#welcome" class="anchor" id="welcome"><span class="octicon octicon-link"></span></a>Welcome</h3>
