@@ -161,7 +161,6 @@ h1, h2, h3, h4, h5, h6 {
 
 p, ul, ol, table, pre, dl {
   margin: 0 0 20px;
-  text-align: justify;
 }
 
 h1, h2, h3 {
@@ -182,13 +181,19 @@ h3, h4, h5, h6 {
 
 a {
   color: #3399cc;
-  font-weight: 350;
   text-decoration: none;
+}
+
+a:visited {
+  color: #740076;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 a small {
   font-size: 11px;
-  color: #777777;
   margin-top: -0.6em;
   display: block;
 }
@@ -241,10 +246,6 @@ table {
 th, td {
   padding: 5px 10px;
   border-bottom: 1px solid #ffffff;
-}
-
-td {
-  text-align: justify;
 }
 
 dt {
